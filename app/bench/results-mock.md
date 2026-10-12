@@ -1,14 +1,14 @@
-# Benchmark Boussole · 2026-10-12
+# Boussole benchmark · 2026-10-12
 
-> **FAUX SERVEUR LOCAL (mock)** : valide le banc de mesure, ne mesure ni un modèle ni du matériel AMD.
+> **LOCAL MOCK SERVER**: validates the harness only. It measures neither a model nor AMD hardware.
 
-- Endpoint : **FAUX SERVEUR LOCAL (mock)** · modèle `mock-model`
-- 3 notes fictives × 2 passages par niveau de concurrence, après un échauffement.
-- `response_format` JSON schema : oui · température 0 · max 3000 jetons.
+- Endpoint: **LOCAL MOCK SERVER (no AI)** · model `mock-model`
+- 3 fictional notes × 2 runs per concurrency level, after one warm-up request.
+- JSON-schema `response_format`: yes · temperature 0 · max 3000 tokens.
 
-| Concurrence | Requêtes OK | Latence p50 | Latence p95 | Jetons/s par requête | Débit total (jetons/s) | Requêtes/min | Garde-fous (événements) |
+| Concurrency | OK requests | Latency p50 | Latency p95 | Tokens/s per request | Total throughput (tokens/s) | Requests/min | Guardrails (events) |
 |---|---|---|---|---|---|---|---|
-| 1 | 6/6 | 1.16 s | 1.66 s | 386 | 387 | 51.1 | 60 gardés / 0 retirés |
-| 4 | 6/6 | 1.16 s | 1.66 s | 386 | 970 | 127.8 | 60 gardés / 0 retirés |
+| 1 | 6/6 | 1.16 s | 1.66 s | 387 | 388 | 51.1 | 60 kept / 0 removed |
+| 4 | 6/6 | 1.16 s | 1.66 s | 387 | 972 | 128.0 | 60 kept / 0 removed |
 
-Latence = requête complète (non diffusée en continu), mesurée côté client. Jetons comptés par l'endpoint (`usage`).
+Latency = full (non-streamed) request, measured client-side. Token counts from the endpoint's `usage` field.

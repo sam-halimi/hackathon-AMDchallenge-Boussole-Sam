@@ -83,23 +83,23 @@ const rows = levels.map(({ concurrency, wallMs, samples }) => {
     tokPerReq: perReq.length ? perReq.reduce((a, b) => a + b, 0) / perReq.length : 0,
     aggTokPerS: (out / wallMs) * 1000,
     reqPerMin: (ok.length / wallMs) * 60_000,
-    guard: kept + removed ? `${kept} gardés / ${removed} retirés` : '—',
+    guard: kept + removed ? `${kept} kept / ${removed} removed` : '—',
   }
 })
 
 const date = new Date().toISOString()
 const isMock = /mock/i.test(`${cfg.model} ${cfg.label}`)
-const md = `# Benchmark Boussole · ${date.slice(0, 10)}
-${isMock ? '\n> **FAUX SERVEUR LOCAL (mock)** : valide le banc de mesure, ne mesure ni un modèle ni du matériel AMD.\n' : ''}
-- Endpoint : **${cfg.label}** · modèle \`${cfg.model}\`
-- ${BENCH_CASES.length} notes fictives × ${RUNS} passages par niveau de concurrence, après un échauffement.
-- \`response_format\` JSON schema : ${cfg.jsonSchema ? 'oui' : 'non'} · température 0 · max 3000 jetons.
+const md = `# Boussole benchmark · ${date.slice(0, 10)}
+${isMock ? '\n> **LOCAL MOCK SERVER**: validates the harness only. It measures neither a model nor AMD hardware.\n' : ''}
+- Endpoint: **${cfg.label}** · model \`${cfg.model}\`
+- ${BENCH_CASES.length} fictional notes × ${RUNS} runs per concurrency level, after one warm-up request.
+- JSON-schema \`response_format\`: ${cfg.jsonSchema ? 'yes' : 'no'} · temperature 0 · max 3000 tokens.
 
-| Concurrence | Requêtes OK | Latence p50 | Latence p95 | Jetons/s par requête | Débit total (jetons/s) | Requêtes/min | Garde-fous (événements) |
+| Concurrency | OK requests | Latency p50 | Latency p95 | Tokens/s per request | Total throughput (tokens/s) | Requests/min | Guardrails (events) |
 |---|---|---|---|---|---|---|---|
 ${rows.map((r) => `| ${r.concurrency} | ${r.ok}/${r.n} | ${(r.p50 / 1000).toFixed(2)} s | ${(r.p95 / 1000).toFixed(2)} s | ${r.tokPerReq.toFixed(0)} | ${r.aggTokPerS.toFixed(0)} | ${r.reqPerMin.toFixed(1)} | ${r.guard} |`).join('\n')}
 
-Latence = requête complète (non diffusée en continu), mesurée côté client. Jetons comptés par l'endpoint (\`usage\`).
+Latency = full (non-streamed) request, measured client-side. Token counts from the endpoint's \`usage\` field.
 `
 await mkdir(new URL('../bench/raw/', import.meta.url), { recursive: true })
 await writeFile(new URL(isMock ? '../bench/results-mock.md' : '../bench/results.md', import.meta.url), md)
