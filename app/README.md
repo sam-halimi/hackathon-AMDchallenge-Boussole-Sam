@@ -27,17 +27,26 @@ En ligne : https://boussole-beta.vercel.app
 | `src/components/Rappel.tsx` | choix du créneau de rappel |
 | `src/lib/resources.ts` | ressources montréalaises et sources |
 | `src/lib/rules.ts` | délais de prélèvement (prototype, à valider) |
-| `server/timelineApi.ts` | appel à Claude, en local seulement |
+| `server/llm.js` | fournisseur LLM compatible OpenAI (endpoint vLLM sur AMD Developer Cloud) |
+| `server/timeline.js` | consigne, schéma JSON et garde-fous de la chronologie |
+| `server/handler.js` | route `/api/timeline` (dev Vite, `api/` serverless, `server/standalone.js`) |
+| `shared/identifiers.js` | motifs d'identifiants : pseudonymisation (appli) et refus (serveur) |
+| `scripts/mock-vllm.js`, `scripts/bench.js` | faux serveur compatible OpenAI, benchmark |
 
 ## Lancer
 ```bash
 npm install
 npm run dev        # http://localhost:5173
 ```
-IA en direct pour l'outil soignant : `ANTHROPIC_API_KEY=... npm run dev`. Sans clé, une réponse pré-enregistrée et étiquetée est utilisée.
+IA en direct pour l'outil soignant : copier `.env.example` en `.env` et renseigner l'endpoint vLLM (voir `../GUIDE_AMD.md`). Sans endpoint joignable, une réponse pré-enregistrée, étiquetée comme telle, est utilisée.
+
+Sans GPU : `npm run mock` (faux serveur, aucune IA) puis `.env` pointé sur `http://127.0.0.1:8001/v1`.
+
+```bash
+npm test           # pseudonymisation, règles, garde-fous, route IA
+npm run bench      # latence et débit de l'endpoint
+npm run build && npm start   # serveur autonome : appli + /api/timeline sur :8080
+```
 
 ## Déployer
-```bash
-npm run build
-npx vercel deploy dist --prod
-```
+Le déploiement statique (`dist/` seul) n'a pas de route IA. Pour l'IA en direct : serveur autonome (`npm start`) ou projet Vercel à la racine `app/` (fonctions `api/`), voir `../GUIDE_AMD.md`.

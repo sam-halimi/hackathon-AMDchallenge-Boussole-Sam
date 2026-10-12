@@ -1,5 +1,5 @@
 {
-  "name": "app",
+  "name": "boussole",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,10 +7,13 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "test": "vitest run",
+    "preview": "vite preview",
+    "start": "node --env-file-if-exists=.env server/standalone.js",
+    "mock": "node scripts/mock-vllm.js",
+    "bench": "node --env-file-if-exists=.env scripts/bench.js"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.131.0",
     "@fontsource-variable/nunito": "^5.3.0",
     "@tailwindcss/vite": "^4.3.3",
     "leaflet": "^1.9.4",
@@ -30,6 +33,10 @@
     "@vitejs/plugin-react": "^6.1.1",
     "oxlint": "^1.81.0",
     "typescript": "~6.0.2",
-    "vite": "^8.3.0"
+    "vite": "^8.3.0",
+    "vitest": "^5.0.4"
+  },
+  "engines": {
+    "node": ">=22.9"
   }
 }

@@ -8,6 +8,7 @@ import { computeChecklist, RULES_VERSION, type Intake, type Status } from '../li
 import { DEMO_NOTES } from '../lib/demoCase'
 import { pseudonymize } from '../lib/pseudonymize'
 import { TIMELINE_FIXTURE, type TimelineResult } from '../lib/timelineFixture'
+import { API_TIMELINE, FALLBACK_REASONS, type AiMeta, type TimelineApiResponse } from '../lib/aiApi'
 import { Wordmark } from './Logo'
 
 const STEPS = [
@@ -39,7 +40,8 @@ export default function Demo() {
   const [notes, setNotes] = useState(DEMO_NOTES)
   const [showAiView, setShowAiView] = useState(false)
   const [timeline, setTimeline] = useState<TimelineResult | null>(null)
-  const [source, setSource] = useState<'live' | 'fixture' | null>(null)
+  const [source, setSource] = useState<'live' | 'fixture' | 'blocked' | null>(null)
+  const [aiMeta, setAiMeta] = useState<AiMeta | null>(null)
   const [loading, setLoading] = useState(false)
   const [decisions, setDecisions] = useState<Record<string, Decision>>({})
 
@@ -68,16 +70,31 @@ export default function Demo() {
   const generate = async () => {
     setLoading(true)
     await log_('Chronologie demandée à l’IA', `Texte pseudonymisé (${pseudo.count} identifiants masqués)`)
+    const t0 = performance.now()
+    let j: TimelineApiResponse | null = null
     try {
-      const r = await fetch('/api/timeline', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ notes: pseudo.text }) })
-      const j = await r.json()
-      if (!j.live) throw new Error(j.error)
+      const r = await fetch(API_TIMELINE, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ notes: pseudo.text }) })
+      j = (await r.json()) as TimelineApiResponse
+    } catch {
+      j = null
+    }
+    if (j?.live) {
       setTimeline(j.result)
       setSource('live')
-    } catch {
-      await new Promise((res) => setTimeout(res, 1400))
+      setAiMeta({ label: j.label, model: j.model, latencyMs: j.latencyMs, removed: j.removed })
+      await log_('Chronologie IA reçue (en direct)', `${j.model} · ${j.result.events.length} événements · ${j.removed.length} retirés par les garde-fous`)
+    } else if (j && j.error === 'identifiers') {
+      // Le serveur a trouvé un identifiant direct : rien n'est envoyé au modèle, rien n'est affiché.
+      setTimeline(null)
+      setSource('blocked')
+      setAiMeta({ found: j.found })
+      await log_('Envoi à l’IA bloqué', `Identifiants détectés : ${(j.found ?? []).map((f) => f.label).join(', ')}`)
+    } else {
+      await new Promise((res) => setTimeout(res, Math.max(0, 1400 - (performance.now() - t0))))
       setTimeline(TIMELINE_FIXTURE)
       setSource('fixture')
+      setAiMeta({ reason: j?.error ?? 'unreachable' })
+      await log_('Réponse IA pré-enregistrée affichée', `IA indisponible (${j?.error ?? 'unreachable'})`)
     }
     setDecisions({})
     setLoading(false)
@@ -314,12 +331,34 @@ export default function Demo() {
                     {[0, 1, 2, 3, 4].map((i) => <div key={i} className="skeleton h-14 rounded-xl" />)}
                   </div>
                 )}
+                {source === 'blocked' && !loading && (
+                  <div id="ai-blocked" className="rise rounded-2xl border border-alert/40 bg-alert-soft p-5 text-[15px] text-alert">
+                    <div className="flex items-center gap-2 font-medium"><Lock size={16} strokeWidth={1.75} /> Envoi à l’IA bloqué par le serveur</div>
+                    <p className="mt-2 text-ink-2">
+                      Identifiant direct encore présent : {(aiMeta?.found ?? []).map((f) => `${f.label} (${f.count})`).join(', ')}. Rien n’a été envoyé au modèle. Retirez-le des notes, puis relancez.
+                    </p>
+                  </div>
+                )}
                 {timeline && !loading && (
                   <div className="space-y-4">
-                    <div className={`inline-flex items-center gap-1.5 rounded-full border px-2 py-1 text-xs ${source === 'live' ? 'border-north/30 bg-north-soft text-north' : 'border-rule bg-panel text-ink-2'}`}>
+                    <div id="ai-source" className={`flex flex-wrap items-center gap-1.5 rounded-xl border px-3 py-2 text-xs ${source === 'live' ? 'border-north/30 bg-north-soft text-north' : 'border-warn/40 bg-warn-soft text-warn'}`}>
                       <Sparkles size={13} strokeWidth={1.75} />
-                      {source === 'live' ? 'Réponse IA en direct (Claude)' : 'Réponse IA pré-enregistrée (démo hors ligne), même format que la réponse en direct'}
+                      {source === 'live'
+                        ? `Réponse IA en direct · ${aiMeta?.label} · ${aiMeta?.model} · ${((aiMeta?.latencyMs ?? 0) / 1000).toFixed(1)} s`
+                        : `Réponse IA PRÉ-ENREGISTRÉE (${FALLBACK_REASONS[aiMeta?.reason ?? ''] ?? 'IA indisponible'}) : même format, ne reflète pas vos notes modifiées`}
                     </div>
+                    <p className="flex items-start gap-1.5 text-xs text-ink-3">
+                      <ShieldCheck size={13} strokeWidth={1.75} className="mt-px shrink-0" />
+                      Suggestions non vérifiées : chaque citation a été retrouvée mot pour mot dans les notes, mais rien n’entre au dossier sans votre validation.
+                    </p>
+                    {source === 'live' && (aiMeta?.removed?.length ?? 0) > 0 && (
+                      <details id="ai-removed" className="rounded-xl border border-rule bg-panel px-3 py-2 text-xs text-ink-2">
+                        <summary className="cursor-pointer font-medium">{aiMeta!.removed!.length} suggestion(s) écartée(s) automatiquement par les garde-fous</summary>
+                        <ul className="mt-2 space-y-1">
+                          {aiMeta!.removed!.map((r, i) => <li key={i}>« {r.text} » : {r.reason}</li>)}
+                        </ul>
+                      </details>
+                    )}
                     <ol className="relative ml-2 space-y-2 border-l border-rule">
                       {timeline.events.map((ev, i) => {
                         const key = `ev-${i}`
