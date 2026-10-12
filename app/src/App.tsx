@@ -1,5 +1,6 @@
 import { lazy, Suspense, useEffect, useState } from 'react'
 import Espace from './components/Espace'
+import { OfflineBanner } from './components/Pwa'
 
 const Demo = lazy(() => import('./components/Demo'))
 
@@ -11,5 +12,10 @@ export default function App() {
     window.addEventListener('hashchange', on)
     return () => window.removeEventListener('hashchange', on)
   }, [])
-  return <Suspense fallback={<div className="min-h-screen" />}>{route.startsWith('#/demo') ? <Demo /> : <Espace />}</Suspense>
+  return (
+    <>
+      <OfflineBanner />
+      <Suspense fallback={<div className="min-h-screen" />}>{route.startsWith('#/demo') ? <Demo /> : <Espace />}</Suspense>
+    </>
+  )
 }

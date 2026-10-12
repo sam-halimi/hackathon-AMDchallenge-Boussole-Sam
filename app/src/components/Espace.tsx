@@ -11,6 +11,7 @@ import { computeChecklist } from '../lib/rules'
 import { anyAccount, createAccount, deleteAccount, isEmail, login, passwordStrength, saveVault, sealForTransfer, type VaultSession } from '../lib/vault'
 import Etapes from './Etapes'
 import Rappel from './Rappel'
+import { InstallCard } from './Pwa'
 
 const ResourceMap = lazy(() => import('./ResourceMap'))
 const NB = ' '
@@ -89,7 +90,7 @@ export default function Espace() {
   if (stage === 'unlock') return <Unlock onOpen={open} onIntro={() => setStage('intro')} onCreate={() => setStage('account')} />
 
   return (
-    <div className="min-h-screen pb-24 sm:pb-0">
+    <div className="min-h-screen pb-28 sm:pb-0">
       <header className="sticky top-0 z-30 bg-paper/85 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center gap-3 px-5 py-3">
           <button onClick={() => setTab('accueil')} className="press rounded-full"><Wordmark /></button>
@@ -123,8 +124,8 @@ export default function Espace() {
       {/* Barre d'onglets mobile, au pouce */}
       <nav className="fixed inset-x-3 bottom-3 z-30 grid grid-cols-5 rounded-[28px] bg-ink p-1.5 shadow-[0_20px_40px_-20px_rgba(45,36,64,.7)] sm:hidden">
         {TABS.map(({ id, short, icon: Icon }) => (
-          <button key={id} id={`mtab-${id}`} onClick={() => setTab(id)} className={`press flex flex-col items-center gap-0.5 rounded-[22px] py-2 text-[10px] font-bold transition-colors duration-500 ${tab === id ? 'bg-white text-ink' : 'text-white/70'}`}>
-            <Icon size={19} strokeWidth={2} /> {short}
+          <button key={id} id={`mtab-${id}`} onClick={() => setTab(id)} aria-current={tab === id ? 'page' : undefined} className={`press flex min-h-14 flex-col items-center justify-center gap-0.5 rounded-[22px] py-2 text-[12px] font-extrabold transition-colors duration-500 ${tab === id ? 'bg-white text-ink' : 'text-white/80'}`}>
+            <Icon size={22} strokeWidth={2} /> {short}
           </button>
         ))}
       </nav>
@@ -337,6 +338,7 @@ function Accueil({ fiche, hoursSince, go, onIntro }: { fiche: Fiche; hoursSince:
           </button>
         ))}
       </div>
+      <InstallCard />
       <button onClick={onIntro} className="press mt-8 inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm font-bold text-ink-3 hover:bg-panel"><Sparkles size={16} strokeWidth={2} /> Revoir les étapes de la prise en charge</button>
     </div>
   )
@@ -475,10 +477,10 @@ function Aller({ hoursSince, substance }: { hoursSince: number | null; substance
       </div>
 
       <div className="mt-5 grid gap-5 lg:grid-cols-[1fr_1.1fr]">
-        <ul className="order-2 space-y-3 lg:order-1 lg:max-h-[640px] lg:overflow-auto lg:pr-1">
+        <ul className="order-2 min-w-0 space-y-3 lg:order-1">
           {items.map((r, n) => <ResourceCard key={r.id} r={r} n={n + 1} active={r.id === active} onSelect={() => setActive(r.id)} />)}
         </ul>
-        <div className="order-1 lg:sticky lg:top-36 lg:order-2">
+        <div className="order-1 min-w-0 lg:sticky lg:top-36 lg:order-2 lg:self-start">
           <div className="h-[360px] overflow-hidden rounded-[28px] border-4 border-white shadow-[0_20px_40px_-28px_rgba(45,36,64,.5)] lg:h-[640px]" id="map">
             <Suspense fallback={<div className="skeleton h-full w-full" />}>
               <ResourceMap items={items} active={active} onSelect={setActive} />
@@ -576,7 +578,7 @@ function Dossier({ fiche, hoursSince, onJournal }: { fiche: Fiche; hoursSince: n
       <p className="rise rise-2 mt-3 max-w-2xl text-[17px] leading-relaxed text-ink-2">Boussole assemble votre dossier. Rien ne part sans votre double confirmation. Vous pouvez aussi simplement le garder.</p>
 
       <div className="mt-8 grid gap-5 lg:grid-cols-[1fr_1fr]">
-        <div className="space-y-4">
+        <div className="min-w-0 space-y-4">
           <Card icon={ClipboardList} title="Ce que contient le dossier" tint="north">
             <Toggle label="Mon récit" hint={fiche.souvenirs ? `${fiche.souvenirs.length} caractères` : 'vide pour l’instant'} on={include.recit} set={(v) => setInclude({ ...include, recit: v })} />
             <Toggle label="Examens prioritaires" hint={hoursSince !== null ? `calculés à ${hoursSince}${NB}h` : 'date inconnue'} on={include.examens} set={(v) => setInclude({ ...include, examens: v })} />
@@ -598,13 +600,18 @@ function Dossier({ fiche, hoursSince, onJournal }: { fiche: Fiche; hoursSince: n
           </Card>
         </div>
 
-        <div className="space-y-4">
+        <div className="min-w-0 space-y-4">
           <div className="rounded-[28px] bg-panel p-6">
             <div className="flex items-center justify-between">
               <span className="eyebrow text-ink-3">Aperçu</span>
               <span className="rounded-full bg-paper px-3 py-1 font-mono text-xs">{sections} section{sections > 1 ? 's' : ''}</span>
             </div>
-            <pre className="mt-4 max-h-72 overflow-auto rounded-2xl bg-paper p-4 font-mono text-[11px] leading-relaxed text-ink-2">{JSON.stringify(dossier, null, 2)}</pre>
+            <Apercu id="dossier-apercu" rows={[
+              ...(include.recit ? [['Mon récit', fiche.quandInconnu ? 'Date inconnue' : fiche.quand ? new Date(fiche.quand).toLocaleString('fr-CA', { dateStyle: 'long', timeStyle: 'short' }) : 'Date non indiquée', fiche.souvenirs ? `${fiche.souvenirs.length} caractères écrits` : 'Rien d’écrit pour l’instant'] as const] : []),
+              ...(include.examens ? [['Examens prioritaires', checklist.length ? checklist.slice(0, 3).map((c) => c.label).join(' · ') : 'Date inconnue : à voir avec l’équipe', checklist.length > 3 ? `et ${checklist.length - 3} autre(s)` : ''] as const] : []),
+              ...(include.besoins ? [['Mes besoins', fiche.besoins.join(', ') || 'Aucun choisi', ''] as const] : []),
+              ['Journal', `${fiche.journal.length} action(s) notée(s)`, 'Toujours inclus'] as const,
+            ]} />
             <div className="mt-4 flex flex-wrap gap-2">
               <button onClick={download} className="press inline-flex items-center gap-1.5 rounded-full border border-rule bg-paper px-4 py-2 text-sm hover:border-ink"><Download size={15} strokeWidth={1.75} /> Garder une copie</button>
               <button onClick={() => { onJournal('Dossier imprimé'); window.print() }} className="press inline-flex items-center gap-1.5 rounded-full border border-rule bg-paper px-4 py-2 text-sm hover:border-ink"><Printer size={15} strokeWidth={1.75} /> Imprimer / PDF</button>
@@ -719,6 +726,19 @@ function Chips({ options, value, onToggle }: { options: string[]; value: string[
         )
       })}
     </div>
+  )
+}
+
+function Apercu({ id, rows }: { id: string; rows: readonly (readonly [string, string, string])[] }) {
+  return (
+    <dl id={id} className="mt-4 divide-y divide-rule rounded-2xl bg-paper">
+      {rows.map(([k, v, hint]) => (
+        <div key={k} className="px-4 py-3">
+          <dt className="text-sm font-extrabold text-ink">{k}</dt>
+          <dd className="mt-0.5 text-[15px] leading-snug text-ink-2">{v}{hint && <span className="block text-xs text-ink-3">{hint}</span>}</dd>
+        </div>
+      ))}
+    </dl>
   )
 }
 

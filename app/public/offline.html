@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#6A4CE0" />
+<title>Boussole · hors ligne</title>
+<style>
+  :root { color-scheme: light; }
+  body { margin: 0; min-height: 100dvh; display: flex; flex-direction: column; justify-content: center; gap: 16px; padding: 24px; box-sizing: border-box; background: #FFF9F3; color: #2D2440; font: 18px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  h1 { font-size: 30px; line-height: 1.1; margin: 0; }
+  p { margin: 0; color: #5E5670; }
+  a.call { display: block; border-radius: 24px; padding: 18px 20px; text-decoration: none; color: #fff; font-weight: 800; font-size: 22px; }
+  a.call small { display: block; font-size: 14px; font-weight: 700; opacity: .9; }
+  .coral { background: #E0603F; } .ink { background: #2D2440; }
+  button { margin-top: 8px; border: 0; border-radius: 999px; padding: 14px 20px; font: 800 17px system-ui, sans-serif; background: #EEE8FF; color: #6A4CE0; }
+</style>
+</head>
+<body>
+  <h1>Pas de connexion pour l'instant.</h1>
+  <p>Boussole n'a pas pu se charger. Les numéros ci-dessous fonctionnent sans internet.</p>
+  <a class="call coral" href="tel:+18889339007"><small>Info-aide violence sexuelle · gratuit · 24 h/24</small>+1 888 933-9007</a>
+  <a class="call ink" href="tel:911"><small>En danger ou blessée</small>911</a>
+  <button onclick="location.reload()">Réessayer</button>
+</body>
+</html>

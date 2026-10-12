@@ -26,6 +26,7 @@ Sinon, voici comment les régénérer.
 
 - Les captures d'écran choisies pour le pitch (`pitch/assets/screens/`, `pitch/assets/app/`) : petites et utiles pour les slides et la cover.
 - Les polices de la vidéo (`video/public/ad/fonts/`, licence OFL) et le QR code.
+- Les icônes de la PWA (`app/public/icons/*.png`, 30 Ko au total), rendues depuis les SVG du logo du même dossier : `cd app && npm i --no-save playwright && node scripts/icons.mjs`.
 
 ## Vérification des secrets
 

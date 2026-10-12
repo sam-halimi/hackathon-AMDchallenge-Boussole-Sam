@@ -41,8 +41,8 @@ export default function Etapes({ open, onClose, prenom, go }: { open: boolean; o
     <div className="fixed inset-0 z-50 flex items-end justify-center sm:items-center" role="presentation">
       <div className="fade-in absolute inset-0 bg-ink/45 backdrop-blur-sm" onClick={onClose} />
       <div ref={dialog} tabIndex={-1} role="dialog" aria-modal="true" aria-labelledby="etape-titre" id="etapes"
-        className="sheet-in relative flex max-h-[92vh] w-full max-w-2xl flex-col overflow-hidden rounded-t-[32px] bg-paper shadow-[0_40px_90px_-30px_rgba(45,36,64,.6)] outline-none sm:rounded-[32px]">
-        <div className="flex items-center justify-between px-6 pt-6">
+        className="sheet-in relative flex max-h-[100dvh] w-full max-w-2xl flex-col overflow-hidden rounded-t-[32px] bg-paper shadow-[0_40px_90px_-30px_rgba(45,36,64,.6)] outline-none sm:rounded-[32px]">
+        <div className="flex items-center justify-between gap-3 px-5 pt-5">
           <div>
             <div className="text-sm font-extrabold text-north">{prenom ? `${prenom}, voici` : 'Voici'} les étapes, dans l’ordre</div>
             <div className="text-xs text-ink-3">Vous pouvez vous arrêter à tout moment. Rien n’est obligatoire.</div>
@@ -51,45 +51,45 @@ export default function Etapes({ open, onClose, prenom, go }: { open: boolean; o
         </div>
 
         {/* Frise des étapes, cliquable */}
-        <ol className="mt-5 flex gap-1.5 overflow-x-auto px-6 pb-1">
+        <ol className="mt-4 grid gap-1.5 px-5" style={{ gridTemplateColumns: `repeat(${steps.length}, minmax(0, 1fr))` }}>
           {steps.map((st, n) => (
-            <li key={st.title} className="shrink-0">
-              <button onClick={() => move(n)} aria-label={`Étape ${n + 1} : ${st.title}`}
-                className={`press grid h-9 min-w-9 place-items-center rounded-full px-2 text-sm font-extrabold transition-all duration-500 ${n === i ? 'bg-ink text-white' : n < i ? `${TINT[st.tint]}` : 'bg-panel text-ink-3'}`}>
+            <li key={st.title}>
+              <button onClick={() => move(n)} aria-label={`Étape ${n + 1} : ${st.title}`} aria-current={n === i ? 'step' : undefined}
+                className={`press grid h-10 w-full place-items-center rounded-full text-sm font-extrabold transition-all duration-500 ${n === i ? 'bg-ink text-white' : n < i ? `${TINT[st.tint]}` : 'bg-panel text-ink-3'}`}>
                 {n + 1}
               </button>
             </li>
           ))}
         </ol>
 
-        <div key={i} className={`flex-1 overflow-auto px-6 pb-2 pt-6 ${dir > 0 ? 'slide-l' : 'slide-r'}`}>
+        <div key={i} className={`flex-1 px-5 pb-2 pt-4 ${dir > 0 ? 'slide-l' : 'slide-r'}`}>
           <div className="flex items-start gap-4">
-            <span className={`grid h-16 w-16 shrink-0 place-items-center rounded-[22px] ${TINT[s.tint]}`}><Icon size={30} strokeWidth={1.9} /></span>
+            <span className={`grid h-14 w-14 shrink-0 place-items-center rounded-[20px] ${TINT[s.tint]}`}><Icon size={28} strokeWidth={1.9} /></span>
             <div>
               <div className="text-xs font-extrabold text-ink-3">Étape {i + 1} sur {steps.length}</div>
-              <h2 id="etape-titre" className="display mt-1 text-[1.9rem] sm:text-4xl">{s.title}</h2>
+              <h2 id="etape-titre" className="display mt-1 text-[1.7rem] sm:text-4xl">{s.title}</h2>
             </div>
           </div>
-          <p className="mt-5 text-[17px] leading-relaxed text-ink-2">{s.text}</p>
+          <p className="mt-3 text-[17px] leading-relaxed text-ink-2 [@media(max-height:700px)]:text-[16px] [@media(max-height:700px)]:leading-snug">{s.text}</p>
           {s.timing && (
             <div className="mt-4 inline-flex items-start gap-2 rounded-2xl bg-sun-soft px-4 py-3 text-[15px] font-bold text-warn"><Clock size={18} strokeWidth={2} className="mt-0.5 shrink-0" /> {s.timing}</div>
           )}
           {s.tips && (
-            <ul className="mt-4 space-y-2">
-              {s.tips.map((t) => <li key={t} className="flex gap-2.5 rounded-2xl bg-white px-4 py-3 text-[15px] leading-relaxed shadow-[0_10px_24px_-22px_rgba(45,36,64,.6)]"><span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-north" /> {t}</li>)}
+            <ul className="mt-3 space-y-1.5">
+              {s.tips.map((t) => <li key={t} className="flex gap-2.5 rounded-2xl bg-white px-4 py-2.5 text-[15px] leading-snug shadow-[0_10px_24px_-22px_rgba(45,36,64,.6)]"><span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-north" /> {t}</li>)}
             </ul>
           )}
           {s.action && (
             s.action.href ? (
-              <a href={s.action.href} className="press mt-5 inline-flex items-center gap-2 rounded-full bg-coral px-5 py-3 font-extrabold text-white hover:brightness-105"><Phone size={17} strokeWidth={2.25} /> {s.action.label}</a>
+              <a href={s.action.href} className="press mt-4 inline-flex items-center gap-2 rounded-full bg-coral px-5 py-3 font-extrabold text-white hover:brightness-105"><Phone size={17} strokeWidth={2.25} /> {s.action.label}</a>
             ) : (
-              <button onClick={() => go(s.action!.tab!)} className="press mt-5 inline-flex items-center gap-2 rounded-full bg-north-soft px-5 py-3 font-extrabold text-north hover:bg-north hover:text-white">{s.action.label} <ArrowRight size={17} strokeWidth={2.25} /></button>
+              <button onClick={() => go(s.action!.tab!)} className="press mt-4 inline-flex items-center gap-2 rounded-full bg-north-soft px-5 py-3 font-extrabold text-north hover:bg-north hover:text-white">{s.action.label} <ArrowRight size={17} strokeWidth={2.25} /></button>
             )
           )}
-          {s.source && <p className="mt-5 text-xs text-ink-3">Source : {s.source}</p>}
+          {s.source && <p className="mt-3 text-xs text-ink-3">Source : {s.source}</p>}
         </div>
 
-        <div className="flex items-center justify-between gap-3 border-t border-rule px-6 py-4">
+        <div className="flex items-center justify-between gap-3 border-t border-rule px-5 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
           <button onClick={onClose} className="press rounded-full px-3 py-2 text-sm font-bold text-ink-3 hover:bg-panel">Plus tard</button>
           <div className="flex gap-2">
             <button onClick={() => move(i - 1)} disabled={i === 0} aria-label="Étape précédente" className="press grid h-12 w-12 place-items-center rounded-full bg-panel text-ink hover:bg-rule disabled:opacity-30"><ArrowLeft size={19} strokeWidth={2.25} /></button>

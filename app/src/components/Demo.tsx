@@ -300,7 +300,7 @@ export default function Demo() {
                   </button>
                 </div>
                 {showAiView ? (
-                  <div className="rise h-80 overflow-auto rounded-2xl border border-north/40 bg-north-soft p-4 text-[15px] leading-relaxed whitespace-pre-wrap" id="ai-view-panel">
+                  <div className="rise min-h-80 rounded-2xl border border-north/40 bg-north-soft p-4 text-[15px] leading-relaxed whitespace-pre-wrap" id="ai-view-panel">
                     <div className="mb-3 flex items-center gap-1.5 text-xs font-medium text-north">
                       <Fingerprint size={14} strokeWidth={1.75} /> Texte réellement envoyé au modèle · {pseudo.count} identifiants masqués
                     </div>
@@ -313,7 +313,7 @@ export default function Demo() {
                     )}
                   </div>
                 ) : (
-                  <textarea value={notes} onChange={(e) => setNotes(e.target.value)} className="h-80 w-full resize-none rounded-2xl border border-rule bg-paper p-4 text-[15px] leading-relaxed outline-none transition-colors duration-500 focus:border-ink" />
+                  <textarea value={notes} onChange={(e) => setNotes(e.target.value)} className="field-sizing-content min-h-80 w-full resize-none rounded-2xl border border-rule bg-paper p-4 text-[15px] leading-relaxed outline-none transition-colors duration-500 focus:border-ink" />
                 )}
                 <button id="generate" onClick={generate} disabled={loading} className="press mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-ink py-3.5 text-[15px] font-medium text-paper hover:bg-north disabled:opacity-60">
                   <Sparkles size={16} strokeWidth={1.75} className={loading ? 'animate-pulse' : ''} />
@@ -475,7 +475,7 @@ function ExportView(props: {
             {consent.transmission ? 'Transmission à la police autorisée par la personne.' : 'Transmission à la police non autorisée : le dossier reste au centre désigné.'}
           </div>
         </div>
-        <div className="max-h-96 overflow-auto bg-paper p-6">
+        <div className="min-w-0 bg-paper p-6">
           <div className="eyebrow text-ink-3">Journal de conservation</div>
           <ol className="mt-4 space-y-2.5 font-mono text-[11px]" id="custody-log">
             {log.map((e) => (

@@ -9,3 +9,10 @@ createRoot(document.getElementById('root')!).render(
     <App />
   </StrictMode>,
 )
+
+// Application installable et utilisable hors ligne (service worker produit au build seulement).
+if (import.meta.env.PROD && 'serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register(`${import.meta.env.BASE_URL}sw.js`).catch(() => { /* navigation privée, HTTP… : l'appli marche sans */ })
+  })
+}

@@ -1,0 +1,20 @@
+{
+  "name": "Boussole · On vous accompagne, pas à pas",
+  "short_name": "Boussole",
+  "description": "Après une agression sexuelle à Montréal : où aller, raconter une seule fois, monter un dossier si vous le décidez. Bêta de test, données fictives.",
+  "lang": "fr-CA",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FFF9F3",
+  "theme_color": "#6A4CE0",
+  "categories": ["health", "medical", "lifestyle"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
