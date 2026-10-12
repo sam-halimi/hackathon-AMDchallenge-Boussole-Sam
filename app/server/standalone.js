@@ -27,6 +27,7 @@ const TYPES = {
 const hits = new Map()
 const limited = (/** @type {string} */ ip) => {
   const now = Date.now()
+  if (hits.size > 10_000) for (const [k, v] of hits) if (now - v.t > 60_000) hits.delete(k)
   const h = hits.get(ip)
   if (!h || now - h.t > 60_000) {
     hits.set(ip, { n: 1, t: now })
@@ -36,7 +37,8 @@ const limited = (/** @type {string} */ ip) => {
   return h.n > LIMIT
 }
 
-const server = createServer(async (req, res) => {
+/** @param {import('node:http').IncomingMessage} req @param {import('node:http').ServerResponse} res */
+async function handle(req, res) {
   res.setHeader('X-Content-Type-Options', 'nosniff')
   res.setHeader('Referrer-Policy', 'no-referrer')
   res.setHeader('X-Frame-Options', 'DENY')
@@ -65,7 +67,12 @@ const server = createServer(async (req, res) => {
   }
 
   // Fichiers statiques ; routage par ancre (#/), donc tout le reste renvoie index.html.
-  let path = normalize(decodeURIComponent(url.pathname)).replace(/^(\.\.[/\\])+/, '')
+  let path = '/'
+  try {
+    path = normalize(decodeURIComponent(url.pathname)).replace(/^(\.\.[/\\])+/, '')
+  } catch {
+    // URL mal encodée : on sert l'accueil plutôt que de planter.
+  }
   if (path.endsWith('/')) path += 'index.html'
   let file = join(DIST, path)
   if (!file.startsWith(DIST)) file = join(DIST, 'index.html')
@@ -83,6 +90,14 @@ const server = createServer(async (req, res) => {
     res.statusCode = 404
     res.end('Lancez « npm run build » avant « npm start ».')
   }
+}
+
+const server = createServer((req, res) => {
+  handle(req, res).catch(() => {
+    // Erreur inattendue : réponse 500 sans détail, le serveur continue.
+    if (!res.headersSent) res.statusCode = 500
+    res.end()
+  })
 })
 
 server.listen(PORT, HOST, () => {

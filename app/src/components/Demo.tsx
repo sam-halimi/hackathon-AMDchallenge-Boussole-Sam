@@ -305,8 +305,8 @@ export default function Demo() {
                     <div className="mb-3 flex items-center gap-1.5 text-xs font-medium text-north">
                       <Fingerprint size={14} strokeWidth={1.75} /> Texte réellement envoyé au modèle · {pseudo.count} identifiants masqués
                     </div>
-                    {pseudo.text.split(/(\[[A-ZÉ]+\])/g).map((part, i) =>
-                      /^\[[A-ZÉ]+\]$/.test(part) ? (
+                    {pseudo.text.split(/(\[[A-ZÉ ]+\])/g).map((part, i) =>
+                      /^\[[A-ZÉ ]+\]$/.test(part) ? (
                         <mark key={i} className="rounded bg-north px-1 font-mono text-[12px] text-paper">{part}</mark>
                       ) : (
                         <span key={i}>{part}</span>
@@ -346,7 +346,7 @@ export default function Demo() {
                       <Sparkles size={13} strokeWidth={1.75} />
                       {source === 'live'
                         ? `Réponse IA en direct · ${aiMeta?.label} · ${aiMeta?.model} · ${((aiMeta?.latencyMs ?? 0) / 1000).toFixed(1)} s`
-                        : `Réponse IA PRÉ-ENREGISTRÉE (${FALLBACK_REASONS[aiMeta?.reason ?? ''] ?? 'IA indisponible'}) : même format, ne reflète pas vos notes modifiées`}
+                        : `Réponse IA PRÉ-ENREGISTRÉE (${FALLBACK_REASONS[aiMeta?.reason ?? ''] ?? 'IA indisponible'}) : même format, calculée sur le cas fictif d’origine, pas sur vos modifications`}
                     </div>
                     <p className="flex items-start gap-1.5 text-xs text-ink-3">
                       <ShieldCheck size={13} strokeWidth={1.75} className="mt-px shrink-0" />
