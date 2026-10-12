@@ -4,7 +4,7 @@ import {
   Link2, Lock, Printer, ShieldAlert, ShieldCheck, Sparkles, Stethoscope, X,
 } from 'lucide-react'
 import { appendEntry, verifyLog, type Entry } from '../lib/custody'
-import { computeChecklist, RULES_VERSION, type Intake, type Status } from '../lib/rules'
+import { computeChecklist, RULES_VERSION, RULES_WARNING, type Answer, type Intake, type Status } from '../lib/rules'
 import { DEMO_NOTES } from '../lib/demoCase'
 import { pseudonymize } from '../lib/pseudonymize'
 import { TIMELINE_FIXTURE, type TimelineResult } from '../lib/timelineFixture'
@@ -132,7 +132,7 @@ export default function Demo() {
   return (
     <div className="min-h-screen">
       <div className="no-print border-b border-alert/20 bg-alert-soft py-1.5 text-center text-alert">
-        <span className="eyebrow">Données 100 % fictives · prototype de démonstration · ne pas utiliser en soins réels</span>
+        <span className="eyebrow">Données 100 % fictives · prototype · règles non validées cliniquement · ne pas utiliser en soins réels</span>
       </div>
 
       <header className="no-print sticky top-0 z-20 border-b border-rule bg-paper/90 backdrop-blur">
@@ -228,11 +228,11 @@ export default function Demo() {
             </div>
             <div className="mt-6 divide-y divide-rule rounded-2xl border border-rule">
               <YesNo id="q-substance" q="Une substance est-elle soupçonnée (drogue, médicament, alcool à son insu) ?" v={intake.substance} set={(v) => setIntake({ ...intake, substance: v })} />
-              <div className={`grid transition-all duration-700 ease-[var(--ease-out-soft)] ${intake.substance ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
+              <div className={`grid transition-all duration-700 ease-[var(--ease-out-soft)] ${intake.substance !== false ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
                 <div className="overflow-hidden">
                   <div className="flex items-start gap-3 bg-north-soft px-6 py-4 text-[15px] text-ink-2">
                     <Sparkles size={16} strokeWidth={1.75} className="mt-0.5 shrink-0 text-north" />
-                    Question ajoutée : symptômes observés (étourdissement, amnésie, somnolence), à noter sans interpréter. Les deux prélèvements toxicologiques entrent dans la checklist.
+                    Question ajoutée : symptômes observés (étourdissement, amnésie, somnolence), à noter sans interpréter. Les deux prélèvements toxicologiques entrent dans la checklist{intake.substance === null ? ', par prudence, marqués « à confirmer »' : ''}.
                   </div>
                 </div>
               </div>
@@ -241,7 +241,7 @@ export default function Demo() {
               <YesNo id="q-showered" q="Douche ou bain depuis les faits ?" v={intake.showered} set={(v) => setIntake({ ...intake, showered: v })} />
               <YesNo id="q-injuries" q="Lésions visibles ?" v={intake.injuries} set={(v) => setIntake({ ...intake, injuries: v })} />
             </div>
-            {next('Voir les prélèvements prioritaires', () => log_('Dossier guidé complété', `${intake.hoursSince} h depuis les faits · substance : ${intake.substance ? 'oui' : 'non'}`))}
+            {next('Voir les prélèvements prioritaires', () => log_('Dossier guidé complété', `${intake.hoursSince} h depuis les faits · substance : ${answerLabel(intake.substance)}`))}
           </Section>
         )}
 
@@ -250,7 +250,7 @@ export default function Demo() {
             <div className="mb-5 flex items-start gap-2 rounded-xl border border-warn/30 bg-warn-soft px-4 py-3 text-sm text-warn">
               <ClipboardList size={16} strokeWidth={1.75} className="mt-0.5 shrink-0" />
               <span>
-                Délais prototype, à valider par sources médicales et par le protocole de l'établissement. <span className="font-mono text-xs opacity-80">{RULES_VERSION}</span>
+                <b>{RULES_WARNING}</b> « Ne sait pas » inclut la règle par prudence, marquée « à confirmer ». <span className="font-mono text-xs opacity-80">{RULES_VERSION}</span>
               </span>
             </div>
             {!consent.prelevements && (
@@ -278,6 +278,7 @@ export default function Demo() {
                     <div className="min-w-0 flex-1">
                       <div className="text-[16px] font-medium">{c.label}</div>
                       <div className="text-sm text-ink-3">{c.why}</div>
+                      {c.uncertain && <div className="mt-0.5 text-xs font-bold text-warn">À confirmer : incluse par prudence (réponse « ne sait pas »)</div>}
                     </div>
                     <Badge status={c.status} remaining={c.remainingH} />
                   </li>
@@ -440,7 +441,7 @@ function ExportView(props: {
 
   const download = () => {
     props.onExport()
-    const blob = new Blob([JSON.stringify({ avertissement: 'DONNÉES FICTIVES', consent, intake, checklist, chronologieValidee: validated, journal: log }, null, 2)], { type: 'application/json' })
+    const blob = new Blob([JSON.stringify({ avertissement: 'DONNÉES FICTIVES', regles: RULES_WARNING, versionRegles: RULES_VERSION, consent, intake, checklist, chronologieValidee: validated, journal: log }, null, 2)], { type: 'application/json' })
     const a = document.createElement('a')
     a.href = URL.createObjectURL(blob)
     a.download = 'dossier-DEMO-0042.json'
@@ -469,6 +470,7 @@ function ExportView(props: {
             <Row k="Consentements" v={Object.entries(consent).map(([k, v]) => `${CONSENT_LABELS[k as keyof Consent][0]} ${v ? '✓' : '✗'}`).join(' · ')} />
             <Row k="Prélèvements effectués" v={checklist.filter((c) => done[c.id]).map((c) => c.label).join(', ') || 'aucun'} />
             <Row k="Événements validés" v={`${validated.length} / ${timeline?.events.length ?? 0}`} />
+            <Row k="Règles" v={RULES_VERSION} />
           </dl>
           <div className={`mt-5 flex items-start gap-2 rounded-xl px-3 py-2.5 text-sm ${consent.transmission ? 'bg-north-soft text-north' : 'bg-alert-soft text-alert'}`}>
             <Lock size={15} strokeWidth={1.75} className="mt-0.5 shrink-0" />
@@ -528,20 +530,22 @@ function Row({ k, v }: { k: string; v: string }) {
   )
 }
 
-function YesNo({ id, q, v, set }: { id: string; q: string; v: boolean; set: (v: boolean) => void }) {
+const answerLabel = (v: Answer) => (v === null ? 'ne sait pas' : v ? 'oui' : 'non')
+
+// Oui / Non / Ne sait pas : trois réponses distinctes. « Ne sait pas » reste visible jusque dans la checklist.
+function YesNo({ id, q, v, set }: { id: string; q: string; v: Answer; set: (v: Answer) => void }) {
+  const opts: [Answer, string][] = [[true, 'Oui'], [false, 'Non'], [null, 'Ne sait pas']]
+  const idx = opts.findIndex(([o]) => o === v)
   return (
     <div id={id} className="flex flex-wrap items-center justify-between gap-4 px-6 py-4">
       <span className="text-[16px]">{q}</span>
-      <div className="relative inline-grid grid-cols-3 rounded-xl border border-rule bg-panel p-0.5 text-sm">
-        <span className={`absolute inset-y-0.5 w-[calc(33.333%-2px)] rounded bg-ink transition-transform duration-500 ease-[var(--ease-out-soft)] ${v ? 'translate-x-0.5' : 'translate-x-[calc(100%+2px)]'}`} />
-        {(['Oui', 'Non', 'Ne sait pas'] as const).map((l) => {
-          const active = (l === 'Oui' && v) || (l === 'Non' && !v)
-          return (
-            <button key={l} onClick={() => set(l !== 'Non')} className={`press relative z-10 px-3 py-1.5 transition-colors duration-500 ${active ? 'text-paper' : 'text-ink-2 hover:text-ink'}`}>
-              {l}
-            </button>
-          )
-        })}
+      <div role="radiogroup" aria-label={q} className="relative inline-grid grid-cols-3 rounded-xl border border-rule bg-panel p-0.5 text-sm">
+        <span className="absolute inset-y-0.5 left-0.5 w-[calc((100%-4px)/3)] rounded bg-ink transition-transform duration-500 ease-[var(--ease-out-soft)]" style={{ transform: `translateX(${idx * 100}%)` }} />
+        {opts.map(([o, l]) => (
+          <button key={l} role="radio" aria-checked={o === v} onClick={() => set(o)} className={`press relative z-10 px-3 py-1.5 transition-colors duration-500 ${o === v ? 'text-paper' : 'text-ink-2 hover:text-ink'}`}>
+            {l}
+          </button>
+        ))}
       </div>
     </div>
   )

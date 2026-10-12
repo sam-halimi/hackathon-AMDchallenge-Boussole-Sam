@@ -11,6 +11,8 @@
 >
 > **Recommandation pour l'app** : écrire « idéalement le plus tôt possible, jusqu'à 7 jours à Montréal » et toujours renvoyer vers Info-aide pour confirmer.
 
+> **Dans l’appli** : chaque point « à confirmer » ci-dessous est affiché avec un badge « À confirmer » (champ `toConfirm` de `resources.ts`), sans changer aucun numéro ni aucune adresse. Détail : `SAFETY.md`, section 6.
+
 ---
 
 ## PARTIE A — Le bon ordre de prise en charge après une agression sexuelle

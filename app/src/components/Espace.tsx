@@ -7,7 +7,7 @@ import {
 import { Wordmark } from './Logo'
 import { Care, Choice, Folder, Space, Talk, Welcome } from './Illustrations'
 import { RESOURCES, type Resource } from '../lib/resources'
-import { computeChecklist } from '../lib/rules'
+import { computeChecklist, fromTri, RULES_WARNING, type Answer } from '../lib/rules'
 import { anyAccount, createAccount, deleteAccount, isEmail, login, passwordStrength, saveVault, sealForTransfer, type VaultSession } from '../lib/vault'
 import Etapes from './Etapes'
 import Rappel from './Rappel'
@@ -114,7 +114,7 @@ export default function Espace() {
       <main key={tab} className="mx-auto max-w-6xl px-5 py-8 sm:py-12">
         {tab === 'accueil' && <Accueil fiche={fiche} hoursSince={hoursSince} go={setTab} onIntro={() => setEtapes(true)} />}
         {tab === 'recit' && <Recit fiche={fiche} update={update} savedAt={savedAt} hoursSince={hoursSince} onWipe={() => { if (session) deleteAccount(session); lock() }} onNext={() => setTab('aller')} />}
-        {tab === 'aller' && <Aller hoursSince={hoursSince} substance={fiche.substance === 'oui'} />}
+        {tab === 'aller' && <Aller hoursSince={hoursSince} substance={fromTri(fiche.substance)} />}
         {tab === 'dossier' && <Dossier fiche={fiche} hoursSince={hoursSince} onJournal={addJournal} />}
         {tab === 'vie-privee' && <ViePrivee />}
       </main>
@@ -338,6 +338,10 @@ function Accueil({ fiche, hoursSince, go, onIntro }: { fiche: Fiche; hoursSince:
           </button>
         ))}
       </div>
+      <p id="pas-avis-medical" className="mt-6 flex items-start gap-2 rounded-2xl bg-panel px-4 py-3 text-[15px] leading-snug text-ink-2">
+        <AlertTriangle size={18} strokeWidth={2} className="mt-0.5 shrink-0 text-warn" />
+        <span>Boussole donne des repères, pas d’avis médical ni juridique. Les délais sont indicatifs. En cas de doute : Info-aide violence sexuelle ou le 811. En danger : 911.</span>
+      </p>
       <InstallCard />
       <button onClick={onIntro} className="press mt-8 inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm font-bold text-ink-3 hover:bg-panel"><Sparkles size={16} strokeWidth={2} /> Revoir les étapes de la prise en charge</button>
     </div>
@@ -431,7 +435,7 @@ const FILTERS = [
   { id: 'legal', label: 'Juridique', icon: Scale },
 ] as const
 
-function Aller({ hoursSince, substance }: { hoursSince: number | null; substance: boolean }) {
+function Aller({ hoursSince, substance }: { hoursSince: number | null; substance: Answer }) {
   const [filter, setFilter] = useState<(typeof FILTERS)[number]['id']>('all')
   const [active, setActive] = useState<string | undefined>()
   const items = useMemo(() => RESOURCES.filter((r) => filter === 'all' || r.kind === filter), [filter])
@@ -452,10 +456,10 @@ function Aller({ hoursSince, substance }: { hoursSince: number | null; substance
           <div className="flex items-center gap-2 font-medium text-warn"><Clock size={18} strokeWidth={1.75} /> Il y a {hoursSince}{NB}h : des examens sont encore possibles</div>
           <div className="mt-3 flex flex-wrap gap-2">
             {urgent.slice(0, 4).map((c) => (
-              <span key={c.id} className="rounded-full bg-paper px-3 py-1.5 text-sm">{c.label} · <b>{c.remainingH}{NB}h</b></span>
+              <span key={c.id} className="rounded-full bg-paper px-3 py-1.5 text-sm">{c.label} · <b>≈{NB}{c.remainingH}{NB}h</b>{c.uncertain && <span className="text-warn"> · à confirmer</span>}</span>
             ))}
           </div>
-          <p className="mt-3 text-xs text-warn/80">Délais indicatifs du prototype, à valider par sources médicales.</p>
+          <p className="mt-3 text-xs text-warn/80">{RULES_WARNING} « À confirmer » : affiché parce que vous avez répondu « Je ne sais pas ».</p>
         </div>
       )}
 
@@ -493,7 +497,7 @@ function Aller({ hoursSince, substance }: { hoursSince: number | null; substance
           </div>
         </div>
       </div>
-      <p className="mt-4 text-xs text-ink-3">Carte : OpenStreetMap. Sources : CIUSSS de Montréal, CVASM, SPVM (2026), sites officiels des organismes. Adresses confidentielles non affichées. Vérifiez les horaires par téléphone.</p>
+      <p className="mt-4 text-xs text-ink-3">Carte : OpenStreetMap. Sources : CIUSSS de Montréal, CVASM, SPVM (2026), sites officiels des organismes, vérifiés le 4 octobre 2026. « À confirmer » : information qu’aucune source officielle n’a encore confirmée. Adresses confidentielles non affichées. Vérifiez les horaires par téléphone.</p>
     </div>
   )
 }
@@ -511,6 +515,11 @@ function ResourceCard({ r, n, active, onSelect }: { r: Resource; n: number; acti
             {r.address && <div className="flex gap-1.5"><MapPin size={14} strokeWidth={1.75} className="mt-0.5 shrink-0" /> {r.address}</div>}
             <div className="flex gap-1.5"><Clock size={14} strokeWidth={1.75} className="mt-0.5 shrink-0" /> {r.hours}</div>
             {r.note && <div className="flex gap-1.5 text-warn"><AlertTriangle size={14} strokeWidth={1.75} className="mt-0.5 shrink-0" /> {r.note}</div>}
+            {r.toConfirm && (
+              <div className="mt-2 rounded-2xl bg-warn-soft px-3 py-2 text-warn" data-to-confirm={r.id}>
+                <span className="mr-1.5 rounded-full bg-warn px-2 py-0.5 text-[11px] font-extrabold text-white">À confirmer</span>{r.toConfirm}
+              </div>
+            )}
           </div>
           <div className="mt-4 flex flex-wrap gap-2" onClick={(e) => e.stopPropagation()}>
             {r.phone && <a href={`tel:${r.phone}`} className="press inline-flex items-center gap-1.5 rounded-full bg-ink px-3.5 py-2 text-[13px] font-bold text-white hover:bg-north"><Phone size={14} strokeWidth={2} /> {r.phoneLabel}</a>}
@@ -534,13 +543,13 @@ function Dossier({ fiche, hoursSince, onJournal }: { fiche: Fiche; hoursSince: n
   const [confirmOpen, setConfirmOpen] = useState(false)
   const [phase, setPhase] = useState(-1)
   const [packet, setPacket] = useState<{ size: number; fingerprint: string; ref: string } | null>(null)
-  const checklist = hoursSince !== null ? computeChecklist({ hoursSince, substance: fiche.substance === 'oui', exposure: true, pregnancyRisk: true, injuries: fiche.symptomes.includes('Blessures visibles'), showered: fiche.douche === 'oui' }) : []
+  const checklist = hoursSince !== null ? computeChecklist({ hoursSince, substance: fromTri(fiche.substance), exposure: true, pregnancyRisk: true, injuries: fiche.symptomes.includes('Blessures visibles'), showered: fromTri(fiche.douche) }) : []
 
   const dossier = {
     avertissement: 'BÊTA DE TEST · DONNÉES NON RÉELLES',
     genereLe: new Date().toISOString(),
     ...(include.recit && { recit: { quand: fiche.quandInconnu ? 'inconnu' : fiche.quand, ou: fiche.ou, souvenirs: fiche.souvenirs, oublis: fiche.oublis, symptomes: fiche.symptomes, substance: fiche.substance, douche: fiche.douche, vetements: fiche.vetements, temoins: fiche.temoins } }),
-    ...(include.examens && { examens: checklist.map((c) => ({ examen: c.label, statut: c.status, heuresRestantes: c.remainingH })) }),
+    ...(include.examens && { examens: checklist.map((c) => ({ examen: c.label, statut: c.status, heuresRestantes: c.remainingH, aConfirmer: c.uncertain })), avertissementRegles: RULES_WARNING }),
     ...(include.besoins && { besoins: fiche.besoins }),
     journal: fiche.journal,
   }
@@ -608,7 +617,7 @@ function Dossier({ fiche, hoursSince, onJournal }: { fiche: Fiche; hoursSince: n
             </div>
             <Apercu id="dossier-apercu" rows={[
               ...(include.recit ? [['Mon récit', fiche.quandInconnu ? 'Date inconnue' : fiche.quand ? new Date(fiche.quand).toLocaleString('fr-CA', { dateStyle: 'long', timeStyle: 'short' }) : 'Date non indiquée', fiche.souvenirs ? `${fiche.souvenirs.length} caractères écrits` : 'Rien d’écrit pour l’instant'] as const] : []),
-              ...(include.examens ? [['Examens prioritaires', checklist.length ? checklist.slice(0, 3).map((c) => c.label).join(' · ') : 'Date inconnue : à voir avec l’équipe', checklist.length > 3 ? `et ${checklist.length - 3} autre(s)` : ''] as const] : []),
+              ...(include.examens ? [['Examens prioritaires', checklist.length ? checklist.slice(0, 3).map((c) => c.label).join(' · ') : 'Date inconnue : à voir avec l’équipe', `${checklist.length > 3 ? `et ${checklist.length - 3} autre(s). ` : ''}Délais indicatifs, non validés cliniquement.`] as const] : []),
               ...(include.besoins ? [['Mes besoins', fiche.besoins.join(', ') || 'Aucun choisi', ''] as const] : []),
               ['Journal', `${fiche.journal.length} action(s) notée(s)`, 'Toujours inclus'] as const,
             ]} />
@@ -675,6 +684,8 @@ function ViePrivee() {
     { icon: EyeOff, t: 'Votre nom n’est jamais montré à l’IA', d: 'Côté soignant, les identifiants sont masqués avant tout traitement par l’IA, et c’est visible à l’écran.' },
     { icon: Trash2, t: 'Effacement en un clic', d: '« Tout effacer » supprime la fiche de l’appareil immédiatement et définitivement.' },
     { icon: X, t: 'Aucun pistage', d: 'Pas de cookie publicitaire, pas d’outil d’analyse, pas de revente. Le fond de carte OpenStreetMap est le seul appel externe.' },
+    { icon: Sparkles, t: 'L’IA guide, l’humain décide', d: 'L’IA ne pose aucun diagnostic, ne juge pas votre récit et ne désigne personne. Elle range des notes pour l’équipe soignante, qui valide chaque ligne.' },
+    { icon: AlertTriangle, t: 'Ce qui reste à confirmer est signalé', d: 'Une information qu’aucune source officielle n’a confirmée porte la mention « À confirmer ». Les délais médicaux sont indicatifs.' },
   ]
   return (
     <div>
