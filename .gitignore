@@ -1,0 +1,46 @@
+# Dépendances et caches de build
+node_modules/
+.vite/
+dist/
+dist-ssr/
+out/
+*.tsbuildinfo
+__pycache__/
+
+# Secrets : jamais dans git (voir app/.env.example)
+.env
+.env.*
+!.env.example
+*.local
+
+# Rendus et binaires lourds (voir ASSETS.md pour les régénérer)
+*.mp4
+*.webm
+*.mov
+*.mp3
+*.wav
+*.aiff
+*.flac
+*.pptx
+spot-v1/renders/
+spot-v1/assets_in/rec/
+spot-v1/stems/
+spot-v2/capture/sheets/
+spot-v2/capture/frames/
+video/public/ad/rec/
+video/public/ad/grain.png
+video/public/rec/
+
+# Skills Claude tiers du projet vidéo (25 Mo, réinstallables : video/skills-lock.json)
+video/.claude/
+
+# Résultats bruts du benchmark (le résumé va dans le README)
+app/bench/raw/
+
+# Éditeurs / système
+.DS_Store
+.idea
+.vscode/*
+!.vscode/extensions.json
+*.sw?
+*.log
