@@ -142,12 +142,16 @@ async function run(vp) {
 
   const results = []
   let order = 0
-  const shot = async (name, { at, full = true, wait = 1100 } = {}) => {
+  let extras = 0
+  // extra : écran qui n'existe que dans la V2. Il prend le numéro du précédent suivi d'une lettre,
+  // pour que les écrans communs gardent le même numéro dans « avant » et « apres ».
+  const shot = async (name, { at, full = true, wait = 1100, extra = false } = {}) => {
     await sleep(wait)
     if (at) await page.evaluate((s) => document.querySelector(s)?.scrollIntoView({ block: 'start', behavior: 'instant' }), at)
     else if (!(await page.$('[role=dialog]'))) await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }))
     await sleep(200)
-    const id = `${String(++order).padStart(2, '0')}-${name}`
+    if (extra) extras++; else { order++; extras = 0 }
+    const id = `${String(order).padStart(2, '0')}${extra ? String.fromCharCode(96 + extras) : ''}-${name}`
     await page.screenshot({ path: join(OUT, tag, `${id}.webp`), type: 'webp', quality: 88, captureBeyondViewport: false })
     const m = await page.evaluate(measure)
     if (full && !m.fenetre && m.hauteurPage > vp.h + 8) await page.screenshot({ path: join(OUT, tag, `${id}--page.webp`), type: 'webp', quality: 82, fullPage: true })
@@ -208,20 +212,41 @@ async function run(vp) {
 
   await step('recit', async () => {
     await tab('recit'); await shot('recit-vide')
-    await fill('input[type=datetime-local]', '2026-10-13T04:00')
-    await fill('input[placeholder^="Un lieu"]', 'Plateau-Mont-Royal')
-    await fill('textarea', 'Je suis rentrée à pied après la soirée. Je me souviens du bar, puis de la rue. Ensuite, c’est flou.', 0)
-    await fill('textarea', 'Le trajet entre le bar et l’appartement.', 1)
-    for (const t of ['Trous de mémoire', 'Nausées', 'Gardés tels quels', 'Parler à quelqu’un', 'Un examen médical']) await clickText(t, 'button')
-    await page.evaluate(() => { const b = [...document.querySelectorAll('button')].filter((e) => e.innerText.trim() === 'Je ne sais pas'); b[0]?.click() })
-    await shot('recit-rempli')
-    await clickText('Tout effacer', 'button'); await shot('recit-effacer', { at: 'main > div > div:last-child', full: false, wait: 600 })
+    const souvenirs = 'Je suis rentrée à pied après la soirée. Je me souviens du bar, puis de la rue. Ensuite, c’est flou.'
+    const oublis = 'Le trajet entre le bar et l’appartement.'
+    if (await page.$('#recit-start')) {
+      // V2 : une question à la fois, puis la vue d'ensemble.
+      await click('#recit-start'); await fill('#q-quand', '2026-10-13T04:00'); await shot('recit-question-quand', { extra: true, wait: 500 }); await click('#recit-next')
+      await fill('#q-ou', 'Plateau-Mont-Royal'); await click('#recit-next')
+      await fill('#q-souvenirs', souvenirs); await shot('recit-question-souvenirs', { extra: true, wait: 500 }); await click('#recit-next')
+      await fill('#q-oublis', oublis); await click('#recit-next')
+      for (const t of ['Trous de mémoire', 'Nausées']) await clickText(t, 'button')
+      await shot('recit-question-symptomes', { extra: true, wait: 500 }); await click('#recit-next')
+      await clickText('Je ne sais pas', 'button'); await shot('recit-question-substance', { extra: true, wait: 500 }); await click('#recit-next')
+      await click('#recit-next')
+      await clickText('Gardés tels quels', 'button'); await click('#recit-next')
+      for (const t of ['Parler à quelqu’un', 'Un examen médical']) await clickText(t, 'button')
+      await click('#recit-all'); await shot('recit-rempli')
+      await clickText('Tout effacer', 'button'); await shot('recit-effacer', { at: '#wipe-confirm', full: false, wait: 600 })
+    } else {
+      await fill('input[type=datetime-local]', '2026-10-13T04:00')
+      await fill('input[placeholder^="Un lieu"]', 'Plateau-Mont-Royal')
+      await fill('textarea', souvenirs, 0)
+      await fill('textarea', oublis, 1)
+      for (const t of ['Trous de mémoire', 'Nausées', 'Gardés tels quels', 'Parler à quelqu’un', 'Un examen médical']) await clickText(t, 'button')
+      await page.evaluate(() => { const b = [...document.querySelectorAll('button')].filter((e) => e.innerText.trim() === 'Je ne sais pas'); b[0]?.click() })
+      await shot('recit-rempli')
+      await clickText('Tout effacer', 'button'); await shot('recit-effacer', { at: 'main > div > div:last-child', full: false, wait: 600 })
+    }
     await clickText('Annuler', 'button')
   })
 
   await step('aller', async () => {
     await tab('aller'); await idle(); await shot('ou-aller', { wait: 1800 })
-    await shot('ou-aller-carte', { at: '#map', full: false, wait: 300 })
+    // V2 sur téléphone : la carte est une vue à part, à demander.
+    if (await page.$('#vue-carte')) { await click('#vue-carte'); await idle() }
+    await shot('ou-aller-carte', { at: '#map', full: false, wait: 1500 })
+    if (await page.$('#vue-liste')) await click('#vue-liste')
     await shot('ou-aller-fiche', { at: '#res-cvasm-soir', full: false, wait: 300 })
   })
 

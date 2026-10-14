@@ -5,18 +5,24 @@
 Ancienne bêta statique (sans IA en direct) : https://boussole-beta.vercel.app
 
 ## Parcours
-- `#/` : arrivée directe en diapos colorées (5 étapes), puis création d'un compte (prénom ou surnom, courriel, mot de passe ; données chiffrées sur l'appareil), puis la fenêtre des étapes de prise en charge, puis les onglets :
-  - **Accueil** : ligne d'écoute 24 h/24, accès rapides illustrés, rappel « repères, pas d'avis médical », installation facultative ;
+- `#/` : arrivée directe en cinq diapos colorées, puis création d'un compte (prénom ou surnom, courriel, mot de passe ; données chiffrées sur l'appareil), puis la fenêtre des étapes de prise en charge, puis les onglets :
+  - **Accueil** : ligne d'écoute 24 h/24, quatre accès qui ouvrent directement ce qu'ils annoncent, rappel « repères, pas d'avis médical », installation facultative ;
   - **Mon récit** : fiche guidée, enregistrée automatiquement et chiffrée sur l'appareil (« Je ne sais pas » est une réponse) ;
   - **Où aller** : carte de Montréal (examens, soutien psychologique, juridique), organismes vérifiés, badge « À confirmer » sur ce qu'aucune source officielle n'a confirmé ;
   - **Mon dossier** : sections au choix, aperçu lisible, export, envoi **simulé** à Rebâtir avec double confirmation, puis choix d'un créneau de rappel ;
-  - **Vie privée** : les promesses, concrètement.
+  - **Vie privée** : les promesses, concrètement, avec « Verrouiller » et « Tout effacer » ;
+  - **Quitter**, en haut de chaque écran : verrouille l'espace et remplace la page par une recherche météo.
 - `#/demo` : outil soignant (consentement, dossier guidé à trois réponses Oui / Non / Ne sait pas, checklist par règles non validées cliniquement, chronologie IA sur AMD avec garde-fous, journal SHA-256).
 
 ## Code
 | Fichier | Rôle |
 |---|---|
-| `src/components/Espace.tsx` | parcours de la personne (diapos, compte, onglets) |
+| `src/components/Espace.tsx` | coquille de l'espace : session, enregistrement chiffré, en-tête, onglets |
+| `src/components/Intro.tsx`, `Compte.tsx` | diapos d'arrivée ; création du compte et connexion |
+| `src/components/Accueil.tsx`, `Recit.tsx`, `Aller.tsx`, `Dossier.tsx`, `ViePrivee.tsx` | les cinq onglets (le récit se remplit une question à la fois) |
+| `src/components/ui.tsx` | composants partagés : ligne d'aide, champs, cases, réponses en ligne |
+| `src/components/Quitter.tsx`, `src/lib/quitter.ts` | bouton « Quitter rapidement » |
+| `src/lib/fiche.ts`, `src/lib/useDialog.ts` | type de la fiche chiffrée ; gestion du focus des fenêtres |
 | `src/components/Etapes.tsx` | fenêtre des étapes après connexion (sans défilement, jusqu'à 360×640) |
 | `src/components/Rappel.tsx` | choix du créneau de rappel |
 | `src/components/Illustrations.tsx` | illustrations SVG |
@@ -53,7 +59,7 @@ IA en direct pour l'outil soignant : copier `.env.example` en `.env` et renseign
 Sans GPU : `npm run mock` (faux serveur, aucune IA) puis `.env` pointé sur `http://127.0.0.1:8001/v1` avec `VLLM_MODEL=mock-model`.
 
 ```bash
-npm test                     # pseudonymisation, règles, ressources, garde-fous, route IA
+npm test                     # pseudonymisation, règles, ressources, garde-fous, route IA, sortie rapide
 npm run lint
 npm run bench                # latence et débit de l'endpoint → bench/results.md
 npm run build && npm start   # serveur autonome : appli + /api sur :8080

@@ -152,9 +152,9 @@ function ResourceCard({ r, n, active, onSelect }: { r: Resource; n: number; acti
         <span className={`grid h-8 w-8 shrink-0 place-items-center rounded-full text-sm font-extrabold text-white ${k.badge}`}>{n}</span>
         <span className={`text-sm font-extrabold ${k.text}`}>{k.label}</span>
       </div>
-      <h3 className="mt-2 text-lg font-extrabold leading-snug">
+      <h3 className={`text-lg font-extrabold leading-snug ${placed ? '' : 'mt-2'}`}>
         {placed
-          ? <button onClick={onSelect} title="Voir sur la carte" className="press -mx-1 rounded-lg px-1 text-left">{r.name}</button>
+          ? <button onClick={onSelect} title="Voir sur la carte" className="press -mx-1 flex min-h-11 w-full items-center rounded-lg px-1 text-left">{r.name}</button>
           : r.name}
       </h3>
       <p className="mt-1 text-base leading-normal text-ink-2">{r.what}</p>

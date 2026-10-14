@@ -119,7 +119,7 @@ export default function Espace() {
       <nav aria-label="Rubriques" className="no-print fixed inset-x-0 bottom-0 z-30 border-t border-rule bg-paper pb-[env(safe-area-inset-bottom)] sm:hidden">
         <div className="mx-auto grid max-w-md grid-cols-5 px-1">
           {TABS.map(({ id, short, icon: Icon }) => (
-            <button key={id} id={`mtab-${id}`} onClick={() => goTo(id)} aria-current={tab === id ? 'page' : undefined} className={`press flex min-h-16 flex-col items-center justify-center gap-0.5 rounded-2xl text-[clamp(12.5px,3.7vw,14px)] font-extrabold leading-tight tracking-tight ${tab === id ? 'text-north' : 'text-ink-2'}`}>
+            <button key={id} id={`mtab-${id}`} onClick={() => goTo(id)} aria-current={tab === id ? 'page' : undefined} className={`press flex min-h-16 flex-col items-center justify-center gap-0.5 rounded-2xl text-[clamp(13px,3.9vw,14px)] font-extrabold leading-tight tracking-tight ${tab === id ? 'text-north' : 'text-ink-2'}`}>
               <span className={`grid h-8 w-14 place-items-center rounded-full ${tab === id ? 'bg-north-soft' : ''}`}><Icon size={22} strokeWidth={2} /></span>
               {short}
             </button>
