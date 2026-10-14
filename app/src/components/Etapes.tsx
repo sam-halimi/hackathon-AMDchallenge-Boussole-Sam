@@ -4,7 +4,7 @@ import { CARE_STEPS } from '../lib/careSteps'
 
 const ICONS = { danger: ShieldAlert, phone: Phone, shirt: Shirt, exam: Stethoscope, choice: ToggleRight, support: HeartHandshake, legal: Scale, file: FileLock2 }
 const TINT: Record<string, string> = {
-  coral: 'bg-coral-soft text-coral', north: 'bg-north-soft text-north', sky: 'bg-sky-soft text-sky', sage: 'bg-sage-soft text-sage', sun: 'bg-sun-soft text-warn',
+  coral: 'bg-coral-soft text-coral-ink', north: 'bg-north-soft text-north', sky: 'bg-sky-soft text-sky-ink', sage: 'bg-sage-soft text-sage-ink', sun: 'bg-sun-soft text-warn',
 }
 
 export default function Etapes({ open, onClose, prenom, go }: { open: boolean; onClose: () => void; prenom?: string; go: (tab: string) => void }) {
@@ -55,7 +55,7 @@ export default function Etapes({ open, onClose, prenom, go }: { open: boolean; o
           {steps.map((st, n) => (
             <li key={st.title}>
               <button onClick={() => move(n)} aria-label={`Étape ${n + 1} : ${st.title}`} aria-current={n === i ? 'step' : undefined}
-                className={`press grid h-10 w-full place-items-center rounded-full text-sm font-extrabold transition-all duration-500 ${n === i ? 'bg-ink text-white' : n < i ? `${TINT[st.tint]}` : 'bg-panel text-ink-3'}`}>
+                className={`press grid h-10 w-full place-items-center rounded-full text-sm font-extrabold transition-all duration-150 ${n === i ? 'bg-ink text-white' : n < i ? `${TINT[st.tint]}` : 'bg-panel text-ink-3'}`}>
                 {n + 1}
               </button>
             </li>
@@ -81,7 +81,7 @@ export default function Etapes({ open, onClose, prenom, go }: { open: boolean; o
           )}
           {s.action && (
             s.action.href ? (
-              <a href={s.action.href} className="press mt-4 inline-flex items-center gap-2 rounded-full bg-coral px-5 py-3 font-extrabold text-white hover:brightness-105"><Phone size={17} strokeWidth={2.25} /> {s.action.label}</a>
+              <a href={s.action.href} className="press mt-4 inline-flex items-center gap-2 rounded-full bg-coral px-5 py-3 font-extrabold text-ink"><Phone size={17} strokeWidth={2.25} /> {s.action.label}</a>
             ) : (
               <button onClick={() => go(s.action!.tab!)} className="press mt-4 inline-flex items-center gap-2 rounded-full bg-north-soft px-5 py-3 font-extrabold text-north hover:bg-north hover:text-white">{s.action.label} <ArrowRight size={17} strokeWidth={2.25} /></button>
             )

@@ -32,18 +32,18 @@ const TABS = [
   { id: 'recit', label: 'Mon récit', short: 'Récit', icon: PenLine },
   { id: 'aller', label: 'Où aller', short: 'Où aller', icon: MapPin },
   { id: 'dossier', label: 'Mon dossier', short: 'Dossier', icon: FileLock2 },
-  { id: 'vie-privee', label: 'Vie privée', short: 'Privé', icon: ShieldCheck },
+  { id: 'vie-privee', label: 'Vie privée', short: 'Vie privée', icon: ShieldCheck },
 ] as const
 type Tab = (typeof TABS)[number]['id']
 
 /* ───────────── Les diapos d'arrivée ───────────── */
 
 const SLIDES = [
-  { bg: 'bg-coral-soft', accent: 'text-coral', Art: Welcome, title: 'Vous êtes au bon endroit.', text: 'Boussole vous accompagne après une agression sexuelle, pas à pas, à votre rythme. Vous n’avez rien à décider maintenant.' },
+  { bg: 'bg-coral-soft', accent: 'text-coral-ink', Art: Welcome, title: 'Vous êtes au bon endroit.', text: 'Boussole vous accompagne après une agression sexuelle, pas à pas, à votre rythme. Vous n’avez rien à décider maintenant.' },
   { bg: 'bg-north-soft', accent: 'text-north', Art: Choice, title: 'Vous décidez de tout.', text: 'Chaque étape est un choix : vous pouvez dire non, faire une pause, revenir plus tard. Rien ne se fait sans vous.' },
-  { bg: 'bg-sky-soft', accent: 'text-sky', Art: Care, title: 'Des soins près de chez vous.', text: 'On vous montre où aller à Montréal pour un examen, et ce qui est encore possible selon le temps écoulé.' },
-  { bg: 'bg-sage-soft', accent: 'text-sage', Art: Talk, title: 'Quelqu’un pour vous écouter.', text: 'Des intervenantes et des psychologues formés, gratuits et confidentiels, à quelques minutes de vous.' },
-  { bg: 'bg-sun-soft', accent: 'text-sun', Art: Space, title: 'Un espace rien qu’à vous.', text: 'Votre récit est chiffré avec votre mot de passe. Personne d’autre ne peut le lire, pas même nous.' },
+  { bg: 'bg-sky-soft', accent: 'text-sky-ink', Art: Care, title: 'Des soins près de chez vous.', text: 'On vous montre où aller à Montréal pour un examen, et ce qui est encore possible selon le temps écoulé.' },
+  { bg: 'bg-sage-soft', accent: 'text-sage-ink', Art: Talk, title: 'Quelqu’un pour vous écouter.', text: 'Des intervenantes et des psychologues formés, gratuits et confidentiels, à quelques minutes de vous.' },
+  { bg: 'bg-sun-soft', accent: 'text-warn', Art: Space, title: 'Un espace rien qu’à vous.', text: 'Votre récit est chiffré avec votre mot de passe. Personne d’autre ne peut le lire, pas même nous.' },
 ]
 
 export default function Espace() {
@@ -55,7 +55,7 @@ export default function Espace() {
   const [savedAt, setSavedAt] = useState<string | null>(null)
   const timer = useRef<number | undefined>(undefined)
 
-  useEffect(() => { window.scrollTo({ top: 0, behavior: 'smooth' }) }, [tab, stage])
+  useEffect(() => { window.scrollTo(0, 0) }, [tab, stage])
 
   // Enregistrement automatique, chiffré, 600 ms après la dernière modification
   const update = (patch: Partial<Fiche> | ((f: Fiche) => Partial<Fiche>)) => {
@@ -90,28 +90,28 @@ export default function Espace() {
   if (stage === 'unlock') return <Unlock onOpen={open} onIntro={() => setStage('intro')} onCreate={() => setStage('account')} />
 
   return (
-    <div className="min-h-screen pb-28 sm:pb-0">
-      <header className="sticky top-0 z-30 bg-paper/85 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center gap-3 px-5 py-3">
-          <button onClick={() => setTab('accueil')} className="press rounded-full"><Wordmark /></button>
-          <span className="ml-1 hidden rounded-full bg-sun-soft px-3 py-1 text-xs font-bold text-warn sm:inline">Bêta de test</span>
+    <div className="min-h-dvh pb-24 sm:pb-0">
+      <header className="no-print sticky top-0 z-30 bg-paper/95 backdrop-blur">
+        <div className="mx-auto flex max-w-6xl items-center gap-2 px-4 py-2 sm:px-5">
+          <button onClick={() => setTab('accueil')} aria-label="Boussole, retour à l’accueil" className="press inline-flex min-h-12 items-center rounded-full pr-2"><Wordmark /></button>
+          <span className="hidden rounded-full bg-sun-soft px-3 py-1 text-sm font-bold text-warn sm:inline">Bêta de test</span>
           <div className="ml-auto flex items-center gap-2">
-            <span className="hidden items-center gap-1.5 text-sm text-ink-3 md:inline-flex"><Lock size={14} strokeWidth={2} /> {savedAt ? `Chiffré à ${new Date(savedAt).toLocaleTimeString('fr-CA', { hour: '2-digit', minute: '2-digit' })}` : 'Chiffré'}</span>
-            <button onClick={lock} className="press inline-flex items-center gap-1.5 rounded-full bg-north-soft px-4 py-2 text-sm font-bold text-north hover:bg-north hover:text-white">
-              <Lock size={15} strokeWidth={2} /> <span>Verrouiller</span>
+            <span className="hidden items-center gap-1.5 text-sm text-ink-2 md:inline-flex"><Lock size={15} strokeWidth={2} /> {savedAt ? `Chiffré à ${new Date(savedAt).toLocaleTimeString('fr-CA', { hour: '2-digit', minute: '2-digit' })}` : 'Chiffré'}</span>
+            <button onClick={lock} aria-label="Verrouiller mon espace" className="btn btn-soft max-sm:w-12 max-sm:px-0">
+              <Lock size={18} strokeWidth={2.25} /> <span className="max-sm:sr-only">Verrouiller</span>
             </button>
           </div>
         </div>
-        <nav className="mx-auto hidden max-w-6xl gap-1.5 px-4 pb-3 sm:flex">
+        <nav aria-label="Rubriques" className="mx-auto hidden max-w-6xl gap-1.5 px-4 pb-2 sm:flex">
           {TABS.map(({ id, label, icon: Icon }) => (
-            <button key={id} id={`tab-${id}`} onClick={() => setTab(id)} className={`press inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-[15px] font-bold transition-colors duration-500 ${tab === id ? 'bg-ink text-white' : 'text-ink-2 hover:bg-panel'}`}>
-              <Icon size={17} strokeWidth={2} /> {label}
+            <button key={id} id={`tab-${id}`} onClick={() => setTab(id)} aria-current={tab === id ? 'page' : undefined} className={`press inline-flex min-h-12 items-center gap-2 rounded-full px-4 text-base font-bold ${tab === id ? 'bg-ink text-white' : 'text-ink-2 hover:bg-panel'}`}>
+              <Icon size={18} strokeWidth={2} /> {label}
             </button>
           ))}
         </nav>
       </header>
 
-      <main key={tab} className="mx-auto max-w-6xl px-5 py-8 sm:py-12">
+      <main key={tab} className="mx-auto max-w-6xl px-4 py-6 sm:px-5 sm:py-10">
         {tab === 'accueil' && <Accueil fiche={fiche} hoursSince={hoursSince} go={setTab} onIntro={() => setEtapes(true)} />}
         {tab === 'recit' && <Recit fiche={fiche} update={update} savedAt={savedAt} hoursSince={hoursSince} onWipe={() => { if (session) deleteAccount(session); lock() }} onNext={() => setTab('aller')} />}
         {tab === 'aller' && <Aller hoursSince={hoursSince} substance={fromTri(fiche.substance)} />}
@@ -121,13 +121,16 @@ export default function Espace() {
 
       <Etapes open={etapes} onClose={() => setEtapes(false)} prenom={fiche.prenom} go={(t) => { setEtapes(false); setTab(t as Tab) }} />
 
-      {/* Barre d'onglets mobile, au pouce */}
-      <nav className="fixed inset-x-3 bottom-3 z-30 grid grid-cols-5 rounded-[28px] bg-ink p-1.5 shadow-[0_20px_40px_-20px_rgba(45,36,64,.7)] sm:hidden">
-        {TABS.map(({ id, short, icon: Icon }) => (
-          <button key={id} id={`mtab-${id}`} onClick={() => setTab(id)} aria-current={tab === id ? 'page' : undefined} className={`press flex min-h-14 flex-col items-center justify-center gap-0.5 rounded-[22px] py-2 text-[12px] font-extrabold transition-colors duration-500 ${tab === id ? 'bg-white text-ink' : 'text-white/80'}`}>
-            <Icon size={22} strokeWidth={2} /> {short}
-          </button>
-        ))}
+      {/* Barre d'onglets mobile : ancrée en bas, claire, au pouce */}
+      <nav aria-label="Rubriques" className="no-print fixed inset-x-0 bottom-0 z-30 border-t border-rule bg-paper pb-[env(safe-area-inset-bottom)] sm:hidden">
+        <div className="mx-auto grid max-w-md grid-cols-5 px-1">
+          {TABS.map(({ id, short, icon: Icon }) => (
+            <button key={id} id={`mtab-${id}`} onClick={() => setTab(id)} aria-current={tab === id ? 'page' : undefined} className={`press flex min-h-16 flex-col items-center justify-center gap-0.5 rounded-2xl text-[clamp(12.5px,3.7vw,14px)] font-extrabold leading-tight tracking-tight ${tab === id ? 'text-north' : 'text-ink-2'}`}>
+              <span className={`grid h-8 w-14 place-items-center rounded-full ${tab === id ? 'bg-north-soft' : ''}`}><Icon size={22} strokeWidth={2} /></span>
+              {short}
+            </button>
+          ))}
+        </div>
       </nav>
     </div>
   )
@@ -145,7 +148,7 @@ function Intro({ onDone, onHave }: { onDone: () => void; onHave: () => void }) {
     return () => window.removeEventListener('keydown', onKey)
   })
   return (
-    <div className={`flex min-h-screen flex-col transition-colors duration-700 ease-[var(--ease-out-soft)] ${s.bg}`}>
+    <div className={`flex min-h-dvh flex-col transition-colors duration-150 ease-[var(--ease-out-soft)] ${s.bg}`}>
       <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-5 py-5">
         <Wordmark animate />
         <button onClick={onHave} className="press rounded-full bg-white/70 px-4 py-2 text-sm font-bold text-ink-2 hover:bg-white">J’ai déjà un espace</button>
@@ -163,7 +166,7 @@ function Intro({ onDone, onHave }: { onDone: () => void; onHave: () => void }) {
       <div className="mx-auto flex w-full max-w-5xl items-center justify-between gap-4 px-5 pb-8">
         <div className="flex gap-2" role="tablist" aria-label="Étapes">
           {SLIDES.map((_, n) => (
-            <button key={n} aria-label={`Étape ${n + 1}`} onClick={() => go(n)} className={`press h-2.5 rounded-full transition-all duration-700 ease-[var(--ease-out-soft)] ${n === i ? 'w-8 bg-ink' : 'w-2.5 bg-ink/20 hover:bg-ink/40'}`} />
+            <button key={n} aria-label={`Étape ${n + 1}`} onClick={() => go(n)} className={`press h-2.5 rounded-full transition-all duration-150 ease-[var(--ease-out-soft)] ${n === i ? 'w-8 bg-ink' : 'w-2.5 bg-ink/20 hover:bg-ink/40'}`} />
           ))}
         </div>
         <div className="flex gap-2">
@@ -171,7 +174,7 @@ function Intro({ onDone, onHave }: { onDone: () => void; onHave: () => void }) {
             <button onClick={() => go(i - 1)} aria-label="Précédent" className="press grid h-14 w-14 place-items-center rounded-full bg-white/70 text-ink hover:bg-white"><ArrowLeft size={20} strokeWidth={2} /></button>
           )}
           <button id="intro-next" onClick={() => (last ? onDone() : go(i + 1))} className="press group inline-flex h-14 items-center gap-2 rounded-full bg-ink px-7 text-[16px] font-extrabold text-white hover:bg-north">
-            {last ? 'Créer mon espace' : 'Suivant'} <ArrowRight size={19} strokeWidth={2.25} className="transition-transform duration-500 group-hover:translate-x-1" />
+            {last ? 'Créer mon espace' : 'Suivant'} <ArrowRight size={19} strokeWidth={2.25} className="transition-transform duration-150" />
           </button>
         </div>
       </div>
@@ -226,7 +229,7 @@ function Account({ onBack, onLogin, onOpen }: { onBack: () => void; onLogin: () 
     }
   }
   return (
-    <div className="flex min-h-screen flex-col bg-north-soft">
+    <div className="flex min-h-dvh flex-col bg-north-soft">
       <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-5 py-5">
         <Wordmark />
         <button onClick={onBack} className="press inline-flex items-center gap-1.5 rounded-full bg-white/70 px-4 py-2 text-sm font-bold text-ink-2 hover:bg-white"><ArrowLeft size={16} strokeWidth={2} /> Revoir la présentation</button>
@@ -243,9 +246,9 @@ function Account({ onBack, onLogin, onOpen }: { onBack: () => void; onLogin: () 
             <TextField id="pass1" label="Mot de passe" type={show ? 'text' : 'password'} value={pass} onChange={setPass} autoComplete="new-password" right={<EyeToggle show={show} set={setShow} />} />
             <div aria-live="polite">
               <div className="flex gap-1.5">
-                {[1, 2, 3].map((n) => <span key={n} className={`h-1.5 flex-1 rounded-full transition-colors duration-500 ${n <= strength.score ? ['', 'bg-coral', 'bg-sun', 'bg-sage'][strength.score] : 'bg-panel'}`} />)}
+                {[1, 2, 3].map((n) => <span key={n} className={`h-1.5 flex-1 rounded-full transition-colors duration-150 ${n <= strength.score ? ['', 'bg-coral', 'bg-sun', 'bg-sage-ink'][strength.score] : 'bg-panel'}`} />)}
               </div>
-              {strength.label && <p className={`mt-1.5 text-xs font-bold ${['', 'text-coral', 'text-warn', 'text-sage'][strength.score]}`} id="strength">{strength.label}</p>}
+              {strength.label && <p className={`mt-1.5 text-xs font-bold ${['', 'text-coral-ink', 'text-warn', 'text-sage-ink'][strength.score]}`} id="strength">{strength.label}</p>}
             </div>
             <TextField id="pass2" label="Confirmer le mot de passe" type={show ? 'text' : 'password'} value={confirm} onChange={setConfirm} autoComplete="new-password" />
           </div>
@@ -275,7 +278,7 @@ function Unlock({ onOpen, onIntro, onCreate }: { onOpen: (s: VaultSession, data:
     setBusy(false)
   }
   return (
-    <div className="flex min-h-screen flex-col bg-sage-soft">
+    <div className="flex min-h-dvh flex-col bg-sage-soft">
       <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-5 py-5">
         <Wordmark />
         <button onClick={onIntro} className="press rounded-full bg-white/70 px-4 py-2 text-sm font-bold text-ink-2 hover:bg-white">Revoir la présentation</button>
@@ -283,7 +286,7 @@ function Unlock({ onOpen, onIntro, onCreate }: { onOpen: (s: VaultSession, data:
       <div className="mx-auto grid w-full max-w-5xl flex-1 items-center gap-8 px-5 pb-10 md:grid-cols-2">
         <Welcome className="slide-l mx-auto hidden w-full max-w-[400px] md:block" />
         <form onSubmit={submit} className="sheet-in card-soft p-7 sm:p-9" noValidate>
-          <div className="grid h-14 w-14 place-items-center rounded-2xl bg-sage-soft text-sage"><KeyRound size={26} strokeWidth={2} /></div>
+          <div className="grid h-14 w-14 place-items-center rounded-2xl bg-sage-soft text-sage-ink"><KeyRound size={26} strokeWidth={2} /></div>
           <h1 className="display mt-5 text-4xl">Content de vous revoir.</h1>
           <p className="mt-3 text-[16px] leading-relaxed text-ink-2">Connectez-vous pour retrouver votre espace.</p>
           <div className="mt-6 space-y-4">
@@ -291,7 +294,7 @@ function Unlock({ onOpen, onIntro, onCreate }: { onOpen: (s: VaultSession, data:
             <TextField id="login-pass" label="Mot de passe" type={show ? 'text' : 'password'} value={pass} onChange={setPass} autoComplete="current-password" right={<EyeToggle show={show} set={setShow} />} />
           </div>
           {error && <p className="fade-in mt-3 flex items-center gap-1.5 text-sm font-bold text-alert"><AlertTriangle size={16} strokeWidth={2} /> {error}</p>}
-          <button id="login" disabled={busy} className="press mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-sage py-4 text-[16px] font-extrabold text-white hover:bg-ink disabled:opacity-60">
+          <button id="login" disabled={busy} className="press mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-sage-ink py-4 text-[16px] font-extrabold text-white hover:bg-ink disabled:opacity-60">
             {busy ? 'Connexion…' : <><LockOpen size={18} strokeWidth={2.25} /> Se connecter</>}
           </button>
           <button type="button" onClick={onCreate} className="press mt-3 w-full rounded-full py-2.5 text-sm font-bold text-ink-2 hover:bg-panel">Pas encore de compte · En créer un</button>
@@ -317,23 +320,23 @@ function Accueil({ fiche, hoursSince, go, onIntro }: { fiche: Fiche; hoursSince:
       <h1 className="rise display text-4xl sm:text-5xl">{hello}{fiche.prenom ? ` ${fiche.prenom}` : ''}.</h1>
       <p className="rise rise-1 mt-3 max-w-xl text-[18px] leading-relaxed text-ink-2">Prenez le temps qu’il vous faut. Voici ce que vous pouvez faire, dans l’ordre que vous voulez.</p>
 
-      <a href="tel:+18889339007" id="call-ligne" className="rise rise-2 press mt-7 flex items-center gap-4 rounded-[28px] bg-coral p-5 text-white hover:brightness-105">
-        <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-white/25"><Phone size={22} strokeWidth={2.25} /></span>
+      <a href="tel:+18889339007" id="call-ligne" className="rise rise-2 press mt-7 flex items-center gap-4 rounded-[28px] bg-coral p-5 text-ink">
+        <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-white/50"><Phone size={22} strokeWidth={2.25} /></span>
         <span className="min-w-0">
-          <span className="block text-sm font-bold text-white/85">Info-aide violence sexuelle · gratuit, 24 h/24</span>
+          <span className="block text-sm font-bold text-ink">Info-aide violence sexuelle · gratuit, 24 h/24</span>
           <span className="display block text-2xl sm:text-3xl">+1 888 933-9007</span>
         </span>
         <ArrowRight size={22} strokeWidth={2.25} className="ml-auto shrink-0" />
       </a>
 
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
-        {actions.map((a, n) => (
-          <button key={a.title} onClick={() => go(a.tab)} className={`rise press group flex items-center gap-4 overflow-hidden rounded-[28px] p-5 text-left ${a.bg}`} style={{ animationDelay: `${120 + n * 80}ms` }}>
-            <a.Art className="h-28 w-28 shrink-0 transition-transform duration-700 ease-[var(--ease-out-soft)] group-hover:scale-105 sm:h-32 sm:w-32" />
+        {actions.map((a) => (
+          <button key={a.title} onClick={() => go(a.tab)} className={`rise press group flex items-center gap-4 overflow-hidden rounded-[28px] p-5 text-left ${a.bg}`}>
+            <a.Art className="h-28 w-28 shrink-0 transition-transform duration-150 ease-[var(--ease-out-soft)] sm:h-32 sm:w-32" />
             <span className="min-w-0">
               <span className="block text-xl font-extrabold">{a.title}</span>
               <span className="mt-1 block text-[15px] leading-snug text-ink-2">{a.text}</span>
-              <span className="mt-3 inline-flex items-center gap-1 text-sm font-extrabold">Ouvrir <ArrowRight size={15} strokeWidth={2.5} className="transition-transform duration-500 group-hover:translate-x-1" /></span>
+              <span className="mt-3 inline-flex items-center gap-1 text-sm font-extrabold">Ouvrir <ArrowRight size={15} strokeWidth={2.5} className="transition-transform duration-150" /></span>
             </span>
           </button>
         ))}
@@ -369,7 +372,7 @@ function Recit({ fiche, update, savedAt, hoursSince, onWipe, onNext }: {
           <Lock size={14} strokeWidth={1.75} /> {savedAt ? `Chiffré · ${new Date(savedAt).toLocaleTimeString('fr-CA', { hour: '2-digit', minute: '2-digit' })}` : 'Chiffré'}
         </div>
       </div>
-      <div className="mt-6 h-1.5 overflow-hidden rounded-full bg-panel"><div className="h-full rounded-full bg-north transition-all duration-700 ease-[var(--ease-out-soft)]" style={{ width: `${(filled / 7) * 100}%` }} /></div>
+      <div className="mt-6 h-1.5 overflow-hidden rounded-full bg-panel"><div className="h-full rounded-full bg-north transition-all duration-150 ease-[var(--ease-out-soft)]" style={{ width: `${(filled / 7) * 100}%` }} /></div>
 
       <div className="mt-8 grid gap-4 lg:grid-cols-2">
         <Card icon={Clock} title="Quand ?" tint="sun">
@@ -419,7 +422,7 @@ function Recit({ fiche, update, savedAt, hoursSince, onWipe, onNext }: {
           </button>
         )}
         <button onClick={onNext} className="press group inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 font-medium text-paper hover:bg-north">
-          Où aller maintenant <ArrowRight size={17} strokeWidth={1.75} className="transition-transform duration-500 group-hover:translate-x-1" />
+          Où aller maintenant <ArrowRight size={17} strokeWidth={1.75} className="transition-transform duration-150" />
         </button>
       </div>
     </div>
@@ -442,7 +445,7 @@ function Aller({ hoursSince, substance }: { hoursSince: number | null; substance
   const urgent = hoursSince !== null ? computeChecklist({ hoursSince, substance, exposure: true, pregnancyRisk: true, injuries: false, showered: false }).filter((c) => c.status === 'urgent' || c.status === 'possible') : []
 
   useEffect(() => {
-    if (active) document.getElementById(`res-${active}`)?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+    if (active) document.getElementById(`res-${active}`)?.scrollIntoView({ behavior: 'instant', block: 'nearest' })
   }, [active])
 
   return (
@@ -459,14 +462,14 @@ function Aller({ hoursSince, substance }: { hoursSince: number | null; substance
               <span key={c.id} className="rounded-full bg-paper px-3 py-1.5 text-sm">{c.label} · <b>≈{NB}{c.remainingH}{NB}h</b>{c.uncertain && <span className="text-warn"> · à confirmer</span>}</span>
             ))}
           </div>
-          <p className="mt-3 text-xs text-warn/80">{RULES_WARNING} « À confirmer » : affiché parce que vous avez répondu « Je ne sais pas ».</p>
+          <p className="mt-3 text-xs text-warn">{RULES_WARNING} « À confirmer » : affiché parce que vous avez répondu « Je ne sais pas ».</p>
         </div>
       )}
 
-      <a href="tel:+18889339007" className="press mt-6 flex items-center gap-4 rounded-[28px] bg-coral p-5 text-white hover:brightness-105" id="call-ligne-aller">
-        <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-white/25"><Phone size={22} strokeWidth={2.25} /></span>
+      <a href="tel:+18889339007" className="press mt-6 flex items-center gap-4 rounded-[28px] bg-coral p-5 text-ink" id="call-ligne-aller">
+        <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-white/50"><Phone size={22} strokeWidth={2.25} /></span>
         <span className="min-w-0">
-          <span className="block text-sm font-bold text-white/85">Info-aide violence sexuelle · gratuit · confidentiel · 24 h/24</span>
+          <span className="block text-sm font-bold text-ink">Info-aide violence sexuelle · gratuit · confidentiel · 24 h/24</span>
           <span className="display block text-2xl sm:text-3xl">+1 888 933-9007</span>
         </span>
         <ArrowRight size={20} strokeWidth={1.75} className="ml-auto" />
@@ -474,7 +477,7 @@ function Aller({ hoursSince, substance }: { hoursSince: number | null; substance
 
       <div className="mt-8 flex gap-2 overflow-x-auto">
         {FILTERS.map(({ id, label, icon: Icon }) => (
-          <button key={id} onClick={() => setFilter(id)} className={`press inline-flex shrink-0 items-center gap-2 rounded-full border px-4 py-2 text-sm transition-colors duration-500 ${filter === id ? 'border-north bg-north text-paper' : 'border-rule text-ink-2 hover:border-ink'}`}>
+          <button key={id} onClick={() => setFilter(id)} className={`press inline-flex shrink-0 items-center gap-2 rounded-full border px-4 py-2 text-sm transition-colors duration-150 ${filter === id ? 'border-north bg-north text-paper' : 'border-rule text-ink-2 hover:border-ink'}`}>
             <Icon size={15} strokeWidth={1.75} /> {label}
           </button>
         ))}
@@ -492,7 +495,7 @@ function Aller({ hoursSince, substance }: { hoursSince: number | null; substance
           </div>
           <div className="mt-3 flex flex-wrap gap-3 text-xs font-bold text-ink-2">
             <span className="inline-flex items-center gap-1.5"><span className="h-3 w-3 rounded-full bg-sky" /> Examens médicaux</span>
-            <span className="inline-flex items-center gap-1.5"><span className="h-3 w-3 rounded-full bg-sage" /> Soutien psychologique</span>
+            <span className="inline-flex items-center gap-1.5"><span className="h-3 w-3 rounded-full bg-sage-ink" /> Soutien psychologique</span>
             <span className="inline-flex items-center gap-1.5"><span className="h-3 w-3 rounded-full bg-sun" /> Juridique</span>
           </div>
         </div>
@@ -505,7 +508,7 @@ function Aller({ hoursSince, substance }: { hoursSince: number | null; substance
 function ResourceCard({ r, n, active, onSelect }: { r: Resource; n: number; active: boolean; onSelect: () => void }) {
   const kind = { exam: ['Examens médicaux', 'bg-ink text-paper'], support: ['Soutien psychologique', 'bg-north text-paper'], legal: ['Juridique', 'bg-warn text-paper'] }[r.kind]
   return (
-    <li id={`res-${r.id}`} onClick={onSelect} className={`rise cursor-pointer rounded-[24px] border-2 p-5 transition-all duration-500 ease-[var(--ease-out-soft)] ${active ? 'border-north bg-north-soft shadow-[0_12px_30px_-18px_rgba(106,76,224,0.6)]' : 'border-transparent bg-white shadow-[0_14px_30px_-26px_rgba(45,36,64,.5)] hover:border-north-soft'}`}>
+    <li id={`res-${r.id}`} onClick={onSelect} className={`rise cursor-pointer rounded-[24px] border-2 p-5 transition-all duration-150 ease-[var(--ease-out-soft)] ${active ? 'border-north bg-north-soft shadow-[0_12px_30px_-18px_rgba(106,76,224,0.6)]' : 'border-transparent bg-white shadow-[0_14px_30px_-26px_rgba(45,36,64,.5)] hover:border-north-soft'}`}>
       <div className="flex items-start gap-3">
         <span className={`grid h-7 w-7 shrink-0 place-items-center rounded-full font-mono text-xs ${kind[1]}`}>{n}</span>
         <div className="min-w-0 flex-1">
@@ -523,7 +526,7 @@ function ResourceCard({ r, n, active, onSelect }: { r: Resource; n: number; acti
           </div>
           <div className="mt-4 flex flex-wrap gap-2" onClick={(e) => e.stopPropagation()}>
             {r.phone && <a href={`tel:${r.phone}`} className="press inline-flex items-center gap-1.5 rounded-full bg-ink px-3.5 py-2 text-[13px] font-bold text-white hover:bg-north"><Phone size={14} strokeWidth={2} /> {r.phoneLabel}</a>}
-            {r.address && <a href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(r.address)}`} target="_blank" rel="noreferrer" className="press inline-flex items-center gap-1.5 rounded-full bg-sky-soft px-3.5 py-2 text-[13px] font-bold text-sky hover:bg-sky hover:text-white"><Navigation size={14} strokeWidth={2} /> Itinéraire Google Maps</a>}
+            {r.address && <a href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(r.address)}`} target="_blank" rel="noreferrer" className="press inline-flex items-center gap-1.5 rounded-full bg-sky-soft px-3.5 py-2 text-[13px] font-bold text-sky-ink hover:bg-sky hover:text-white"><Navigation size={14} strokeWidth={2} /> Itinéraire Google Maps</a>}
             {r.url && <a href={r.url} target="_blank" rel="noreferrer" className="press inline-flex items-center gap-1.5 rounded-full border border-rule px-3.5 py-2 text-[13px] hover:border-ink"><ExternalLink size={14} strokeWidth={1.75} /> Site</a>}
           </div>
         </div>
@@ -635,9 +638,9 @@ function Dossier({ fiche, hoursSince, onJournal }: { fiche: Fiche; hoursSince: n
             <div className="fade-in card-soft p-6" id="send-progress">
               <ol className="space-y-4">
                 {PHASES.map(({ icon: Icon, label }, n) => (
-                  <li key={label} className={`flex items-center gap-3 transition-opacity duration-500 ${n <= phase ? 'opacity-100' : 'opacity-35'}`}>
-                    <span className={`grid h-9 w-9 place-items-center rounded-full transition-colors duration-500 ${n < phase || (n === 3 && phase === 3) ? 'bg-north text-paper' : n === phase ? 'bg-ink text-paper' : 'bg-panel text-ink-3'}`}>
-                      {n < phase || (n === 3 && phase === 3) ? <Check size={16} strokeWidth={2.25} /> : <Icon size={16} strokeWidth={1.75} className={n === phase ? 'animate-pulse' : ''} />}
+                  <li key={label} className={`flex items-center gap-3 transition-opacity duration-150 ${n <= phase ? 'opacity-100' : 'opacity-35'}`}>
+                    <span className={`grid h-9 w-9 place-items-center rounded-full transition-colors duration-150 ${n < phase || (n === 3 && phase === 3) ? 'bg-north text-paper' : n === phase ? 'bg-ink text-paper' : 'bg-panel text-ink-3'}`}>
+                      {n < phase || (n === 3 && phase === 3) ? <Check size={16} strokeWidth={2.25} /> : <Icon size={16} strokeWidth={1.75} className={n === phase ? '' : ''} />}
                     </span>
                     {label}
                   </li>
@@ -646,7 +649,7 @@ function Dossier({ fiche, hoursSince, onJournal }: { fiche: Fiche; hoursSince: n
               {packet && (
                 <div className="fade-in mt-5 rounded-2xl bg-north-soft p-4 text-sm text-north">
                   <div className="font-medium">Référence simulée : <span className="font-mono">{packet.ref}</span></div>
-                  <div className="mt-1 font-mono text-[11px] break-all text-north/80">{packet.size} octets chiffrés · sha256 {packet.fingerprint.slice(0, 32)}…</div>
+                  <div className="mt-1 font-mono text-[11px] break-all text-north">{packet.size} octets chiffrés · sha256 {packet.fingerprint.slice(0, 32)}…</div>
                   <div className="mt-2 text-ink-2">En production : transmission chiffrée de bout en bout, clé remise séparément, accusé signé.</div>
                 </div>
               )}
@@ -692,8 +695,8 @@ function ViePrivee() {
       <div className="rise eyebrow text-north">Vie privée</div>
       <h1 className="rise rise-1 display mt-3 max-w-3xl text-4xl sm:text-5xl">Des données parmi les plus sensibles qui soient. On les traite comme telles.</h1>
       <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {promises.map(({ icon: Icon, t, d }, n) => (
-          <div key={t} className="rise card-soft p-6" style={{ animationDelay: `${n * 70}ms` }}>
+        {promises.map(({ icon: Icon, t, d }) => (
+          <div key={t} className="rise card-soft p-6">
             <span className="grid h-11 w-11 place-items-center rounded-2xl bg-north-soft text-north"><Icon size={20} strokeWidth={1.75} /></span>
             <div className="mt-5 text-[17px] font-medium">{t}</div>
             <p className="mt-2 text-[15px] leading-relaxed text-ink-2">{d}</p>
@@ -711,11 +714,11 @@ function ViePrivee() {
 /* ───────────── Petits composants ───────────── */
 
 const TINTS = {
-  north: 'bg-north-soft text-north', coral: 'bg-coral-soft text-coral', sky: 'bg-sky-soft text-sky', sage: 'bg-sage-soft text-sage', sun: 'bg-sun-soft text-warn',
+  north: 'bg-north-soft text-north', coral: 'bg-coral-soft text-coral-ink', sky: 'bg-sky-soft text-sky-ink', sage: 'bg-sage-soft text-sage-ink', sun: 'bg-sun-soft text-warn',
 } as const
 function Card({ icon: Icon, title, children, wide, tint = 'north' }: { icon: typeof Lock; title: string; children: React.ReactNode; wide?: boolean; tint?: keyof typeof TINTS }) {
   return (
-    <section className={`rise card-soft p-6 transition-shadow duration-500 focus-within:shadow-[0_0_0_3px_var(--color-north-soft)] ${wide ? 'lg:col-span-2' : ''}`}>
+    <section className={`rise card-soft p-6 transition-shadow duration-150 focus-within:shadow-[0_0_0_3px_var(--color-north-soft)] ${wide ? 'lg:col-span-2' : ''}`}>
       <div className="mb-4 flex items-center gap-3">
         <span className={`grid h-10 w-10 place-items-center rounded-2xl ${TINTS[tint]}`}><Icon size={19} strokeWidth={2} /></span>
         <h2 className="text-[17px] font-extrabold">{title}</h2>
@@ -731,7 +734,7 @@ function Chips({ options, value, onToggle }: { options: string[]; value: string[
       {options.map((o) => {
         const on = value.includes(o)
         return (
-          <button key={o} type="button" onClick={() => onToggle(o)} aria-pressed={on} className={`press inline-flex items-center gap-1.5 rounded-full border px-3.5 py-2 text-sm transition-colors duration-500 ${on ? 'border-north bg-north text-paper' : 'border-rule hover:border-ink-3'}`}>
+          <button key={o} type="button" onClick={() => onToggle(o)} aria-pressed={on} className={`press inline-flex items-center gap-1.5 rounded-full border px-3.5 py-2 text-sm transition-colors duration-150 ${on ? 'border-north bg-north text-paper' : 'border-rule hover:border-ink-3'}`}>
             {on && <Check size={14} strokeWidth={2.25} />} {o}
           </button>
         )
@@ -758,9 +761,9 @@ function TriSelect({ value, onChange }: { value: Tri; onChange: (v: Tri) => void
   const idx = opts.findIndex(([v]) => v === value)
   return (
     <div className="relative inline-grid grid-cols-3 rounded-full bg-panel p-1 text-sm">
-      {idx >= 0 && <span className="absolute inset-y-1 left-1 w-[calc((100%-8px)/3)] rounded-full bg-ink transition-transform duration-500 ease-[var(--ease-out-soft)]" style={{ transform: `translateX(${idx * 100}%)` }} />}
+      {idx >= 0 && <span className="absolute inset-y-1 left-1 w-[calc((100%-8px)/3)] rounded-full bg-ink transition-transform duration-150 ease-[var(--ease-out-soft)]" style={{ transform: `translateX(${idx * 100}%)` }} />}
       {opts.map(([v, l]) => (
-        <button key={v} type="button" onClick={() => onChange(value === v ? '' : v)} className={`press relative z-10 rounded-full px-4 py-2 transition-colors duration-500 ${value === v ? 'text-paper' : 'text-ink-2 hover:text-ink'}`}>{l}</button>
+        <button key={v} type="button" onClick={() => onChange(value === v ? '' : v)} className={`press relative z-10 rounded-full px-4 py-2 transition-colors duration-150 ${value === v ? 'text-paper' : 'text-ink-2 hover:text-ink'}`}>{l}</button>
       ))}
     </div>
   )
@@ -770,8 +773,8 @@ function Check2({ label, checked, onChange, id }: { label: string; checked: bool
   return (
     <label id={id} className="press mt-3 flex cursor-pointer items-start gap-3 rounded-2xl p-1 text-[15px]">
       <input type="checkbox" className="sr-only" checked={checked} onChange={(e) => onChange(e.target.checked)} />
-      <span className={`mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-md border transition-all duration-500 ${checked ? 'border-north bg-north text-paper' : 'border-ink-3/50'}`}>
-        <Check size={13} strokeWidth={2.5} className={`transition-all duration-500 ${checked ? 'scale-100 opacity-100' : 'scale-50 opacity-0'}`} />
+      <span className={`mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-md border transition-all duration-150 ${checked ? 'border-north bg-north text-paper' : 'border-ink-3/50'}`}>
+        <Check size={13} strokeWidth={2.5} className={`transition-all duration-150 ${checked ? 'scale-100 opacity-100' : 'scale-50 opacity-0'}`} />
       </span>
       {label}
     </label>
@@ -782,8 +785,8 @@ function Toggle({ label, hint, on, set }: { label: string; hint: string; on: boo
   return (
     <button type="button" onClick={() => set(!on)} aria-pressed={on} className="press flex w-full items-center justify-between gap-3 rounded-2xl px-1 py-2.5 text-left">
       <span><span className="block text-[15px]">{label}</span><span className="block text-xs text-ink-3">{hint}</span></span>
-      <span className={`relative h-7 w-12 shrink-0 rounded-full transition-colors duration-500 ${on ? 'bg-north' : 'bg-rule'}`}>
-        <span className={`absolute top-1 h-5 w-5 rounded-full bg-paper shadow transition-transform duration-500 ease-[var(--ease-out-soft)] ${on ? 'translate-x-6' : 'translate-x-1'}`} />
+      <span className={`relative h-7 w-12 shrink-0 rounded-full transition-colors duration-150 ${on ? 'bg-north' : 'bg-rule'}`}>
+        <span className={`absolute top-1 h-5 w-5 rounded-full bg-paper shadow transition-transform duration-150 ease-[var(--ease-out-soft)] ${on ? 'translate-x-6' : 'translate-x-1'}`} />
       </span>
     </button>
   )

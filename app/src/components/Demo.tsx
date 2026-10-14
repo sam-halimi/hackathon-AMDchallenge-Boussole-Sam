@@ -55,7 +55,7 @@ export default function Demo() {
     verifyLog(log).then(setIntegrity)
   }, [log])
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    window.scrollTo(0, 0)
   }, [step])
 
   const checklist = useMemo(() => computeChecklist(intake), [intake])
@@ -124,13 +124,13 @@ export default function Demo() {
         className="press group inline-flex items-center gap-3 rounded-xl bg-ink px-5 py-3 text-[15px] font-medium text-paper hover:bg-north disabled:cursor-not-allowed disabled:opacity-30"
       >
         {label}
-        <ArrowRight size={16} strokeWidth={1.75} className="transition-transform duration-500 ease-[var(--ease-out-soft)] group-hover:translate-x-1" />
+        <ArrowRight size={16} strokeWidth={1.75} className="transition-transform duration-150 ease-[var(--ease-out-soft)]" />
       </button>
     </div>
   )
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-dvh">
       <div className="no-print border-b border-alert/20 bg-alert-soft py-1.5 text-center text-alert">
         <span className="eyebrow">Données 100 % fictives · prototype · règles non validées cliniquement · ne pas utiliser en soins réels</span>
       </div>
@@ -149,7 +149,7 @@ export default function Demo() {
             </span>
             <span
               id="integrity-chip"
-              className={`inline-flex items-center gap-1.5 rounded-full border px-2 py-1 font-mono text-[11px] transition-colors duration-500 ${integrity.ok ? 'border-north/30 bg-north-soft text-north' : 'border-alert/40 bg-alert-soft text-alert'}`}
+              className={`inline-flex items-center gap-1.5 rounded-full border px-2 py-1 font-mono text-[11px] transition-colors duration-150 ${integrity.ok ? 'border-north/30 bg-north-soft text-north' : 'border-alert/40 bg-alert-soft text-alert'}`}
             >
               <Link2 size={13} strokeWidth={1.75} />
               {log.length} · {integrity.ok ? 'intègre' : `altéré #${integrity.brokenAt}`}
@@ -168,12 +168,12 @@ export default function Demo() {
                 onClick={() => setStep(i)}
                 className={`press relative flex items-center gap-2 border-r border-rule px-3 py-3 text-left text-sm last:border-r-0 disabled:cursor-not-allowed disabled:opacity-35 sm:px-4 ${active ? 'text-ink' : 'text-ink-3 hover:bg-panel hover:text-ink'}`}
               >
-                <span className={`grid h-6 w-6 shrink-0 place-items-center rounded-full border font-mono text-[11px] transition-colors duration-500 ${active ? 'border-ink bg-ink text-paper' : reached ? 'border-north bg-north text-paper' : 'border-rule'}`}>
+                <span className={`grid h-6 w-6 shrink-0 place-items-center rounded-full border font-mono text-[11px] transition-colors duration-150 ${active ? 'border-ink bg-ink text-paper' : reached ? 'border-north bg-north text-paper' : 'border-rule'}`}>
                   {reached ? <Check size={12} strokeWidth={2.5} /> : i + 1}
                 </span>
                 <span className="hidden truncate md:inline">{label}</span>
                 <Icon size={15} strokeWidth={1.75} className="ml-auto hidden text-ink-3 lg:block" />
-                <span className={`absolute inset-x-0 -bottom-px h-0.5 origin-left bg-north transition-transform duration-700 ease-[var(--ease-out-soft)] ${active ? 'scale-x-100' : 'scale-x-0'}`} />
+                <span className={`absolute inset-x-0 -bottom-px h-0.5 origin-left bg-north transition-transform duration-150 ease-[var(--ease-out-soft)] ${active ? 'scale-x-100' : 'scale-x-0'}`} />
               </button>
             )
           })}
@@ -191,8 +191,8 @@ export default function Demo() {
                   className={`rise rise-${i + 1} press group flex cursor-pointer gap-4 p-6 ${consent[k] ? 'bg-north-soft' : 'bg-paper hover:bg-panel'}`}
                 >
                   <input type="checkbox" className="peer sr-only" checked={consent[k]} onChange={() => toggleConsent(k)} />
-                  <span className={`mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full border transition-all duration-500 ease-[var(--ease-out-soft)] ${consent[k] ? 'border-north bg-north text-paper' : 'border-ink-3/50 bg-paper group-hover:border-ink'}`}>
-                    <Check size={14} strokeWidth={2.5} className={`transition-all duration-500 ${consent[k] ? 'scale-100 opacity-100' : 'scale-50 opacity-0'}`} />
+                  <span className={`mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full border transition-all duration-150 ease-[var(--ease-out-soft)] ${consent[k] ? 'border-north bg-north text-paper' : 'border-ink-3/50 bg-paper group-hover:border-ink'}`}>
+                    <Check size={14} strokeWidth={2.5} className={`transition-all duration-150 ${consent[k] ? 'scale-100 opacity-100' : 'scale-50 opacity-0'}`} />
                   </span>
                   <span>
                     <span className="block text-[17px] font-medium">{CONSENT_LABELS[k][0]}</span>
@@ -228,7 +228,7 @@ export default function Demo() {
             </div>
             <div className="mt-6 divide-y divide-rule rounded-2xl border border-rule">
               <YesNo id="q-substance" q="Une substance est-elle soupçonnée (drogue, médicament, alcool à son insu) ?" v={intake.substance} set={(v) => setIntake({ ...intake, substance: v })} />
-              <div className={`grid transition-all duration-700 ease-[var(--ease-out-soft)] ${intake.substance !== false ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
+              <div className={`grid transition-all duration-150 ease-[var(--ease-out-soft)] ${intake.substance !== false ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
                 <div className="overflow-hidden">
                   <div className="flex items-start gap-3 bg-north-soft px-6 py-4 text-[15px] text-ink-2">
                     <Sparkles size={16} strokeWidth={1.75} className="mt-0.5 shrink-0 text-north" />
@@ -259,10 +259,10 @@ export default function Demo() {
               </div>
             )}
             <ul className="divide-y divide-rule overflow-hidden rounded-2xl border border-rule" id="checklist">
-              {checklist.map((c, i) => {
+              {checklist.map((c) => {
                 const disabled = !consent.prelevements || c.status === 'depasse'
                 return (
-                  <li key={c.id} className={`rise flex items-center gap-4 px-5 py-4 transition-colors duration-500 ${done[c.id] ? 'bg-north-soft' : 'bg-paper'} ${c.status === 'depasse' ? 'opacity-55' : ''}`} style={{ animationDelay: `${i * 70}ms` }}>
+                  <li key={c.id} className={`rise flex items-center gap-4 px-5 py-4 transition-colors duration-150 ${done[c.id] ? 'bg-north-soft' : 'bg-paper'} ${c.status === 'depasse' ? 'opacity-55' : ''}`}>
                     <button
                       disabled={disabled}
                       aria-pressed={!!done[c.id]}
@@ -273,7 +273,7 @@ export default function Demo() {
                       }}
                       className={`press grid h-6 w-6 shrink-0 place-items-center rounded-full border disabled:cursor-not-allowed ${done[c.id] ? 'border-north bg-north text-paper' : 'border-ink-3/50 hover:border-ink'}`}
                     >
-                      <Check size={14} strokeWidth={2.5} className={`transition-all duration-500 ${done[c.id] ? 'scale-100 opacity-100' : 'scale-50 opacity-0'}`} />
+                      <Check size={14} strokeWidth={2.5} className={`transition-all duration-150 ${done[c.id] ? 'scale-100 opacity-100' : 'scale-50 opacity-0'}`} />
                     </button>
                     <div className="min-w-0 flex-1">
                       <div className="text-[16px] font-medium">{c.label}</div>
@@ -314,10 +314,10 @@ export default function Demo() {
                     )}
                   </div>
                 ) : (
-                  <textarea value={notes} onChange={(e) => setNotes(e.target.value)} className="field-sizing-content min-h-80 w-full resize-none rounded-2xl border border-rule bg-paper p-4 text-[15px] leading-relaxed outline-none transition-colors duration-500 focus:border-ink" />
+                  <textarea value={notes} onChange={(e) => setNotes(e.target.value)} className="field-sizing-content min-h-80 w-full resize-none rounded-2xl border border-rule bg-paper p-4 text-[15px] leading-relaxed outline-none transition-colors duration-150 focus:border-ink" />
                 )}
                 <button id="generate" onClick={generate} disabled={loading} className="press mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-ink py-3.5 text-[15px] font-medium text-paper hover:bg-north disabled:opacity-60">
-                  <Sparkles size={16} strokeWidth={1.75} className={loading ? 'animate-pulse' : ''} />
+                  <Sparkles size={16} strokeWidth={1.75} className={loading ? '' : ''} />
                   {loading ? 'Structuration en cours…' : 'Générer la chronologie'}
                 </button>
               </div>
@@ -365,9 +365,9 @@ export default function Demo() {
                         const key = `ev-${i}`
                         const d = decisions[key] ?? 'pending'
                         return (
-                          <li key={key} className="rise relative ml-5" style={{ animationDelay: `${i * 80}ms` }}>
-                            <span className={`absolute -left-[26px] top-4 h-2.5 w-2.5 rounded-full border-2 border-paper transition-colors duration-500 ${d === 'ok' ? 'bg-north' : d === 'rejected' ? 'bg-alert' : 'bg-ink-3'}`} />
-                            <div className={`flex justify-between gap-3 rounded-xl border px-4 py-3 transition-all duration-500 ${d === 'ok' ? 'border-north/40 bg-north-soft' : d === 'rejected' ? 'border-alert/30 bg-alert-soft opacity-60' : 'border-rule bg-paper'}`}>
+                          <li key={key} className="rise relative ml-5">
+                            <span className={`absolute -left-[26px] top-4 h-2.5 w-2.5 rounded-full border-2 border-paper transition-colors duration-150 ${d === 'ok' ? 'bg-north' : d === 'rejected' ? 'bg-alert' : 'bg-ink-3'}`} />
+                            <div className={`flex justify-between gap-3 rounded-xl border px-4 py-3 transition-all duration-150 ${d === 'ok' ? 'border-north/40 bg-north-soft' : d === 'rejected' ? 'border-alert/30 bg-alert-soft opacity-60' : 'border-rule bg-paper'}`}>
                               <div className="min-w-0">
                                 <div className="font-mono text-[11px] text-ink-3">{ev.time}</div>
                                 <div className={`text-[15px] font-medium ${d === 'rejected' ? 'line-through' : ''}`}>{ev.description}</div>
@@ -389,7 +389,7 @@ export default function Demo() {
                       const key = `inc-${i}`
                       const d = decisions[key] ?? 'pending'
                       return (
-                        <div key={key} id={`inc-${i}`} className={`rise rounded-xl border px-4 py-3 text-[14px] transition-colors duration-500 ${d === 'ok' ? 'border-north/40 bg-north-soft' : 'border-warn/40 bg-warn-soft'}`}>
+                        <div key={key} id={`inc-${i}`} className={`rise rounded-xl border px-4 py-3 text-[14px] transition-colors duration-150 ${d === 'ok' ? 'border-north/40 bg-north-soft' : 'border-warn/40 bg-warn-soft'}`}>
                           <div className="flex justify-between gap-3">
                             <span className="flex items-center gap-1.5 font-medium text-warn"><ShieldAlert size={15} strokeWidth={1.75} /> Incohérence du dossier (pas du récit)</span>
                             <Validate d={d} okLabel="Corrigé" onOk={() => decide(key, c.description, 'ok')} onNo={() => decide(key, c.description, 'rejected')} />
@@ -540,9 +540,9 @@ function YesNo({ id, q, v, set }: { id: string; q: string; v: Answer; set: (v: A
     <div id={id} className="flex flex-wrap items-center justify-between gap-4 px-6 py-4">
       <span className="text-[16px]">{q}</span>
       <div role="radiogroup" aria-label={q} className="relative inline-grid grid-cols-3 rounded-xl border border-rule bg-panel p-0.5 text-sm">
-        <span className="absolute inset-y-0.5 left-0.5 w-[calc((100%-4px)/3)] rounded bg-ink transition-transform duration-500 ease-[var(--ease-out-soft)]" style={{ transform: `translateX(${idx * 100}%)` }} />
+        <span className="absolute inset-y-0.5 left-0.5 w-[calc((100%-4px)/3)] rounded bg-ink transition-transform duration-150 ease-[var(--ease-out-soft)]" style={{ transform: `translateX(${idx * 100}%)` }} />
         {opts.map(([o, l]) => (
-          <button key={l} role="radio" aria-checked={o === v} onClick={() => set(o)} className={`press relative z-10 px-3 py-1.5 transition-colors duration-500 ${o === v ? 'text-paper' : 'text-ink-2 hover:text-ink'}`}>
+          <button key={l} role="radio" aria-checked={o === v} onClick={() => set(o)} className={`press relative z-10 px-3 py-1.5 transition-colors duration-150 ${o === v ? 'text-paper' : 'text-ink-2 hover:text-ink'}`}>
             {l}
           </button>
         ))}

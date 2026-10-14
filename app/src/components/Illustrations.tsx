@@ -22,7 +22,7 @@ export function Welcome({ className }: P) {
       <rect x="112" y="120" width="36" height="55" rx="18" fill="#FFD08A" />
       <path d="M130 108 c-6 -9 -20 -4 -14 7 l14 12 l14 -12 c6 -11 -8 -16 -14 -7 z" fill="#FF8A65" />
       <ellipse cx="130" cy="178" rx="80" ry="7" fill="#EADFD4" />
-      <g className="float"><circle cx="210" cy="60" r="6" fill="#E9A23B" /><circle cx="48" cy="80" r="4" fill="#6A4CE0" /></g>
+      <g><circle cx="210" cy="60" r="6" fill="#E9A23B" /><circle cx="48" cy="80" r="4" fill="#6A4CE0" /></g>
       <path d="M200 175 c-4 -20 6 -32 14 -36 c-2 12 -4 24 -14 36 z" fill="#2F9E78" />
       <path d="M58 175 c4 -18 -4 -28 -12 -32 c1 10 4 22 12 32 z" fill="#2F9E78" />
     </svg>
@@ -43,7 +43,7 @@ export function Choice({ className }: P) {
       ))}
       <Person x={84} y={98} body="#FF8A65" skin={SKIN[1]} />
       <ellipse cx="130" cy="178" rx="80" ry="7" fill="#EADFD4" />
-      <g className="float"><path d="M210 40 l4 8 l8 4 l-8 4 l-4 8 l-4 -8 l-8 -4 l8 -4 z" fill="#E9A23B" /></g>
+      <g><path d="M210 40 l4 8 l8 4 l-8 4 l-4 8 l-4 -8 l-8 -4 l8 -4 z" fill="#E9A23B" /></g>
     </svg>
   )
 }
@@ -76,7 +76,7 @@ export function Care({ className }: P) {
       {[0, 1].map((r) => [0, 1, 2].map((c) => <rect key={`${r}${c}`} x={86 + c * 32} y={94 + r * 28} width="24" height="16" rx="6" fill="#E1EEFB" />))}
       <rect x="116" y="148" width="28" height="27" rx="10" fill="#6A4CE0" />
       <ellipse cx="130" cy="178" rx="84" ry="7" fill="#EADFD4" />
-      <g className="float"><circle cx="44" cy="70" r="5" fill="#E9A23B" /><circle cx="214" cy="56" r="4" fill="#2F9E78" /></g>
+      <g><circle cx="44" cy="70" r="5" fill="#E9A23B" /><circle cx="214" cy="56" r="4" fill="#2F9E78" /></g>
     </svg>
   )
 }
@@ -92,7 +92,7 @@ export function Space({ className }: P) {
       <circle cx="130" cy="104" r="4" fill="white" />
       <rect x="110" y="128" width="40" height="6" rx="3" fill="#EADFD4" />
       <rect x="116" y="138" width="28" height="6" rx="3" fill="#EADFD4" />
-      <g className="float">
+      <g>
         <path d="M200 70 c-5 -8 -18 -4 -13 6 l13 11 l13 -11 c5 -10 -8 -14 -13 -6 z" fill="#FF8A65" />
         <path d="M58 60 l4 8 l8 4 l-8 4 l-4 8 l-4 -8 l-8 -4 l8 -4 z" fill="#6A4CE0" />
       </g>

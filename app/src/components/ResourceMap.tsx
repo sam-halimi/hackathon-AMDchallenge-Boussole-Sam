@@ -4,22 +4,23 @@ import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import type { Resource } from '../lib/resources'
 
-const COLORS: Record<Resource['kind'], string> = { exam: '#3D86D6', support: '#2F9E78', legal: '#E9A23B' }
+// Mêmes couleurs que les pastilles de la liste : assez foncées pour un numéro blanc lisible.
+const COLORS: Record<Resource['kind'], string> = { exam: '#1F5FA8', support: '#1E6F54', legal: '#8F4E0A' }
 
 function pin(r: Resource, n: number, active: boolean) {
-  return L.divIcon({ className: '', iconSize: [34, 34], iconAnchor: [17, 34], tooltipAnchor: [0, -30], html: `<div class="pin ${active ? 'active' : ''}" style="background:${COLORS[r.kind]}"><span>${n}</span></div>` })
+  return L.divIcon({ className: '', iconSize: [44, 44], iconAnchor: [22, 44], tooltipAnchor: [0, -40], html: `<div class="pin ${active ? 'active' : ''}" style="background:${COLORS[r.kind]}"><span>${n}</span></div>` })
 }
 
-// Cadre la carte sur tous les points visibles, puis glisse doucement vers celui choisi.
+// Cadre la carte sur tous les points visibles, sans animation, puis se recentre sur celui choisi.
 function Camera({ items, target }: { items: Resource[]; target?: Resource }) {
   const map = useMap()
   useEffect(() => {
     const pts = items.filter((r) => r.lat && r.lng).map((r) => [r.lat!, r.lng!] as [number, number])
-    if (pts.length) map.flyToBounds(L.latLngBounds(pts), { padding: [48, 48], maxZoom: 14, duration: 0.8 })
+    if (pts.length) map.fitBounds(L.latLngBounds(pts), { padding: [48, 48], maxZoom: 14, animate: false })
   }, [items, map])
   useEffect(() => {
     // On glisse vers le lieu choisi sans zoomer : tous les autres points restent visibles.
-    if (target?.lat && target.lng) map.panTo([target.lat, target.lng], { animate: true, duration: 0.8, easeLinearity: 0.2 })
+    if (target?.lat && target.lng) map.panTo([target.lat, target.lng], { animate: true, duration: 0.3 })
   }, [target, map])
   return null
 }

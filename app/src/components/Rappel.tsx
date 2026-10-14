@@ -47,9 +47,9 @@ export default function Rappel({ onConfirm }: { onConfirm: (b: Booking) => void 
     return (
       <div className="sheet-in mt-5 rounded-[28px] bg-sage-soft p-6" id="rappel-ok">
         <div className="flex items-center gap-3">
-          <span className="grid h-12 w-12 place-items-center rounded-2xl bg-sage text-white"><CalendarCheck size={24} strokeWidth={2} /></span>
+          <span className="grid h-12 w-12 place-items-center rounded-2xl bg-sage-ink text-white"><CalendarCheck size={24} strokeWidth={2} /></span>
           <div>
-            <div className="text-sm font-extrabold text-sage">Rendez-vous confirmé (simulé)</div>
+            <div className="text-sm font-extrabold text-sage-ink">Rendez-vous confirmé (simulé)</div>
             <div className="display text-2xl capitalize">{fmtDay(d)}, {fmtTime(d)}</div>
           </div>
         </div>
@@ -72,7 +72,7 @@ export default function Rappel({ onConfirm }: { onConfirm: (b: Booking) => void 
 
       <div className="mt-5 inline-grid grid-cols-2 rounded-full bg-panel p-1 text-sm font-bold">
         {[['Aujourd’hui', today.length], ['Demain', tomorrow.length]].map(([l, n], k) => (
-          <button key={l as string} disabled={!n} onClick={() => { setDay(k as 0 | 1); setSlot(null) }} className={`press rounded-full px-5 py-2 transition-colors duration-500 disabled:opacity-30 ${day === k ? 'bg-ink text-white' : 'text-ink-2'}`}>{l}</button>
+          <button key={l as string} disabled={!n} onClick={() => { setDay(k as 0 | 1); setSlot(null) }} className={`press rounded-full px-5 py-2 transition-colors duration-150 disabled:opacity-30 ${day === k ? 'bg-ink text-white' : 'text-ink-2'}`}>{l}</button>
         ))}
       </div>
       <div className="mt-4 grid grid-cols-3 gap-2 sm:grid-cols-5" role="listbox" aria-label="Créneaux disponibles">
@@ -88,7 +88,7 @@ export default function Rappel({ onConfirm }: { onConfirm: (b: Booking) => void 
 
       <div className="mt-6 grid gap-3 sm:grid-cols-2">
         {([['tel', 'Par téléphone', Phone], ['video', 'En vidéo', Video]] as const).map(([v, l, Icon]) => (
-          <button key={v} onClick={() => setMode(v)} className={`press flex items-center gap-3 rounded-2xl border-2 px-4 py-3 text-left font-bold transition-colors duration-500 ${mode === v ? 'border-north bg-north-soft text-north' : 'border-panel hover:border-rule'}`}>
+          <button key={v} onClick={() => setMode(v)} className={`press flex items-center gap-3 rounded-2xl border-2 px-4 py-3 text-left font-bold transition-colors duration-150 ${mode === v ? 'border-north bg-north-soft text-north' : 'border-panel hover:border-rule'}`}>
             <Icon size={19} strokeWidth={2} /> {l}
           </button>
         ))}
@@ -103,7 +103,7 @@ export default function Rappel({ onConfirm }: { onConfirm: (b: Booking) => void 
         {PREFS.map(({ t, icon: Icon }) => {
           const on = prefs.includes(t)
           return (
-            <button key={t} onClick={() => setPrefs(on ? prefs.filter((x) => x !== t) : [...prefs, t])} aria-pressed={on} className={`press inline-flex items-center gap-1.5 rounded-full border px-3.5 py-2 text-sm transition-colors duration-500 ${on ? 'border-sage bg-sage text-white' : 'border-rule hover:border-ink-3'}`}>
+            <button key={t} onClick={() => setPrefs(on ? prefs.filter((x) => x !== t) : [...prefs, t])} aria-pressed={on} className={`press inline-flex items-center gap-1.5 rounded-full border px-3.5 py-2 text-sm transition-colors duration-150 ${on ? 'border-sage-ink bg-sage-ink text-white' : 'border-rule hover:border-ink-3'}`}>
               {on ? <Check size={14} strokeWidth={2.5} /> : <Icon size={14} strokeWidth={2} />} {t}
             </button>
           )
@@ -114,7 +114,7 @@ export default function Rappel({ onConfirm }: { onConfirm: (b: Booking) => void 
         className="press mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-north py-4 font-extrabold text-white hover:bg-ink disabled:cursor-not-allowed disabled:opacity-35">
         <CalendarCheck size={18} strokeWidth={2.25} /> {slot ? `Confirmer ${day === 0 ? 'aujourd’hui' : 'demain'} à ${fmtTime(slot)}` : 'Choisissez un créneau'}
       </button>
-      {!validPhone && phone.length > 3 && <p className="mt-2 text-center text-xs font-bold text-coral">Format attendu : +1 514 555-0123</p>}
+      {!validPhone && phone.length > 3 && <p className="mt-2 text-center text-xs font-bold text-coral-ink">Format attendu : +1 514 555-0123</p>}
       <p className="mt-3 flex items-start justify-center gap-1.5 text-center text-xs text-ink-3"><ShieldCheck size={14} strokeWidth={2} className="mt-0.5 shrink-0" /> Bêta : aucun appel réel n’est programmé. En production, le rappel est assuré par un service juridique partenaire.</p>
     </div>
   )
