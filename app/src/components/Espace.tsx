@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { FileLock2, Home, Lock, MapPin, PenLine, ShieldCheck } from 'lucide-react'
+import { FileLock2, Home, Lock, MapPin, PenLine, ShieldCheck, X } from 'lucide-react'
 import { Wordmark } from './Logo'
 import { fromTri } from '../lib/rules'
 import { anyAccount, deleteAccount, saveVault, type VaultSession } from '../lib/vault'
@@ -9,10 +9,13 @@ import Recit from './Recit'
 import Aller from './Aller'
 import Dossier from './Dossier'
 import ViePrivee from './ViePrivee'
+import Quitter from './Quitter'
 import { Account, Unlock } from './Compte'
 import { EMPTY, type Fiche, type Kind, type Tab } from '../lib/fiche'
 import Etapes from './Etapes'
 
+
+const NB = '\u00A0'
 
 const TABS = [
   { id: 'accueil', label: 'Accueil', short: 'Accueil', icon: Home },
@@ -66,9 +69,11 @@ export default function Espace() {
   const lock = () => { window.clearTimeout(timer.current); setSession(null); setFiche(EMPTY); setSavedAt(null); setEtapes(false); setStage(anyAccount() ? 'unlock' : 'intro') }
   const wipe = () => { window.clearTimeout(timer.current); if (session) deleteAccount(session); lock() }
 
-  if (stage === 'intro') return <Intro onDone={() => setStage(session ? 'app' : 'account')} onHave={() => setStage(session ? 'app' : 'unlock')} />
-  if (stage === 'account') return <Account onBack={() => setStage('intro')} onLogin={() => setStage('unlock')} onOpen={open} />
-  if (stage === 'unlock') return <Unlock onOpen={open} onIntro={() => setStage('intro')} onCreate={() => setStage('account')} />
+  const exit = <Quitter lock={lock} />
+
+  if (stage === 'intro') return <Intro exit={exit} onDone={() => setStage(session ? 'app' : 'account')} onHave={() => setStage(session ? 'app' : 'unlock')} />
+  if (stage === 'account') return <Account exit={exit} onBack={() => setStage('intro')} onLogin={() => setStage('unlock')} onOpen={open} />
+  if (stage === 'unlock') return <Unlock exit={exit} onOpen={open} onIntro={() => setStage('intro')} onCreate={() => setStage('account')} />
 
   return (
     <div className="min-h-dvh pb-24 sm:pb-0">
@@ -81,6 +86,7 @@ export default function Espace() {
             <button onClick={lock} aria-label="Verrouiller mon espace" className="btn btn-soft max-sm:w-12 max-sm:px-0">
               <Lock size={18} strokeWidth={2.25} /> <span className="max-sm:sr-only">Verrouiller</span>
             </button>
+            {exit}
           </div>
         </div>
         <nav aria-label="Rubriques" className="mx-auto hidden max-w-6xl gap-1.5 px-4 pb-2 sm:flex">
@@ -97,7 +103,14 @@ export default function Espace() {
         {tab === 'recit' && <Recit fiche={fiche} update={update} savedAt={savedAt} hoursSince={hoursSince} onWipe={wipe} onNext={() => goTo('aller')} />}
         {tab === 'aller' && <Aller hoursSince={hoursSince} substance={fromTri(fiche.substance)} initial={kind} />}
         {tab === 'dossier' && <Dossier fiche={fiche} hoursSince={hoursSince} onJournal={addJournal} />}
-        {tab === 'vie-privee' && <ViePrivee onLock={lock} onWipe={wipe} />}
+        {tab === 'vie-privee' && (
+          <ViePrivee onLock={lock} onWipe={wipe}>
+            <p className="mt-3 flex items-start gap-2 rounded-2xl bg-panel px-4 py-3 text-base leading-snug text-ink-2">
+              <X size={18} strokeWidth={2.5} className="mt-0.5 shrink-0" />
+              <span><b className="text-ink">Quitter</b>, en haut de chaque écran, verrouille votre espace et remplace Boussole par une page de météo. Le bouton «{NB}Retour{NB}» n’y ramène pas, mais l’historique du navigateur garde la trace de la visite : effacez-le, ou utilisez la navigation privée, si l’appareil est partagé.</span>
+            </p>
+          </ViePrivee>
+        )}
       </main>
 
       <Etapes open={etapes} onClose={() => setEtapes(false)} prenom={fiche.prenom} go={(t, k) => { setEtapes(false); goTo(t as Tab, k) }} />
