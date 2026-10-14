@@ -133,6 +133,8 @@ async function run(vp) {
         static now() { return Real.now() + off }
       }
       window.Date = Fixed
+      // Téléphone réglé en français (Chrome sans interface ignore --lang) : l'app choisit sa langue d'après lui.
+      Object.defineProperty(navigator, 'language', { get: () => 'fr-CA' })
     }, FIXED)
     p.on('pageerror', (e) => errors.push(String(e)))
     p.on('console', (m) => { if (m.type() === 'error') errors.push(m.text()) })
