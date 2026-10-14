@@ -14,7 +14,8 @@ type OnOpen = (s: VaultSession, data: unknown, fresh: boolean) => void
 function Shell({ bg, art, exit, children }: { bg: string; art: React.ReactNode; exit?: React.ReactNode; children: React.ReactNode }) {
   return (
     <div className={`flex min-h-dvh flex-col ${bg}`}>
-      <header className="mx-auto flex w-full max-w-5xl items-center justify-between gap-2 px-4 py-2 sm:px-5 sm:py-4">
+      {/* En-tête collé en haut : « Quitter » reste visible pendant le défilement du formulaire. */}
+      <header className={`sticky top-0 z-30 mx-auto flex w-full max-w-5xl items-center justify-between gap-2 px-4 py-2 sm:px-5 sm:py-4 ${bg}`}>
         <span className="inline-flex min-h-12 items-center"><Wordmark /></span>
         <div className="flex items-center gap-2"><LangSwitch />{exit}</div>
       </header>

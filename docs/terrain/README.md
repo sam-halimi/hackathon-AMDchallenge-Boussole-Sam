@@ -36,6 +36,20 @@ Objectif : que les personnes qui accueillent les victimes à Montréal relisent 
 
 Les coordonnées publiques de ces organismes sont dans `app/src/lib/resources.ts` (sites officiels vérifiés le 4 octobre 2026).
 
+## Les premiers contacts concrets
+
+Coordonnées publiques trouvées le 15 octobre 2026 ; les vérifier sur le site officiel avant d'écrire.
+
+| Qui | Comment les joindre | Pourquoi d'abord eux |
+|---|---|---|
+| **CVASM** (il opère Info-aide violence sexuelle) | info@cvasm.ca ; bureau administratif 514 934-0505, poste 7456, 9 h à 17 h (selon une fiche publique) ; site cvasm.org | Délais médicaux, accueil, et la ligne vers laquelle Boussole renvoie partout |
+| **Chaire de recherche sur les violences sexistes et sexuelles en milieu d'enseignement supérieur** (UQAM, Manon Bergeron) | chaire.vssmes@uqam.ca ; chairevssmes.uqam.ca | Partenaire de recherche : peut encadrer des tests éthiques (comité d'éthique de la recherche) et évaluer l'effet de l'app ; angle campus, comme l'affaire de Cornell |
+| **RQCALACS** (regroupement des CALACS du Québec) | page « Nous joindre » de rqcalacs.qc.ca | Ton et approche ; porte d'entrée vers les CALACS et vers les personnes concernées |
+| **Rebâtir** | formulaire ou adresse administrative de rebatir.ca (pas la ligne de conseils) | Volet « Mon dossier » et rappel juridique |
+| **Secrétariat à la condition féminine** | plus tard, une fois deux organismes convaincus | Coordonne le suivi de *Rebâtir la confiance* ; piste de financement |
+
+Pourquoi Boussole a sa place : voir [ETUDES.md](ETUDES.md).
+
 ## Ce qu'on leur envoie
 
 - La fiche d'une page ([FICHE.md](FICHE.md), à exporter en PDF).
