@@ -26,9 +26,13 @@ export default function Intro({ onDone, onHave, exit }: { onDone: () => void; on
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
   })
+  // Une seule page, sans défilement : tout tient dans la hauteur de l'écran (h-dvh). L'illustration prend
+  // la place qui reste et rétrécit la première ; titre et texte se resserrent sur les écrans bas. Le bouton
+  // « Suivant » reste au même endroit d'une diapo à l'autre. Sous 480 px de haut seulement, la page défile.
+  const low = '[@media(max-height:600px)]'
   return (
-    <div className={`flex min-h-dvh flex-col transition-colors duration-300 ease-[var(--ease-out-soft)] ${s.bg}`}>
-      <header className="mx-auto flex w-full max-w-5xl items-center justify-between gap-2 px-4 py-2 sm:px-5 sm:py-4">
+    <div className={`flex h-dvh flex-col overflow-hidden transition-colors duration-300 ease-[var(--ease-out-soft)] [@media(max-height:479px)]:h-auto [@media(max-height:479px)]:min-h-dvh [@media(max-height:479px)]:overflow-visible ${s.bg}`}>
+      <header className="mx-auto flex w-full max-w-5xl shrink-0 items-center justify-between gap-2 px-4 py-2 sm:px-5 sm:py-4">
         <span className="inline-flex min-h-12 items-center"><Wordmark animate /></span>
         <div className="flex items-center gap-2">
           <button onClick={onHave} className="btn btn-plain hidden sm:inline-flex">J’ai déjà un espace</button>
@@ -36,24 +40,24 @@ export default function Intro({ onDone, onHave, exit }: { onDone: () => void; on
         </div>
       </header>
 
-      <main className="mx-auto grid w-full max-w-5xl flex-1 content-center items-center gap-4 px-4 sm:px-5 md:grid-cols-2 md:gap-8">
-        <div key={`art-${i}`} className="fade-in">
-          <s.Art className="mx-auto h-[clamp(80px,20dvh,220px)] w-auto md:h-auto md:w-full md:max-w-[420px]" />
+      <main className="mx-auto flex min-h-0 w-full max-w-5xl flex-1 flex-col gap-3 px-4 pb-2 sm:px-5 md:grid md:grid-cols-2 md:items-center md:gap-8">
+        <div key={`art-${i}`} className="fade-in flex min-h-0 flex-1 items-center justify-center md:h-full">
+          <s.Art className="h-full max-h-[220px] w-auto max-w-full md:h-auto md:max-h-none md:w-full md:max-w-[420px]" />
         </div>
-        <div key={`txt-${i}`} className="fade-in">
+        <div key={`txt-${i}`} className="fade-in shrink-0">
           <p className="flex items-center gap-3 text-base font-extrabold text-ink-2">
             <span>{i + 1} sur {SLIDES.length}</span>
             <span aria-hidden className="flex gap-1.5">
               {SLIDES.map((_, n) => <span key={n} className={`h-2 rounded-full ${n === i ? 'w-6 bg-ink' : 'w-2 bg-ink/25'}`} />)}
             </span>
           </p>
-          <h1 className="display mt-2 text-[2rem] sm:text-6xl">{s.title}</h1>
-          <p className="mt-3 max-w-md text-[17px] leading-relaxed text-ink-2 sm:mt-5 sm:text-lg">{s.text}</p>
+          <h1 className={`display mt-2 text-[2rem] ${low}:text-[1.65rem] sm:text-6xl`}>{s.title}</h1>
+          <p className={`mt-3 max-w-md text-[17px] leading-relaxed text-ink-2 ${low}:mt-2 ${low}:text-base ${low}:leading-snug sm:mt-5 sm:text-lg`}>{s.text}</p>
         </div>
       </main>
 
-      <div className={`sticky bottom-0 z-10 transition-colors duration-300 ease-[var(--ease-out-soft)] ${s.bg}`}>
-        <div className="mx-auto flex w-full max-w-5xl items-center gap-2 px-4 pb-1 pt-3 sm:px-5">
+      <footer className="mx-auto w-full max-w-5xl shrink-0 px-4 pb-[max(0.5rem,env(safe-area-inset-bottom))] sm:px-5 sm:pb-6">
+        <div className="flex items-center gap-2 pt-2">
           {i > 0 && (
             <button onClick={() => go(i - 1)} aria-label="Précédent" className="btn btn-plain btn-icon h-14 w-14"><ArrowLeft size={20} strokeWidth={2.25} /></button>
           )}
@@ -61,13 +65,11 @@ export default function Intro({ onDone, onHave, exit }: { onDone: () => void; on
             {last ? 'Créer mon espace' : 'Suivant'} <ArrowRight size={20} strokeWidth={2.25} />
           </button>
         </div>
-      </div>
-      <footer className="mx-auto w-full max-w-5xl px-4 pb-[max(0.5rem,env(safe-area-inset-bottom))] sm:px-5 sm:pb-6">
         <div className="flex items-center justify-between">
           <button onClick={onHave} className="btn btn-quiet -ml-3 sm:invisible">J’ai déjà un espace</button>
           {!last && <button id="intro-skip" onClick={onDone} className="btn btn-quiet -mr-3">Passer</button>}
         </div>
-        <AideDiscrete />
+        <AideDiscrete className="[@media(max-height:620px)]:[&>span:first-child]:hidden" />
       </footer>
     </div>
   )
