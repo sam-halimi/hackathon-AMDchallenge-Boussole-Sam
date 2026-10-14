@@ -120,7 +120,7 @@ export default function Aller({ hoursSince, substance, initial }: { hoursSince: 
         )}
         {showMap && (
           <div className="min-w-0 lg:sticky lg:top-32 lg:order-2 lg:self-start">
-            <div className="h-[min(60dvh,440px)] overflow-hidden rounded-[24px] border-4 border-white shadow-[0_20px_40px_-28px_rgba(45,36,64,.5)] lg:h-[640px]" id="map">
+            <div className="h-[min(60dvh,440px)] overflow-hidden rounded-[24px] border-4 border-white shadow-[0_20px_40px_-28px_rgba(45,36,64,.5)] lg:h-[clamp(320px,calc(100dvh-14rem),640px)]" id="map">
               <Suspense fallback={<div className="skeleton grid h-full w-full place-items-center text-base text-ink-2">Chargement de la carte…</div>}>
                 <ResourceMap items={items} active={active} onSelect={setActive} />
               </Suspense>

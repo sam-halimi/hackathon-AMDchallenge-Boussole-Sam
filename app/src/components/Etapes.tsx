@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { ArrowLeft, ArrowRight, Clock, FileLock2, HeartHandshake, Phone, Scale, ShieldAlert, Shirt, Stethoscope, ToggleRight, X } from 'lucide-react'
 import { CARE_STEPS } from '../lib/careSteps'
 import { useDialog } from '../lib/useDialog'
@@ -20,6 +20,25 @@ export default function Etapes({ open, onClose, prenom, go }: { open: boolean; o
   // La fenêtre repart de la première étape à chaque ouverture.
   const close = useCallback(() => { setI(0); onClose() }, [onClose])
   useDialog(dialog, open, close)
+
+  // Une étape ne défile jamais : si son contenu dépasse la place disponible (téléphone bas, barre du
+  // navigateur affichée), elle se resserre par paliers (data-fit = 1 puis 2, voir index.css).
+  const body = useRef<HTMLDivElement>(null)
+  useLayoutEffect(() => {
+    if (!open) return
+    const fit = () => {
+      const el = body.current
+      if (!el) return
+      el.dataset.fit = '0'
+      for (const level of ['1', '2']) {
+        if (el.scrollHeight <= el.clientHeight + 1) break
+        el.dataset.fit = level
+      }
+    }
+    fit()
+    window.addEventListener('resize', fit)
+    return () => window.removeEventListener('resize', fit)
+  }, [open, i])
 
   useEffect(() => {
     if (!open) return
@@ -63,9 +82,9 @@ export default function Etapes({ open, onClose, prenom, go }: { open: boolean; o
           ))}
         </ol>
 
-        <div key={i} className="fade-in min-h-0 flex-1 overflow-hidden px-4 pb-2 pt-3 sm:px-6 sm:pt-5">
+        <div key={i} ref={body} className="etape fade-in min-h-0 flex-1 overflow-hidden px-4 pb-2 pt-3 sm:px-6 sm:pt-5">
           <div className="flex items-center gap-3">
-            <span className={`grid h-12 w-12 shrink-0 place-items-center rounded-2xl sm:h-14 sm:w-14 ${TINT[s.tint]}`}><Icon size={26} strokeWidth={1.9} /></span>
+            <span className={`etape-icone grid h-12 w-12 shrink-0 place-items-center rounded-2xl sm:h-14 sm:w-14 ${TINT[s.tint]}`}><Icon size={26} strokeWidth={1.9} /></span>
             <div className="min-w-0">
               <p className="text-sm font-extrabold text-ink-2">Étape {i + 1} sur {steps.length}</p>
               <h2 id="etape-titre" className="display text-2xl sm:text-4xl">{s.title}</h2>
