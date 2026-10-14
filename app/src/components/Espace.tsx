@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { AlertTriangle, EyeOff, FileLock2, Fingerprint, Home, Lock, MapPin, PenLine, ServerOff, ShieldCheck, Sparkles, Trash2, X } from 'lucide-react'
+import { FileLock2, Home, Lock, MapPin, PenLine, ShieldCheck } from 'lucide-react'
 import { Wordmark } from './Logo'
 import { fromTri } from '../lib/rules'
 import { anyAccount, deleteAccount, saveVault, type VaultSession } from '../lib/vault'
@@ -8,6 +8,7 @@ import Accueil from './Accueil'
 import Recit from './Recit'
 import Aller from './Aller'
 import Dossier from './Dossier'
+import ViePrivee from './ViePrivee'
 import { Account, Unlock } from './Compte'
 import { EMPTY, type Fiche, type Kind, type Tab } from '../lib/fiche'
 import Etapes from './Etapes'
@@ -60,7 +61,10 @@ export default function Espace() {
     setSession(s); setFiche({ ...EMPTY, ...(data as Partial<Fiche>) }); setSavedAt(fresh ? new Date().toISOString() : null); setTab('accueil'); setStage('app')
     setEtapes(true) // la fenêtre des étapes s'ouvre à chaque arrivée dans le compte
   }
-  const lock = () => { setSession(null); setFiche(EMPTY); setSavedAt(null); setEtapes(false); setStage(anyAccount() ? 'unlock' : 'intro') }
+  // Verrouiller annule aussi l'enregistrement en attente : sans cela, un récit effacé dans les 600 ms
+  // suivant une saisie était réécrit sur l'appareil.
+  const lock = () => { window.clearTimeout(timer.current); setSession(null); setFiche(EMPTY); setSavedAt(null); setEtapes(false); setStage(anyAccount() ? 'unlock' : 'intro') }
+  const wipe = () => { window.clearTimeout(timer.current); if (session) deleteAccount(session); lock() }
 
   if (stage === 'intro') return <Intro onDone={() => setStage(session ? 'app' : 'account')} onHave={() => setStage(session ? 'app' : 'unlock')} />
   if (stage === 'account') return <Account onBack={() => setStage('intro')} onLogin={() => setStage('unlock')} onOpen={open} />
@@ -90,10 +94,10 @@ export default function Espace() {
 
       <main key={tab} className="mx-auto max-w-6xl px-4 py-6 sm:px-5 sm:py-10">
         {tab === 'accueil' && <Accueil fiche={fiche} hoursSince={hoursSince} go={goTo} onIntro={() => setEtapes(true)} />}
-        {tab === 'recit' && <Recit fiche={fiche} update={update} savedAt={savedAt} hoursSince={hoursSince} onWipe={() => { if (session) deleteAccount(session); lock() }} onNext={() => goTo('aller')} />}
+        {tab === 'recit' && <Recit fiche={fiche} update={update} savedAt={savedAt} hoursSince={hoursSince} onWipe={wipe} onNext={() => goTo('aller')} />}
         {tab === 'aller' && <Aller hoursSince={hoursSince} substance={fromTri(fiche.substance)} initial={kind} />}
         {tab === 'dossier' && <Dossier fiche={fiche} hoursSince={hoursSince} onJournal={addJournal} />}
-        {tab === 'vie-privee' && <ViePrivee />}
+        {tab === 'vie-privee' && <ViePrivee onLock={lock} onWipe={wipe} />}
       </main>
 
       <Etapes open={etapes} onClose={() => setEtapes(false)} prenom={fiche.prenom} go={(t, k) => { setEtapes(false); goTo(t as Tab, k) }} />
@@ -109,40 +113,6 @@ export default function Espace() {
           ))}
         </div>
       </nav>
-    </div>
-  )
-}
-
-/* ───────────── Vie privée ───────────── */
-
-function ViePrivee() {
-  const promises = [
-    { icon: ServerOff, t: 'Vos données restent sur votre appareil', d: 'En bêta, la fiche est stockée uniquement dans votre navigateur. Aucun serveur Boussole ne la reçoit.' },
-    { icon: Fingerprint, t: 'Chiffrement avec votre mot de passe', d: 'AES-256-GCM, clé dérivée de votre mot de passe par PBKDF2 (310 000 itérations). Sans lui, la fiche est illisible, y compris pour nous.' },
-    { icon: ShieldCheck, t: 'Rien ne part sans vous', d: 'Chaque transmission demande un consentement explicite et une double confirmation. Vous choisissez les sections.' },
-    { icon: EyeOff, t: 'Votre nom n’est jamais montré à l’IA', d: 'Côté soignant, les identifiants sont masqués avant tout traitement par l’IA, et c’est visible à l’écran.' },
-    { icon: Trash2, t: 'Effacement en un clic', d: '« Tout effacer » supprime la fiche de l’appareil immédiatement et définitivement.' },
-    { icon: X, t: 'Aucun pistage', d: 'Pas de cookie publicitaire, pas d’outil d’analyse, pas de revente. Le fond de carte OpenStreetMap est le seul appel externe.' },
-    { icon: Sparkles, t: 'L’IA guide, l’humain décide', d: 'L’IA ne pose aucun diagnostic, ne juge pas votre récit et ne désigne personne. Elle range des notes pour l’équipe soignante, qui valide chaque ligne.' },
-    { icon: AlertTriangle, t: 'Ce qui reste à confirmer est signalé', d: 'Une information qu’aucune source officielle n’a confirmée porte la mention « À confirmer ». Les délais médicaux sont indicatifs.' },
-  ]
-  return (
-    <div>
-      <div className="rise eyebrow text-north">Vie privée</div>
-      <h1 className="rise rise-1 display mt-3 max-w-3xl text-4xl sm:text-5xl">Des données parmi les plus sensibles qui soient. On les traite comme telles.</h1>
-      <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {promises.map(({ icon: Icon, t, d }) => (
-          <div key={t} className="rise card-soft p-6">
-            <span className="grid h-11 w-11 place-items-center rounded-2xl bg-north-soft text-north"><Icon size={20} strokeWidth={1.75} /></span>
-            <div className="mt-5 text-[17px] font-medium">{t}</div>
-            <p className="mt-2 text-[15px] leading-relaxed text-ink-2">{d}</p>
-          </div>
-        ))}
-      </div>
-      <div className="mt-8 rounded-3xl border border-warn/30 bg-warn-soft p-6 text-warn">
-        <div className="flex items-center gap-2 font-medium"><AlertTriangle size={18} strokeWidth={1.75} /> Bêta de test</div>
-        <p className="mt-2 text-[15px] leading-relaxed">Cette version sert à tester le parcours. N’y entrez pas de vraies données. En production : hébergement au Canada, évaluation des facteurs relatifs à la vie privée (Loi 25), audit de sécurité indépendant, transmission chiffrée de bout en bout.</p>
-      </div>
     </div>
   )
 }

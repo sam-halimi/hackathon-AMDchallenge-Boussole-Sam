@@ -135,9 +135,9 @@ export default function Recit({ fiche, update, savedAt, hoursSince, onWipe, onNe
 }
 
 /* « Tout effacer » supprime le compte et la fiche de l'appareil : toujours en deux temps. */
-export function Wipe({ onWipe }: { onWipe: () => void }) {
+export function Wipe({ onWipe, plain }: { onWipe: () => void; plain?: boolean }) {
   const [confirm, setConfirm] = useState(false)
-  if (!confirm) return <button id="wipe" onClick={() => setConfirm(true)} className="btn btn-quiet -ml-3"><Trash2 size={18} strokeWidth={2} /> Tout effacer</button>
+  if (!confirm) return <button id="wipe" onClick={() => setConfirm(true)} className={`btn ${plain ? 'btn-plain' : 'btn-quiet -ml-3'}`}><Trash2 size={18} strokeWidth={2} /> Tout effacer</button>
   return (
     <div role="alertdialog" aria-label="Confirmer l’effacement" className="fade-in w-full rounded-2xl bg-alert-soft p-4">
       <p className="text-base font-bold text-alert">Tout effacer définitivement de cet appareil ?</p>
