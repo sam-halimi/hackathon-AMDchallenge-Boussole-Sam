@@ -110,7 +110,7 @@ export default function Demo() {
     <div className="mt-10 flex items-center justify-between border-t border-rule pt-6">
       <button
         onClick={() => setStep(Math.max(0, step - 1))}
-        className={`press inline-flex items-center gap-2 text-sm text-ink-2 hover:text-ink ${step === 0 ? 'invisible' : ''}`}
+        className={`btn btn-quiet -ml-3 ${step === 0 ? 'invisible' : ''}`}
       >
         <ArrowLeft size={16} strokeWidth={1.75} /> Retour
       </button>
@@ -121,7 +121,7 @@ export default function Demo() {
           await onClick?.()
           setStep(step + 1)
         }}
-        className="press group inline-flex items-center gap-3 rounded-xl bg-ink px-5 py-3 text-[15px] font-medium text-paper hover:bg-north disabled:cursor-not-allowed disabled:opacity-30"
+        className="press group inline-flex min-h-12 items-center gap-3 rounded-xl bg-ink px-5 text-left text-base font-bold text-paper hover:bg-north disabled:cursor-not-allowed disabled:bg-panel disabled:text-ink-3"
       >
         {label}
         <ArrowRight size={16} strokeWidth={1.75} className="transition-transform duration-150 ease-[var(--ease-out-soft)]" />
@@ -131,7 +131,7 @@ export default function Demo() {
 
   return (
     <div className="min-h-dvh">
-      <div className="no-print border-b border-alert/20 bg-alert-soft py-1.5 text-center text-alert">
+      <div className="no-print border-b border-alert/20 bg-alert-soft px-3 py-2 text-center text-alert">
         <span className="eyebrow">Données 100 % fictives · prototype · règles non validées cliniquement · ne pas utiliser en soins réels</span>
       </div>
 
@@ -141,22 +141,22 @@ export default function Demo() {
             <Wordmark />
           </a>
           <div className="hidden flex-1 items-center px-5 text-sm text-ink-2 md:flex">
-            Dossier <span className="mx-1.5 font-mono text-ink">#DEMO-0042</span> · cas fictif « Léa » · centre désigné (fictif)
+            Dossier <span className="mx-1.5 text-ink">#DEMO-0042</span> · cas fictif « Léa » · centre désigné (fictif)
           </div>
           <div className="flex items-center gap-2 border-l border-rule px-5">
-            <span className="hidden items-center gap-1.5 rounded-full border border-rule px-2 py-1 text-xs text-ink-2 sm:inline-flex">
+            <span className="hidden items-center gap-1.5 rounded-full border border-rule px-2 py-1 text-sm text-ink-2 sm:inline-flex">
               <Sparkles size={13} strokeWidth={1.75} className="text-north" /> L'IA suggère, l'humain valide
             </span>
             <span
               id="integrity-chip"
-              className={`inline-flex items-center gap-1.5 rounded-full border px-2 py-1 font-mono text-[11px] transition-colors duration-150 ${integrity.ok ? 'border-north/30 bg-north-soft text-north' : 'border-alert/40 bg-alert-soft text-alert'}`}
+              className={`inline-flex items-center gap-1.5 rounded-full border px-2 py-1 text-sm transition-colors duration-150 ${integrity.ok ? 'border-north/30 bg-north-soft text-north' : 'border-alert/40 bg-alert-soft text-alert'}`}
             >
               <Link2 size={13} strokeWidth={1.75} />
               {log.length} · {integrity.ok ? 'intègre' : `altéré #${integrity.brokenAt}`}
             </span>
           </div>
         </div>
-        <nav className="mx-auto grid max-w-6xl grid-cols-5 border-t border-rule">
+        <nav aria-label="Étapes" className="mx-auto flex max-w-6xl border-t border-rule md:grid md:grid-cols-5">
           {STEPS.map(({ label, icon: Icon }, i) => {
             const active = step === i
             const reached = i < step
@@ -165,30 +165,32 @@ export default function Demo() {
                 key={label}
                 id={`tab-${i}`}
                 disabled={i > 0 && !canProceed}
+                aria-current={active ? 'step' : undefined}
+                aria-label={`Étape ${i + 1} : ${label}`}
                 onClick={() => setStep(i)}
-                className={`press relative flex items-center gap-2 border-r border-rule px-3 py-3 text-left text-sm last:border-r-0 disabled:cursor-not-allowed disabled:opacity-35 sm:px-4 ${active ? 'text-ink' : 'text-ink-3 hover:bg-panel hover:text-ink'}`}
+                className={`press relative flex min-h-12 items-center gap-2 border-r border-rule px-3 text-left text-[15px] last:border-r-0 disabled:cursor-not-allowed disabled:text-ink-3 sm:px-4 ${active ? 'min-w-0 flex-1 text-ink' : 'text-ink-2 hover:bg-panel hover:text-ink'}`}
               >
-                <span className={`grid h-6 w-6 shrink-0 place-items-center rounded-full border font-mono text-[11px] transition-colors duration-150 ${active ? 'border-ink bg-ink text-paper' : reached ? 'border-north bg-north text-paper' : 'border-rule'}`}>
-                  {reached ? <Check size={12} strokeWidth={2.5} /> : i + 1}
+                <span className={`grid h-7 w-7 shrink-0 place-items-center rounded-full border text-sm font-bold transition-colors duration-150 ${active ? 'border-ink bg-ink text-paper' : reached ? 'border-north bg-north text-paper' : 'border-edge'}`}>
+                  {reached ? <Check size={14} strokeWidth={2.5} /> : i + 1}
                 </span>
-                <span className="hidden truncate md:inline">{label}</span>
-                <Icon size={15} strokeWidth={1.75} className="ml-auto hidden text-ink-3 lg:block" />
-                <span className={`absolute inset-x-0 -bottom-px h-0.5 origin-left bg-north transition-transform duration-150 ease-[var(--ease-out-soft)] ${active ? 'scale-x-100' : 'scale-x-0'}`} />
+                <span className={`truncate font-bold ${active ? '' : 'hidden md:inline'}`}>{label}</span>
+                <Icon size={16} strokeWidth={1.75} className="ml-auto hidden text-ink-3 lg:block" />
+                <span className={`absolute inset-x-0 -bottom-px h-0.5 bg-north ${active ? '' : 'hidden'}`} />
               </button>
             )
           })}
         </nav>
       </header>
 
-      <main key={step} className="mx-auto max-w-6xl px-5 py-12 sm:py-16">
+      <main key={step} className="mx-auto max-w-6xl px-4 py-8 sm:px-5 sm:py-14">
         {step === 0 && (
           <Section n="01" title="Consentement, étape par étape" lead="La personne garde le contrôle. Chaque choix est horodaté dans le journal de conservation.">
             <div className="grid gap-px overflow-hidden rounded-2xl border border-rule bg-rule sm:grid-cols-2">
-              {(Object.keys(CONSENT_LABELS) as (keyof Consent)[]).map((k, i) => (
+              {(Object.keys(CONSENT_LABELS) as (keyof Consent)[]).map((k) => (
                 <label
                   key={k}
                   id={`consent-${k}`}
-                  className={`rise rise-${i + 1} press group flex cursor-pointer gap-4 p-6 ${consent[k] ? 'bg-north-soft' : 'bg-paper hover:bg-panel'}`}
+                  className={`rise press group flex cursor-pointer gap-4 p-6 ${consent[k] ? 'bg-north-soft' : 'bg-paper hover:bg-panel'}`}
                 >
                   <input type="checkbox" className="peer sr-only" checked={consent[k]} onChange={() => toggleConsent(k)} />
                   <span className={`mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full border transition-all duration-150 ease-[var(--ease-out-soft)] ${consent[k] ? 'border-north bg-north text-paper' : 'border-ink-3/50 bg-paper group-hover:border-ink'}`}>
@@ -222,7 +224,8 @@ export default function Demo() {
                   max={168}
                   value={intake.hoursSince}
                   onChange={(e) => setIntake({ ...intake, hoursSince: +e.target.value })}
-                  className="mb-3 h-1 w-full max-w-md cursor-pointer accent-[#0F7A64]"
+                  aria-label="Heures écoulées depuis les faits"
+                  className="range mb-1 w-full max-w-md"
                 />
               </div>
             </div>
@@ -246,11 +249,11 @@ export default function Demo() {
         )}
 
         {step === 2 && (
-          <Section n="03" title={`Prélèvements prioritaires, ${intake.hoursSince} h après les faits`} lead="Calculé par un moteur de règles, sans IA. Trié par urgence.">
+          <Section n="03" title={`Prélèvements prioritaires, ${intake.hoursSince}\u00A0h après les faits`} lead="Calculé par un moteur de règles, sans IA. Trié par urgence.">
             <div className="mb-5 flex items-start gap-2 rounded-xl border border-warn/30 bg-warn-soft px-4 py-3 text-sm text-warn">
               <ClipboardList size={16} strokeWidth={1.75} className="mt-0.5 shrink-0" />
               <span>
-                <b>{RULES_WARNING}</b> « Ne sait pas » inclut la règle par prudence, marquée « à confirmer ». <span className="font-mono text-xs opacity-80">{RULES_VERSION}</span>
+                <b>{RULES_WARNING}</b> « Ne sait pas » inclut la règle par prudence, marquée « à confirmer ». <span className="text-sm">{RULES_VERSION}</span>
               </span>
             </div>
             {!consent.prelevements && (
@@ -262,7 +265,7 @@ export default function Demo() {
               {checklist.map((c) => {
                 const disabled = !consent.prelevements || c.status === 'depasse'
                 return (
-                  <li key={c.id} className={`rise flex items-center gap-4 px-5 py-4 transition-colors duration-150 ${done[c.id] ? 'bg-north-soft' : 'bg-paper'} ${c.status === 'depasse' ? 'opacity-55' : ''}`}>
+                  <li key={c.id} className={`rise flex flex-wrap items-center gap-x-3 gap-y-2 px-4 py-3 transition-colors duration-150 sm:flex-nowrap sm:px-5 ${done[c.id] ? 'bg-north-soft' : 'bg-paper'}`}>
                     <button
                       disabled={disabled}
                       aria-pressed={!!done[c.id]}
@@ -271,14 +274,16 @@ export default function Demo() {
                         setDone((d) => ({ ...d, [c.id]: !d[c.id] }))
                         await log_(done[c.id] ? 'Prélèvement décoché' : 'Prélèvement effectué et scellé', c.label)
                       }}
-                      className={`press grid h-6 w-6 shrink-0 place-items-center rounded-full border disabled:cursor-not-allowed ${done[c.id] ? 'border-north bg-north text-paper' : 'border-ink-3/50 hover:border-ink'}`}
+                      className="press grid h-11 w-11 shrink-0 place-items-center rounded-full disabled:cursor-not-allowed"
                     >
-                      <Check size={14} strokeWidth={2.5} className={`transition-all duration-150 ${done[c.id] ? 'scale-100 opacity-100' : 'scale-50 opacity-0'}`} />
+                      <span className={`grid h-7 w-7 place-items-center rounded-full border-2 ${done[c.id] ? 'border-north bg-north text-paper' : disabled ? 'border-rule' : 'border-edge'}`}>
+                        {done[c.id] && <Check size={15} strokeWidth={2.75} />}
+                      </span>
                     </button>
-                    <div className="min-w-0 flex-1">
-                      <div className="text-[16px] font-medium">{c.label}</div>
-                      <div className="text-sm text-ink-3">{c.why}</div>
-                      {c.uncertain && <div className="mt-0.5 text-xs font-bold text-warn">À confirmer : incluse par prudence (réponse « ne sait pas »)</div>}
+                    <div className="min-w-0 flex-1 basis-[calc(100%-4rem)] sm:basis-auto">
+                      <div className="text-base font-bold leading-snug">{c.label}</div>
+                      <div className="text-[15px] leading-snug text-ink-2">{c.why}</div>
+                      {c.uncertain && <div className="mt-0.5 text-sm font-bold text-warn">À confirmer : incluse par prudence (réponse « ne sait pas »)</div>}
                     </div>
                     <Badge status={c.status} remaining={c.remainingH} />
                   </li>
@@ -295,19 +300,19 @@ export default function Demo() {
               <div>
                 <div className="mb-2 flex items-center justify-between">
                   <span className="eyebrow text-ink-3">Notes libres</span>
-                  <button id="ai-view" onClick={() => setShowAiView(!showAiView)} className="press inline-flex items-center gap-1.5 rounded-full border border-rule px-2.5 py-1 text-xs text-ink-2 hover:border-north hover:text-north">
+                  <button id="ai-view" onClick={() => setShowAiView(!showAiView)} className="press inline-flex min-h-11 items-center gap-1.5 rounded-full border border-edge px-3 text-sm font-bold text-ink-2 hover:border-north hover:text-north">
                     {showAiView ? <EyeOff size={13} strokeWidth={1.75} /> : <Eye size={13} strokeWidth={1.75} />}
                     {showAiView ? 'Notes originales' : 'Ce que l’IA voit'}
                   </button>
                 </div>
                 {showAiView ? (
                   <div className="rise min-h-80 rounded-2xl border border-north/40 bg-north-soft p-4 text-[15px] leading-relaxed whitespace-pre-wrap" id="ai-view-panel">
-                    <div className="mb-3 flex items-center gap-1.5 text-xs font-medium text-north">
+                    <div className="mb-3 flex items-center gap-1.5 text-sm font-medium text-north">
                       <Fingerprint size={14} strokeWidth={1.75} /> Texte réellement envoyé au modèle · {pseudo.count} identifiants masqués
                     </div>
                     {pseudo.text.split(/(\[[A-ZÉ ]+\])/g).map((part, i) =>
                       /^\[[A-ZÉ ]+\]$/.test(part) ? (
-                        <mark key={i} className="rounded bg-north px-1 font-mono text-[12px] text-paper">{part}</mark>
+                        <mark key={i} className="rounded bg-north px-1 text-sm text-paper">{part}</mark>
                       ) : (
                         <span key={i}>{part}</span>
                       ),
@@ -342,18 +347,18 @@ export default function Demo() {
                 )}
                 {timeline && !loading && (
                   <div className="space-y-4">
-                    <div id="ai-source" className={`flex flex-wrap items-center gap-1.5 rounded-xl border px-3 py-2 text-xs ${source === 'live' ? 'border-north/30 bg-north-soft text-north' : 'border-warn/40 bg-warn-soft text-warn'}`}>
+                    <div id="ai-source" className={`flex flex-wrap items-center gap-1.5 rounded-xl border px-3 py-2 text-sm ${source === 'live' ? 'border-north/30 bg-north-soft text-north' : 'border-warn/40 bg-warn-soft text-warn'}`}>
                       <Sparkles size={13} strokeWidth={1.75} />
                       {source === 'live'
                         ? `Réponse IA en direct · ${aiMeta?.label} · ${aiMeta?.model} · ${((aiMeta?.latencyMs ?? 0) / 1000).toFixed(1)} s`
                         : `Réponse IA PRÉ-ENREGISTRÉE (${FALLBACK_REASONS[aiMeta?.reason ?? ''] ?? 'IA indisponible'}) : même format, calculée sur le cas fictif d’origine, pas sur vos modifications`}
                     </div>
-                    <p className="flex items-start gap-1.5 text-xs text-ink-3">
+                    <p className="flex items-start gap-1.5 text-sm text-ink-2">
                       <ShieldCheck size={13} strokeWidth={1.75} className="mt-px shrink-0" />
                       Suggestions non vérifiées : chaque citation a été retrouvée mot pour mot dans les notes, mais rien n’entre au dossier sans votre validation.
                     </p>
                     {source === 'live' && (aiMeta?.removed?.length ?? 0) > 0 && (
-                      <details id="ai-removed" className="rounded-xl border border-rule bg-panel px-3 py-2 text-xs text-ink-2">
+                      <details id="ai-removed" className="rounded-xl border border-rule bg-panel px-3 py-2 text-sm text-ink-2">
                         <summary className="cursor-pointer font-medium">{aiMeta!.removed!.length} suggestion(s) écartée(s) automatiquement par les garde-fous</summary>
                         <ul className="mt-2 space-y-1">
                           {aiMeta!.removed!.map((r, i) => <li key={i}>« {r.text} » : {r.reason}</li>)}
@@ -367,11 +372,11 @@ export default function Demo() {
                         return (
                           <li key={key} className="rise relative ml-5">
                             <span className={`absolute -left-[26px] top-4 h-2.5 w-2.5 rounded-full border-2 border-paper transition-colors duration-150 ${d === 'ok' ? 'bg-north' : d === 'rejected' ? 'bg-alert' : 'bg-ink-3'}`} />
-                            <div className={`flex justify-between gap-3 rounded-xl border px-4 py-3 transition-all duration-150 ${d === 'ok' ? 'border-north/40 bg-north-soft' : d === 'rejected' ? 'border-alert/30 bg-alert-soft opacity-60' : 'border-rule bg-paper'}`}>
+                            <div className={`flex flex-col gap-2 rounded-xl border px-4 py-3 transition-all duration-150 sm:flex-row sm:justify-between sm:gap-3 ${d === 'ok' ? 'border-north/40 bg-north-soft' : d === 'rejected' ? 'border-alert/30 bg-alert-soft opacity-60' : 'border-rule bg-paper'}`}>
                               <div className="min-w-0">
-                                <div className="font-mono text-[11px] text-ink-3">{ev.time}</div>
+                                <div className="text-sm font-bold text-ink-2">{ev.time}</div>
                                 <div className={`text-[15px] font-medium ${d === 'rejected' ? 'line-through' : ''}`}>{ev.description}</div>
-                                <div className="mt-0.5 text-[13px] italic text-ink-3">« {ev.source} » · {ev.origin}</div>
+                                <div className="mt-0.5 text-sm italic text-ink-2">« {ev.source} » · {ev.origin}</div>
                               </div>
                               <Validate d={d} onOk={() => decide(key, ev.description, 'ok')} onNo={() => decide(key, ev.description, 'rejected')} />
                             </div>
@@ -390,8 +395,8 @@ export default function Demo() {
                       const d = decisions[key] ?? 'pending'
                       return (
                         <div key={key} id={`inc-${i}`} className={`rise rounded-xl border px-4 py-3 text-[14px] transition-colors duration-150 ${d === 'ok' ? 'border-north/40 bg-north-soft' : 'border-warn/40 bg-warn-soft'}`}>
-                          <div className="flex justify-between gap-3">
-                            <span className="flex items-center gap-1.5 font-medium text-warn"><ShieldAlert size={15} strokeWidth={1.75} /> Incohérence du dossier (pas du récit)</span>
+                          <div className="flex flex-col gap-2 sm:flex-row sm:justify-between sm:gap-3">
+                            <span className="flex items-center gap-1.5 font-bold text-warn"><ShieldAlert size={15} strokeWidth={1.75} /> Incohérence du dossier (pas du récit)</span>
                             <Validate d={d} okLabel="Corrigé" onOk={() => decide(key, c.description, 'ok')} onNo={() => decide(key, c.description, 'rejected')} />
                           </div>
                           <div className="mt-1">{c.description}</div>
@@ -479,7 +484,7 @@ function ExportView(props: {
         </div>
         <div className="min-w-0 bg-paper p-6">
           <div className="eyebrow text-ink-3">Journal de conservation</div>
-          <ol className="mt-4 space-y-2.5 font-mono text-[11px]" id="custody-log">
+          <ol className="mt-4 space-y-2.5 text-sm" id="custody-log">
             {log.map((e) => (
               <li key={e.index} className="border-l border-rule pl-3">
                 <span className="text-ink-3">#{e.index} {e.timestamp.slice(11, 19)}</span> <span className="text-ink">{e.action}</span> · {e.details}
@@ -490,13 +495,13 @@ function ExportView(props: {
         </div>
       </div>
       <div className="no-print mt-6 flex flex-wrap gap-2">
-        <button onClick={download} className="press inline-flex items-center gap-2 rounded-xl bg-ink px-4 py-2.5 text-sm font-medium text-paper hover:bg-north">
+        <button onClick={download} className="press inline-flex min-h-12 items-center gap-2 rounded-xl bg-ink px-4 text-[15px] font-bold text-paper hover:bg-north">
           <Download size={15} strokeWidth={1.75} /> Exporter (JSON)
         </button>
-        <button onClick={() => { props.onExport(); window.print() }} className="press inline-flex items-center gap-2 rounded-xl border border-ink px-4 py-2.5 text-sm font-medium hover:bg-panel">
+        <button onClick={() => { props.onExport(); window.print() }} className="press inline-flex min-h-12 items-center gap-2 rounded-xl border border-ink px-4 text-[15px] font-bold hover:bg-panel">
           <Printer size={15} strokeWidth={1.75} /> Imprimer / PDF
         </button>
-        <button id="tamper" onClick={simulateTamper} className="press inline-flex items-center gap-2 rounded-xl border border-alert/50 px-4 py-2.5 text-sm font-medium text-alert hover:bg-alert-soft">
+        <button id="tamper" onClick={simulateTamper} className="press inline-flex min-h-12 items-center gap-2 rounded-xl border border-alert/50 px-4 text-[15px] font-bold text-alert hover:bg-alert-soft">
           <ShieldAlert size={15} strokeWidth={1.75} /> Simuler une modification après coup
         </button>
       </div>
@@ -523,8 +528,8 @@ function Section({ n, title, lead, children }: { n: string; title: string; lead:
 
 function Row({ k, v }: { k: string; v: string }) {
   return (
-    <div className="grid grid-cols-[10rem_1fr] gap-3">
-      <dt className="text-ink-3">{k}</dt>
+    <div className="grid gap-0.5 sm:grid-cols-[10rem_1fr] sm:gap-3">
+      <dt className="font-bold text-ink-2 sm:font-normal">{k}</dt>
       <dd>{v}</dd>
     </div>
   )
@@ -537,12 +542,12 @@ function YesNo({ id, q, v, set }: { id: string; q: string; v: Answer; set: (v: A
   const opts: [Answer, string][] = [[true, 'Oui'], [false, 'Non'], [null, 'Ne sait pas']]
   const idx = opts.findIndex(([o]) => o === v)
   return (
-    <div id={id} className="flex flex-wrap items-center justify-between gap-4 px-6 py-4">
+    <div id={id} className="flex flex-wrap items-center justify-between gap-3 px-4 py-4 sm:px-6">
       <span className="text-[16px]">{q}</span>
-      <div role="radiogroup" aria-label={q} className="relative inline-grid grid-cols-3 rounded-xl border border-rule bg-panel p-0.5 text-sm">
+      <div role="radiogroup" aria-label={q} className="relative grid w-full grid-cols-3 rounded-xl border border-edge bg-panel p-0.5 text-[15px] font-bold sm:inline-grid sm:w-auto">
         <span className="absolute inset-y-0.5 left-0.5 w-[calc((100%-4px)/3)] rounded bg-ink transition-transform duration-150 ease-[var(--ease-out-soft)]" style={{ transform: `translateX(${idx * 100}%)` }} />
         {opts.map(([o, l]) => (
-          <button key={l} role="radio" aria-checked={o === v} onClick={() => set(o)} className={`press relative z-10 px-3 py-1.5 transition-colors duration-150 ${o === v ? 'text-paper' : 'text-ink-2 hover:text-ink'}`}>
+          <button key={l} role="radio" aria-checked={o === v} onClick={() => set(o)} className={`press relative z-10 min-h-11 px-3 transition-colors duration-150 ${o === v ? 'text-paper' : 'text-ink-2 hover:text-ink'}`}>
             {l}
           </button>
         ))}
@@ -558,22 +563,22 @@ function Badge({ status, remaining }: { status: Status; remaining: number | null
     depasse: ['border-rule bg-panel text-ink-3', `Dépassé de ${remaining !== null ? -remaining : 0} h`],
     'sans-delai': ['border-rule bg-paper text-ink-2', 'Dès que possible'],
   }
-  return <span className={`inline-flex items-center gap-1 whitespace-nowrap rounded-full border px-2 py-1 font-mono text-[11px] ${map[status][0]}`}><Clock size={12} strokeWidth={1.75} />{map[status][1]}</span>
+  return <span className={`ml-14 inline-flex items-center gap-1 whitespace-nowrap rounded-full border px-2.5 py-1 text-sm font-bold sm:ml-0 ${map[status][0]}`}><Clock size={12} strokeWidth={1.75} />{map[status][1]}</span>
 }
 
 function Validate({ d, onOk, onNo, okLabel = 'Valider' }: { d: Decision; onOk: () => void; onNo: () => void; okLabel?: string }) {
   if (d !== 'pending')
     return (
-      <span className={`rise inline-flex h-fit shrink-0 items-center gap-1 text-xs font-medium ${d === 'ok' ? 'text-north' : 'text-alert'}`}>
+      <span className={`rise inline-flex h-fit shrink-0 items-center gap-1 text-sm font-medium ${d === 'ok' ? 'text-north' : 'text-alert'}`}>
         {d === 'ok' ? <Check size={13} strokeWidth={2.25} /> : <X size={13} strokeWidth={2.25} />} {d === 'ok' ? 'validé' : 'rejeté'}
       </span>
     )
   return (
-    <span className="flex h-fit shrink-0 gap-1">
-      <button onClick={onOk} aria-label={okLabel} className="validate press inline-flex items-center gap-1 rounded-full border border-north/40 px-2 py-1 text-xs font-medium text-north hover:bg-north hover:text-paper">
+    <span className="flex h-fit shrink-0 gap-2">
+      <button onClick={onOk} aria-label={okLabel} className="validate press inline-flex min-h-11 items-center gap-1.5 rounded-full border border-north px-4 text-sm font-bold text-north hover:bg-north hover:text-paper">
         <Check size={13} strokeWidth={2.25} /> {okLabel}
       </button>
-      <button onClick={onNo} aria-label="Rejeter" className="press inline-flex items-center rounded-full border border-rule px-1.5 py-1 text-xs text-ink-3 hover:border-alert hover:text-alert">
+      <button onClick={onNo} aria-label="Rejeter" className="press grid h-11 w-11 place-items-center rounded-full border border-edge text-ink-2 hover:border-alert hover:text-alert">
         <X size={13} strokeWidth={2.25} />
       </button>
     </span>

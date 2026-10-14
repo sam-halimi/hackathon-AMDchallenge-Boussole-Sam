@@ -113,6 +113,14 @@ button, a, label, summary { touch-action: manipulation; }
 /* Attente : un aplat fixe, sans balayage lumineux. */
 .skeleton { background: var(--color-panel); }
 
+/* Curseur (outil soignant) : piste de 8 px, poignée de 28 px, zone de prise de 44 px */
+.range { -webkit-appearance: none; appearance: none; height: 44px; background: transparent; cursor: pointer; }
+.range::-webkit-slider-runnable-track { height: 8px; border-radius: 999px; background: var(--color-rule); }
+.range::-moz-range-track { height: 8px; border-radius: 999px; background: var(--color-rule); }
+.range::-webkit-slider-thumb { -webkit-appearance: none; width: 28px; height: 28px; margin-top: -10px; border-radius: 999px; background: var(--color-north); border: 3px solid #fff; box-shadow: 0 2px 8px rgba(45,36,64,.35); }
+.range::-moz-range-thumb { width: 22px; height: 22px; border-radius: 999px; background: var(--color-north); border: 3px solid #fff; box-shadow: 0 2px 8px rgba(45,36,64,.35); }
+.range:focus-visible { outline: 3px solid var(--color-north); outline-offset: 2px; border-radius: 999px; }
+
 /* Carte Leaflet dans la DA */
 .leaflet-container { font-family: var(--font-sans); background: var(--color-panel); }
 .leaflet-popup-content-wrapper { border-radius: 16px; box-shadow: 0 20px 50px -20px rgba(45,36,64,.4); }
