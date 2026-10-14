@@ -9,7 +9,9 @@ const TINT: Record<string, string> = {
 }
 
 // Fenêtre des étapes de prise en charge. Une étape par vue, sans défilement interne : le contenu le plus
-// long tient dans 360×640. Sur téléphone, une barre de progression ; à partir de 640 px, des numéros cliquables.
+// long tient dans 360×640. La fenêtre a une hauteur fixe (plein écran sur téléphone) : « Suivant » reste
+// au même endroit d'une étape à l'autre. Sur téléphone, une barre de progression ; à partir de 640 px,
+// des numéros cliquables.
 export default function Etapes({ open, onClose, prenom, go }: { open: boolean; onClose: () => void; prenom?: string; go: (tab: string, filter?: 'exam' | 'support') => void }) {
   const [i, setI] = useState(0)
   const dialog = useRef<HTMLDivElement>(null)
@@ -38,7 +40,7 @@ export default function Etapes({ open, onClose, prenom, go }: { open: boolean; o
     <div className="fixed inset-0 z-50 flex items-end justify-center sm:items-center" role="presentation">
       <div className="fade-in absolute inset-0 bg-ink/50" onClick={close} />
       <div ref={dialog} tabIndex={-1} role="dialog" aria-modal="true" aria-labelledby="etape-titre" id="etapes"
-        className="sheet-in relative flex max-h-dvh w-full max-w-2xl flex-col overflow-hidden rounded-t-[28px] bg-paper shadow-[0_40px_90px_-30px_rgba(45,36,64,.6)] outline-none sm:rounded-[28px]">
+        className="sheet-in relative flex h-dvh w-full max-w-2xl flex-col overflow-hidden bg-paper shadow-[0_40px_90px_-30px_rgba(45,36,64,.6)] outline-none sm:h-[min(660px,92dvh)] sm:rounded-[28px]">
         <div className="flex items-start justify-between gap-3 px-4 pt-3 sm:px-6 sm:pt-5">
           <div className="min-w-0 pt-1">
             <p className="text-base font-extrabold leading-snug text-north">{prenom ? `${prenom}, voici` : 'Voici'} les étapes, dans l’ordre</p>
@@ -61,7 +63,7 @@ export default function Etapes({ open, onClose, prenom, go }: { open: boolean; o
           ))}
         </ol>
 
-        <div key={i} className="fade-in flex-1 px-4 pb-2 pt-3 sm:px-6 sm:pt-5">
+        <div key={i} className="fade-in min-h-0 flex-1 overflow-hidden px-4 pb-2 pt-3 sm:px-6 sm:pt-5">
           <div className="flex items-center gap-3">
             <span className={`grid h-12 w-12 shrink-0 place-items-center rounded-2xl sm:h-14 sm:w-14 ${TINT[s.tint]}`}><Icon size={26} strokeWidth={1.9} /></span>
             <div className="min-w-0">

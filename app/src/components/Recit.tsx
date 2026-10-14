@@ -109,7 +109,7 @@ export default function Recit({ fiche, update, savedAt, hoursSince, onWipe, onNe
   const q = QUESTIONS[at]
   const last = at === QUESTIONS.length - 1
   return (
-    <div className="mx-auto max-w-2xl">
+    <div className="mx-auto max-w-2xl pb-20">
       <div className="flex items-center justify-between gap-2">
         <button id="recit-all" onClick={() => setAt(null)} className="btn btn-quiet -ml-3"><List size={18} strokeWidth={2.25} /> Tout voir</button>
         {saved}
@@ -123,12 +123,14 @@ export default function Recit({ fiche, update, savedAt, hoursSince, onWipe, onNe
         <div className="mt-4">{q.body({ fiche, update, hoursSince })}</div>
       </div>
       <p className="mt-5 text-[15px] text-ink-2">Rien n’est obligatoire : vous pouvez passer cette question.</p>
-      {/* Précédent et Suivant restent à l'écran, au-dessus de la barre d'onglets, même quand la liste est longue. */}
-      <div className="sticky bottom-[calc(4rem+env(safe-area-inset-bottom))] z-10 -mx-4 mt-2 flex gap-2 bg-paper px-4 py-2 sm:bottom-0 sm:mx-0 sm:px-0 sm:py-3">
-        <button id="recit-prev" onClick={() => setAt(at - 1)} disabled={at === 0} aria-label="Question précédente" className="btn btn-plain btn-icon h-14 w-14"><ArrowLeft size={20} strokeWidth={2.25} /></button>
-        <button id="recit-next" onClick={() => (last ? onNext() : setAt(at + 1))} className="btn btn-primary btn-lg flex-1">
-          {last ? 'Où aller maintenant' : 'Suivant'} <ArrowRight size={20} strokeWidth={2.25} />
-        </button>
+      {/* Précédent et Suivant sont fixés en bas, au-dessus de la barre d'onglets : même place à chaque question. */}
+      <div className="fixed inset-x-0 bottom-[calc(4rem+env(safe-area-inset-bottom))] z-20 border-t border-rule bg-paper sm:bottom-0">
+        <div className="mx-auto flex max-w-2xl gap-2 px-4 py-2 sm:py-3">
+          <button id="recit-prev" onClick={() => setAt(at - 1)} disabled={at === 0} aria-label="Question précédente" className="btn btn-plain btn-icon h-14 w-14"><ArrowLeft size={20} strokeWidth={2.25} /></button>
+          <button id="recit-next" onClick={() => (last ? onNext() : setAt(at + 1))} className="btn btn-primary btn-lg flex-1">
+            {last ? 'Où aller maintenant' : 'Suivant'} <ArrowRight size={20} strokeWidth={2.25} />
+          </button>
+        </div>
       </div>
     </div>
   )
