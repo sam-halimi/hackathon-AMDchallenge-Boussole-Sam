@@ -1,5 +1,7 @@
 # Pitch : Boussole (nom provisoire)
 
+> **Version longue à jour (octobre 2026)** : la présentation en 23 diapos, texte oral dans les notes, https://claude.ai/artifact/AacTYbAAPYecnGfetpdcnP ; copie des diapos dans `pitch/deck-v2/`, sources dans `pitch/recherche/` (affaire de Cornell, études, marché, projections). Ce fichier reste le script court de 3 minutes.
+
 > **« L'IA guide, l'humain décide. »**
 > Un copilote pour les soignants qui accueillent une victime d'agression sexuelle. Il structure le dossier, rappelle les délais de prélèvement et protège la preuve, sans jamais juger la victime.
 
@@ -30,10 +32,10 @@ Légende : `[CLIC]` = diapo ou animation suivante. `[PAUSE]` = une seconde de si
 
 ### Bloc 1 : L'histoire vraie (0:00–0:30) · Personne 1
 
-> Octobre 2024, université Cornell. Une étudiante de 20 ans dit avoir été droguée, puis violée par sept étudiants. Elle met trois semaines à oser le signaler : bien trop tard pour retrouver une drogue dans son sang. Elle est interrogée par un agent qui n'est pas formé pour ça. Des preuves numériques ne sont jamais examinées. Et la sanction de l'université ? Deux expulsions… et, pour certains, des **dissertations**. [PAUSE] Il a fallu une poursuite civile, ce mois-ci, pour que le procureur rouvre l'enquête.
+> Octobre 2024, université Cornell. Une étudiante de 20 ans dit avoir été poussée à prendre de la kétamine, puis agressée par des membres d'une fraternité. Deux jours plus tard, au service de santé du campus, personne ne lui propose de trousse médicolégale, selon son avocat. Elle la demande elle-même près de trois semaines après : l'ADN avait disparu. Son audition fait 120 pages ; le procureur n'en reçoit qu'un résumé de six et renonce à poursuivre. Côté université : deux expulsions, deux suspensions, et pour deux étudiants, des travaux de réflexion écrits. Il a fallu sa poursuite civile, en septembre 2026, pour que le dossier pénal soit rouvert. À ce jour, aucune accusation.
 > Ce n'est pas qu'aux États-Unis.
 
-*Sources : L'Avenir (28 sept. 2026), Radio-Canada. Faits **allégués**, procédure en cours : ne jamais nommer les accusés ni la victime, toujours dire « dit avoir été », « présumé ».*
+*Sources : NPR (28 sept. 2026), CBS (2 et 6 oct.), CNY Central (1er oct.), Cornell Daily Sun d'après les dossiers obtenus par le New York Times (5 oct.), AP (14 oct. 2026). Faits **allégués**, aucune accusation : ne jamais nommer la plaignante ni les étudiants, toujours « dit avoir été », « présumés ». Ne pas dire « ils n'ont eu que des dissertations » ni « au lieu d'aller en prison » : c'est faux et Cornell le dément (détail : `pitch/recherche/AFFAIRE-CORNELL.md`).*
 
 ### Bloc 2 : Les 4 fuites du dossier (0:25–0:50) · Personne 1 · ~70 mots
 

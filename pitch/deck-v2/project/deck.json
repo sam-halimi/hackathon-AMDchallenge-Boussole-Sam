@@ -1,0 +1,17 @@
+{
+  "v": 4,
+  "createdOnFiles": { "v": 1, "at": "2026-10-15T04:20:00Z" },
+  "lists": "css",
+  "title": "Boussole · Pitch",
+  "order": ["cover", "cornell", "cornell-faits", "ici-aussi", "fuites", "maintenant", "solution", "parcours-1", "parcours-2", "securite", "soignant", "juridique", "preuves-produit", "preuves-terrain", "etudes", "modele", "marche", "prix", "projections", "couts", "feuille-de-route", "equipe", "demande"],
+  "sections": {
+    "probleme": { "description": "Le problème : une affaire qui montre comment la prise en charge échoue encore, et les chiffres qui disent que ce n’est pas un cas isolé.", "start": "cover" },
+    "fonctionnalites": { "description": "Ce que fait Boussole : l’espace gratuit de la personne, l’outil des soignants, le volet juridique.", "start": "solution" },
+    "preuves": { "description": "Les preuves : ce qui est construit et mesuré, la validation par le terrain, les études.", "start": "preuves-produit" },
+    "affaires": { "description": "Le modèle d’affaires : qui paie, combien, les projections et ce que nous demandons.", "start": "modele" }
+  },
+  "faces": {
+    "nunito": { "family": "Nunito", "href": "https://fonts.googleapis.com/css2?family=Nunito:wght@400..900&display=swap" }
+  },
+  "designSystems": []
+}
