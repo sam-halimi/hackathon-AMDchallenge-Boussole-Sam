@@ -1,32 +1,19 @@
 import { lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react'
-import {
-  AlertTriangle, ArrowLeft, ArrowRight, Check, CheckCircle2, ClipboardList, Clock, Download, ExternalLink, Eye, EyeOff, FileLock2,
-  Fingerprint, HeartHandshake, Home, KeyRound, Lock, LockOpen, MapPin, Navigation, PenLine, Phone, Printer, Scale,
-  Send, ServerOff, ShieldCheck, Sparkles, Stethoscope, Trash2, X,
-} from 'lucide-react'
+import { AlertTriangle, ArrowRight, Check, CheckCircle2, ClipboardList, Clock, Download, ExternalLink, EyeOff, FileLock2, Fingerprint, HeartHandshake, Home, Lock, MapPin, Navigation, PenLine, Phone, Printer, Scale, Send, ServerOff, ShieldCheck, Sparkles, Stethoscope, Trash2, X } from 'lucide-react'
 import { Wordmark } from './Logo'
-import { Care, Choice, Folder, Space, Talk, Welcome } from './Illustrations'
+import { Care, Choice, Folder, Talk } from './Illustrations'
 import { RESOURCES, type Resource } from '../lib/resources'
 import { computeChecklist, fromTri, RULES_WARNING, type Answer } from '../lib/rules'
-import { anyAccount, createAccount, deleteAccount, isEmail, login, passwordStrength, saveVault, sealForTransfer, type VaultSession } from '../lib/vault'
+import { anyAccount, deleteAccount, saveVault, sealForTransfer, type VaultSession } from '../lib/vault'
 import Intro from './Intro'
+import { Account, Unlock } from './Compte'
+import { BESOINS, EMPTY, SYMPTOMES, type Fiche, type Tab, type Tri } from '../lib/fiche'
 import Etapes from './Etapes'
 import Rappel from './Rappel'
 import { InstallCard } from './Pwa'
 
 const ResourceMap = lazy(() => import('./ResourceMap'))
 const NB = ' '
-
-type Tri = 'oui' | 'non' | 'nsp' | ''
-type Fiche = {
-  prenom: string
-  quand: string; quandInconnu: boolean; ou: string; souvenirs: string; oublis: string
-  symptomes: string[]; substance: Tri; douche: Tri; vetements: string; temoins: string; besoins: string[]
-  journal: { at: string; action: string }[]
-}
-const EMPTY: Fiche = { prenom: '', quand: '', quandInconnu: false, ou: '', souvenirs: '', oublis: '', symptomes: [], substance: '', douche: '', vetements: '', temoins: '', besoins: [], journal: [] }
-const SYMPTOMES = ['Étourdissements', 'Trous de mémoire', 'Somnolence inhabituelle', 'Nausées', 'Douleurs', 'Blessures visibles', 'Aucun']
-const BESOINS = ['Parler à quelqu’un', 'Un examen médical', 'Un conseil juridique', 'Rien pour l’instant']
 
 const TABS = [
   { id: 'accueil', label: 'Accueil', short: 'Accueil', icon: Home },
@@ -35,7 +22,6 @@ const TABS = [
   { id: 'dossier', label: 'Mon dossier', short: 'Dossier', icon: FileLock2 },
   { id: 'vie-privee', label: 'Vie privée', short: 'Vie privée', icon: ShieldCheck },
 ] as const
-type Tab = (typeof TABS)[number]['id']
 
 export default function Espace() {
   const [stage, setStage] = useState<'intro' | 'account' | 'unlock' | 'app'>(() => (anyAccount() ? 'unlock' : 'intro'))
@@ -123,128 +109,6 @@ export default function Espace() {
           ))}
         </div>
       </nav>
-    </div>
-  )
-}
-
-function TextField({ id, label, hint, value, onChange, type = 'text', autoFocus, autoComplete, placeholder, right }: {
-  id: string; label: string; hint?: string; value: string; onChange: (v: string) => void; type?: string; autoFocus?: boolean; autoComplete?: string; placeholder?: string; right?: React.ReactNode
-}) {
-  return (
-    <label className="block">
-      <span className="mb-1.5 block text-sm font-bold text-ink-2">{label} {hint && <span className="font-normal text-ink-3">{hint}</span>}</span>
-      <span className="relative block">
-        <input id={id} autoFocus={autoFocus} type={type} value={value} onChange={(e) => onChange(e.target.value)} className={`input ${right ? 'pr-12' : ''}`} autoComplete={autoComplete} placeholder={placeholder} />
-        {right && <span className="absolute right-2 top-1/2 -translate-y-1/2">{right}</span>}
-      </span>
-    </label>
-  )
-}
-
-function EyeToggle({ show, set }: { show: boolean; set: (v: boolean) => void }) {
-  return (
-    <button type="button" onClick={() => set(!show)} aria-label={show ? 'Masquer le mot de passe' : 'Afficher le mot de passe'} className="press grid h-9 w-9 place-items-center rounded-full text-ink-3 hover:bg-panel hover:text-ink">
-      {show ? <EyeOff size={18} strokeWidth={2} /> : <Eye size={18} strokeWidth={2} />}
-    </button>
-  )
-}
-
-function Account({ onBack, onLogin, onOpen }: { onBack: () => void; onLogin: () => void; onOpen: (s: VaultSession, data: unknown, fresh: boolean) => void }) {
-  const [prenom, setPrenom] = useState('')
-  const [email, setEmail] = useState('')
-  const [pass, setPass] = useState('')
-  const [confirm, setConfirm] = useState('')
-  const [show, setShow] = useState(false)
-  const [error, setError] = useState('')
-  const [busy, setBusy] = useState(false)
-  const strength = passwordStrength(pass)
-  const submit = async (e: React.FormEvent) => {
-    e.preventDefault(); setError('')
-    if (!isEmail(email)) return setError('Adresse courriel invalide.')
-    if (pass.length < 8) return setError('Le mot de passe doit contenir au moins 8 caractères.')
-    if (pass !== confirm) return setError('Les deux mots de passe ne correspondent pas.')
-    setBusy(true)
-    try {
-      const data = { ...EMPTY, prenom: prenom.trim(), journal: [{ at: new Date().toISOString(), action: 'Compte créé' }] }
-      const s = await createAccount(email, pass, data)
-      onOpen(s, data, true)
-    } catch {
-      setError('Un compte existe déjà avec ce courriel sur cet appareil. Connectez-vous.')
-      setBusy(false)
-    }
-  }
-  return (
-    <div className="flex min-h-dvh flex-col bg-north-soft">
-      <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-5 py-5">
-        <Wordmark />
-        <button onClick={onBack} className="press inline-flex items-center gap-1.5 rounded-full bg-white/70 px-4 py-2 text-sm font-bold text-ink-2 hover:bg-white"><ArrowLeft size={16} strokeWidth={2} /> Revoir la présentation</button>
-      </div>
-      <div className="mx-auto grid w-full max-w-5xl flex-1 items-center gap-8 px-5 pb-10 md:grid-cols-2">
-        <Space className="slide-l mx-auto hidden w-full max-w-[400px] md:block" />
-        <form onSubmit={submit} className="sheet-in card-soft p-7 sm:p-9" noValidate>
-          <div className="text-sm font-extrabold text-north">Dernière étape</div>
-          <h1 className="display mt-2 text-4xl">Créez votre compte</h1>
-          <p className="mt-3 text-[16px] leading-relaxed text-ink-2">Votre récit sera chiffré avec votre mot de passe. Personne d’autre ne peut le lire.</p>
-          <div className="mt-6 space-y-4">
-            <TextField id="prenom" label="Prénom ou surnom" hint="(facultatif)" value={prenom} onChange={setPrenom} placeholder="Comment voulez-vous qu’on vous appelle ?" autoComplete="nickname" />
-            <TextField id="email" label="Adresse courriel" type="email" value={email} onChange={setEmail} placeholder="vous@exemple.com" autoComplete="email" />
-            <TextField id="pass1" label="Mot de passe" type={show ? 'text' : 'password'} value={pass} onChange={setPass} autoComplete="new-password" right={<EyeToggle show={show} set={setShow} />} />
-            <div aria-live="polite">
-              <div className="flex gap-1.5">
-                {[1, 2, 3].map((n) => <span key={n} className={`h-1.5 flex-1 rounded-full transition-colors duration-150 ${n <= strength.score ? ['', 'bg-coral', 'bg-sun', 'bg-sage-ink'][strength.score] : 'bg-panel'}`} />)}
-              </div>
-              {strength.label && <p className={`mt-1.5 text-xs font-bold ${['', 'text-coral-ink', 'text-warn', 'text-sage-ink'][strength.score]}`} id="strength">{strength.label}</p>}
-            </div>
-            <TextField id="pass2" label="Confirmer le mot de passe" type={show ? 'text' : 'password'} value={confirm} onChange={setConfirm} autoComplete="new-password" />
-          </div>
-          {error && <p className="fade-in mt-3 flex items-start gap-1.5 text-sm font-bold text-alert"><AlertTriangle size={16} strokeWidth={2} className="mt-0.5 shrink-0" /> {error}</p>}
-          <button id="create" disabled={busy} className="press mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-north py-4 text-[16px] font-extrabold text-white hover:bg-ink disabled:opacity-60">
-            {busy ? 'Création…' : <><Lock size={18} strokeWidth={2.25} /> Créer mon compte</>}
-          </button>
-          <button type="button" onClick={onLogin} className="press mt-3 w-full rounded-full py-2.5 text-sm font-bold text-ink-2 hover:bg-panel">J’ai déjà un compte · Se connecter</button>
-          <p className="mt-3 flex items-start gap-2 text-xs leading-relaxed text-ink-3"><AlertTriangle size={14} strokeWidth={2} className="mt-0.5 shrink-0 text-warn" /> Bêta de test : n’entrez pas de vraies données. Le compte est stocké sur cet appareil uniquement ; un mot de passe oublié rend le récit illisible.</p>
-        </form>
-      </div>
-    </div>
-  )
-}
-
-function Unlock({ onOpen, onIntro, onCreate }: { onOpen: (s: VaultSession, data: unknown, fresh: boolean) => void; onIntro: () => void; onCreate: () => void }) {
-  const [email, setEmail] = useState('')
-  const [pass, setPass] = useState('')
-  const [show, setShow] = useState(false)
-  const [error, setError] = useState('')
-  const [busy, setBusy] = useState(false)
-  const submit = async (e: React.FormEvent) => {
-    e.preventDefault(); setError('')
-    if (!isEmail(email)) return setError('Adresse courriel invalide.')
-    setBusy(true)
-    try { const { session, data } = await login(email, pass); onOpen(session, data, false) } catch { setError('Courriel ou mot de passe incorrect.') }
-    setBusy(false)
-  }
-  return (
-    <div className="flex min-h-dvh flex-col bg-sage-soft">
-      <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-5 py-5">
-        <Wordmark />
-        <button onClick={onIntro} className="press rounded-full bg-white/70 px-4 py-2 text-sm font-bold text-ink-2 hover:bg-white">Revoir la présentation</button>
-      </div>
-      <div className="mx-auto grid w-full max-w-5xl flex-1 items-center gap-8 px-5 pb-10 md:grid-cols-2">
-        <Welcome className="slide-l mx-auto hidden w-full max-w-[400px] md:block" />
-        <form onSubmit={submit} className="sheet-in card-soft p-7 sm:p-9" noValidate>
-          <div className="grid h-14 w-14 place-items-center rounded-2xl bg-sage-soft text-sage-ink"><KeyRound size={26} strokeWidth={2} /></div>
-          <h1 className="display mt-5 text-4xl">Content de vous revoir.</h1>
-          <p className="mt-3 text-[16px] leading-relaxed text-ink-2">Connectez-vous pour retrouver votre espace.</p>
-          <div className="mt-6 space-y-4">
-            <TextField id="login-email" label="Adresse courriel" type="email" value={email} onChange={setEmail} autoFocus autoComplete="email" />
-            <TextField id="login-pass" label="Mot de passe" type={show ? 'text' : 'password'} value={pass} onChange={setPass} autoComplete="current-password" right={<EyeToggle show={show} set={setShow} />} />
-          </div>
-          {error && <p className="fade-in mt-3 flex items-center gap-1.5 text-sm font-bold text-alert"><AlertTriangle size={16} strokeWidth={2} /> {error}</p>}
-          <button id="login" disabled={busy} className="press mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-sage-ink py-4 text-[16px] font-extrabold text-white hover:bg-ink disabled:opacity-60">
-            {busy ? 'Connexion…' : <><LockOpen size={18} strokeWidth={2.25} /> Se connecter</>}
-          </button>
-          <button type="button" onClick={onCreate} className="press mt-3 w-full rounded-full py-2.5 text-sm font-bold text-ink-2 hover:bg-panel">Pas encore de compte · En créer un</button>
-        </form>
-      </div>
     </div>
   )
 }

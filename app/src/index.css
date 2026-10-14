@@ -55,7 +55,7 @@ button, a, label, summary { touch-action: manipulation; }
   .btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
     min-height: 3rem; padding: 0.625rem 1.25rem; border-radius: 999px;
-    font-size: 1rem; line-height: 1.25; font-weight: 800; text-align: center;
+    font-size: 1rem; line-height: 1.25; font-weight: 800; text-align: center; text-wrap: balance;
     transition: transform 120ms var(--ease-out-soft), background-color 150ms var(--ease-out-soft), color 150ms var(--ease-out-soft), box-shadow 150ms var(--ease-out-soft);
   }
   .btn:active:not(:disabled) { transform: scale(0.98); }
