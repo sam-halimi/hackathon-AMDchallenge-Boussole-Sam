@@ -1,0 +1,6052 @@
+{
+  "serie": "apres",
+  "base": "http://127.0.0.1:8137",
+  "horloge": "2026-10-14T14:00:00.000Z",
+  "formats": [
+    {
+      "format": "375x667",
+      "erreurs": [
+        "Failed to load resource: the server responded with a status of 503 (Service Unavailable)"
+      ],
+      "ecrans": [
+        {
+          "ecran": "01-arrivee-diapo-1",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 667,
+          "ecrans": 1,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 15,
+              "n": 53,
+              "ex": [
+                "Besoin d’aide maintenant ?",
+                "+1 888 933-9007",
+                "Danger : 911"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "02-arrivee-diapo-2",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 667,
+          "ecrans": 1,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 15,
+              "n": 53,
+              "ex": [
+                "Besoin d’aide maintenant ?",
+                "+1 888 933-9007",
+                "Danger : 911"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "03-arrivee-diapo-3",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 667,
+          "ecrans": 1,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 15,
+              "n": 53,
+              "ex": [
+                "Besoin d’aide maintenant ?",
+                "+1 888 933-9007",
+                "Danger : 911"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "04-arrivee-diapo-4",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 667,
+          "ecrans": 1,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 15,
+              "n": 53,
+              "ex": [
+                "Besoin d’aide maintenant ?",
+                "+1 888 933-9007",
+                "Danger : 911"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "05-arrivee-diapo-5",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 667,
+          "ecrans": 1,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 15,
+              "n": 53,
+              "ex": [
+                "Besoin d’aide maintenant ?",
+                "+1 888 933-9007",
+                "Danger : 911"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "06-compte-vide",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 1085,
+          "ecrans": 1.6,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 157,
+              "ex": [
+                "Comment voulez-vous qu’on vous appelle ?",
+                "Elle sert seulement à retrouver votre es",
+                "8 caractères au minimum."
+              ]
+            },
+            {
+              "px": 15,
+              "n": 279,
+              "ex": [
+                "Prénom ou surnom",
+                "(facultatif)",
+                "Adresse courriel",
+                "Mot de passe"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "07-compte-erreur",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 1156,
+          "ecrans": 1.7,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 205,
+              "ex": [
+                "Comment voulez-vous qu’on vous appelle ?",
+                "Elle sert seulement à retrouver votre es",
+                "8 caractères au minimum.",
+                "Fort"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 279,
+              "ex": [
+                "Prénom ou surnom",
+                "(facultatif)",
+                "Adresse courriel",
+                "Mot de passe"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "08-etapes-1",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 1127,
+          "ecrans": 1.7,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": {
+            "haut": 238,
+            "bas": 667,
+            "depasse": false
+          },
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 92,
+              "ex": [
+                "Vous pouvez vous arrêter à tout moment. ",
+                "Étape",
+                "1",
+                "sur"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "09-etapes-2",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 1127,
+          "ecrans": 1.7,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": {
+            "haut": 238,
+            "bas": 667,
+            "depasse": false
+          },
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 115,
+              "ex": [
+                "Vous pouvez vous arrêter à tout moment. ",
+                "Étape",
+                "2",
+                "sur"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "10-etapes-3",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 1127,
+          "ecrans": 1.7,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": {
+            "haut": 103,
+            "bas": 667,
+            "depasse": false
+          },
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 108,
+              "ex": [
+                "Vous pouvez vous arrêter à tout moment. ",
+                "Étape",
+                "3",
+                "sur"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "11-etapes-4",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 1127,
+          "ecrans": 1.7,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": {
+            "haut": 87,
+            "bas": 667,
+            "depasse": false
+          },
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 114,
+              "ex": [
+                "Vous pouvez vous arrêter à tout moment. ",
+                "Étape",
+                "4",
+                "sur"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "12-etapes-5",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 1127,
+          "ecrans": 1.7,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": {
+            "haut": 196,
+            "bas": 667,
+            "depasse": false
+          },
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 111,
+              "ex": [
+                "Vous pouvez vous arrêter à tout moment. ",
+                "Étape",
+                "5",
+                "sur"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "13-etapes-6",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 1127,
+          "ecrans": 1.7,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": {
+            "haut": 172,
+            "bas": 667,
+            "depasse": false
+          },
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 100,
+              "ex": [
+                "Vous pouvez vous arrêter à tout moment. ",
+                "Étape",
+                "6",
+                "sur"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "14-etapes-7",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 1127,
+          "ecrans": 1.7,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": {
+            "haut": 189,
+            "bas": 667,
+            "depasse": false
+          },
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 107,
+              "ex": [
+                "Vous pouvez vous arrêter à tout moment. ",
+                "Étape",
+                "7",
+                "sur"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "15-etapes-8",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 1127,
+          "ecrans": 1.7,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": {
+            "haut": 189,
+            "bas": 667,
+            "depasse": false
+          },
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 112,
+              "ex": [
+                "Vous pouvez vous arrêter à tout moment. ",
+                "Étape",
+                "8",
+                "sur"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "16-accueil",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 1127,
+          "ecrans": 1.7,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 37,
+              "ex": [
+                "Accueil",
+                "Récit",
+                "Où aller",
+                "Dossier"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 46,
+              "ex": [
+                "Info-aide violence sexuelle · gratuit, 2"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "17-accueil-hors-ligne",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 1183,
+          "ecrans": 1.8,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 134,
+              "ex": [
+                "Hors ligne : votre espace fonctionne. La",
+                "Accueil",
+                "Récit",
+                "Où aller"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 46,
+              "ex": [
+                "Info-aide violence sexuelle · gratuit, 2"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "18-recit-vide",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 1428,
+          "ecrans": 2.1,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 65,
+              "ex": [
+                "Chiffré · 10 h 00",
+                "1",
+                "2",
+                "3"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 170,
+              "ex": [
+                "Pas encore rempli"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "18a-recit-question-quand",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 667,
+          "ecrans": 1,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 68,
+              "ex": [
+                "Chiffré · 10 h 00",
+                "Question",
+                "1",
+                "sur"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 59,
+              "ex": [
+                "Rien n’est obligatoire : vous pouvez pas"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "18b-recit-question-souvenirs",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 715,
+          "ecrans": 1.1,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 68,
+              "ex": [
+                "Chiffré · 10 h 00",
+                "Question",
+                "3",
+                "sur"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 59,
+              "ex": [
+                "Rien n’est obligatoire : vous pouvez pas"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "18c-recit-question-symptomes",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 926,
+          "ecrans": 1.4,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 68,
+              "ex": [
+                "Chiffré · 10 h 00",
+                "Question",
+                "5",
+                "sur"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 59,
+              "ex": [
+                "Rien n’est obligatoire : vous pouvez pas"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "18d-recit-question-substance",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 717,
+          "ecrans": 1.1,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 68,
+              "ex": [
+                "Chiffré · 10 h 00",
+                "Question",
+                "6",
+                "sur"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 59,
+              "ex": [
+                "Rien n’est obligatoire : vous pouvez pas"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "19-recit-rempli",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 1428,
+          "ecrans": 2.1,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 57,
+              "ex": [
+                "Chiffré · 10 h 00",
+                "7",
+                "10",
+                "Accueil"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 309,
+              "ex": [
+                "13 octobre 2026 à 04 h 00",
+                "Plateau-Mont-Royal",
+                "Je suis rentrée à pied après la soirée. ",
+                "Le trajet entre le bar et l’appartement."
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "20-recit-effacer",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 1520,
+          "ecrans": 2.3,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 57,
+              "ex": [
+                "Chiffré · 10 h 00",
+                "7",
+                "10",
+                "Accueil"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 309,
+              "ex": [
+                "13 octobre 2026 à 04 h 00",
+                "Plateau-Mont-Royal",
+                "Je suis rentrée à pied après la soirée. ",
+                "Le trajet entre le bar et l’appartement."
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "21-ou-aller",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 5621,
+          "ecrans": 8.4,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [
+            {
+              "t": "Liste",
+              "w": 168,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Carte",
+              "w": 168,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "CVASM, Clinique Médic Elle (jour)",
+              "w": 311,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "CAVAC de Montréal",
+              "w": 311,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Info Justice Montréal",
+              "w": 311,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            }
+          ],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 717,
+              "ex": [
+                "Règles non validées cliniquement : délai",
+                "« À confirmer » : affiché parce que vous",
+                "1",
+                "Examens médicaux"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 457,
+              "ex": [
+                "Prélèvements cutanés (trousse)",
+                "·",
+                "≈",
+                "18"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "22-ou-aller-carte",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 1924,
+          "ecrans": 2.9,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [
+            {
+              "t": "Liste",
+              "w": 168,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Carte",
+              "w": 168,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "1",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "2",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "3",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "4",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "5",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "8",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "13",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "20",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "21",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "Zoom in",
+              "w": 30,
+              "h": 30,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "Zoom out",
+              "w": 30,
+              "h": 30,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "Leaflet",
+              "w": 51,
+              "h": 14,
+              "leaflet": true,
+              "off": false
+            }
+          ],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 591,
+              "ex": [
+                "Règles non validées cliniquement : délai",
+                "« À confirmer » : affiché parce que vous",
+                "Examens médicaux",
+                "Soutien psychologique"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 231,
+              "ex": [
+                "Prélèvements cutanés (trousse)",
+                "·",
+                "≈",
+                "18"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "23-ou-aller-fiche",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 5621,
+          "ecrans": 8.4,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [
+            {
+              "t": "Liste",
+              "w": 168,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Carte",
+              "w": 168,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "CVASM, Clinique Médic Elle (jour)",
+              "w": 311,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "CAVAC de Montréal",
+              "w": 311,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Info Justice Montréal",
+              "w": 311,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            }
+          ],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 717,
+              "ex": [
+                "Règles non validées cliniquement : délai",
+                "« À confirmer » : affiché parce que vous",
+                "1",
+                "Examens médicaux"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 457,
+              "ex": [
+                "Prélèvements cutanés (trousse)",
+                "·",
+                "≈",
+                "18"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "24-dossier",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 1953,
+          "ecrans": 2.9,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 205,
+              "ex": [
+                "99 caractères",
+                "calculés à 30 h",
+                "Parler à quelqu’un, Un examen médical",
+                "3"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 99,
+              "ex": [
+                "Mon récit",
+                "Examens prioritaires",
+                "Mes besoins",
+                "Journal"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "25-dossier-pret",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 1900,
+          "ecrans": 2.8,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 205,
+              "ex": [
+                "99 caractères",
+                "calculés à 30 h",
+                "Parler à quelqu’un, Un examen médical",
+                "3"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 47,
+              "ex": [
+                "Mon récit",
+                "Examens prioritaires",
+                "Mes besoins",
+                "Journal"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "26-dossier-confirmation",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 1900,
+          "ecrans": 2.8,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": {
+            "haut": 442,
+            "bas": 667,
+            "depasse": false
+          },
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "27-dossier-envoye",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 3517,
+          "ecrans": 5.3,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [
+            {
+              "t": "Aujourd’hui",
+              "w": 148,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Demain",
+              "w": 148,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            }
+          ],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 435,
+              "ex": [
+                "99 caractères",
+                "calculés à 30 h",
+                "Parler à quelqu’un, Un examen médical",
+                "3"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 216,
+              "ex": [
+                "Mon récit",
+                "Examens prioritaires",
+                "Mes besoins",
+                "Journal"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "28-rappel",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 3517,
+          "ecrans": 5.3,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [
+            {
+              "t": "Aujourd’hui",
+              "w": 148,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Demain",
+              "w": 148,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            }
+          ],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 435,
+              "ex": [
+                "99 caractères",
+                "calculés à 30 h",
+                "Parler à quelqu’un, Un examen médical",
+                "3"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 216,
+              "ex": [
+                "Mon récit",
+                "Examens prioritaires",
+                "Mes besoins",
+                "Journal"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "29-rappel-pret",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 3549,
+          "ecrans": 5.3,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [
+            {
+              "t": "Aujourd’hui",
+              "w": 148,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Demain",
+              "w": 148,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            }
+          ],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 435,
+              "ex": [
+                "99 caractères",
+                "calculés à 30 h",
+                "Parler à quelqu’un, Un examen médical",
+                "3"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 216,
+              "ex": [
+                "Mon récit",
+                "Examens prioritaires",
+                "Mes besoins",
+                "Journal"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "30-rappel-confirme",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 2729,
+          "ecrans": 4.1,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 313,
+              "ex": [
+                "99 caractères",
+                "calculés à 30 h",
+                "Parler à quelqu’un, Un examen médical",
+                "3"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 138,
+              "ex": [
+                "Mon récit",
+                "Examens prioritaires",
+                "Mes besoins",
+                "Journal"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "31-vie-privee",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 2310,
+          "ecrans": 3.5,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 37,
+              "ex": [
+                "Accueil",
+                "Récit",
+                "Où aller",
+                "Dossier"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "32-connexion",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 733,
+          "ecrans": 1.1,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 15,
+              "n": 267,
+              "ex": [
+                "Adresse courriel",
+                "Mot de passe",
+                "Mot de passe oublié ?",
+                "Il ne peut pas être retrouvé : il n’est "
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "33-soignant-1-consentement",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 1217,
+          "ecrans": 1.8,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 122,
+              "ex": [
+                "Données 100 % fictives · prototype · règ",
+                "0",
+                "·",
+                "intègre"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 379,
+              "ex": [
+                "Consentement",
+                "Soins et évaluation médicale.",
+                "Chaque prélèvement peut être refusé indi",
+                "Les preuves sont conservées ; la décisio"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "34-soignant-2-dossier",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 1593,
+          "ecrans": 2.4,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [
+            {
+              "t": "Heures écoulées depuis les faits",
+              "w": 293,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Oui",
+              "w": 101,
+              "h": 45,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Non",
+              "w": 101,
+              "h": 45,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Ne sait pas",
+              "w": 101,
+              "h": 45,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Oui",
+              "w": 101,
+              "h": 45,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Non",
+              "w": 101,
+              "h": 45,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Ne sait pas",
+              "w": 101,
+              "h": 45,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Oui",
+              "w": 101,
+              "h": 45,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Non",
+              "w": 101,
+              "h": 45,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Ne sait pas",
+              "w": 101,
+              "h": 45,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Oui",
+              "w": 101,
+              "h": 45,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Non",
+              "w": 101,
+              "h": 45,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Ne sait pas",
+              "w": 101,
+              "h": 45,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Oui",
+              "w": 101,
+              "h": 45,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Non",
+              "w": 101,
+              "h": 45,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Ne sait pas",
+              "w": 101,
+              "h": 45,
+              "leaflet": false,
+              "off": false
+            }
+          ],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 150,
+              "ex": [
+                "Données 100 % fictives · prototype · règ",
+                "2",
+                "·",
+                "intègre"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 264,
+              "ex": [
+                "Dossier guidé",
+                "Oui",
+                "Non",
+                "Ne sait pas"
+              ]
+            }
+          ],
+          "contrastesFaibles": [
+            {
+              "fg": "#fff9f3",
+              "bg": "#f6efe8",
+              "px": 15,
+              "w": 700,
+              "ratio": 1.09,
+              "need": 4.5,
+              "n": 5,
+              "ex": [
+                "Oui",
+                "Oui",
+                "Oui"
+              ],
+              "image": false,
+              "off": false
+            }
+          ]
+        },
+        {
+          "ecran": "35-soignant-3-prelevements",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 1727,
+          "ecrans": 2.6,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [
+            {
+              "t": "Marquer Prélèvements cutanés (trousse)",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Marquer Évaluation prophylaxie post-exposition (",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Marquer Toxicologie, prélèvement urinaire",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Marquer Trousse médicolégale complète",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Marquer Contraception d'urgence",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Marquer Dépistage ITSS et suivi",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Marquer Toxicologie, prélèvement sanguin",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": true
+            }
+          ],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 486,
+              "ex": [
+                "Données 100 % fictives · prototype · règ",
+                "3",
+                "·",
+                "intègre"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 389,
+              "ex": [
+                "Prélèvements",
+                "Fenêtre courte, surtout si douche.",
+                "À débuter le plus tôt possible, au plus ",
+                "L'urine peut prolonger la détection jusq"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "36-soignant-4-chronologie-vide",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 1539,
+          "ecrans": 2.3,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [
+            {
+              "t": "Ce que l’IA voit",
+              "w": 143,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            }
+          ],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 220,
+              "ex": [
+                "Données 100 % fictives · prototype · règ",
+                "3",
+                "·",
+                "intègre"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 652,
+              "ex": [
+                "Chronologie",
+                "Récit de la patiente (Léa Tremblay, née ",
+                "Générer la chronologie"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "37-soignant-4-chronologie",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 3077,
+          "ecrans": 4.6,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [
+            {
+              "t": "Ce que l’IA voit",
+              "w": 143,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Valider",
+              "w": 99,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Rejeter",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Valider",
+              "w": 99,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Rejeter",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Valider",
+              "w": 99,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Rejeter",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Valider",
+              "w": 99,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Rejeter",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Valider",
+              "w": 99,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Rejeter",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Valider",
+              "w": 99,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Rejeter",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Valider",
+              "w": 99,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Rejeter",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Corrigé",
+              "w": 101,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Rejeter",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            }
+          ],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 1679,
+              "ex": [
+                "Données 100 % fictives · prototype · règ",
+                "5",
+                "·",
+                "intègre"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 860,
+              "ex": [
+                "Chronologie",
+                "Récit de la patiente (Léa Tremblay, née ",
+                "Générer la chronologie",
+                "Arrivée à une fête"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "38-soignant-5-export",
+          "vw": 375,
+          "vh": 667,
+          "echelle": 1,
+          "largeurContenu": 375,
+          "hauteurPage": 1689,
+          "ecrans": 2.5,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 725,
+              "ex": [
+                "Données 100 % fictives · prototype · règ",
+                "5",
+                "·",
+                "intègre"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 320,
+              "ex": [
+                "Export",
+                "Délai depuis les faits",
+                "30 h",
+                "Consentements"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        }
+      ]
+    },
+    {
+      "format": "360x640",
+      "erreurs": [
+        "Failed to load resource: the server responded with a status of 503 (Service Unavailable)"
+      ],
+      "ecrans": [
+        {
+          "ecran": "01-arrivee-diapo-1",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 640,
+          "ecrans": 1,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 15,
+              "n": 53,
+              "ex": [
+                "Besoin d’aide maintenant ?",
+                "+1 888 933-9007",
+                "Danger : 911"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "02-arrivee-diapo-2",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 640,
+          "ecrans": 1,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 15,
+              "n": 53,
+              "ex": [
+                "Besoin d’aide maintenant ?",
+                "+1 888 933-9007",
+                "Danger : 911"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "03-arrivee-diapo-3",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 640,
+          "ecrans": 1,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 15,
+              "n": 53,
+              "ex": [
+                "Besoin d’aide maintenant ?",
+                "+1 888 933-9007",
+                "Danger : 911"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "04-arrivee-diapo-4",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 640,
+          "ecrans": 1,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 15,
+              "n": 53,
+              "ex": [
+                "Besoin d’aide maintenant ?",
+                "+1 888 933-9007",
+                "Danger : 911"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "05-arrivee-diapo-5",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 640,
+          "ecrans": 1,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 15,
+              "n": 53,
+              "ex": [
+                "Besoin d’aide maintenant ?",
+                "+1 888 933-9007",
+                "Danger : 911"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "06-compte-vide",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 1144,
+          "ecrans": 1.8,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 157,
+              "ex": [
+                "Comment voulez-vous qu’on vous appelle ?",
+                "Elle sert seulement à retrouver votre es",
+                "8 caractères au minimum."
+              ]
+            },
+            {
+              "px": 15,
+              "n": 279,
+              "ex": [
+                "Prénom ou surnom",
+                "(facultatif)",
+                "Adresse courriel",
+                "Mot de passe"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "07-compte-erreur",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 1214,
+          "ecrans": 1.9,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 205,
+              "ex": [
+                "Comment voulez-vous qu’on vous appelle ?",
+                "Elle sert seulement à retrouver votre es",
+                "8 caractères au minimum.",
+                "Fort"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 279,
+              "ex": [
+                "Prénom ou surnom",
+                "(facultatif)",
+                "Adresse courriel",
+                "Mot de passe"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "08-etapes-1",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 1126,
+          "ecrans": 1.8,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": {
+            "haut": 189,
+            "bas": 640,
+            "depasse": false
+          },
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 92,
+              "ex": [
+                "Vous pouvez vous arrêter à tout moment. ",
+                "Étape",
+                "1",
+                "sur"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "09-etapes-2",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 1126,
+          "ecrans": 1.8,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": {
+            "haut": 189,
+            "bas": 640,
+            "depasse": false
+          },
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 115,
+              "ex": [
+                "Vous pouvez vous arrêter à tout moment. ",
+                "Étape",
+                "2",
+                "sur"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "10-etapes-3",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 1126,
+          "ecrans": 1.8,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": {
+            "haut": 54,
+            "bas": 640,
+            "depasse": false
+          },
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 108,
+              "ex": [
+                "Vous pouvez vous arrêter à tout moment. ",
+                "Étape",
+                "3",
+                "sur"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "11-etapes-4",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 1126,
+          "ecrans": 1.8,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": {
+            "haut": 38,
+            "bas": 640,
+            "depasse": false
+          },
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 114,
+              "ex": [
+                "Vous pouvez vous arrêter à tout moment. ",
+                "Étape",
+                "4",
+                "sur"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "12-etapes-5",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 1126,
+          "ecrans": 1.8,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": {
+            "haut": 147,
+            "bas": 640,
+            "depasse": false
+          },
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 111,
+              "ex": [
+                "Vous pouvez vous arrêter à tout moment. ",
+                "Étape",
+                "5",
+                "sur"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "13-etapes-6",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 1126,
+          "ecrans": 1.8,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": {
+            "haut": 98,
+            "bas": 640,
+            "depasse": false
+          },
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 100,
+              "ex": [
+                "Vous pouvez vous arrêter à tout moment. ",
+                "Étape",
+                "6",
+                "sur"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "14-etapes-7",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 1126,
+          "ecrans": 1.8,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": {
+            "haut": 140,
+            "bas": 640,
+            "depasse": false
+          },
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 107,
+              "ex": [
+                "Vous pouvez vous arrêter à tout moment. ",
+                "Étape",
+                "7",
+                "sur"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "15-etapes-8",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 1126,
+          "ecrans": 1.8,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": {
+            "haut": 128,
+            "bas": 640,
+            "depasse": false
+          },
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 112,
+              "ex": [
+                "Vous pouvez vous arrêter à tout moment. ",
+                "Étape",
+                "8",
+                "sur"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "16-accueil",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 1126,
+          "ecrans": 1.8,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 37,
+              "ex": [
+                "Accueil",
+                "Récit",
+                "Où aller",
+                "Dossier"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 46,
+              "ex": [
+                "Info-aide violence sexuelle · gratuit, 2"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "17-accueil-hors-ligne",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 1202,
+          "ecrans": 1.9,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 134,
+              "ex": [
+                "Hors ligne : votre espace fonctionne. La",
+                "Accueil",
+                "Récit",
+                "Où aller"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 46,
+              "ex": [
+                "Info-aide violence sexuelle · gratuit, 2"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "18-recit-vide",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 1450,
+          "ecrans": 2.3,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 65,
+              "ex": [
+                "Chiffré · 10 h 00",
+                "1",
+                "2",
+                "3"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 170,
+              "ex": [
+                "Pas encore rempli"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "18a-recit-question-quand",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 654,
+          "ecrans": 1,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 68,
+              "ex": [
+                "Chiffré · 10 h 00",
+                "Question",
+                "1",
+                "sur"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 59,
+              "ex": [
+                "Rien n’est obligatoire : vous pouvez pas"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "18b-recit-question-souvenirs",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 715,
+          "ecrans": 1.1,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 68,
+              "ex": [
+                "Chiffré · 10 h 00",
+                "Question",
+                "3",
+                "sur"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 59,
+              "ex": [
+                "Rien n’est obligatoire : vous pouvez pas"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "18c-recit-question-symptomes",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 926,
+          "ecrans": 1.4,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 68,
+              "ex": [
+                "Chiffré · 10 h 00",
+                "Question",
+                "5",
+                "sur"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 59,
+              "ex": [
+                "Rien n’est obligatoire : vous pouvez pas"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "18d-recit-question-substance",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 717,
+          "ecrans": 1.1,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 68,
+              "ex": [
+                "Chiffré · 10 h 00",
+                "Question",
+                "6",
+                "sur"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 59,
+              "ex": [
+                "Rien n’est obligatoire : vous pouvez pas"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "19-recit-rempli",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 1450,
+          "ecrans": 2.3,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 57,
+              "ex": [
+                "Chiffré · 10 h 00",
+                "7",
+                "10",
+                "Accueil"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 309,
+              "ex": [
+                "13 octobre 2026 à 04 h 00",
+                "Plateau-Mont-Royal",
+                "Je suis rentrée à pied après la soirée. ",
+                "Le trajet entre le bar et l’appartement."
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "20-recit-effacer",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 1542,
+          "ecrans": 2.4,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 57,
+              "ex": [
+                "Chiffré · 10 h 00",
+                "7",
+                "10",
+                "Accueil"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 309,
+              "ex": [
+                "13 octobre 2026 à 04 h 00",
+                "Plateau-Mont-Royal",
+                "Je suis rentrée à pied après la soirée. ",
+                "Le trajet entre le bar et l’appartement."
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "21-ou-aller",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 5782,
+          "ecrans": 9,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [
+            {
+              "t": "Liste",
+              "w": 160,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Carte",
+              "w": 160,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "CAVAC de Montréal",
+              "w": 296,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Info Justice Montréal",
+              "w": 296,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            }
+          ],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 717,
+              "ex": [
+                "Règles non validées cliniquement : délai",
+                "« À confirmer » : affiché parce que vous",
+                "1",
+                "Examens médicaux"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 457,
+              "ex": [
+                "Prélèvements cutanés (trousse)",
+                "·",
+                "≈",
+                "18"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "22-ou-aller-carte",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 1942,
+          "ecrans": 3,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [
+            {
+              "t": "Liste",
+              "w": 160,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Carte",
+              "w": 160,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "1",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "2",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "3",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "4",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "5",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "8",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "13",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "20",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "21",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "Zoom in",
+              "w": 30,
+              "h": 30,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "Zoom out",
+              "w": 30,
+              "h": 30,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "Leaflet",
+              "w": 51,
+              "h": 14,
+              "leaflet": true,
+              "off": false
+            }
+          ],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 591,
+              "ex": [
+                "Règles non validées cliniquement : délai",
+                "« À confirmer » : affiché parce que vous",
+                "Examens médicaux",
+                "Soutien psychologique"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 231,
+              "ex": [
+                "Prélèvements cutanés (trousse)",
+                "·",
+                "≈",
+                "18"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "23-ou-aller-fiche",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 5782,
+          "ecrans": 9,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [
+            {
+              "t": "Liste",
+              "w": 160,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Carte",
+              "w": 160,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "CAVAC de Montréal",
+              "w": 296,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Info Justice Montréal",
+              "w": 296,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            }
+          ],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 717,
+              "ex": [
+                "Règles non validées cliniquement : délai",
+                "« À confirmer » : affiché parce que vous",
+                "1",
+                "Examens médicaux"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 457,
+              "ex": [
+                "Prélèvements cutanés (trousse)",
+                "·",
+                "≈",
+                "18"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "24-dossier",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 1953,
+          "ecrans": 3.1,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 205,
+              "ex": [
+                "99 caractères",
+                "calculés à 30 h",
+                "Parler à quelqu’un, Un examen médical",
+                "3"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 99,
+              "ex": [
+                "Mon récit",
+                "Examens prioritaires",
+                "Mes besoins",
+                "Journal"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "25-dossier-pret",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 1900,
+          "ecrans": 3,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 205,
+              "ex": [
+                "99 caractères",
+                "calculés à 30 h",
+                "Parler à quelqu’un, Un examen médical",
+                "3"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 47,
+              "ex": [
+                "Mon récit",
+                "Examens prioritaires",
+                "Mes besoins",
+                "Journal"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "26-dossier-confirmation",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 1900,
+          "ecrans": 3,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": {
+            "haut": 415,
+            "bas": 640,
+            "depasse": false
+          },
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "27-dossier-envoye",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 3538,
+          "ecrans": 5.5,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [
+            {
+              "t": "Aujourd’hui",
+              "w": 140,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Demain",
+              "w": 140,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            }
+          ],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 435,
+              "ex": [
+                "99 caractères",
+                "calculés à 30 h",
+                "Parler à quelqu’un, Un examen médical",
+                "3"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 216,
+              "ex": [
+                "Mon récit",
+                "Examens prioritaires",
+                "Mes besoins",
+                "Journal"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "28-rappel",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 3538,
+          "ecrans": 5.5,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [
+            {
+              "t": "Aujourd’hui",
+              "w": 140,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Demain",
+              "w": 140,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            }
+          ],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 435,
+              "ex": [
+                "99 caractères",
+                "calculés à 30 h",
+                "Parler à quelqu’un, Un examen médical",
+                "3"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 216,
+              "ex": [
+                "Mon récit",
+                "Examens prioritaires",
+                "Mes besoins",
+                "Journal"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "29-rappel-pret",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 3570,
+          "ecrans": 5.6,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [
+            {
+              "t": "Aujourd’hui",
+              "w": 140,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Demain",
+              "w": 140,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            }
+          ],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 435,
+              "ex": [
+                "99 caractères",
+                "calculés à 30 h",
+                "Parler à quelqu’un, Un examen médical",
+                "3"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 216,
+              "ex": [
+                "Mon récit",
+                "Examens prioritaires",
+                "Mes besoins",
+                "Journal"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "30-rappel-confirme",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 2729,
+          "ecrans": 4.3,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 313,
+              "ex": [
+                "99 caractères",
+                "calculés à 30 h",
+                "Parler à quelqu’un, Un examen médical",
+                "3"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 138,
+              "ex": [
+                "Mon récit",
+                "Examens prioritaires",
+                "Mes besoins",
+                "Journal"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "31-vie-privee",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 2413,
+          "ecrans": 3.8,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 37,
+              "ex": [
+                "Accueil",
+                "Récit",
+                "Où aller",
+                "Dossier"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "32-connexion",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 733,
+          "ecrans": 1.1,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 15,
+              "n": 267,
+              "ex": [
+                "Adresse courriel",
+                "Mot de passe",
+                "Mot de passe oublié ?",
+                "Il ne peut pas être retrouvé : il n’est "
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "33-soignant-1-consentement",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 1245,
+          "ecrans": 1.9,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 122,
+              "ex": [
+                "Données 100 % fictives · prototype · règ",
+                "0",
+                "·",
+                "intègre"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 379,
+              "ex": [
+                "Consentement",
+                "Soins et évaluation médicale.",
+                "Chaque prélèvement peut être refusé indi",
+                "Les preuves sont conservées ; la décisio"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "34-soignant-2-dossier",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 1640,
+          "ecrans": 2.6,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [
+            {
+              "t": "Heures écoulées depuis les faits",
+              "w": 278,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Oui",
+              "w": 96,
+              "h": 45,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Non",
+              "w": 96,
+              "h": 45,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Ne sait pas",
+              "w": 96,
+              "h": 45,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Oui",
+              "w": 96,
+              "h": 45,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Non",
+              "w": 96,
+              "h": 45,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Ne sait pas",
+              "w": 96,
+              "h": 45,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Oui",
+              "w": 96,
+              "h": 45,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Non",
+              "w": 96,
+              "h": 45,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Ne sait pas",
+              "w": 96,
+              "h": 45,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Oui",
+              "w": 96,
+              "h": 45,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Non",
+              "w": 96,
+              "h": 45,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Ne sait pas",
+              "w": 96,
+              "h": 45,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Oui",
+              "w": 96,
+              "h": 45,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Non",
+              "w": 96,
+              "h": 45,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Ne sait pas",
+              "w": 96,
+              "h": 45,
+              "leaflet": false,
+              "off": false
+            }
+          ],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 150,
+              "ex": [
+                "Données 100 % fictives · prototype · règ",
+                "2",
+                "·",
+                "intègre"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 264,
+              "ex": [
+                "Dossier guidé",
+                "Oui",
+                "Non",
+                "Ne sait pas"
+              ]
+            }
+          ],
+          "contrastesFaibles": [
+            {
+              "fg": "#fff9f3",
+              "bg": "#f6efe8",
+              "px": 15,
+              "w": 700,
+              "ratio": 1.09,
+              "need": 4.5,
+              "n": 5,
+              "ex": [
+                "Oui",
+                "Oui",
+                "Oui"
+              ],
+              "image": false,
+              "off": false
+            }
+          ]
+        },
+        {
+          "ecran": "35-soignant-3-prelevements",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 1771,
+          "ecrans": 2.8,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [
+            {
+              "t": "Marquer Prélèvements cutanés (trousse)",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Marquer Évaluation prophylaxie post-exposition (",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Marquer Toxicologie, prélèvement urinaire",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Marquer Trousse médicolégale complète",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Marquer Contraception d'urgence",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Marquer Dépistage ITSS et suivi",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Marquer Toxicologie, prélèvement sanguin",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": true
+            }
+          ],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 486,
+              "ex": [
+                "Données 100 % fictives · prototype · règ",
+                "3",
+                "·",
+                "intègre"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 389,
+              "ex": [
+                "Prélèvements",
+                "Fenêtre courte, surtout si douche.",
+                "À débuter le plus tôt possible, au plus ",
+                "L'urine peut prolonger la détection jusq"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "36-soignant-4-chronologie-vide",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 1563,
+          "ecrans": 2.4,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [
+            {
+              "t": "Ce que l’IA voit",
+              "w": 143,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            }
+          ],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 220,
+              "ex": [
+                "Données 100 % fictives · prototype · règ",
+                "3",
+                "·",
+                "intègre"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 652,
+              "ex": [
+                "Chronologie",
+                "Récit de la patiente (Léa Tremblay, née ",
+                "Générer la chronologie"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "37-soignant-4-chronologie",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 3141,
+          "ecrans": 4.9,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [
+            {
+              "t": "Ce que l’IA voit",
+              "w": 143,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Valider",
+              "w": 99,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Rejeter",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Valider",
+              "w": 99,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Rejeter",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Valider",
+              "w": 99,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Rejeter",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Valider",
+              "w": 99,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Rejeter",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Valider",
+              "w": 99,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Rejeter",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Valider",
+              "w": 99,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Rejeter",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Valider",
+              "w": 99,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Rejeter",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Corrigé",
+              "w": 101,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Rejeter",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            }
+          ],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 1679,
+              "ex": [
+                "Données 100 % fictives · prototype · règ",
+                "5",
+                "·",
+                "intègre"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 860,
+              "ex": [
+                "Chronologie",
+                "Récit de la patiente (Léa Tremblay, née ",
+                "Générer la chronologie",
+                "Arrivée à une fête"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "38-soignant-5-export",
+          "vw": 360,
+          "vh": 640,
+          "echelle": 1,
+          "largeurContenu": 360,
+          "hauteurPage": 1845,
+          "ecrans": 2.9,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 725,
+              "ex": [
+                "Données 100 % fictives · prototype · règ",
+                "5",
+                "·",
+                "intègre"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 320,
+              "ex": [
+                "Export",
+                "Délai depuis les faits",
+                "30 h",
+                "Consentements"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        }
+      ]
+    },
+    {
+      "format": "1280x800",
+      "erreurs": [
+        "Failed to load resource: the server responded with a status of 503 (Service Unavailable)"
+      ],
+      "ecrans": [
+        {
+          "ecran": "01-arrivee-diapo-1",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 800,
+          "ecrans": 1,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 15,
+              "n": 53,
+              "ex": [
+                "Besoin d’aide maintenant ?",
+                "+1 888 933-9007",
+                "Danger : 911"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "02-arrivee-diapo-2",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 800,
+          "ecrans": 1,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 15,
+              "n": 53,
+              "ex": [
+                "Besoin d’aide maintenant ?",
+                "+1 888 933-9007",
+                "Danger : 911"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "03-arrivee-diapo-3",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 800,
+          "ecrans": 1,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 15,
+              "n": 53,
+              "ex": [
+                "Besoin d’aide maintenant ?",
+                "+1 888 933-9007",
+                "Danger : 911"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "04-arrivee-diapo-4",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 800,
+          "ecrans": 1,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 15,
+              "n": 53,
+              "ex": [
+                "Besoin d’aide maintenant ?",
+                "+1 888 933-9007",
+                "Danger : 911"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "05-arrivee-diapo-5",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 800,
+          "ecrans": 1,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 15,
+              "n": 53,
+              "ex": [
+                "Besoin d’aide maintenant ?",
+                "+1 888 933-9007",
+                "Danger : 911"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "06-compte-vide",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 1096,
+          "ecrans": 1.4,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 157,
+              "ex": [
+                "Comment voulez-vous qu’on vous appelle ?",
+                "Elle sert seulement à retrouver votre es",
+                "8 caractères au minimum."
+              ]
+            },
+            {
+              "px": 15,
+              "n": 279,
+              "ex": [
+                "Prénom ou surnom",
+                "(facultatif)",
+                "Adresse courriel",
+                "Mot de passe"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "07-compte-erreur",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 1148,
+          "ecrans": 1.4,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 205,
+              "ex": [
+                "Comment voulez-vous qu’on vous appelle ?",
+                "Elle sert seulement à retrouver votre es",
+                "8 caractères au minimum.",
+                "Fort"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 279,
+              "ex": [
+                "Prénom ou surnom",
+                "(facultatif)",
+                "Adresse courriel",
+                "Mot de passe"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "08-etapes-1",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 945,
+          "ecrans": 1.2,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": {
+            "haut": 160,
+            "bas": 640,
+            "depasse": false
+          },
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 92,
+              "ex": [
+                "Vous pouvez vous arrêter à tout moment. ",
+                "Étape",
+                "1",
+                "sur"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "09-etapes-2",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 945,
+          "ecrans": 1.2,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": {
+            "haut": 174,
+            "bas": 626,
+            "depasse": false
+          },
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 115,
+              "ex": [
+                "Vous pouvez vous arrêter à tout moment. ",
+                "Étape",
+                "2",
+                "sur"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "10-etapes-3",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 945,
+          "ecrans": 1.2,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": {
+            "haut": 129,
+            "bas": 671,
+            "depasse": false
+          },
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 108,
+              "ex": [
+                "Vous pouvez vous arrêter à tout moment. ",
+                "Étape",
+                "3",
+                "sur"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "11-etapes-4",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 945,
+          "ecrans": 1.2,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": {
+            "haut": 120,
+            "bas": 680,
+            "depasse": false
+          },
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 114,
+              "ex": [
+                "Vous pouvez vous arrêter à tout moment. ",
+                "Étape",
+                "4",
+                "sur"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "12-etapes-5",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 945,
+          "ecrans": 1.2,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": {
+            "haut": 161,
+            "bas": 639,
+            "depasse": false
+          },
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 111,
+              "ex": [
+                "Vous pouvez vous arrêter à tout moment. ",
+                "Étape",
+                "5",
+                "sur"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "13-etapes-6",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 945,
+          "ecrans": 1.2,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": {
+            "haut": 150,
+            "bas": 650,
+            "depasse": false
+          },
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 100,
+              "ex": [
+                "Vous pouvez vous arrêter à tout moment. ",
+                "Étape",
+                "6",
+                "sur"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "14-etapes-7",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 945,
+          "ecrans": 1.2,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": {
+            "haut": 160,
+            "bas": 640,
+            "depasse": false
+          },
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 107,
+              "ex": [
+                "Vous pouvez vous arrêter à tout moment. ",
+                "Étape",
+                "7",
+                "sur"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "15-etapes-8",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 945,
+          "ecrans": 1.2,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": {
+            "haut": 160,
+            "bas": 640,
+            "depasse": false
+          },
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 112,
+              "ex": [
+                "Vous pouvez vous arrêter à tout moment. ",
+                "Étape",
+                "8",
+                "sur"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "16-accueil",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 945,
+          "ecrans": 1.2,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 29,
+              "ex": [
+                "Bêta de test",
+                "Chiffré à 10 h 00"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 46,
+              "ex": [
+                "Info-aide violence sexuelle · gratuit, 2"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "17-accueil-hors-ligne",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 981,
+          "ecrans": 1.2,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 126,
+              "ex": [
+                "Hors ligne : votre espace fonctionne. La",
+                "Bêta de test",
+                "Chiffré à 10 h 00"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 46,
+              "ex": [
+                "Info-aide violence sexuelle · gratuit, 2"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "18-recit-vide",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 1282,
+          "ecrans": 1.6,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 57,
+              "ex": [
+                "Bêta de test",
+                "Chiffré à 10 h 00",
+                "Chiffré · 10 h 00",
+                "1"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 170,
+              "ex": [
+                "Pas encore rempli"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "18a-recit-question-quand",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 800,
+          "ecrans": 1,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 60,
+              "ex": [
+                "Bêta de test",
+                "Chiffré à 10 h 00",
+                "Chiffré · 10 h 00",
+                "Question"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 59,
+              "ex": [
+                "Rien n’est obligatoire : vous pouvez pas"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "18b-recit-question-souvenirs",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 800,
+          "ecrans": 1,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 60,
+              "ex": [
+                "Bêta de test",
+                "Chiffré à 10 h 00",
+                "Chiffré · 10 h 00",
+                "Question"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 59,
+              "ex": [
+                "Rien n’est obligatoire : vous pouvez pas"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "18c-recit-question-symptomes",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 912,
+          "ecrans": 1.1,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 60,
+              "ex": [
+                "Bêta de test",
+                "Chiffré à 10 h 00",
+                "Chiffré · 10 h 00",
+                "Question"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 59,
+              "ex": [
+                "Rien n’est obligatoire : vous pouvez pas"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "18d-recit-question-substance",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 800,
+          "ecrans": 1,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 60,
+              "ex": [
+                "Bêta de test",
+                "Chiffré à 10 h 00",
+                "Chiffré · 10 h 00",
+                "Question"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 59,
+              "ex": [
+                "Rien n’est obligatoire : vous pouvez pas"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "19-recit-rempli",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 1282,
+          "ecrans": 1.6,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 49,
+              "ex": [
+                "Bêta de test",
+                "Chiffré à 10 h 00",
+                "Chiffré · 10 h 00",
+                "7"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 309,
+              "ex": [
+                "13 octobre 2026 à 04 h 00",
+                "Plateau-Mont-Royal",
+                "Je suis rentrée à pied après la soirée. ",
+                "Le trajet entre le bar et l’appartement."
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "20-recit-effacer",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 1410,
+          "ecrans": 1.8,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 49,
+              "ex": [
+                "Bêta de test",
+                "Chiffré à 10 h 00",
+                "Chiffré · 10 h 00",
+                "7"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 309,
+              "ex": [
+                "13 octobre 2026 à 04 h 00",
+                "Plateau-Mont-Royal",
+                "Je suis rentrée à pied après la soirée. ",
+                "Le trajet entre le bar et l’appartement."
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "21-ou-aller",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 4555,
+          "ecrans": 5.7,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [
+            {
+              "t": "CVASM, Clinique Médic Elle (jour)",
+              "w": 480,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "CAVAC de Montréal",
+              "w": 480,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "IVAC, indemnisation des victimes d’actes crimine",
+              "w": 480,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Info Justice Montréal",
+              "w": 480,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "1",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "2",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "3",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "4",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "5",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "8",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "13",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "20",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "21",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "Zoom in",
+              "w": 30,
+              "h": 30,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "Zoom out",
+              "w": 30,
+              "h": 30,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "Leaflet",
+              "w": 51,
+              "h": 14,
+              "leaflet": true,
+              "off": false
+            }
+          ],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 755,
+              "ex": [
+                "Bêta de test",
+                "Chiffré à 10 h 00",
+                "Règles non validées cliniquement : délai",
+                "« À confirmer » : affiché parce que vous"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 457,
+              "ex": [
+                "Prélèvements cutanés (trousse)",
+                "·",
+                "≈",
+                "18"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "22-ou-aller-carte",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 4555,
+          "ecrans": 5.7,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [
+            {
+              "t": "CVASM, Clinique Médic Elle (jour)",
+              "w": 480,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "CAVAC de Montréal",
+              "w": 480,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "IVAC, indemnisation des victimes d’actes crimine",
+              "w": 480,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Info Justice Montréal",
+              "w": 480,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "1",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "2",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "3",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "4",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "5",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "8",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "13",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "20",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "21",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "Zoom in",
+              "w": 30,
+              "h": 30,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "Zoom out",
+              "w": 30,
+              "h": 30,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "Leaflet",
+              "w": 51,
+              "h": 14,
+              "leaflet": true,
+              "off": false
+            }
+          ],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 755,
+              "ex": [
+                "Bêta de test",
+                "Chiffré à 10 h 00",
+                "Règles non validées cliniquement : délai",
+                "« À confirmer » : affiché parce que vous"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 457,
+              "ex": [
+                "Prélèvements cutanés (trousse)",
+                "·",
+                "≈",
+                "18"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "23-ou-aller-fiche",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 4555,
+          "ecrans": 5.7,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [
+            {
+              "t": "CVASM, Clinique Médic Elle (jour)",
+              "w": 480,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "CAVAC de Montréal",
+              "w": 480,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "IVAC, indemnisation des victimes d’actes crimine",
+              "w": 480,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Info Justice Montréal",
+              "w": 480,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "1",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "2",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "3",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "4",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "5",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "8",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "13",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "20",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "21",
+              "w": 44,
+              "h": 44,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "Zoom in",
+              "w": 30,
+              "h": 30,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "Zoom out",
+              "w": 30,
+              "h": 30,
+              "leaflet": true,
+              "off": false
+            },
+            {
+              "t": "Leaflet",
+              "w": 51,
+              "h": 14,
+              "leaflet": true,
+              "off": false
+            }
+          ],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 755,
+              "ex": [
+                "Bêta de test",
+                "Chiffré à 10 h 00",
+                "Règles non validées cliniquement : délai",
+                "« À confirmer » : affiché parce que vous"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 457,
+              "ex": [
+                "Prélèvements cutanés (trousse)",
+                "·",
+                "≈",
+                "18"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "24-dossier",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 1112,
+          "ecrans": 1.4,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 197,
+              "ex": [
+                "Bêta de test",
+                "Chiffré à 10 h 00",
+                "99 caractères",
+                "calculés à 30 h"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 99,
+              "ex": [
+                "Mon récit",
+                "Examens prioritaires",
+                "Mes besoins",
+                "Journal"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "25-dossier-pret",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 1112,
+          "ecrans": 1.4,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 197,
+              "ex": [
+                "Bêta de test",
+                "Chiffré à 10 h 00",
+                "99 caractères",
+                "calculés à 30 h"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 47,
+              "ex": [
+                "Mon récit",
+                "Examens prioritaires",
+                "Mes besoins",
+                "Journal"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "26-dossier-confirmation",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 1112,
+          "ecrans": 1.4,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": {
+            "haut": 297,
+            "bas": 503,
+            "depasse": false
+          },
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "27-dossier-envoye",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 2252,
+          "ecrans": 2.8,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [
+            {
+              "t": "Aujourd’hui",
+              "w": 300,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Demain",
+              "w": 300,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            }
+          ],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 427,
+              "ex": [
+                "Bêta de test",
+                "Chiffré à 10 h 00",
+                "99 caractères",
+                "calculés à 30 h"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 216,
+              "ex": [
+                "Mon récit",
+                "Examens prioritaires",
+                "Mes besoins",
+                "Journal"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "28-rappel",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 2252,
+          "ecrans": 2.8,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [
+            {
+              "t": "Aujourd’hui",
+              "w": 300,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Demain",
+              "w": 300,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            }
+          ],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 427,
+              "ex": [
+                "Bêta de test",
+                "Chiffré à 10 h 00",
+                "99 caractères",
+                "calculés à 30 h"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 216,
+              "ex": [
+                "Mon récit",
+                "Examens prioritaires",
+                "Mes besoins",
+                "Journal"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "29-rappel-pret",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 2284,
+          "ecrans": 2.9,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [
+            {
+              "t": "Aujourd’hui",
+              "w": 300,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Demain",
+              "w": 300,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            }
+          ],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 427,
+              "ex": [
+                "Bêta de test",
+                "Chiffré à 10 h 00",
+                "99 caractères",
+                "calculés à 30 h"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 216,
+              "ex": [
+                "Mon récit",
+                "Examens prioritaires",
+                "Mes besoins",
+                "Journal"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "30-rappel-confirme",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 1511,
+          "ecrans": 1.9,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 305,
+              "ex": [
+                "Bêta de test",
+                "Chiffré à 10 h 00",
+                "99 caractères",
+                "calculés à 30 h"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 138,
+              "ex": [
+                "Mon récit",
+                "Examens prioritaires",
+                "Mes besoins",
+                "Journal"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "31-vie-privee",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 1288,
+          "ecrans": 1.6,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 29,
+              "ex": [
+                "Bêta de test",
+                "Chiffré à 10 h 00"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "32-connexion",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 803,
+          "ecrans": 1,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 15,
+              "n": 267,
+              "ex": [
+                "Adresse courriel",
+                "Mot de passe",
+                "Mot de passe oublié ?",
+                "Il ne peut pas être retrouvé : il n’est "
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "33-soignant-1-consentement",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 845,
+          "ecrans": 1.1,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 214,
+              "ex": [
+                "Données 100 % fictives · prototype · règ",
+                "Dossier",
+                "#DEMO-0042",
+                "· cas fictif « Léa » · centre désigné (f"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 421,
+              "ex": [
+                "Consentement",
+                "Dossier guidé",
+                "Prélèvements",
+                "Chronologie"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "34-soignant-2-dossier",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 1220,
+          "ecrans": 1.5,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [
+            {
+              "t": "Heures écoulées depuis les faits",
+              "w": 448,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Oui",
+              "w": 101,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Non",
+              "w": 101,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Ne sait pas",
+              "w": 101,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Oui",
+              "w": 101,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Non",
+              "w": 101,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Ne sait pas",
+              "w": 101,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Oui",
+              "w": 101,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Non",
+              "w": 101,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Ne sait pas",
+              "w": 101,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Oui",
+              "w": 101,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Non",
+              "w": 101,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Ne sait pas",
+              "w": 101,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Oui",
+              "w": 101,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Non",
+              "w": 101,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Ne sait pas",
+              "w": 101,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            }
+          ],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 242,
+              "ex": [
+                "Données 100 % fictives · prototype · règ",
+                "Dossier",
+                "#DEMO-0042",
+                "· cas fictif « Léa » · centre désigné (f"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 305,
+              "ex": [
+                "Consentement",
+                "Dossier guidé",
+                "Prélèvements",
+                "Chronologie"
+              ]
+            }
+          ],
+          "contrastesFaibles": [
+            {
+              "fg": "#fff9f3",
+              "bg": "#f6efe8",
+              "px": 15,
+              "w": 700,
+              "ratio": 1.09,
+              "need": 4.5,
+              "n": 5,
+              "ex": [
+                "Oui",
+                "Oui",
+                "Oui"
+              ],
+              "image": false,
+              "off": false
+            }
+          ]
+        },
+        {
+          "ecran": "35-soignant-3-prelevements",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 1162,
+          "ecrans": 1.5,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [
+            {
+              "t": "Marquer Prélèvements cutanés (trousse)",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Marquer Évaluation prophylaxie post-exposition (",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Marquer Toxicologie, prélèvement urinaire",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Marquer Trousse médicolégale complète",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Marquer Contraception d'urgence",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Marquer Dépistage ITSS et suivi",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Marquer Toxicologie, prélèvement sanguin",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": true
+            }
+          ],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 578,
+              "ex": [
+                "Données 100 % fictives · prototype · règ",
+                "Dossier",
+                "#DEMO-0042",
+                "· cas fictif « Léa » · centre désigné (f"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 431,
+              "ex": [
+                "Consentement",
+                "Dossier guidé",
+                "Prélèvements",
+                "Chronologie"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "36-soignant-4-chronologie-vide",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 1019,
+          "ecrans": 1.3,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [
+            {
+              "t": "Ce que l’IA voit",
+              "w": 143,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            }
+          ],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 312,
+              "ex": [
+                "Données 100 % fictives · prototype · règ",
+                "Dossier",
+                "#DEMO-0042",
+                "· cas fictif « Léa » · centre désigné (f"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 695,
+              "ex": [
+                "Consentement",
+                "Dossier guidé",
+                "Prélèvements",
+                "Chronologie"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "37-soignant-4-chronologie",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 1845,
+          "ecrans": 2.3,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [
+            {
+              "t": "Ce que l’IA voit",
+              "w": 143,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Valider",
+              "w": 99,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Rejeter",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Valider",
+              "w": 99,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Rejeter",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Valider",
+              "w": 99,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Rejeter",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Valider",
+              "w": 99,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Rejeter",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Valider",
+              "w": 99,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Rejeter",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Valider",
+              "w": 99,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Rejeter",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Valider",
+              "w": 99,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Rejeter",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Corrigé",
+              "w": 101,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            },
+            {
+              "t": "Rejeter",
+              "w": 44,
+              "h": 44,
+              "leaflet": false,
+              "off": false
+            }
+          ],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 1771,
+              "ex": [
+                "Données 100 % fictives · prototype · règ",
+                "Dossier",
+                "#DEMO-0042",
+                "· cas fictif « Léa » · centre désigné (f"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 903,
+              "ex": [
+                "Consentement",
+                "Dossier guidé",
+                "Prélèvements",
+                "Chronologie"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        },
+        {
+          "ecran": "38-soignant-5-export",
+          "vw": 1280,
+          "vh": 800,
+          "echelle": 1,
+          "largeurContenu": 1280,
+          "hauteurPage": 1005,
+          "ecrans": 1.3,
+          "debordementHorizontal": 0,
+          "horsEcran": [],
+          "fenetre": null,
+          "defilementInterne": [],
+          "contenuCoupe": [],
+          "petitesCibles": [],
+          "petitsTextes": [
+            {
+              "px": 14,
+              "n": 817,
+              "ex": [
+                "Données 100 % fictives · prototype · règ",
+                "Dossier",
+                "#DEMO-0042",
+                "· cas fictif « Léa » · centre désigné (f"
+              ]
+            },
+            {
+              "px": 15,
+              "n": 368,
+              "ex": [
+                "Consentement",
+                "Dossier guidé",
+                "Prélèvements",
+                "Chronologie"
+              ]
+            }
+          ],
+          "contrastesFaibles": []
+        }
+      ]
+    }
+  ]
+}
