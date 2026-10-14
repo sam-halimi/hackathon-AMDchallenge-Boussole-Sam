@@ -1,19 +1,23 @@
-import { AlertTriangle, ArrowRight, Check, Eye, EyeOff, Phone, type LucideIcon } from 'lucide-react'
+import { AlertTriangle, ArrowRight, Check, Eye, EyeOff, Phone, ShieldAlert, type LucideIcon } from 'lucide-react'
 
 // Petits composants partagés par les écrans de l'espace de la personne.
 // Règles communes : zones de clic d'au moins 48 px, texte d'au moins 14 px, contraste AA.
 
-/* Aide immédiate, en version discrète : présente sur les écrans d'arrivée, avant même la création du compte. */
+/* Aide immédiate, en version discrète : présente sur les écrans d'arrivée, avant même la création du compte.
+   Deux boutons qui disent ce qu'ils appellent : l'écoute gratuite et le 911. */
 export function AideDiscrete({ className = '' }: { className?: string }) {
-  const link = 'press inline-flex min-h-12 items-center gap-1.5 rounded-full px-2 font-extrabold text-ink underline decoration-2 underline-offset-4'
+  const btn = 'press flex min-h-14 flex-col items-center justify-center rounded-2xl bg-white/85 px-3 py-1.5 text-center leading-tight shadow-[0_6px_16px_-14px_rgba(45,36,64,.8)]'
   return (
-    <p className={`flex flex-wrap items-center justify-center gap-x-1 text-[15px] text-ink-2 ${className}`}>
-      <span>Besoin d’aide maintenant ?</span>
-      <span className="inline-flex flex-wrap items-center justify-center">
-        <a href="tel:+18889339007" className={link}><Phone size={16} strokeWidth={2.25} /> +1 888 933-9007</a>
-        <a href="tel:911" className={link}>Danger : 911</a>
-      </span>
-    </p>
+    <div role="group" aria-label="Aide immédiate" className={`grid grid-cols-2 gap-2 ${className}`}>
+      <a href="tel:+18889339007" aria-label="Appeler Info-aide violence sexuelle, écoute gratuite 24 h sur 24 : +1 888 933-9007" className={btn}>
+        <span className="flex items-center gap-1.5 text-sm font-bold text-ink-2"><Phone size={14} strokeWidth={2.5} className="text-coral-ink" /> Écoute 24{'\u00A0'}h/24</span>
+        <span translate="no" className="whitespace-nowrap text-base font-extrabold text-ink">+1 888 933-9007</span>
+      </a>
+      <a href="tel:911" aria-label="Appeler le 911 en cas de danger immédiat" className={btn}>
+        <span className="flex items-center gap-1.5 text-sm font-bold text-alert"><ShieldAlert size={14} strokeWidth={2.5} /> Danger immédiat</span>
+        <span translate="no" className="text-base font-extrabold text-ink">911</span>
+      </a>
+    </div>
   )
 }
 
@@ -24,7 +28,7 @@ export function LigneAide({ id, detail }: { id: string; detail: string }) {
       <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-white/55"><Phone size={22} strokeWidth={2.25} /></span>
       <span className="min-w-0">
         <span className="block text-[15px] font-bold leading-snug">{detail}</span>
-        <span className="display block whitespace-nowrap text-[clamp(1.5rem,7vw,1.875rem)]">+1 888 933-9007</span>
+        <span translate="no" className="display block whitespace-nowrap text-[clamp(1.5rem,7vw,1.875rem)]">+1 888 933-9007</span>
       </span>
       <ArrowRight size={22} strokeWidth={2.25} className="ml-auto hidden shrink-0 sm:block" />
     </a>

@@ -21,7 +21,7 @@ function Shell({ bg, art, exit, children }: { bg: string; art: React.ReactNode; 
         {art}
         {children}
       </main>
-      <footer className="px-4 pb-[max(0.5rem,env(safe-area-inset-bottom))]"><AideDiscrete /></footer>
+      <footer className="mx-auto w-full max-w-md px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))]"><AideDiscrete /></footer>
     </div>
   )
 }

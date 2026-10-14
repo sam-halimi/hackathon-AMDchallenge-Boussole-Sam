@@ -40,8 +40,8 @@ export default function Intro({ onDone, onHave, exit }: { onDone: () => void; on
         </div>
       </header>
 
-      <main className="mx-auto flex min-h-0 w-full max-w-5xl flex-1 flex-col gap-3 px-4 pb-2 sm:px-5 md:grid md:grid-cols-2 md:items-center md:gap-8">
-        <div key={`art-${i}`} className="fade-in flex min-h-0 flex-1 items-center justify-center md:h-full">
+      <main className="mx-auto flex min-h-0 w-full max-w-5xl flex-1 flex-col justify-center gap-3 px-4 pb-2 sm:px-5 md:grid md:grid-cols-2 md:items-center md:gap-8">
+        <div key={`art-${i}`} className="fade-in flex min-h-0 flex-1 items-center justify-center md:h-full [@media(max-height:580px)]:hidden">
           <s.Art className="h-full max-h-[220px] w-auto max-w-full md:h-auto md:max-h-none md:w-full md:max-w-[420px]" />
         </div>
         <div key={`txt-${i}`} className="fade-in shrink-0">
@@ -57,19 +57,20 @@ export default function Intro({ onDone, onHave, exit }: { onDone: () => void; on
       </main>
 
       <footer className="mx-auto w-full max-w-5xl shrink-0 px-4 pb-[max(0.5rem,env(safe-area-inset-bottom))] sm:px-5 sm:pb-6">
-        <div className="flex items-center gap-2 pt-2">
+        {/* « Passer » et « Suivant » sur la même ligne ; « Suivant » ne bouge pas verticalement. */}
+        <div className="flex items-center gap-2 pt-2 sm:justify-end">
           {i > 0 && (
             <button onClick={() => go(i - 1)} aria-label="Précédent" className="btn btn-plain btn-icon h-14 w-14"><ArrowLeft size={20} strokeWidth={2.25} /></button>
           )}
-          <button id="intro-next" onClick={() => (last ? onDone() : go(i + 1))} className="btn btn-primary btn-lg flex-1 sm:ml-auto sm:flex-none">
+          {!last && <button id="intro-skip" onClick={onDone} className="btn btn-quiet btn-lg px-4">Passer</button>}
+          <button id="intro-next" onClick={() => (last ? onDone() : go(i + 1))} className="btn btn-primary btn-lg flex-1 sm:flex-none">
             {last ? 'Créer mon espace' : 'Suivant'} <ArrowRight size={20} strokeWidth={2.25} />
           </button>
         </div>
-        <div className="flex items-center justify-between">
-          <button onClick={onHave} className="btn btn-quiet -ml-3 sm:invisible">J’ai déjà un espace</button>
-          {!last && <button id="intro-skip" onClick={onDone} className="btn btn-quiet -mr-3">Passer</button>}
+        <div className="flex justify-center sm:hidden">
+          <button onClick={onHave} className="btn btn-quiet">J’ai déjà un espace</button>
         </div>
-        <AideDiscrete className="[@media(max-height:620px)]:[&>span:first-child]:hidden" />
+        <AideDiscrete className="mt-1 sm:mx-auto sm:mt-4 sm:max-w-md" />
       </footer>
     </div>
   )
