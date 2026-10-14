@@ -6,8 +6,9 @@ import { computeChecklist, fromTri, RULES_WARNING, type Answer } from '../lib/ru
 import { anyAccount, deleteAccount, saveVault, sealForTransfer, type VaultSession } from '../lib/vault'
 import Intro from './Intro'
 import Accueil from './Accueil'
+import Recit from './Recit'
 import { Account, Unlock } from './Compte'
-import { BESOINS, EMPTY, SYMPTOMES, type Fiche, type Kind, type Tab, type Tri } from '../lib/fiche'
+import { EMPTY, type Fiche, type Kind, type Tab } from '../lib/fiche'
 import Etapes from './Etapes'
 import Rappel from './Rappel'
 
@@ -110,84 +111,6 @@ export default function Espace() {
           ))}
         </div>
       </nav>
-    </div>
-  )
-}
-
-/* ───────────── Fiche « Mon récit » ───────────── */
-
-function Recit({ fiche, update, savedAt, hoursSince, onWipe, onNext }: {
-  fiche: Fiche; update: (p: Partial<Fiche>) => void; savedAt: string | null; hoursSince: number | null; onWipe: () => void; onNext: () => void
-}) {
-  const [confirmWipe, setConfirmWipe] = useState(false)
-  const toggle = (k: 'symptomes' | 'besoins', v: string) => update({ [k]: fiche[k].includes(v) ? fiche[k].filter((x) => x !== v) : [...fiche[k], v] })
-  const filled = [fiche.quand || fiche.quandInconnu, fiche.ou, fiche.souvenirs, fiche.symptomes.length, fiche.substance, fiche.douche, fiche.besoins.length].filter(Boolean).length
-
-  return (
-    <div>
-      <div className="flex flex-wrap items-end justify-between gap-4">
-        <div>
-          <div className="rise eyebrow text-north">Mon récit</div>
-          <h1 className="rise rise-1 display mt-3 text-4xl sm:text-5xl">À votre rythme.</h1>
-          <p className="rise rise-2 mt-3 max-w-xl text-[17px] leading-relaxed text-ink-2">Remplissez ce que vous pouvez, quand vous voulez. « Je ne sais pas » est une réponse. Tout est enregistré et chiffré automatiquement.</p>
-        </div>
-        <div className="rise rise-2 flex items-center gap-2 rounded-full bg-north-soft px-3.5 py-2 text-sm text-north" id="saved">
-          <Lock size={14} strokeWidth={1.75} /> {savedAt ? `Chiffré · ${new Date(savedAt).toLocaleTimeString('fr-CA', { hour: '2-digit', minute: '2-digit' })}` : 'Chiffré'}
-        </div>
-      </div>
-      <div className="mt-6 h-1.5 overflow-hidden rounded-full bg-panel"><div className="h-full rounded-full bg-north transition-all duration-150 ease-[var(--ease-out-soft)]" style={{ width: `${(filled / 7) * 100}%` }} /></div>
-
-      <div className="mt-8 grid gap-4 lg:grid-cols-2">
-        <Card icon={Clock} title="Quand ?" tint="sun">
-          <input type="datetime-local" value={fiche.quand} disabled={fiche.quandInconnu} onChange={(e) => update({ quand: e.target.value })} className="input disabled:opacity-40" />
-          <Check2 label="Je ne sais pas exactement" checked={fiche.quandInconnu} onChange={(v) => update({ quandInconnu: v })} />
-          {hoursSince !== null && <p className="fade-in mt-3 text-sm text-ink-2">Il y a environ <b className="text-ink">{hoursSince}{NB}h</b>.</p>}
-        </Card>
-        <Card icon={MapPin} title="Où ?" tint="sky">
-          <input value={fiche.ou} onChange={(e) => update({ ou: e.target.value })} className="input" placeholder="Un lieu, un quartier, ou rien" />
-        </Card>
-        <Card icon={PenLine} title="Ce dont je me souviens" wide>
-          <textarea value={fiche.souvenirs} onChange={(e) => update({ souvenirs: e.target.value })} rows={5} className="input resize-y" placeholder="Avec vos mots. Il n’y a pas de bonne façon de raconter." />
-        </Card>
-        <Card icon={EyeOff} title="Ce dont je ne me souviens pas" tint="north" wide>
-          <textarea value={fiche.oublis} onChange={(e) => update({ oublis: e.target.value })} rows={3} className="input resize-y" placeholder="Des moments flous ou absents. C’est fréquent, ce n’est pas un problème de fiabilité." />
-        </Card>
-        <Card icon={Stethoscope} title="Symptômes" tint="sky">
-          <Chips options={SYMPTOMES} value={fiche.symptomes} onToggle={(v) => toggle('symptomes', v)} />
-        </Card>
-        <Card icon={AlertTriangle} title="Une substance est soupçonnée ?" tint="coral">
-          <TriSelect value={fiche.substance} onChange={(v) => update({ substance: v })} />
-          <div className="mt-4 text-sm font-medium">Douche ou bain depuis ?</div>
-          <div className="mt-2"><TriSelect value={fiche.douche} onChange={(v) => update({ douche: v })} /></div>
-        </Card>
-        <Card icon={ClipboardList} title="Vêtements" tint="sun">
-          <Chips options={['Gardés tels quels', 'Lavés', 'Je ne sais pas']} value={fiche.vetements ? [fiche.vetements] : []} onToggle={(v) => update({ vetements: fiche.vetements === v ? '' : v })} />
-          <p className="mt-3 text-sm text-ink-3">Si possible, gardez-les dans un sac en papier.</p>
-        </Card>
-        <Card icon={HeartHandshake} title="Ce dont j’ai besoin maintenant" tint="sage">
-          <Chips options={BESOINS} value={fiche.besoins} onToggle={(v) => toggle('besoins', v)} />
-        </Card>
-        <Card icon={PenLine} title="Personnes présentes ou témoins (facultatif)" tint="coral" wide>
-          <textarea value={fiche.temoins} onChange={(e) => update({ temoins: e.target.value })} rows={2} className="input resize-y" placeholder="Prénoms, rôles, ou rien" />
-        </Card>
-      </div>
-
-      <div className="mt-10 flex flex-wrap items-center justify-between gap-3 border-t border-rule pt-6">
-        {confirmWipe ? (
-          <div className="fade-in flex flex-wrap items-center gap-2 text-sm">
-            <span className="text-alert">Tout effacer définitivement de cet appareil ?</span>
-            <button onClick={onWipe} className="press rounded-full bg-alert px-4 py-2 font-medium text-paper">Effacer</button>
-            <button onClick={() => setConfirmWipe(false)} className="press rounded-full border border-rule px-4 py-2">Annuler</button>
-          </div>
-        ) : (
-          <button onClick={() => setConfirmWipe(true)} className="press inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm text-ink-3 hover:bg-alert-soft hover:text-alert">
-            <Trash2 size={16} strokeWidth={1.75} /> Tout effacer
-          </button>
-        )}
-        <button onClick={onNext} className="press group inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 font-medium text-paper hover:bg-north">
-          Où aller maintenant <ArrowRight size={17} strokeWidth={1.75} className="transition-transform duration-150" />
-        </button>
-      </div>
     </div>
   )
 }
@@ -491,21 +414,6 @@ function Card({ icon: Icon, title, children, wide, tint = 'north' }: { icon: typ
   )
 }
 
-function Chips({ options, value, onToggle }: { options: string[]; value: string[]; onToggle: (v: string) => void }) {
-  return (
-    <div className="flex flex-wrap gap-2">
-      {options.map((o) => {
-        const on = value.includes(o)
-        return (
-          <button key={o} type="button" onClick={() => onToggle(o)} aria-pressed={on} className={`press inline-flex items-center gap-1.5 rounded-full border px-3.5 py-2 text-sm transition-colors duration-150 ${on ? 'border-north bg-north text-paper' : 'border-rule hover:border-ink-3'}`}>
-            {on && <Check size={14} strokeWidth={2.25} />} {o}
-          </button>
-        )
-      })}
-    </div>
-  )
-}
-
 function Apercu({ id, rows }: { id: string; rows: readonly (readonly [string, string, string])[] }) {
   return (
     <dl id={id} className="mt-4 divide-y divide-rule rounded-2xl bg-paper">
@@ -516,19 +424,6 @@ function Apercu({ id, rows }: { id: string; rows: readonly (readonly [string, st
         </div>
       ))}
     </dl>
-  )
-}
-
-function TriSelect({ value, onChange }: { value: Tri; onChange: (v: Tri) => void }) {
-  const opts: [Tri, string][] = [['oui', 'Oui'], ['non', 'Non'], ['nsp', 'Je ne sais pas']]
-  const idx = opts.findIndex(([v]) => v === value)
-  return (
-    <div className="relative inline-grid grid-cols-3 rounded-full bg-panel p-1 text-sm">
-      {idx >= 0 && <span className="absolute inset-y-1 left-1 w-[calc((100%-8px)/3)] rounded-full bg-ink transition-transform duration-150 ease-[var(--ease-out-soft)]" style={{ transform: `translateX(${idx * 100}%)` }} />}
-      {opts.map(([v, l]) => (
-        <button key={v} type="button" onClick={() => onChange(value === v ? '' : v)} className={`press relative z-10 rounded-full px-4 py-2 transition-colors duration-150 ${value === v ? 'text-paper' : 'text-ink-2 hover:text-ink'}`}>{l}</button>
-      ))}
-    </div>
   )
 }
 
