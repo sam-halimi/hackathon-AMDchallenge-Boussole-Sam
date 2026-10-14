@@ -2,6 +2,8 @@ import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react
 import { ArrowLeft, ArrowRight, Clock, FileLock2, HeartHandshake, Phone, Scale, ShieldAlert, Shirt, Stethoscope, ToggleRight, X } from 'lucide-react'
 import { CARE_STEPS } from '../lib/careSteps'
 import { useDialog } from '../lib/useDialog'
+import { useLang } from '../lib/i18n'
+import { careStep } from '../lib/en'
 
 const ICONS = { danger: ShieldAlert, phone: Phone, shirt: Shirt, exam: Stethoscope, choice: ToggleRight, support: HeartHandshake, legal: Scale, file: FileLock2 }
 const TINT: Record<string, string> = {
@@ -16,6 +18,7 @@ export default function Etapes({ open, onClose, prenom, go }: { open: boolean; o
   const [i, setI] = useState(0)
   const dialog = useRef<HTMLDivElement>(null)
   const steps = CARE_STEPS
+  const { t, lang } = useLang()
   const move = useCallback((n: number) => setI(Math.max(0, Math.min(steps.length - 1, n))), [steps.length])
   // La fenêtre repart de la première étape à chaque ouverture.
   const close = useCallback(() => { setI(0); onClose() }, [onClose])
@@ -51,7 +54,7 @@ export default function Etapes({ open, onClose, prenom, go }: { open: boolean; o
   }, [open, i, move])
 
   if (!open) return null
-  const s = steps[i]
+  const s = careStep(lang, i)
   const Icon = ICONS[s.icon]
   const last = i === steps.length - 1
 
@@ -62,10 +65,10 @@ export default function Etapes({ open, onClose, prenom, go }: { open: boolean; o
         className="sheet-in relative flex h-dvh w-full max-w-2xl flex-col overflow-hidden bg-paper shadow-[0_40px_90px_-30px_rgba(45,36,64,.6)] outline-none sm:h-[min(660px,92dvh)] sm:rounded-[28px]">
         <div className="flex items-start justify-between gap-3 px-4 pt-3 sm:px-6 sm:pt-5">
           <div className="min-w-0 pt-1">
-            <p className="text-base font-extrabold leading-snug text-north">{prenom ? `${prenom}, voici` : 'Voici'} les étapes, dans l’ordre</p>
-            <p className="mt-0.5 text-sm leading-snug text-ink-2 [@media(max-height:620px)]:hidden">Vous pouvez vous arrêter à tout moment. Rien n’est obligatoire.</p>
+            <p className="text-base font-extrabold leading-snug text-north">{prenom ? `${prenom}, ${t('voici', 'here are')}` : t('Voici', 'Here are')} {t('les étapes, dans l’ordre', 'the steps, in order')}</p>
+            <p className="mt-0.5 text-sm leading-snug text-ink-2 [@media(max-height:620px)]:hidden">{t('Vous pouvez vous arrêter à tout moment. Rien n’est obligatoire.', 'You can stop at any time. Nothing is mandatory.')}</p>
           </div>
-          <button onClick={close} aria-label="Fermer" className="btn btn-plain btn-icon"><X size={20} strokeWidth={2.25} /></button>
+          <button onClick={close} aria-label={t('Fermer', 'Close')} className="btn btn-plain btn-icon"><X size={20} strokeWidth={2.25} /></button>
         </div>
 
         <div aria-hidden className="mt-3 flex gap-1 px-4 sm:hidden">
@@ -74,7 +77,7 @@ export default function Etapes({ open, onClose, prenom, go }: { open: boolean; o
         <ol className="mt-4 hidden gap-1.5 px-6 sm:grid" style={{ gridTemplateColumns: `repeat(${steps.length}, minmax(0, 1fr))` }}>
           {steps.map((st, n) => (
             <li key={st.title}>
-              <button onClick={() => move(n)} aria-label={`Étape ${n + 1} : ${st.title}`} aria-current={n === i ? 'step' : undefined}
+              <button onClick={() => move(n)} aria-label={`${t('Étape', 'Step')} ${n + 1} : ${careStep(lang, n).title}`} aria-current={n === i ? 'step' : undefined}
                 className={`press grid h-12 w-full place-items-center rounded-full text-base font-extrabold ${n === i ? 'bg-ink text-white' : n < i ? TINT[st.tint] : 'bg-panel text-ink-2'}`}>
                 {n + 1}
               </button>
@@ -86,7 +89,7 @@ export default function Etapes({ open, onClose, prenom, go }: { open: boolean; o
           <div className="flex items-center gap-3">
             <span className={`etape-icone grid h-12 w-12 shrink-0 place-items-center rounded-2xl sm:h-14 sm:w-14 ${TINT[s.tint]}`}><Icon size={26} strokeWidth={1.9} /></span>
             <div className="min-w-0">
-              <p className="text-sm font-extrabold text-ink-2">Étape {i + 1} sur {steps.length}</p>
+              <p className="text-sm font-extrabold text-ink-2">{t('Étape', 'Step')} {i + 1} {t('sur', 'of')} {steps.length}</p>
               <h2 id="etape-titre" className="display text-2xl sm:text-4xl">{s.title}</h2>
             </div>
           </div>
@@ -106,15 +109,15 @@ export default function Etapes({ open, onClose, prenom, go }: { open: boolean; o
               <button onClick={() => go(s.action!.tab!, s.action!.filter)} className="btn btn-soft mt-3">{s.action.label} <ArrowRight size={18} strokeWidth={2.25} /></button>
             )
           )}
-          {s.source && <p className="mt-3 text-sm text-ink-2">Source : {s.source}</p>}
+          {s.source && <p className="mt-3 text-sm text-ink-2">{t('Source :', 'Source:')} {s.source}</p>}
         </div>
 
         <div className="flex items-center justify-between gap-2 border-t border-rule px-4 pt-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] sm:px-6 sm:pt-3 sm:pb-3">
-          <button onClick={close} className="btn btn-quiet -ml-3">Plus tard</button>
+          <button onClick={close} className="btn btn-quiet -ml-3">{t('Plus tard', 'Later')}</button>
           <div className="flex gap-2">
-            <button onClick={() => move(i - 1)} disabled={i === 0} aria-label="Étape précédente" className="btn btn-plain btn-icon"><ArrowLeft size={20} strokeWidth={2.25} /></button>
+            <button onClick={() => move(i - 1)} disabled={i === 0} aria-label={t('Étape précédente', 'Previous step')} className="btn btn-plain btn-icon"><ArrowLeft size={20} strokeWidth={2.25} /></button>
             <button id="etape-next" onClick={() => (last ? close() : move(i + 1))} className="btn btn-primary">
-              {last ? 'C’est compris' : 'Suivant'} <ArrowRight size={18} strokeWidth={2.25} />
+              {last ? t('C’est compris', 'Got it') : t('Suivant', 'Next')} <ArrowRight size={18} strokeWidth={2.25} />
             </button>
           </div>
         </div>

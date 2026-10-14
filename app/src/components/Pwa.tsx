@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react'
 import { Download, WifiOff } from 'lucide-react'
+import { useLang } from '../lib/i18n'
 
 type InstallPrompt = Event & { prompt: () => Promise<void>; userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }> }
 
 // Bandeau discret quand le réseau tombe : l'espace chiffré reste utilisable, la carte et l'IA non.
 export function OfflineBanner() {
+  const { t } = useLang()
   const [online, setOnline] = useState(() => navigator.onLine)
   useEffect(() => {
     const on = () => setOnline(true)
@@ -17,13 +19,14 @@ export function OfflineBanner() {
   return (
     <div id="offline-banner" role="status" className="no-print sticky top-0 z-[60] flex items-center justify-center gap-2 bg-ink px-4 py-2 text-center text-sm font-bold text-white">
       <WifiOff size={16} strokeWidth={2.25} className="shrink-0" />
-      Hors ligne : votre espace fonctionne. La carte et l’IA reviendront avec le réseau. Urgence : 911.
+      {t('Hors ligne : votre espace fonctionne. La carte et l’IA reviendront avec le réseau. Urgence : 911.', 'Offline: your space still works. The map and AI will come back with the network. Emergency: 911.')}
     </div>
   )
 }
 
 // Proposition d'installation (Android / ordinateur). Sur iPhone : Partager → « Sur l'écran d'accueil ».
 export function InstallCard() {
+  const { t } = useLang()
   const [prompt, setPrompt] = useState<InstallPrompt | null>(null)
   const [done, setDone] = useState(false)
   useEffect(() => {
@@ -37,12 +40,12 @@ export function InstallCard() {
   return (
     <div id="install-card" className="fade-in mt-6 flex flex-wrap items-center gap-4 rounded-[28px] bg-white p-5 shadow-[0_14px_30px_-26px_rgba(45,36,64,.5)]">
       <span className="min-w-0 flex-1">
-        <span className="block text-lg font-extrabold">Garder Boussole sur ce téléphone</span>
-        <span className="mt-1 block text-[15px] leading-snug text-ink-2">Facultatif. L’icône « Boussole » sera visible sur votre écran d’accueil.</span>
+        <span className="block text-lg font-extrabold">{t('Garder Boussole sur ce téléphone', 'Keep Boussole on this phone')}</span>
+        <span className="mt-1 block text-[15px] leading-snug text-ink-2">{t('Facultatif. L’icône « Boussole » sera visible sur votre écran d’accueil.', 'Optional. The “Boussole” icon will be visible on your home screen.')}</span>
       </span>
       <button onClick={async () => { await prompt.prompt(); const r = await prompt.userChoice; if (r.outcome === 'accepted') setDone(true); setPrompt(null) }}
         className="press inline-flex h-12 items-center gap-2 rounded-full bg-north px-5 font-extrabold text-white hover:bg-ink">
-        <Download size={18} strokeWidth={2.25} /> Installer
+        <Download size={18} strokeWidth={2.25} /> {t('Installer', 'Install')}
       </button>
     </div>
   )

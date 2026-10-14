@@ -25,7 +25,7 @@ function Camera({ items, target }: { items: Resource[]; target?: Resource }) {
   return null
 }
 
-export default function ResourceMap({ items, active, onSelect }: { items: Resource[]; active?: string; onSelect: (id: string) => void }) {
+export default function ResourceMap({ items, active, onSelect, confirmLabel = 'à confirmer' }: { items: Resource[]; active?: string; onSelect: (id: string) => void; confirmLabel?: string }) {
   const placed = items.filter((r) => r.lat && r.lng)
   return (
     <MapContainer
@@ -47,7 +47,7 @@ export default function ResourceMap({ items, active, onSelect }: { items: Resour
       />
       {placed.map((r) => (
         <Marker key={r.id} position={[r.lat!, r.lng!]} icon={pin(r, items.indexOf(r) + 1, r.id === active)} zIndexOffset={r.id === active ? 1000 : 0} eventHandlers={{ click: () => onSelect(r.id) }}>
-          <Tooltip direction="top" className="pin-label" opacity={1} permanent={r.id === active}>{r.name.split(',')[0].split(' (')[0]}{r.toConfirm ? ' · à confirmer' : ''}</Tooltip>
+          <Tooltip direction="top" className="pin-label" opacity={1} permanent={r.id === active}>{r.name.split(',')[0].split(' (')[0]}{r.toConfirm ? ` · ${confirmLabel}` : ''}</Tooltip>
         </Marker>
       ))}
       <Camera items={items} target={items.find((r) => r.id === active)} />
