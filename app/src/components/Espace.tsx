@@ -9,6 +9,7 @@ import { Care, Choice, Folder, Space, Talk, Welcome } from './Illustrations'
 import { RESOURCES, type Resource } from '../lib/resources'
 import { computeChecklist, fromTri, RULES_WARNING, type Answer } from '../lib/rules'
 import { anyAccount, createAccount, deleteAccount, isEmail, login, passwordStrength, saveVault, sealForTransfer, type VaultSession } from '../lib/vault'
+import Intro from './Intro'
 import Etapes from './Etapes'
 import Rappel from './Rappel'
 import { InstallCard } from './Pwa'
@@ -35,16 +36,6 @@ const TABS = [
   { id: 'vie-privee', label: 'Vie privée', short: 'Vie privée', icon: ShieldCheck },
 ] as const
 type Tab = (typeof TABS)[number]['id']
-
-/* ───────────── Les diapos d'arrivée ───────────── */
-
-const SLIDES = [
-  { bg: 'bg-coral-soft', accent: 'text-coral-ink', Art: Welcome, title: 'Vous êtes au bon endroit.', text: 'Boussole vous accompagne après une agression sexuelle, pas à pas, à votre rythme. Vous n’avez rien à décider maintenant.' },
-  { bg: 'bg-north-soft', accent: 'text-north', Art: Choice, title: 'Vous décidez de tout.', text: 'Chaque étape est un choix : vous pouvez dire non, faire une pause, revenir plus tard. Rien ne se fait sans vous.' },
-  { bg: 'bg-sky-soft', accent: 'text-sky-ink', Art: Care, title: 'Des soins près de chez vous.', text: 'On vous montre où aller à Montréal pour un examen, et ce qui est encore possible selon le temps écoulé.' },
-  { bg: 'bg-sage-soft', accent: 'text-sage-ink', Art: Talk, title: 'Quelqu’un pour vous écouter.', text: 'Des intervenantes et des psychologues formés, gratuits et confidentiels, à quelques minutes de vous.' },
-  { bg: 'bg-sun-soft', accent: 'text-warn', Art: Space, title: 'Un espace rien qu’à vous.', text: 'Votre récit est chiffré avec votre mot de passe. Personne d’autre ne peut le lire, pas même nous.' },
-]
 
 export default function Espace() {
   const [stage, setStage] = useState<'intro' | 'account' | 'unlock' | 'app'>(() => (anyAccount() ? 'unlock' : 'intro'))
@@ -132,52 +123,6 @@ export default function Espace() {
           ))}
         </div>
       </nav>
-    </div>
-  )
-}
-
-function Intro({ onDone, onHave }: { onDone: () => void; onHave: () => void }) {
-  const [i, setI] = useState(0)
-  const [dir, setDir] = useState(1)
-  const s = SLIDES[i]
-  const last = i === SLIDES.length - 1
-  const go = (n: number) => { setDir(n > i ? 1 : -1); setI(Math.max(0, Math.min(SLIDES.length - 1, n))) }
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'ArrowRight') { if (last) onDone(); else go(i + 1) } if (e.key === 'ArrowLeft') go(i - 1) }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  })
-  return (
-    <div className={`flex min-h-dvh flex-col transition-colors duration-150 ease-[var(--ease-out-soft)] ${s.bg}`}>
-      <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-5 py-5">
-        <Wordmark animate />
-        <button onClick={onHave} className="press rounded-full bg-white/70 px-4 py-2 text-sm font-bold text-ink-2 hover:bg-white">J’ai déjà un espace</button>
-      </div>
-      <div className="mx-auto grid w-full max-w-5xl flex-1 items-center gap-6 px-5 pb-6 md:grid-cols-2">
-        <div key={`art-${i}`} className={dir > 0 ? 'slide-l' : 'slide-r'}>
-          <s.Art className="mx-auto w-full max-w-[420px]" />
-        </div>
-        <div key={`txt-${i}`} className={dir > 0 ? 'slide-l' : 'slide-r'}>
-          <div className={`text-sm font-extrabold ${s.accent}`}>Étape {i + 1} sur {SLIDES.length}</div>
-          <h1 className="display mt-3 text-[2.6rem] sm:text-6xl">{s.title}</h1>
-          <p className="mt-5 max-w-md text-[18px] leading-relaxed text-ink-2">{s.text}</p>
-        </div>
-      </div>
-      <div className="mx-auto flex w-full max-w-5xl items-center justify-between gap-4 px-5 pb-8">
-        <div className="flex gap-2" role="tablist" aria-label="Étapes">
-          {SLIDES.map((_, n) => (
-            <button key={n} aria-label={`Étape ${n + 1}`} onClick={() => go(n)} className={`press h-2.5 rounded-full transition-all duration-150 ease-[var(--ease-out-soft)] ${n === i ? 'w-8 bg-ink' : 'w-2.5 bg-ink/20 hover:bg-ink/40'}`} />
-          ))}
-        </div>
-        <div className="flex gap-2">
-          {i > 0 && (
-            <button onClick={() => go(i - 1)} aria-label="Précédent" className="press grid h-14 w-14 place-items-center rounded-full bg-white/70 text-ink hover:bg-white"><ArrowLeft size={20} strokeWidth={2} /></button>
-          )}
-          <button id="intro-next" onClick={() => (last ? onDone() : go(i + 1))} className="press group inline-flex h-14 items-center gap-2 rounded-full bg-ink px-7 text-[16px] font-extrabold text-white hover:bg-north">
-            {last ? 'Créer mon espace' : 'Suivant'} <ArrowRight size={19} strokeWidth={2.25} className="transition-transform duration-150" />
-          </button>
-        </div>
-      </div>
     </div>
   )
 }
