@@ -1,11 +1,12 @@
 import { lazy, Suspense, useEffect, useMemo, useState } from 'react'
-import { AlertTriangle, Clock, ExternalLink, HeartHandshake, List, Map as MapIcon, MapPin, Navigation, Phone, Scale, Stethoscope } from 'lucide-react'
+import { AlertTriangle, BadgeCheck, Clock, ExternalLink, HeartHandshake, List, Map as MapIcon, MapPin, Navigation, Phone, Scale, Stethoscope } from 'lucide-react'
 import { LigneAide } from './ui'
 import { RESOURCES, type Resource } from '../lib/resources'
 import { computeChecklist, type Answer } from '../lib/rules'
 import type { Kind } from '../lib/fiche'
 import { useLang } from '../lib/i18n'
 import { resource, ruleLabel, rulesWarning } from '../lib/en'
+import { nextReview, RESOURCES_VERIFIED } from '../lib/site'
 
 const ResourceMap = lazy(() => import('./ResourceMap'))
 const NB = '\u00A0'
@@ -48,8 +49,10 @@ export default function Aller({ hoursSince, substance, initial }: { hoursSince: 
   const [view, setView] = useState<'liste' | 'carte'>('liste')
   const [active, setActive] = useState<string | undefined>()
   const wide = useWide()
-  const { t, lang } = useLang()
+  const { t, lang, locale } = useLang()
   const k = lang === 'fr' ? 0 : 1
+  const verified = new Date(`${RESOURCES_VERIFIED}T12:00:00`).toLocaleDateString(locale, { dateStyle: 'long' })
+  const review = nextReview().toLocaleDateString(locale, { month: 'long', year: 'numeric' })
   const items = useMemo(() => RESOURCES.filter((r) => filter === 'all' || r.kind === filter).map((r) => resource(lang, r)), [filter, lang])
   const urgent = hoursSince !== null ? computeChecklist({ hoursSince, substance, exposure: true, pregnancyRisk: true, injuries: false, showered: false }).filter((c) => c.status === 'urgent' || c.status === 'possible') : []
   const chosen = items.find((r) => r.id === active)
@@ -69,6 +72,7 @@ export default function Aller({ hoursSince, substance, initial }: { hoursSince: 
     <div>
       <h1 className="display text-[2rem] sm:text-5xl">{t('Des personnes formées vous attendent.', 'Trained people are waiting for you.')}</h1>
       <p className="mt-2 max-w-2xl text-[17px] leading-relaxed text-ink-2 sm:mt-3">{t(`En cas de doute, appelez d’abord Info-aide violence sexuelle (24${NB}h/24)${NB}: elle vous oriente vers le bon centre.`, 'If in doubt, call Info-aide violence sexuelle first (24/7): they will direct you to the right centre.')}</p>
+      <p className="mt-3 inline-flex items-start gap-2 rounded-2xl bg-sage-soft px-3 py-2 text-sm font-bold leading-snug text-sage-ink"><BadgeCheck size={16} strokeWidth={2.25} className="mt-0.5 shrink-0" /> <span>{t(`Ressources vérifiées le ${verified}, prochaine vérification en ${review}`, `Resources checked on ${verified}, next check in ${review}`)}</span></p>
 
       {hoursSince !== null && urgent.length > 0 && (
         <div className="fade-in mt-5 rounded-[24px] bg-warn-soft p-4 sm:p-5">

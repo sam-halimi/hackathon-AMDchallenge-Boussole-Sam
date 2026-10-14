@@ -2,6 +2,7 @@ import { AlertTriangle, EyeOff, Fingerprint, Lock, ServerOff, ShieldCheck, Spark
 import { Wipe } from './Recit'
 import { LangSwitch } from './ui'
 import { useLang } from '../lib/i18n'
+import { CONTACT } from '../lib/site'
 
 /* ───────────── Vie privée ───────────── */
 
@@ -49,6 +50,13 @@ export default function ViePrivee({ onLock, onWipe, children }: { onLock: () => 
         <p className="mt-1 text-base leading-snug text-ink-2">{t('Boussole existe en français et en anglais. Pour une autre langue, utilisez la traduction de votre navigateur : les numéros et les adresses ne seront pas modifiés.', 'Boussole is available in French and English. For another language, use your browser’s translation: phone numbers and addresses will not be changed.')}</p>
         <LangSwitch full className="mt-3" />
       </section>
+
+      {CONTACT && (
+        <p className="mt-7 flex flex-wrap gap-2">
+          <a href="#/a-propos" className="btn btn-plain">{t('Qui sommes-nous', 'About us')}</a>
+          <a href="#/confidentialite" className="btn btn-plain">{t('Politique de confidentialité', 'Privacy policy')}</a>
+        </p>
+      )}
 
       <div className="mt-7 rounded-[24px] bg-warn-soft p-5 text-warn">
         <h2 className="flex items-center gap-2 text-base font-extrabold"><AlertTriangle size={18} strokeWidth={2} /> {t('Bêta de test', 'Test beta')}</h2>
