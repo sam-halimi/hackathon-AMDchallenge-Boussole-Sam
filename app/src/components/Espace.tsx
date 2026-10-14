@@ -1,16 +1,15 @@
 import { lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react'
 import { AlertTriangle, ArrowRight, Check, CheckCircle2, ClipboardList, Clock, Download, ExternalLink, EyeOff, FileLock2, Fingerprint, HeartHandshake, Home, Lock, MapPin, Navigation, PenLine, Phone, Printer, Scale, Send, ServerOff, ShieldCheck, Sparkles, Stethoscope, Trash2, X } from 'lucide-react'
 import { Wordmark } from './Logo'
-import { Care, Choice, Folder, Talk } from './Illustrations'
 import { RESOURCES, type Resource } from '../lib/resources'
 import { computeChecklist, fromTri, RULES_WARNING, type Answer } from '../lib/rules'
 import { anyAccount, deleteAccount, saveVault, sealForTransfer, type VaultSession } from '../lib/vault'
 import Intro from './Intro'
+import Accueil from './Accueil'
 import { Account, Unlock } from './Compte'
-import { BESOINS, EMPTY, SYMPTOMES, type Fiche, type Tab, type Tri } from '../lib/fiche'
+import { BESOINS, EMPTY, SYMPTOMES, type Fiche, type Kind, type Tab, type Tri } from '../lib/fiche'
 import Etapes from './Etapes'
 import Rappel from './Rappel'
-import { InstallCard } from './Pwa'
 
 const ResourceMap = lazy(() => import('./ResourceMap'))
 const NB = ' '
@@ -27,6 +26,7 @@ export default function Espace() {
   const [stage, setStage] = useState<'intro' | 'account' | 'unlock' | 'app'>(() => (anyAccount() ? 'unlock' : 'intro'))
   const [etapes, setEtapes] = useState(false)
   const [tab, setTab] = useState<Tab>('accueil')
+  const [kind, setKind] = useState<Kind>('all') // filtre d'arrivée dans « Où aller »
   const [session, setSession] = useState<VaultSession | null>(null)
   const [fiche, setFiche] = useState<Fiche>(EMPTY)
   const [savedAt, setSavedAt] = useState<string | null>(null)
@@ -48,6 +48,7 @@ export default function Espace() {
       return next
     })
   }
+  const goTo = (t: Tab, k: Kind = 'all') => { setKind(k); setTab(t) }
   const addJournal = (action: string) => update((f) => ({ journal: [...f.journal, { at: new Date().toISOString(), action }] }))
 
   const hoursSince = useMemo(() => {
@@ -70,7 +71,7 @@ export default function Espace() {
     <div className="min-h-dvh pb-24 sm:pb-0">
       <header className="no-print sticky top-0 z-30 bg-paper/95 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center gap-2 px-4 py-2 sm:px-5">
-          <button onClick={() => setTab('accueil')} aria-label="Boussole, retour à l’accueil" className="press inline-flex min-h-12 items-center rounded-full pr-2"><Wordmark /></button>
+          <button onClick={() => goTo('accueil')} aria-label="Boussole, retour à l’accueil" className="press inline-flex min-h-12 items-center rounded-full pr-2"><Wordmark /></button>
           <span className="hidden rounded-full bg-sun-soft px-3 py-1 text-sm font-bold text-warn sm:inline">Bêta de test</span>
           <div className="ml-auto flex items-center gap-2">
             <span className="hidden items-center gap-1.5 text-sm text-ink-2 md:inline-flex"><Lock size={15} strokeWidth={2} /> {savedAt ? `Chiffré à ${new Date(savedAt).toLocaleTimeString('fr-CA', { hour: '2-digit', minute: '2-digit' })}` : 'Chiffré'}</span>
@@ -81,7 +82,7 @@ export default function Espace() {
         </div>
         <nav aria-label="Rubriques" className="mx-auto hidden max-w-6xl gap-1.5 px-4 pb-2 sm:flex">
           {TABS.map(({ id, label, icon: Icon }) => (
-            <button key={id} id={`tab-${id}`} onClick={() => setTab(id)} aria-current={tab === id ? 'page' : undefined} className={`press inline-flex min-h-12 items-center gap-2 rounded-full px-4 text-base font-bold ${tab === id ? 'bg-ink text-white' : 'text-ink-2 hover:bg-panel'}`}>
+            <button key={id} id={`tab-${id}`} onClick={() => goTo(id)} aria-current={tab === id ? 'page' : undefined} className={`press inline-flex min-h-12 items-center gap-2 rounded-full px-4 text-base font-bold ${tab === id ? 'bg-ink text-white' : 'text-ink-2 hover:bg-panel'}`}>
               <Icon size={18} strokeWidth={2} /> {label}
             </button>
           ))}
@@ -89,73 +90,26 @@ export default function Espace() {
       </header>
 
       <main key={tab} className="mx-auto max-w-6xl px-4 py-6 sm:px-5 sm:py-10">
-        {tab === 'accueil' && <Accueil fiche={fiche} hoursSince={hoursSince} go={setTab} onIntro={() => setEtapes(true)} />}
-        {tab === 'recit' && <Recit fiche={fiche} update={update} savedAt={savedAt} hoursSince={hoursSince} onWipe={() => { if (session) deleteAccount(session); lock() }} onNext={() => setTab('aller')} />}
-        {tab === 'aller' && <Aller hoursSince={hoursSince} substance={fromTri(fiche.substance)} />}
+        {tab === 'accueil' && <Accueil fiche={fiche} hoursSince={hoursSince} go={goTo} onIntro={() => setEtapes(true)} />}
+        {tab === 'recit' && <Recit fiche={fiche} update={update} savedAt={savedAt} hoursSince={hoursSince} onWipe={() => { if (session) deleteAccount(session); lock() }} onNext={() => goTo('aller')} />}
+        {tab === 'aller' && <Aller hoursSince={hoursSince} substance={fromTri(fiche.substance)} initial={kind} />}
         {tab === 'dossier' && <Dossier fiche={fiche} hoursSince={hoursSince} onJournal={addJournal} />}
         {tab === 'vie-privee' && <ViePrivee />}
       </main>
 
-      <Etapes open={etapes} onClose={() => setEtapes(false)} prenom={fiche.prenom} go={(t) => { setEtapes(false); setTab(t as Tab) }} />
+      <Etapes open={etapes} onClose={() => setEtapes(false)} prenom={fiche.prenom} go={(t, k) => { setEtapes(false); goTo(t as Tab, k) }} />
 
       {/* Barre d'onglets mobile : ancrée en bas, claire, au pouce */}
       <nav aria-label="Rubriques" className="no-print fixed inset-x-0 bottom-0 z-30 border-t border-rule bg-paper pb-[env(safe-area-inset-bottom)] sm:hidden">
         <div className="mx-auto grid max-w-md grid-cols-5 px-1">
           {TABS.map(({ id, short, icon: Icon }) => (
-            <button key={id} id={`mtab-${id}`} onClick={() => setTab(id)} aria-current={tab === id ? 'page' : undefined} className={`press flex min-h-16 flex-col items-center justify-center gap-0.5 rounded-2xl text-[clamp(12.5px,3.7vw,14px)] font-extrabold leading-tight tracking-tight ${tab === id ? 'text-north' : 'text-ink-2'}`}>
+            <button key={id} id={`mtab-${id}`} onClick={() => goTo(id)} aria-current={tab === id ? 'page' : undefined} className={`press flex min-h-16 flex-col items-center justify-center gap-0.5 rounded-2xl text-[clamp(12.5px,3.7vw,14px)] font-extrabold leading-tight tracking-tight ${tab === id ? 'text-north' : 'text-ink-2'}`}>
               <span className={`grid h-8 w-14 place-items-center rounded-full ${tab === id ? 'bg-north-soft' : ''}`}><Icon size={22} strokeWidth={2} /></span>
               {short}
             </button>
           ))}
         </div>
       </nav>
-    </div>
-  )
-}
-
-/* ───────────── Accueil de l'espace ───────────── */
-
-function Accueil({ fiche, hoursSince, go, onIntro }: { fiche: Fiche; hoursSince: number | null; go: (t: Tab) => void; onIntro: () => void }) {
-  const h = new Date().getHours()
-  const hello = h < 5 || h >= 18 ? 'Bonsoir' : 'Bonjour'
-  const actions = [
-    { tab: 'recit' as Tab, bg: 'bg-north-soft', Art: Choice, title: 'Écrire mon récit', text: fiche.souvenirs ? 'Reprendre là où vous en étiez.' : 'Une seule fois, à votre rythme.' },
-    { tab: 'aller' as Tab, bg: 'bg-sky-soft', Art: Care, title: 'Trouver un examen', text: hoursSince !== null && hoursSince <= 120 ? `Il y a ${hoursSince}${NB}h : des examens sont encore possibles.` : 'Les centres désignés de Montréal.' },
-    { tab: 'aller' as Tab, bg: 'bg-sage-soft', Art: Talk, title: 'Parler à quelqu’un', text: 'Écoute et soutien psychologique, gratuits.' },
-    { tab: 'dossier' as Tab, bg: 'bg-sun-soft', Art: Folder, title: 'Mon dossier', text: 'Si vous le décidez, on le prépare pour un service juridique.' },
-  ]
-  return (
-    <div>
-      <h1 className="rise display text-4xl sm:text-5xl">{hello}{fiche.prenom ? ` ${fiche.prenom}` : ''}.</h1>
-      <p className="rise rise-1 mt-3 max-w-xl text-[18px] leading-relaxed text-ink-2">Prenez le temps qu’il vous faut. Voici ce que vous pouvez faire, dans l’ordre que vous voulez.</p>
-
-      <a href="tel:+18889339007" id="call-ligne" className="rise rise-2 press mt-7 flex items-center gap-4 rounded-[28px] bg-coral p-5 text-ink">
-        <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-white/50"><Phone size={22} strokeWidth={2.25} /></span>
-        <span className="min-w-0">
-          <span className="block text-sm font-bold text-ink">Info-aide violence sexuelle · gratuit, 24 h/24</span>
-          <span className="display block text-2xl sm:text-3xl">+1 888 933-9007</span>
-        </span>
-        <ArrowRight size={22} strokeWidth={2.25} className="ml-auto shrink-0" />
-      </a>
-
-      <div className="mt-6 grid gap-4 sm:grid-cols-2">
-        {actions.map((a) => (
-          <button key={a.title} onClick={() => go(a.tab)} className={`rise press group flex items-center gap-4 overflow-hidden rounded-[28px] p-5 text-left ${a.bg}`}>
-            <a.Art className="h-28 w-28 shrink-0 transition-transform duration-150 ease-[var(--ease-out-soft)] sm:h-32 sm:w-32" />
-            <span className="min-w-0">
-              <span className="block text-xl font-extrabold">{a.title}</span>
-              <span className="mt-1 block text-[15px] leading-snug text-ink-2">{a.text}</span>
-              <span className="mt-3 inline-flex items-center gap-1 text-sm font-extrabold">Ouvrir <ArrowRight size={15} strokeWidth={2.5} className="transition-transform duration-150" /></span>
-            </span>
-          </button>
-        ))}
-      </div>
-      <p id="pas-avis-medical" className="mt-6 flex items-start gap-2 rounded-2xl bg-panel px-4 py-3 text-[15px] leading-snug text-ink-2">
-        <AlertTriangle size={18} strokeWidth={2} className="mt-0.5 shrink-0 text-warn" />
-        <span>Boussole donne des repères, pas d’avis médical ni juridique. Les délais sont indicatifs. En cas de doute : Info-aide violence sexuelle ou le 811. En danger : 911.</span>
-      </p>
-      <InstallCard />
-      <button onClick={onIntro} className="press mt-8 inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm font-bold text-ink-3 hover:bg-panel"><Sparkles size={16} strokeWidth={2} /> Revoir les étapes de la prise en charge</button>
     </div>
   )
 }
@@ -247,8 +201,8 @@ const FILTERS = [
   { id: 'legal', label: 'Juridique', icon: Scale },
 ] as const
 
-function Aller({ hoursSince, substance }: { hoursSince: number | null; substance: Answer }) {
-  const [filter, setFilter] = useState<(typeof FILTERS)[number]['id']>('all')
+function Aller({ hoursSince, substance, initial }: { hoursSince: number | null; substance: Answer; initial: Kind }) {
+  const [filter, setFilter] = useState<Kind>(initial)
   const [active, setActive] = useState<string | undefined>()
   const items = useMemo(() => RESOURCES.filter((r) => filter === 'all' || r.kind === filter), [filter])
   const urgent = hoursSince !== null ? computeChecklist({ hoursSince, substance, exposure: true, pregnancyRisk: true, injuries: false, showered: false }).filter((c) => c.status === 'urgent' || c.status === 'possible') : []

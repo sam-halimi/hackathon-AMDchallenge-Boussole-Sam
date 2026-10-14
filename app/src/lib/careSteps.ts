@@ -8,7 +8,8 @@ export type CareStep = {
   text: string
   timing?: string
   tips?: string[]
-  action?: { label: string; href?: string; tab?: string }
+  // filter : catégorie affichée à l'arrivée dans l'onglet « Où aller »
+  action?: { label: string; href?: string; tab?: string; filter?: 'exam' | 'support' }
   source?: string
 }
 
@@ -37,7 +38,7 @@ export const CARE_STEPS: CareStep[] = [
     icon: 'exam', tint: 'sky', title: 'Aller dans un centre désigné',
     text: 'Une équipe formée vous accueille : intervenante, médecin, infirmière. Gratuit et confidentiel, sans carte d’assurance maladie, sans référence et sans plainte obligatoire. Vous pouvez venir accompagnée.',
     timing: 'Le plus tôt possible : en urgence dans les 5 à 7 jours, sur rendez-vous ensuite.',
-    action: { label: 'Voir les centres sur la carte', tab: 'aller' }, source: 'CVASM ; CIUSSS de Montréal (2026)',
+    action: { label: 'Voir les centres sur la carte', tab: 'aller', filter: 'exam' }, source: 'CVASM ; CIUSSS de Montréal (2026)',
   },
   {
     icon: 'file', tint: 'sky', title: 'Recevoir des soins',
@@ -54,7 +55,7 @@ export const CARE_STEPS: CareStep[] = [
   {
     icon: 'support', tint: 'sage', title: 'Être soutenue, sur la durée',
     text: 'Une intervenante vous accompagne dès le centre désigné. Ensuite, les CALACS, le CAVAC, le MCVI ou Criphase offrent un soutien gratuit. L’aide est possible même des années plus tard.',
-    action: { label: 'Trouver du soutien près de moi', tab: 'aller' }, source: 'CVASM ; CIUSSS de Montréal',
+    action: { label: 'Trouver du soutien près de moi', tab: 'aller', filter: 'support' }, source: 'CVASM ; CIUSSS de Montréal',
   },
   {
     icon: 'legal', tint: 'north', title: 'Vos droits, à votre rythme',

@@ -10,7 +10,7 @@ const TINT: Record<string, string> = {
 
 // Fenêtre des étapes de prise en charge. Une étape par vue, sans défilement interne : le contenu le plus
 // long tient dans 360×640. Sur téléphone, une barre de progression ; à partir de 640 px, des numéros cliquables.
-export default function Etapes({ open, onClose, prenom, go }: { open: boolean; onClose: () => void; prenom?: string; go: (tab: string) => void }) {
+export default function Etapes({ open, onClose, prenom, go }: { open: boolean; onClose: () => void; prenom?: string; go: (tab: string, filter?: 'exam' | 'support') => void }) {
   const [i, setI] = useState(0)
   const dialog = useRef<HTMLDivElement>(null)
   const steps = CARE_STEPS
@@ -82,7 +82,7 @@ export default function Etapes({ open, onClose, prenom, go }: { open: boolean; o
             s.action.href ? (
               <a href={s.action.href} className="btn btn-call mt-3"><Phone size={18} strokeWidth={2.25} /> {s.action.label}</a>
             ) : (
-              <button onClick={() => go(s.action!.tab!)} className="btn btn-soft mt-3">{s.action.label} <ArrowRight size={18} strokeWidth={2.25} /></button>
+              <button onClick={() => go(s.action!.tab!, s.action!.filter)} className="btn btn-soft mt-3">{s.action.label} <ArrowRight size={18} strokeWidth={2.25} /></button>
             )
           )}
           {s.source && <p className="mt-3 text-sm text-ink-2">Source : {s.source}</p>}
