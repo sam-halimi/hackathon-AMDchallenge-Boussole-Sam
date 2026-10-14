@@ -1,18 +1,18 @@
-import { lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react'
-import { AlertTriangle, ArrowRight, Check, CheckCircle2, ClipboardList, Clock, Download, ExternalLink, EyeOff, FileLock2, Fingerprint, HeartHandshake, Home, Lock, MapPin, Navigation, PenLine, Phone, Printer, Scale, Send, ServerOff, ShieldCheck, Sparkles, Stethoscope, Trash2, X } from 'lucide-react'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { AlertTriangle, Check, CheckCircle2, ClipboardList, Download, EyeOff, FileLock2, Fingerprint, Home, Lock, MapPin, PenLine, Phone, Printer, Scale, Send, ServerOff, ShieldCheck, Sparkles, Trash2, X } from 'lucide-react'
 import { Wordmark } from './Logo'
-import { RESOURCES, type Resource } from '../lib/resources'
-import { computeChecklist, fromTri, RULES_WARNING, type Answer } from '../lib/rules'
+import { RESOURCES } from '../lib/resources'
+import { computeChecklist, fromTri, RULES_WARNING } from '../lib/rules'
 import { anyAccount, deleteAccount, saveVault, sealForTransfer, type VaultSession } from '../lib/vault'
 import Intro from './Intro'
 import Accueil from './Accueil'
 import Recit from './Recit'
+import Aller from './Aller'
 import { Account, Unlock } from './Compte'
 import { EMPTY, type Fiche, type Kind, type Tab } from '../lib/fiche'
 import Etapes from './Etapes'
 import Rappel from './Rappel'
 
-const ResourceMap = lazy(() => import('./ResourceMap'))
 const NB = ' '
 
 const TABS = [
@@ -112,113 +112,6 @@ export default function Espace() {
         </div>
       </nav>
     </div>
-  )
-}
-
-/* ───────────── Où aller (carte) ───────────── */
-
-const FILTERS = [
-  { id: 'all', label: 'Tout', icon: MapPin },
-  { id: 'exam', label: 'Examens médicaux', icon: Stethoscope },
-  { id: 'support', label: 'Soutien psychologique', icon: HeartHandshake },
-  { id: 'legal', label: 'Juridique', icon: Scale },
-] as const
-
-function Aller({ hoursSince, substance, initial }: { hoursSince: number | null; substance: Answer; initial: Kind }) {
-  const [filter, setFilter] = useState<Kind>(initial)
-  const [active, setActive] = useState<string | undefined>()
-  const items = useMemo(() => RESOURCES.filter((r) => filter === 'all' || r.kind === filter), [filter])
-  const urgent = hoursSince !== null ? computeChecklist({ hoursSince, substance, exposure: true, pregnancyRisk: true, injuries: false, showered: false }).filter((c) => c.status === 'urgent' || c.status === 'possible') : []
-
-  useEffect(() => {
-    if (active) document.getElementById(`res-${active}`)?.scrollIntoView({ behavior: 'instant', block: 'nearest' })
-  }, [active])
-
-  return (
-    <div>
-      <div className="rise eyebrow text-north">Où aller à Montréal</div>
-      <h1 className="rise rise-1 display mt-3 text-4xl sm:text-5xl">Des personnes formées vous attendent.</h1>
-      <p className="rise rise-2 mt-3 max-w-2xl text-[17px] leading-relaxed text-ink-2">En cas de doute, appelez d’abord Info-aide violence sexuelle (24{NB}h/24){NB}: elle vous oriente vers le bon centre.</p>
-
-      {hoursSince !== null && urgent.length > 0 && (
-        <div className="fade-in mt-6 rounded-2xl border border-warn/30 bg-warn-soft p-5">
-          <div className="flex items-center gap-2 font-medium text-warn"><Clock size={18} strokeWidth={1.75} /> Il y a {hoursSince}{NB}h : des examens sont encore possibles</div>
-          <div className="mt-3 flex flex-wrap gap-2">
-            {urgent.slice(0, 4).map((c) => (
-              <span key={c.id} className="rounded-full bg-paper px-3 py-1.5 text-sm">{c.label} · <b>≈{NB}{c.remainingH}{NB}h</b>{c.uncertain && <span className="text-warn"> · à confirmer</span>}</span>
-            ))}
-          </div>
-          <p className="mt-3 text-xs text-warn">{RULES_WARNING} « À confirmer » : affiché parce que vous avez répondu « Je ne sais pas ».</p>
-        </div>
-      )}
-
-      <a href="tel:+18889339007" className="press mt-6 flex items-center gap-4 rounded-[28px] bg-coral p-5 text-ink" id="call-ligne-aller">
-        <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-white/50"><Phone size={22} strokeWidth={2.25} /></span>
-        <span className="min-w-0">
-          <span className="block text-sm font-bold text-ink">Info-aide violence sexuelle · gratuit · confidentiel · 24 h/24</span>
-          <span className="display block text-2xl sm:text-3xl">+1 888 933-9007</span>
-        </span>
-        <ArrowRight size={20} strokeWidth={1.75} className="ml-auto" />
-      </a>
-
-      <div className="mt-8 flex gap-2 overflow-x-auto">
-        {FILTERS.map(({ id, label, icon: Icon }) => (
-          <button key={id} onClick={() => setFilter(id)} className={`press inline-flex shrink-0 items-center gap-2 rounded-full border px-4 py-2 text-sm transition-colors duration-150 ${filter === id ? 'border-north bg-north text-paper' : 'border-rule text-ink-2 hover:border-ink'}`}>
-            <Icon size={15} strokeWidth={1.75} /> {label}
-          </button>
-        ))}
-      </div>
-
-      <div className="mt-5 grid gap-5 lg:grid-cols-[1fr_1.1fr]">
-        <ul className="order-2 min-w-0 space-y-3 lg:order-1">
-          {items.map((r, n) => <ResourceCard key={r.id} r={r} n={n + 1} active={r.id === active} onSelect={() => setActive(r.id)} />)}
-        </ul>
-        <div className="order-1 min-w-0 lg:sticky lg:top-36 lg:order-2 lg:self-start">
-          <div className="h-[360px] overflow-hidden rounded-[28px] border-4 border-white shadow-[0_20px_40px_-28px_rgba(45,36,64,.5)] lg:h-[640px]" id="map">
-            <Suspense fallback={<div className="skeleton h-full w-full" />}>
-              <ResourceMap items={items} active={active} onSelect={setActive} />
-            </Suspense>
-          </div>
-          <div className="mt-3 flex flex-wrap gap-3 text-xs font-bold text-ink-2">
-            <span className="inline-flex items-center gap-1.5"><span className="h-3 w-3 rounded-full bg-sky" /> Examens médicaux</span>
-            <span className="inline-flex items-center gap-1.5"><span className="h-3 w-3 rounded-full bg-sage-ink" /> Soutien psychologique</span>
-            <span className="inline-flex items-center gap-1.5"><span className="h-3 w-3 rounded-full bg-sun" /> Juridique</span>
-          </div>
-        </div>
-      </div>
-      <p className="mt-4 text-xs text-ink-3">Carte : OpenStreetMap. Sources : CIUSSS de Montréal, CVASM, SPVM (2026), sites officiels des organismes, vérifiés le 4 octobre 2026. « À confirmer » : information qu’aucune source officielle n’a encore confirmée. Adresses confidentielles non affichées. Vérifiez les horaires par téléphone.</p>
-    </div>
-  )
-}
-
-function ResourceCard({ r, n, active, onSelect }: { r: Resource; n: number; active: boolean; onSelect: () => void }) {
-  const kind = { exam: ['Examens médicaux', 'bg-ink text-paper'], support: ['Soutien psychologique', 'bg-north text-paper'], legal: ['Juridique', 'bg-warn text-paper'] }[r.kind]
-  return (
-    <li id={`res-${r.id}`} onClick={onSelect} className={`rise cursor-pointer rounded-[24px] border-2 p-5 transition-all duration-150 ease-[var(--ease-out-soft)] ${active ? 'border-north bg-north-soft shadow-[0_12px_30px_-18px_rgba(106,76,224,0.6)]' : 'border-transparent bg-white shadow-[0_14px_30px_-26px_rgba(45,36,64,.5)] hover:border-north-soft'}`}>
-      <div className="flex items-start gap-3">
-        <span className={`grid h-7 w-7 shrink-0 place-items-center rounded-full font-mono text-xs ${kind[1]}`}>{n}</span>
-        <div className="min-w-0 flex-1">
-          <div className="text-[16px] font-medium leading-snug">{r.name}</div>
-          <p className="mt-1.5 text-[14px] leading-relaxed text-ink-2">{r.what}</p>
-          <div className="mt-3 space-y-1 text-[13px] text-ink-3">
-            {r.address && <div className="flex gap-1.5"><MapPin size={14} strokeWidth={1.75} className="mt-0.5 shrink-0" /> {r.address}</div>}
-            <div className="flex gap-1.5"><Clock size={14} strokeWidth={1.75} className="mt-0.5 shrink-0" /> {r.hours}</div>
-            {r.note && <div className="flex gap-1.5 text-warn"><AlertTriangle size={14} strokeWidth={1.75} className="mt-0.5 shrink-0" /> {r.note}</div>}
-            {r.toConfirm && (
-              <div className="mt-2 rounded-2xl bg-warn-soft px-3 py-2 text-warn" data-to-confirm={r.id}>
-                <span className="mr-1.5 rounded-full bg-warn px-2 py-0.5 text-[11px] font-extrabold text-white">À confirmer</span>{r.toConfirm}
-              </div>
-            )}
-          </div>
-          <div className="mt-4 flex flex-wrap gap-2" onClick={(e) => e.stopPropagation()}>
-            {r.phone && <a href={`tel:${r.phone}`} className="press inline-flex items-center gap-1.5 rounded-full bg-ink px-3.5 py-2 text-[13px] font-bold text-white hover:bg-north"><Phone size={14} strokeWidth={2} /> {r.phoneLabel}</a>}
-            {r.address && <a href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(r.address)}`} target="_blank" rel="noreferrer" className="press inline-flex items-center gap-1.5 rounded-full bg-sky-soft px-3.5 py-2 text-[13px] font-bold text-sky-ink hover:bg-sky hover:text-white"><Navigation size={14} strokeWidth={2} /> Itinéraire Google Maps</a>}
-            {r.url && <a href={r.url} target="_blank" rel="noreferrer" className="press inline-flex items-center gap-1.5 rounded-full border border-rule px-3.5 py-2 text-[13px] hover:border-ink"><ExternalLink size={14} strokeWidth={1.75} /> Site</a>}
-          </div>
-        </div>
-        <span className={`hidden shrink-0 rounded-full px-2.5 py-1 text-[11px] sm:inline ${r.kind === 'exam' ? 'bg-panel' : r.kind === 'support' ? 'bg-north-soft text-north' : 'bg-warn-soft text-warn'}`}>{kind[0]}</span>
-      </div>
-    </li>
   )
 }
 
