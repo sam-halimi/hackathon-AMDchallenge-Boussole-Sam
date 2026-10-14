@@ -4,7 +4,7 @@ import { InstallCard } from './Pwa'
 import { LigneAide } from './ui'
 import type { Fiche, Kind, Tab } from '../lib/fiche'
 
-const NB = ' '
+const NB = '\u00A0'
 
 /* ───────────── Accueil de l'espace ───────────── */
 
@@ -24,7 +24,7 @@ export default function Accueil({ fiche, hoursSince, go, onIntro }: { fiche: Fic
       <h1 className="display text-[2rem] sm:text-5xl">{hello}{fiche.prenom ? ` ${fiche.prenom}` : ''}.</h1>
       <p className="mt-2 max-w-xl text-[17px] leading-relaxed text-ink-2 sm:mt-3 sm:text-lg">Prenez le temps qu’il vous faut. Voici ce que vous pouvez faire, dans l’ordre que vous voulez.</p>
 
-      <div className="mt-5 sm:mt-7"><LigneAide id="call-ligne" detail="Info-aide violence sexuelle · gratuit, 24 h/24" /></div>
+      <div className="mt-5 sm:mt-7"><LigneAide id="call-ligne" detail={`Info-aide violence sexuelle · gratuit, 24${NB}h/24`} /></div>
 
       <h2 className="sr-only">Ce que vous pouvez faire</h2>
       <ul className="mt-3 grid gap-3 sm:mt-4 sm:grid-cols-2 sm:gap-4">

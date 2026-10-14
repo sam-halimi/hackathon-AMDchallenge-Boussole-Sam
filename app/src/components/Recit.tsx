@@ -3,7 +3,7 @@ import { ArrowLeft, ArrowRight, Check, ChevronRight, List, Lock, Trash2 } from '
 import { Check2, OptionList } from './ui'
 import { BESOINS, SYMPTOMES, TRI, VETEMENTS, type Fiche, type Tri } from '../lib/fiche'
 
-const NB = ' '
+const NB = '\u00A0'
 
 /* ───────────── Fiche « Mon récit » : une question à la fois ───────────── */
 

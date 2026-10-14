@@ -6,7 +6,7 @@ import { computeChecklist, RULES_WARNING, type Answer } from '../lib/rules'
 import type { Kind } from '../lib/fiche'
 
 const ResourceMap = lazy(() => import('./ResourceMap'))
-const NB = ' '
+const NB = '\u00A0'
 
 /* ───────────── Où aller (liste et carte) ───────────── */
 
