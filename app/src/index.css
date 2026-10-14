@@ -123,6 +123,9 @@ button, a, label, summary { touch-action: manipulation; }
 
 /* Carte Leaflet dans la DA */
 .leaflet-container { font-family: var(--font-sans); background: var(--color-panel); }
+/* Fond OpenStreetMap adouci et réchauffé vers la palette crème : moins de couleurs vives, mêmes tuiles,
+   aucun service tiers ajouté (la promesse « OpenStreetMap est le seul appel externe » reste vraie). */
+.leaflet-tile-pane { filter: sepia(0.35) saturate(0.55) brightness(1.05) contrast(0.9); }
 .leaflet-popup-content-wrapper { border-radius: 16px; box-shadow: 0 20px 50px -20px rgba(45,36,64,.4); }
 .pin { width: 36px; height: 36px; margin: 4px auto 0; border-radius: 999px 999px 999px 6px; transform: rotate(-45deg); display: grid; place-items: center; border: 2px solid #fff; box-shadow: 0 6px 16px -6px rgba(45,36,64,.5); }
 .pin.active { transform: rotate(-45deg) scale(1.2); }

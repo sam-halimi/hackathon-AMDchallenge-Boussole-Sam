@@ -125,8 +125,11 @@ export default function Aller({ hoursSince, substance, initial }: { hoursSince: 
                 <ResourceMap items={items} active={active} onSelect={setActive} />
               </Suspense>
             </div>
-            <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm font-bold text-ink-2">
-              {ORDER.map((k) => <li key={k} className="inline-flex items-center gap-1.5"><span className={`h-3 w-3 rounded-full ${KINDS[k].badge}`} /> {KINDS[k].label}</li>)}
+            <ul aria-label="Légende" className="mt-3 flex flex-wrap gap-2 text-sm font-bold">
+              {ORDER.map((k) => {
+                const Icon = FILTERS.find((f) => f.id === k)!.icon
+                return <li key={k} className={`inline-flex items-center gap-2 rounded-full bg-white py-1.5 pl-1.5 pr-3 shadow-[0_6px_14px_-12px_rgba(45,36,64,.6)] ${KINDS[k].text}`}><span className={`grid h-6 w-6 place-items-center rounded-full text-white ${KINDS[k].badge}`}><Icon size={14} strokeWidth={2.25} /></span> {KINDS[k].label}</li>
+              })}
             </ul>
             {!wide && (
               <div id="fiche-carte" className="mt-4 scroll-mb-24">
@@ -152,9 +155,9 @@ function ResourceCard({ r, n, active, onSelect }: { r: Resource; n: number; acti
         <span className={`grid h-8 w-8 shrink-0 place-items-center rounded-full text-sm font-extrabold text-white ${k.badge}`}>{n}</span>
         <span className={`text-sm font-extrabold ${k.text}`}>{k.label}</span>
       </div>
-      <h3 className={`text-lg font-extrabold leading-snug ${placed ? '' : 'mt-2'}`}>
+      <h3 className="mt-1 text-lg font-extrabold leading-snug">
         {placed
-          ? <button onClick={onSelect} title="Voir sur la carte" className="press -mx-1 flex min-h-11 w-full items-center rounded-lg px-1 text-left">{r.name}</button>
+          ? <button onClick={onSelect} title="Voir sur la carte" className="press -mx-1 flex min-h-11 w-full items-center rounded-lg px-1 py-1 text-left">{r.name}</button>
           : r.name}
       </h3>
       <p className="mt-1 text-base leading-normal text-ink-2">{r.what}</p>
@@ -170,7 +173,7 @@ function ResourceCard({ r, n, active, onSelect }: { r: Resource; n: number; acti
       )}
       <div className="mt-4 flex flex-wrap gap-2">
         {r.phone && <a href={`tel:${r.phone}`} className="btn btn-primary basis-full justify-start text-left sm:basis-auto"><Phone size={18} strokeWidth={2.25} className="shrink-0" /> {r.phoneLabel}</a>}
-        {r.address && <a href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(r.address)}`} target="_blank" rel="noreferrer" aria-label="Itinéraire Google Maps" className="btn btn-soft flex-1 px-4 sm:flex-none"><Navigation size={18} strokeWidth={2} className="shrink-0" /> Itinéraire<span className="max-sm:hidden"> Google Maps</span></a>}
+        {r.address && <a href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(r.address)}`} target="_blank" rel="noreferrer" aria-label="Itinéraire Google Maps" className="btn btn-soft flex-1 px-4 sm:flex-none"><Navigation size={18} strokeWidth={2} className="shrink-0" /> <span>Itinéraire<span className="max-sm:hidden"> Google Maps</span></span></a>}
         {r.url && <a href={r.url} target="_blank" rel="noreferrer" className="btn btn-plain flex-1 px-4 sm:flex-none"><ExternalLink size={18} strokeWidth={2} className="shrink-0" /> Site</a>}
       </div>
     </li>
