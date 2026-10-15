@@ -13,7 +13,7 @@ Objectif : que les personnes qui accueillent les victimes à Montréal relisent 
 
 | Jour | Action | Fichier |
 |---|---|---|
-| 1 | Créer l'adresse dédiée du projet, la donner à Claude pour publier « Qui sommes-nous » et la politique de confidentialité | `app/src/lib/site.ts` |
+| 1 | ~~Créer l'adresse dédiée du projet~~ : fait, boussole.app@gmail.com, publiée sur le site | `app/src/lib/site.ts` |
 | 1 | Relire la fiche de présentation et l'ajuster à ta voix | [FICHE.md](FICHE.md) |
 | 2 | Envoyer les trois premiers courriels : centre désigné, CALACS, Rebâtir | [COURRIELS.md](COURRIELS.md) |
 | 2 | Appeler le CVASM en heures de bureau pour demander à qui écrire (ligne administrative, pas la ligne d'aide) | |

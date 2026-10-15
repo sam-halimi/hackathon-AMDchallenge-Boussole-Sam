@@ -22,7 +22,7 @@
 >
 > Merci pour votre temps,
 > [Prénom Nom]
-> [Adresse dédiée du projet]
+> boussole.app@gmail.com
 
 ## 2. CALACS ou regroupement des CALACS (ton et approche)
 
@@ -44,7 +44,7 @@
 >
 > Merci,
 > [Prénom Nom]
-> [Adresse dédiée du projet]
+> boussole.app@gmail.com
 
 ## 3. Rebâtir, Juripop, Info Justice (droits)
 
@@ -64,7 +64,7 @@
 >
 > Merci,
 > [Prénom Nom]
-> [Adresse dédiée du projet]
+> boussole.app@gmail.com
 
 ## Relance (une seule, après une semaine)
 
