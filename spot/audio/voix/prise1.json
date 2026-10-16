@@ -1,0 +1,3198 @@
+{
+ "fichier": "audio/voix/prise1.mp3",
+ "duree": 240.51,
+ "langue": "fr",
+ "exactitude": 0.909,
+ "mots_par_seconde": 1.95,
+ "confiance_moyenne": 0.934,
+ "pauses_longues": [
+  1.14,
+  1.46,
+  0.72,
+  0.5,
+  1.04,
+  0.42,
+  0.54,
+  1.12,
+  1.02,
+  0.6,
+  0.78,
+  1.0,
+  0.9,
+  0.46,
+  0.96,
+  0.5,
+  1.0,
+  1.18,
+  0.88,
+  0.82,
+  0.7,
+  1.36,
+  0.84,
+  0.54,
+  1.1,
+  0.76,
+  1.02,
+  0.62,
+  1.12,
+  0.6,
+  1.06,
+  1.76,
+  0.4,
+  0.94,
+  0.92,
+  1.02,
+  0.98,
+  0.62,
+  0.86,
+  1.1,
+  0.44,
+  1.16,
+  1.66,
+  0.94,
+  0.56,
+  0.82,
+  1.02,
+  0.68,
+  1.02,
+  0.94,
+  0.56,
+  0.7,
+  0.82,
+  0.58,
+  1.2,
+  0.82,
+  1.06,
+  0.92,
+  1.16,
+  0.44,
+  0.52,
+  0.86,
+  0.8,
+  0.86,
+  0.9,
+  0.68,
+  0.76,
+  1.1,
+  1.04,
+  0.8,
+  0.84,
+  0.88,
+  0.78,
+  0.82,
+  0.7,
+  1.16,
+  0.9,
+  1.76,
+  0.7,
+  1.26,
+  0.78,
+  1.22,
+  0.56,
+  1.12,
+  0.98,
+  1.28,
+  0.66
+ ],
+ "transcription": "Octobre 2024. Université Cornell. Une étudiante dit avoir été droguée, puis violée, par des membres d 'une fraternité. Selon son avocat, deux jours plus tard, au centre de santé du campus, personne ne lui propose de trousse médicolégale. Quand elle la demande enfin, trois semaines ont passé. L 'ADN a disparu. Deux étudiants sont exclus. Pour d 'autres, la sanction se limite à des travaux de réflexion. Deux ans plus tard, aucune accusation. Ce n 'est pas qu 'aux États -Unis. Au Canada, six pour cent seulement des agressions sexuelles sont signalées à la police. Et sur mille affaires signalées, 52 finissent par une peine de prison. La preuve a une date limite, 12h pour certaines drogues, 72h pour l 'ADN. Un mois après, trois victimes sur quatre vivent un stress post -traumatique. Et personne ne leur dit quoi faire, ni dans quel ordre. Par où commencer ? Et si quelqu 'un la guidait, pas à pas ? Voici Boussole. L 'application qui guide les victimes de violence sexuelle. Dès le premier écran, l 'aide est là. La ligne d 'écoute est le 9 -1 -1. Pas besoin de créer un compte pour appeler. Un bouton quitter ferme tout en un geste, vers une simple page météo. Ensuite, les étapes. Une à la fois avec leurs délais et leurs sources. Son récit, elle l 'écrit une seule fois. Il reste chiffré sur son téléphone. Je ne sais pas et toujours une réponse. La carte montre où aller à Montréal. Examen médical, soutien, aide juridique. Si elle le décide, son dossier est prêt pour un service juridique. Rien ne part sans son accord et elle choisit quand être rappelée. Pour les soignants, chaque prélèvement est classé selon son délai. Chaque note est au rodaté. Rien ne se perd, la première nuit. L 'application est gratuite, elle fonctionne même hors ligne. Boussole ne remplace personne, elle relie ce qui existe déjà. Nous la soumettons aux organismes du terrain. Le CVASM, les calac, rebâtir, les cavac, la chair de Lucame. Elle s 'appuie sur la recherche. Pour beaucoup de victimes, chercher de l 'aide devient une seconde blessure. Pour être trouvée avant d 'en avoir besoin. Des affiches sur les campus, des cartes en pharmacie, des sous -vers dans les bars. La victime ne paie jamais. Ce sont les institutions qui paient. La santé, les cégeps et les universités, les services juridiques. Un pilote de 6 centres coûte 111 000 dollars sous le seuil des appels d 'offre. Rentable en 2029. Puis tout le Québec, l 'Ontario et le Canada. Boussole est portée par Samuel Alimi, étudiant à Polytechnique Montréal. Nous cherchons un établissement pilote, un partenaire de recherche et 250 000 dollars. On ne remplace pas l 'humain auprès de la victime. On lui rend le temps de l 'être. Boussole, pour qu 'aucune victime ne cherche seul quoi faire.",
+ "phrases": [
+  {
+   "texte": "Octobre deux mille vingt-quatre, université Cornell.",
+   "debut": 0.0,
+   "fin": 3.72,
+   "couverture": 1.0
+  },
+  {
+   "texte": "Une étudiante dit avoir été droguée, puis violée, par des membres d'une fraternité.",
+   "debut": 5.18,
+   "fin": 11.5,
+   "couverture": 0.92
+  },
+  {
+   "texte": "Selon son avocat, deux jours plus tard, au centre de santé du campus, personne ne lui propose de trousse médicolégale.",
+   "debut": 12.54,
+   "fin": 21.4,
+   "couverture": 1.0
+  },
+  {
+   "texte": "Quand elle la demande enfin, trois semaines ont passé. L'ADN a disparu.",
+   "debut": 22.42,
+   "fin": 27.78,
+   "couverture": 0.92
+  },
+  {
+   "texte": "Deux étudiants sont exclus. Pour d'autres, la sanction se limite à des travaux de réflexion.",
+   "debut": 28.78,
+   "fin": 35.06,
+   "couverture": 0.93
+  },
+  {
+   "texte": "Deux ans plus tard, aucune accusation.",
+   "debut": 36.02,
+   "fin": 38.84,
+   "couverture": 1.0
+  },
+  {
+   "texte": "Ce n'est pas qu'aux États-Unis.",
+   "debut": 39.84,
+   "fin": 41.4,
+   "couverture": 0.67
+  },
+  {
+   "texte": "Au Canada, six pour cent seulement des agressions sexuelles sont signalées à la police.",
+   "debut": 42.58,
+   "fin": 48.38,
+   "couverture": 1.0
+  },
+  {
+   "texte": "Et sur mille affaires signalées, cinquante-deux finissent par une peine de prison.",
+   "debut": 49.2,
+   "fin": 54.24,
+   "couverture": 1.0
+  },
+  {
+   "texte": "La preuve a une date limite : douze heures pour certaines drogues, soixante-douze heures pour l'ADN.",
+   "debut": 55.6,
+   "fin": 61.1,
+   "couverture": 0.94
+  },
+  {
+   "texte": "Un mois après, trois victimes sur quatre vivent un stress post-traumatique.",
+   "debut": 62.76,
+   "fin": 67.94,
+   "couverture": 1.0
+  },
+  {
+   "texte": "Et personne ne leur dit quoi faire, ni dans quel ordre.",
+   "debut": 68.96,
+   "fin": 72.68,
+   "couverture": 1.0
+  },
+  {
+   "texte": "Par où commencer ?",
+   "debut": 73.8,
+   "fin": 74.6,
+   "couverture": 1.0
+  },
+  {
+   "texte": "Et si quelqu'un la guidait… pas à pas ?",
+   "debut": 75.72,
+   "fin": 78.16,
+   "couverture": 0.88
+  },
+  {
+   "texte": "Voici Boussole : l'application qui guide les victimes de violences sexuelles.",
+   "debut": 79.38,
+   "fin": 83.96,
+   "couverture": 0.7
+  },
+  {
+   "texte": "Dès le premier écran, l'aide est là : la ligne d'écoute, et le neuf-un-un.",
+   "debut": 86.36,
+   "fin": 92.36,
+   "couverture": 0.8
+  },
+  {
+   "texte": "Pas besoin de créer un compte pour appeler.",
+   "debut": 93.28,
+   "fin": 95.28,
+   "couverture": 1.0
+  },
+  {
+   "texte": "Un bouton « Quitter » ferme tout, en un geste, vers une simple page météo.",
+   "debut": 96.3,
+   "fin": 102.16,
+   "couverture": 1.0
+  },
+  {
+   "texte": "Ensuite, les étapes. Une à la fois, avec leurs délais, et leurs sources.",
+   "debut": 103.14,
+   "fin": 109.26,
+   "couverture": 1.0
+  },
+  {
+   "texte": "Son récit, elle l'écrit une seule fois. Il reste chiffré, sur son téléphone.",
+   "debut": 110.36,
+   "fin": 116.24,
+   "couverture": 0.92
+  },
+  {
+   "texte": "« Je ne sais pas » est toujours une réponse.",
+   "debut": 117.4,
+   "fin": 119.84,
+   "couverture": 0.88
+  },
+  {
+   "texte": "La carte montre où aller à Montréal : examen médical, soutien, aide juridique.",
+   "debut": 121.5,
+   "fin": 128.3,
+   "couverture": 1.0
+  },
+  {
+   "texte": "Si elle le décide, son dossier est prêt pour un service juridique.",
+   "debut": 129.32,
+   "fin": 133.56,
+   "couverture": 1.0
+  },
+  {
+   "texte": "Rien ne part sans son accord, et elle choisit quand être rappelée.",
+   "debut": 134.58,
+   "fin": 138.84,
+   "couverture": 1.0
+  },
+  {
+   "texte": "Pour les soignants, chaque prélèvement est classé selon son délai.",
+   "debut": 139.78,
+   "fin": 144.02,
+   "couverture": 1.0
+  },
+  {
+   "texte": "Chaque note est horodatée. Rien ne se perd, la première nuit.",
+   "debut": 144.72,
+   "fin": 149.98,
+   "couverture": 0.91
+  },
+  {
+   "texte": "L'application est gratuite. Elle fonctionne même hors ligne.",
+   "debut": 151.82,
+   "fin": 154.82,
+   "couverture": 0.88
+  },
+  {
+   "texte": "Boussole ne remplace personne. Elle relie ce qui existe déjà.",
+   "debut": 155.88,
+   "fin": 160.46,
+   "couverture": 1.0
+  },
+  {
+   "texte": "Nous la soumettons aux organismes du terrain : le CVASM, les Calacs, Rebâtir, les Cavac, la Chaire de l'Uqam.",
+   "debut": 161.62,
+   "fin": 171.1,
+   "couverture": 0.83
+  },
+  {
+   "texte": "Elle s'appuie sur la recherche : pour beaucoup de victimes, chercher de l'aide devient une seconde blessure.",
+   "debut": 172.46,
+   "fin": 179.86,
+   "couverture": 0.88
+  },
+  {
+   "texte": "Pour être trouvée avant d'en avoir besoin : des affiches sur les campus, des cartes en pharmacie, des sous-verres dans les bars.",
+   "debut": 180.62,
+   "fin": 189.82,
+   "couverture": 0.91
+  },
+  {
+   "texte": "La victime ne paie jamais. Ce sont les institutions qui paient : la santé, les cégeps et les universités, les services juridiques.",
+   "debut": 190.66,
+   "fin": 200.84,
+   "couverture": 1.0
+  },
+  {
+   "texte": "Un pilote de six centres coûte cent onze mille dollars, sous le seuil des appels d'offres.",
+   "debut": 202.0,
+   "fin": 207.1,
+   "couverture": 0.88
+  },
+  {
+   "texte": "Rentable en deux mille vingt-neuf. Puis tout le Québec, l'Ontario, et le Canada.",
+   "debut": 208.52,
+   "fin": 214.78,
+   "couverture": 0.93
+  },
+  {
+   "texte": "Boussole est portée par Samuel Halimi, étudiant à Polytechnique Montréal.",
+   "debut": 216.04,
+   "fin": 220.88,
+   "couverture": 0.9
+  },
+  {
+   "texte": "Nous cherchons un établissement pilote, un partenaire de recherche, et deux cent cinquante mille dollars.",
+   "debut": 222.1,
+   "fin": 228.2,
+   "couverture": 0.93
+  },
+  {
+   "texte": "On ne remplace pas l'humain auprès de la victime. On lui rend le temps de l'être.",
+   "debut": 229.32,
+   "fin": 234.24,
+   "couverture": 0.88
+  },
+  {
+   "texte": "Boussole. Pour qu'aucune victime ne cherche seule quoi faire.",
+   "debut": 235.96,
+   "fin": 240.18,
+   "couverture": 0.78
+  }
+ ],
+ "mots": [
+  {
+   "mot": "Octobre",
+   "debut": 0.0,
+   "fin": 0.68,
+   "p": 0.721
+  },
+  {
+   "mot": "2024.",
+   "debut": 0.68,
+   "fin": 1.46,
+   "p": 0.985
+  },
+  {
+   "mot": "Université",
+   "debut": 2.6,
+   "fin": 3.34,
+   "p": 0.925
+  },
+  {
+   "mot": "Cornell.",
+   "debut": 3.34,
+   "fin": 3.72,
+   "p": 0.873
+  },
+  {
+   "mot": "Une",
+   "debut": 5.18,
+   "fin": 5.46,
+   "p": 0.969
+  },
+  {
+   "mot": "étudiante",
+   "debut": 5.46,
+   "fin": 6.12,
+   "p": 0.967
+  },
+  {
+   "mot": "dit",
+   "debut": 6.12,
+   "fin": 6.42,
+   "p": 0.953
+  },
+  {
+   "mot": "avoir",
+   "debut": 6.42,
+   "fin": 6.62,
+   "p": 0.989
+  },
+  {
+   "mot": "été",
+   "debut": 6.62,
+   "fin": 6.98,
+   "p": 0.999
+  },
+  {
+   "mot": "droguée,",
+   "debut": 6.98,
+   "fin": 7.6,
+   "p": 0.894
+  },
+  {
+   "mot": "puis",
+   "debut": 8.32,
+   "fin": 8.44,
+   "p": 0.991
+  },
+  {
+   "mot": "violée,",
+   "debut": 8.44,
+   "fin": 9.08,
+   "p": 0.957
+  },
+  {
+   "mot": "par",
+   "debut": 9.58,
+   "fin": 9.86,
+   "p": 0.997
+  },
+  {
+   "mot": "des",
+   "debut": 9.86,
+   "fin": 10.08,
+   "p": 0.997
+  },
+  {
+   "mot": "membres",
+   "debut": 10.08,
+   "fin": 10.5,
+   "p": 0.997
+  },
+  {
+   "mot": "d",
+   "debut": 10.5,
+   "fin": 10.66,
+   "p": 0.999
+  },
+  {
+   "mot": "'une",
+   "debut": 10.66,
+   "fin": 10.74,
+   "p": 0.999
+  },
+  {
+   "mot": "fraternité.",
+   "debut": 10.74,
+   "fin": 11.5,
+   "p": 0.99
+  },
+  {
+   "mot": "Selon",
+   "debut": 12.54,
+   "fin": 13.04,
+   "p": 0.997
+  },
+  {
+   "mot": "son",
+   "debut": 13.04,
+   "fin": 13.24,
+   "p": 0.998
+  },
+  {
+   "mot": "avocat,",
+   "debut": 13.24,
+   "fin": 13.84,
+   "p": 0.98
+  },
+  {
+   "mot": "deux",
+   "debut": 14.26,
+   "fin": 14.38,
+   "p": 0.891
+  },
+  {
+   "mot": "jours",
+   "debut": 14.38,
+   "fin": 14.6,
+   "p": 0.999
+  },
+  {
+   "mot": "plus",
+   "debut": 14.6,
+   "fin": 14.78,
+   "p": 0.999
+  },
+  {
+   "mot": "tard,",
+   "debut": 14.78,
+   "fin": 15.22,
+   "p": 0.999
+  },
+  {
+   "mot": "au",
+   "debut": 15.76,
+   "fin": 15.84,
+   "p": 0.991
+  },
+  {
+   "mot": "centre",
+   "debut": 15.84,
+   "fin": 16.16,
+   "p": 0.61
+  },
+  {
+   "mot": "de",
+   "debut": 16.16,
+   "fin": 16.44,
+   "p": 0.997
+  },
+  {
+   "mot": "santé",
+   "debut": 16.44,
+   "fin": 16.72,
+   "p": 0.943
+  },
+  {
+   "mot": "du",
+   "debut": 16.72,
+   "fin": 16.94,
+   "p": 0.986
+  },
+  {
+   "mot": "campus,",
+   "debut": 16.94,
+   "fin": 17.24,
+   "p": 0.959
+  },
+  {
+   "mot": "personne",
+   "debut": 18.36,
+   "fin": 18.76,
+   "p": 0.998
+  },
+  {
+   "mot": "ne",
+   "debut": 18.76,
+   "fin": 19.32,
+   "p": 0.999
+  },
+  {
+   "mot": "lui",
+   "debut": 19.32,
+   "fin": 19.44,
+   "p": 0.998
+  },
+  {
+   "mot": "propose",
+   "debut": 19.44,
+   "fin": 19.96,
+   "p": 0.994
+  },
+  {
+   "mot": "de",
+   "debut": 19.96,
+   "fin": 20.18,
+   "p": 0.996
+  },
+  {
+   "mot": "trousse",
+   "debut": 20.18,
+   "fin": 20.48,
+   "p": 0.874
+  },
+  {
+   "mot": "médicolégale.",
+   "debut": 20.48,
+   "fin": 21.4,
+   "p": 0.873
+  },
+  {
+   "mot": "Quand",
+   "debut": 22.42,
+   "fin": 22.8,
+   "p": 0.99
+  },
+  {
+   "mot": "elle",
+   "debut": 22.8,
+   "fin": 22.98,
+   "p": 0.998
+  },
+  {
+   "mot": "la",
+   "debut": 22.98,
+   "fin": 23.12,
+   "p": 0.985
+  },
+  {
+   "mot": "demande",
+   "debut": 23.12,
+   "fin": 23.42,
+   "p": 0.998
+  },
+  {
+   "mot": "enfin,",
+   "debut": 23.42,
+   "fin": 23.9,
+   "p": 0.915
+  },
+  {
+   "mot": "trois",
+   "debut": 24.5,
+   "fin": 24.72,
+   "p": 0.947
+  },
+  {
+   "mot": "semaines",
+   "debut": 24.72,
+   "fin": 25.06,
+   "p": 0.997
+  },
+  {
+   "mot": "ont",
+   "debut": 25.06,
+   "fin": 25.32,
+   "p": 0.961
+  },
+  {
+   "mot": "passé.",
+   "debut": 25.32,
+   "fin": 25.6,
+   "p": 0.87
+  },
+  {
+   "mot": "L",
+   "debut": 26.38,
+   "fin": 26.72,
+   "p": 0.049
+  },
+  {
+   "mot": "'ADN",
+   "debut": 26.72,
+   "fin": 27.1,
+   "p": 0.968
+  },
+  {
+   "mot": "a",
+   "debut": 27.1,
+   "fin": 27.2,
+   "p": 0.989
+  },
+  {
+   "mot": "disparu.",
+   "debut": 27.2,
+   "fin": 27.78,
+   "p": 0.994
+  },
+  {
+   "mot": "Deux",
+   "debut": 28.78,
+   "fin": 29.2,
+   "p": 0.941
+  },
+  {
+   "mot": "étudiants",
+   "debut": 29.2,
+   "fin": 29.66,
+   "p": 0.99
+  },
+  {
+   "mot": "sont",
+   "debut": 29.66,
+   "fin": 29.88,
+   "p": 0.997
+  },
+  {
+   "mot": "exclus.",
+   "debut": 29.88,
+   "fin": 30.36,
+   "p": 0.778
+  },
+  {
+   "mot": "Pour",
+   "debut": 31.26,
+   "fin": 31.42,
+   "p": 0.993
+  },
+  {
+   "mot": "d",
+   "debut": 31.42,
+   "fin": 31.58,
+   "p": 0.999
+  },
+  {
+   "mot": "'autres,",
+   "debut": 31.58,
+   "fin": 31.88,
+   "p": 0.984
+  },
+  {
+   "mot": "la",
+   "debut": 32.34,
+   "fin": 32.44,
+   "p": 0.991
+  },
+  {
+   "mot": "sanction",
+   "debut": 32.44,
+   "fin": 32.78,
+   "p": 0.984
+  },
+  {
+   "mot": "se",
+   "debut": 32.78,
+   "fin": 33.12,
+   "p": 0.989
+  },
+  {
+   "mot": "limite",
+   "debut": 33.12,
+   "fin": 33.42,
+   "p": 0.985
+  },
+  {
+   "mot": "à",
+   "debut": 33.42,
+   "fin": 33.78,
+   "p": 0.988
+  },
+  {
+   "mot": "des",
+   "debut": 33.78,
+   "fin": 33.9,
+   "p": 0.997
+  },
+  {
+   "mot": "travaux",
+   "debut": 33.9,
+   "fin": 34.28,
+   "p": 0.999
+  },
+  {
+   "mot": "de",
+   "debut": 34.28,
+   "fin": 34.42,
+   "p": 0.999
+  },
+  {
+   "mot": "réflexion.",
+   "debut": 34.42,
+   "fin": 35.06,
+   "p": 0.984
+  },
+  {
+   "mot": "Deux",
+   "debut": 36.02,
+   "fin": 36.56,
+   "p": 0.977
+  },
+  {
+   "mot": "ans",
+   "debut": 36.56,
+   "fin": 36.7,
+   "p": 0.977
+  },
+  {
+   "mot": "plus",
+   "debut": 36.7,
+   "fin": 36.84,
+   "p": 0.999
+  },
+  {
+   "mot": "tard,",
+   "debut": 36.84,
+   "fin": 37.3,
+   "p": 0.999
+  },
+  {
+   "mot": "aucune",
+   "debut": 37.8,
+   "fin": 38.14,
+   "p": 0.995
+  },
+  {
+   "mot": "accusation.",
+   "debut": 38.14,
+   "fin": 38.84,
+   "p": 0.998
+  },
+  {
+   "mot": "Ce",
+   "debut": 39.84,
+   "fin": 40.28,
+   "p": 0.981
+  },
+  {
+   "mot": "n",
+   "debut": 40.28,
+   "fin": 40.36,
+   "p": 1.0
+  },
+  {
+   "mot": "'est",
+   "debut": 40.36,
+   "fin": 40.42,
+   "p": 0.999
+  },
+  {
+   "mot": "pas",
+   "debut": 40.42,
+   "fin": 40.62,
+   "p": 0.999
+  },
+  {
+   "mot": "qu",
+   "debut": 40.62,
+   "fin": 40.76,
+   "p": 0.842
+  },
+  {
+   "mot": "'aux",
+   "debut": 40.76,
+   "fin": 40.82,
+   "p": 0.961
+  },
+  {
+   "mot": "États",
+   "debut": 40.82,
+   "fin": 41.0,
+   "p": 0.787
+  },
+  {
+   "mot": "-Unis.",
+   "debut": 41.0,
+   "fin": 41.4,
+   "p": 0.995
+  },
+  {
+   "mot": "Au",
+   "debut": 42.58,
+   "fin": 42.8,
+   "p": 0.902
+  },
+  {
+   "mot": "Canada,",
+   "debut": 42.8,
+   "fin": 43.08,
+   "p": 0.987
+  },
+  {
+   "mot": "six",
+   "debut": 43.96,
+   "fin": 44.12,
+   "p": 0.217
+  },
+  {
+   "mot": "pour",
+   "debut": 44.12,
+   "fin": 44.38,
+   "p": 0.788
+  },
+  {
+   "mot": "cent",
+   "debut": 44.38,
+   "fin": 44.68,
+   "p": 0.986
+  },
+  {
+   "mot": "seulement",
+   "debut": 44.68,
+   "fin": 45.18,
+   "p": 0.963
+  },
+  {
+   "mot": "des",
+   "debut": 45.18,
+   "fin": 45.46,
+   "p": 0.991
+  },
+  {
+   "mot": "agressions",
+   "debut": 45.46,
+   "fin": 46.0,
+   "p": 0.982
+  },
+  {
+   "mot": "sexuelles",
+   "debut": 46.0,
+   "fin": 46.92,
+   "p": 0.991
+  },
+  {
+   "mot": "sont",
+   "debut": 46.92,
+   "fin": 47.26,
+   "p": 0.996
+  },
+  {
+   "mot": "signalées",
+   "debut": 47.26,
+   "fin": 47.8,
+   "p": 0.953
+  },
+  {
+   "mot": "à",
+   "debut": 47.8,
+   "fin": 47.92,
+   "p": 0.999
+  },
+  {
+   "mot": "la",
+   "debut": 47.92,
+   "fin": 48.04,
+   "p": 0.999
+  },
+  {
+   "mot": "police.",
+   "debut": 48.04,
+   "fin": 48.38,
+   "p": 0.974
+  },
+  {
+   "mot": "Et",
+   "debut": 49.2,
+   "fin": 49.78,
+   "p": 0.972
+  },
+  {
+   "mot": "sur",
+   "debut": 49.78,
+   "fin": 50.0,
+   "p": 0.994
+  },
+  {
+   "mot": "mille",
+   "debut": 50.0,
+   "fin": 50.28,
+   "p": 0.922
+  },
+  {
+   "mot": "affaires",
+   "debut": 50.28,
+   "fin": 50.58,
+   "p": 0.995
+  },
+  {
+   "mot": "signalées,",
+   "debut": 50.58,
+   "fin": 51.24,
+   "p": 0.993
+  },
+  {
+   "mot": "52",
+   "debut": 51.94,
+   "fin": 52.4,
+   "p": 0.868
+  },
+  {
+   "mot": "finissent",
+   "debut": 52.4,
+   "fin": 53.24,
+   "p": 0.958
+  },
+  {
+   "mot": "par",
+   "debut": 53.24,
+   "fin": 53.46,
+   "p": 0.997
+  },
+  {
+   "mot": "une",
+   "debut": 53.46,
+   "fin": 53.58,
+   "p": 0.998
+  },
+  {
+   "mot": "peine",
+   "debut": 53.58,
+   "fin": 53.78,
+   "p": 0.933
+  },
+  {
+   "mot": "de",
+   "debut": 53.78,
+   "fin": 53.94,
+   "p": 0.999
+  },
+  {
+   "mot": "prison.",
+   "debut": 53.94,
+   "fin": 54.24,
+   "p": 0.991
+  },
+  {
+   "mot": "La",
+   "debut": 55.6,
+   "fin": 55.76,
+   "p": 0.754
+  },
+  {
+   "mot": "preuve",
+   "debut": 55.76,
+   "fin": 56.18,
+   "p": 0.978
+  },
+  {
+   "mot": "a",
+   "debut": 56.18,
+   "fin": 56.26,
+   "p": 0.612
+  },
+  {
+   "mot": "une",
+   "debut": 56.26,
+   "fin": 56.36,
+   "p": 0.996
+  },
+  {
+   "mot": "date",
+   "debut": 56.36,
+   "fin": 56.52,
+   "p": 0.994
+  },
+  {
+   "mot": "limite,",
+   "debut": 56.52,
+   "fin": 56.92,
+   "p": 0.986
+  },
+  {
+   "mot": "12h",
+   "debut": 57.76,
+   "fin": 58.3,
+   "p": 0.696
+  },
+  {
+   "mot": "pour",
+   "debut": 58.3,
+   "fin": 58.5,
+   "p": 0.979
+  },
+  {
+   "mot": "certaines",
+   "debut": 58.5,
+   "fin": 58.82,
+   "p": 0.987
+  },
+  {
+   "mot": "drogues,",
+   "debut": 58.82,
+   "fin": 59.42,
+   "p": 0.943
+  },
+  {
+   "mot": "72h",
+   "debut": 59.96,
+   "fin": 60.84,
+   "p": 0.979
+  },
+  {
+   "mot": "pour",
+   "debut": 60.84,
+   "fin": 61.1,
+   "p": 0.998
+  },
+  {
+   "mot": "l",
+   "debut": 61.1,
+   "fin": 61.22,
+   "p": 0.795
+  },
+  {
+   "mot": "'ADN.",
+   "debut": 61.22,
+   "fin": 61.66,
+   "p": 0.968
+  },
+  {
+   "mot": "Un",
+   "debut": 62.76,
+   "fin": 63.04,
+   "p": 0.954
+  },
+  {
+   "mot": "mois",
+   "debut": 63.04,
+   "fin": 63.26,
+   "p": 0.998
+  },
+  {
+   "mot": "après,",
+   "debut": 63.26,
+   "fin": 63.6,
+   "p": 0.999
+  },
+  {
+   "mot": "trois",
+   "debut": 64.36,
+   "fin": 64.56,
+   "p": 0.499
+  },
+  {
+   "mot": "victimes",
+   "debut": 64.56,
+   "fin": 65.0,
+   "p": 0.992
+  },
+  {
+   "mot": "sur",
+   "debut": 65.0,
+   "fin": 65.22,
+   "p": 0.983
+  },
+  {
+   "mot": "quatre",
+   "debut": 65.22,
+   "fin": 65.6,
+   "p": 0.967
+  },
+  {
+   "mot": "vivent",
+   "debut": 65.6,
+   "fin": 66.24,
+   "p": 0.98
+  },
+  {
+   "mot": "un",
+   "debut": 66.24,
+   "fin": 66.38,
+   "p": 0.986
+  },
+  {
+   "mot": "stress",
+   "debut": 66.38,
+   "fin": 66.78,
+   "p": 0.982
+  },
+  {
+   "mot": "post",
+   "debut": 66.78,
+   "fin": 67.18,
+   "p": 0.986
+  },
+  {
+   "mot": "-traumatique.",
+   "debut": 67.18,
+   "fin": 67.94,
+   "p": 0.942
+  },
+  {
+   "mot": "Et",
+   "debut": 68.96,
+   "fin": 69.2,
+   "p": 0.965
+  },
+  {
+   "mot": "personne",
+   "debut": 69.2,
+   "fin": 69.62,
+   "p": 0.999
+  },
+  {
+   "mot": "ne",
+   "debut": 69.62,
+   "fin": 69.94,
+   "p": 0.999
+  },
+  {
+   "mot": "leur",
+   "debut": 69.94,
+   "fin": 70.06,
+   "p": 0.991
+  },
+  {
+   "mot": "dit",
+   "debut": 70.06,
+   "fin": 70.24,
+   "p": 0.993
+  },
+  {
+   "mot": "quoi",
+   "debut": 70.24,
+   "fin": 70.42,
+   "p": 0.982
+  },
+  {
+   "mot": "faire,",
+   "debut": 70.42,
+   "fin": 70.94,
+   "p": 0.999
+  },
+  {
+   "mot": "ni",
+   "debut": 71.56,
+   "fin": 71.82,
+   "p": 0.988
+  },
+  {
+   "mot": "dans",
+   "debut": 71.82,
+   "fin": 71.98,
+   "p": 0.997
+  },
+  {
+   "mot": "quel",
+   "debut": 71.98,
+   "fin": 72.18,
+   "p": 0.849
+  },
+  {
+   "mot": "ordre.",
+   "debut": 72.18,
+   "fin": 72.68,
+   "p": 0.997
+  },
+  {
+   "mot": "Par",
+   "debut": 73.8,
+   "fin": 74.02,
+   "p": 0.907
+  },
+  {
+   "mot": "où",
+   "debut": 74.02,
+   "fin": 74.12,
+   "p": 0.976
+  },
+  {
+   "mot": "commencer",
+   "debut": 74.12,
+   "fin": 74.6,
+   "p": 0.999
+  },
+  {
+   "mot": "?",
+   "debut": 74.6,
+   "fin": 75.72,
+   "p": 0.876
+  },
+  {
+   "mot": "Et",
+   "debut": 75.72,
+   "fin": 75.88,
+   "p": 0.964
+  },
+  {
+   "mot": "si",
+   "debut": 75.88,
+   "fin": 76.04,
+   "p": 0.999
+  },
+  {
+   "mot": "quelqu",
+   "debut": 76.04,
+   "fin": 76.24,
+   "p": 0.999
+  },
+  {
+   "mot": "'un",
+   "debut": 76.24,
+   "fin": 76.46,
+   "p": 0.999
+  },
+  {
+   "mot": "la",
+   "debut": 76.46,
+   "fin": 76.58,
+   "p": 0.885
+  },
+  {
+   "mot": "guidait,",
+   "debut": 76.58,
+   "fin": 77.0,
+   "p": 0.957
+  },
+  {
+   "mot": "pas",
+   "debut": 77.6,
+   "fin": 77.76,
+   "p": 0.939
+  },
+  {
+   "mot": "à",
+   "debut": 77.76,
+   "fin": 77.94,
+   "p": 0.973
+  },
+  {
+   "mot": "pas",
+   "debut": 77.94,
+   "fin": 78.16,
+   "p": 0.971
+  },
+  {
+   "mot": "?",
+   "debut": 78.16,
+   "fin": 79.38,
+   "p": 0.809
+  },
+  {
+   "mot": "Voici",
+   "debut": 79.38,
+   "fin": 79.94,
+   "p": 0.984
+  },
+  {
+   "mot": "Boussole.",
+   "debut": 79.94,
+   "fin": 80.86,
+   "p": 0.721
+  },
+  {
+   "mot": "L",
+   "debut": 81.92,
+   "fin": 82.12,
+   "p": 0.984
+  },
+  {
+   "mot": "'application",
+   "debut": 82.12,
+   "fin": 82.72,
+   "p": 0.997
+  },
+  {
+   "mot": "qui",
+   "debut": 82.72,
+   "fin": 82.92,
+   "p": 0.996
+  },
+  {
+   "mot": "guide",
+   "debut": 82.92,
+   "fin": 83.2,
+   "p": 0.985
+  },
+  {
+   "mot": "les",
+   "debut": 83.2,
+   "fin": 83.38,
+   "p": 0.997
+  },
+  {
+   "mot": "victimes",
+   "debut": 83.38,
+   "fin": 83.8,
+   "p": 0.994
+  },
+  {
+   "mot": "de",
+   "debut": 83.8,
+   "fin": 83.96,
+   "p": 0.999
+  },
+  {
+   "mot": "violence",
+   "debut": 83.96,
+   "fin": 84.28,
+   "p": 0.763
+  },
+  {
+   "mot": "sexuelle.",
+   "debut": 84.28,
+   "fin": 84.6,
+   "p": 0.978
+  },
+  {
+   "mot": "Dès",
+   "debut": 86.36,
+   "fin": 86.68,
+   "p": 0.655
+  },
+  {
+   "mot": "le",
+   "debut": 86.68,
+   "fin": 86.78,
+   "p": 0.991
+  },
+  {
+   "mot": "premier",
+   "debut": 86.78,
+   "fin": 87.06,
+   "p": 0.671
+  },
+  {
+   "mot": "écran,",
+   "debut": 87.06,
+   "fin": 87.58,
+   "p": 0.991
+  },
+  {
+   "mot": "l",
+   "debut": 87.98,
+   "fin": 88.16,
+   "p": 0.704
+  },
+  {
+   "mot": "'aide",
+   "debut": 88.16,
+   "fin": 88.24,
+   "p": 0.957
+  },
+  {
+   "mot": "est",
+   "debut": 88.24,
+   "fin": 88.36,
+   "p": 0.994
+  },
+  {
+   "mot": "là.",
+   "debut": 88.36,
+   "fin": 88.56,
+   "p": 0.986
+  },
+  {
+   "mot": "La",
+   "debut": 89.5,
+   "fin": 89.62,
+   "p": 0.976
+  },
+  {
+   "mot": "ligne",
+   "debut": 89.62,
+   "fin": 89.86,
+   "p": 0.998
+  },
+  {
+   "mot": "d",
+   "debut": 89.86,
+   "fin": 90.04,
+   "p": 0.923
+  },
+  {
+   "mot": "'écoute",
+   "debut": 90.04,
+   "fin": 90.46,
+   "p": 0.993
+  },
+  {
+   "mot": "est",
+   "debut": 90.46,
+   "fin": 91.18,
+   "p": 0.972
+  },
+  {
+   "mot": "le",
+   "debut": 91.18,
+   "fin": 91.3,
+   "p": 0.969
+  },
+  {
+   "mot": "9",
+   "debut": 91.3,
+   "fin": 91.66,
+   "p": 0.64
+  },
+  {
+   "mot": "-1",
+   "debut": 91.66,
+   "fin": 92.02,
+   "p": 0.732
+  },
+  {
+   "mot": "-1.",
+   "debut": 92.02,
+   "fin": 92.36,
+   "p": 0.997
+  },
+  {
+   "mot": "Pas",
+   "debut": 93.28,
+   "fin": 93.46,
+   "p": 0.95
+  },
+  {
+   "mot": "besoin",
+   "debut": 93.46,
+   "fin": 93.78,
+   "p": 0.999
+  },
+  {
+   "mot": "de",
+   "debut": 93.78,
+   "fin": 93.98,
+   "p": 0.999
+  },
+  {
+   "mot": "créer",
+   "debut": 93.98,
+   "fin": 94.2,
+   "p": 0.995
+  },
+  {
+   "mot": "un",
+   "debut": 94.2,
+   "fin": 94.4,
+   "p": 0.998
+  },
+  {
+   "mot": "compte",
+   "debut": 94.4,
+   "fin": 94.74,
+   "p": 0.972
+  },
+  {
+   "mot": "pour",
+   "debut": 94.74,
+   "fin": 94.96,
+   "p": 0.996
+  },
+  {
+   "mot": "appeler.",
+   "debut": 94.96,
+   "fin": 95.28,
+   "p": 0.985
+  },
+  {
+   "mot": "Un",
+   "debut": 96.3,
+   "fin": 96.48,
+   "p": 0.991
+  },
+  {
+   "mot": "bouton",
+   "debut": 96.48,
+   "fin": 96.92,
+   "p": 0.999
+  },
+  {
+   "mot": "quitter",
+   "debut": 96.92,
+   "fin": 97.56,
+   "p": 0.549
+  },
+  {
+   "mot": "ferme",
+   "debut": 97.56,
+   "fin": 98.48,
+   "p": 0.828
+  },
+  {
+   "mot": "tout",
+   "debut": 98.48,
+   "fin": 98.76,
+   "p": 0.977
+  },
+  {
+   "mot": "en",
+   "debut": 98.76,
+   "fin": 99.38,
+   "p": 0.875
+  },
+  {
+   "mot": "un",
+   "debut": 99.38,
+   "fin": 99.58,
+   "p": 0.714
+  },
+  {
+   "mot": "geste,",
+   "debut": 99.58,
+   "fin": 100.54,
+   "p": 0.991
+  },
+  {
+   "mot": "vers",
+   "debut": 100.54,
+   "fin": 100.76,
+   "p": 0.994
+  },
+  {
+   "mot": "une",
+   "debut": 100.76,
+   "fin": 100.96,
+   "p": 0.989
+  },
+  {
+   "mot": "simple",
+   "debut": 100.96,
+   "fin": 101.26,
+   "p": 0.994
+  },
+  {
+   "mot": "page",
+   "debut": 101.26,
+   "fin": 101.66,
+   "p": 0.991
+  },
+  {
+   "mot": "météo.",
+   "debut": 101.66,
+   "fin": 102.16,
+   "p": 0.995
+  },
+  {
+   "mot": "Ensuite,",
+   "debut": 103.14,
+   "fin": 103.78,
+   "p": 0.988
+  },
+  {
+   "mot": "les",
+   "debut": 104.4,
+   "fin": 104.48,
+   "p": 0.992
+  },
+  {
+   "mot": "étapes.",
+   "debut": 104.48,
+   "fin": 105.1,
+   "p": 0.992
+  },
+  {
+   "mot": "Une",
+   "debut": 105.96,
+   "fin": 106.22,
+   "p": 0.935
+  },
+  {
+   "mot": "à",
+   "debut": 106.22,
+   "fin": 106.34,
+   "p": 0.997
+  },
+  {
+   "mot": "la",
+   "debut": 106.34,
+   "fin": 106.42,
+   "p": 0.999
+  },
+  {
+   "mot": "fois",
+   "debut": 106.42,
+   "fin": 106.74,
+   "p": 0.994
+  },
+  {
+   "mot": "avec",
+   "debut": 106.74,
+   "fin": 107.36,
+   "p": 0.78
+  },
+  {
+   "mot": "leurs",
+   "debut": 107.36,
+   "fin": 107.62,
+   "p": 0.572
+  },
+  {
+   "mot": "délais",
+   "debut": 107.62,
+   "fin": 108.02,
+   "p": 0.981
+  },
+  {
+   "mot": "et",
+   "debut": 108.02,
+   "fin": 108.56,
+   "p": 0.983
+  },
+  {
+   "mot": "leurs",
+   "debut": 108.56,
+   "fin": 108.74,
+   "p": 0.851
+  },
+  {
+   "mot": "sources.",
+   "debut": 108.74,
+   "fin": 109.26,
+   "p": 0.96
+  },
+  {
+   "mot": "Son",
+   "debut": 110.36,
+   "fin": 110.64,
+   "p": 0.988
+  },
+  {
+   "mot": "récit,",
+   "debut": 110.64,
+   "fin": 111.1,
+   "p": 0.971
+  },
+  {
+   "mot": "elle",
+   "debut": 111.54,
+   "fin": 111.86,
+   "p": 0.996
+  },
+  {
+   "mot": "l",
+   "debut": 111.86,
+   "fin": 112.0,
+   "p": 0.978
+  },
+  {
+   "mot": "'écrit",
+   "debut": 112.0,
+   "fin": 112.24,
+   "p": 0.988
+  },
+  {
+   "mot": "une",
+   "debut": 112.24,
+   "fin": 112.48,
+   "p": 0.995
+  },
+  {
+   "mot": "seule",
+   "debut": 112.48,
+   "fin": 112.7,
+   "p": 0.981
+  },
+  {
+   "mot": "fois.",
+   "debut": 112.7,
+   "fin": 113.08,
+   "p": 1.0
+  },
+  {
+   "mot": "Il",
+   "debut": 113.08,
+   "fin": 114.16,
+   "p": 0.149
+  },
+  {
+   "mot": "reste",
+   "debut": 114.16,
+   "fin": 114.5,
+   "p": 0.974
+  },
+  {
+   "mot": "chiffré",
+   "debut": 114.5,
+   "fin": 115.1,
+   "p": 0.965
+  },
+  {
+   "mot": "sur",
+   "debut": 115.1,
+   "fin": 115.64,
+   "p": 0.948
+  },
+  {
+   "mot": "son",
+   "debut": 115.64,
+   "fin": 115.82,
+   "p": 0.994
+  },
+  {
+   "mot": "téléphone.",
+   "debut": 115.82,
+   "fin": 116.24,
+   "p": 0.995
+  },
+  {
+   "mot": "Je",
+   "debut": 117.4,
+   "fin": 117.92,
+   "p": 0.699
+  },
+  {
+   "mot": "ne",
+   "debut": 117.92,
+   "fin": 118.08,
+   "p": 0.992
+  },
+  {
+   "mot": "sais",
+   "debut": 118.08,
+   "fin": 118.2,
+   "p": 0.997
+  },
+  {
+   "mot": "pas",
+   "debut": 118.2,
+   "fin": 118.54,
+   "p": 1.0
+  },
+  {
+   "mot": "et",
+   "debut": 118.54,
+   "fin": 118.96,
+   "p": 0.576
+  },
+  {
+   "mot": "toujours",
+   "debut": 118.96,
+   "fin": 119.28,
+   "p": 0.998
+  },
+  {
+   "mot": "une",
+   "debut": 119.28,
+   "fin": 119.5,
+   "p": 0.998
+  },
+  {
+   "mot": "réponse.",
+   "debut": 119.5,
+   "fin": 119.84,
+   "p": 0.993
+  },
+  {
+   "mot": "La",
+   "debut": 121.5,
+   "fin": 121.6,
+   "p": 0.642
+  },
+  {
+   "mot": "carte",
+   "debut": 121.6,
+   "fin": 121.92,
+   "p": 0.987
+  },
+  {
+   "mot": "montre",
+   "debut": 121.92,
+   "fin": 122.34,
+   "p": 0.988
+  },
+  {
+   "mot": "où",
+   "debut": 122.34,
+   "fin": 122.74,
+   "p": 0.934
+  },
+  {
+   "mot": "aller",
+   "debut": 122.74,
+   "fin": 122.96,
+   "p": 0.9
+  },
+  {
+   "mot": "à",
+   "debut": 122.96,
+   "fin": 123.14,
+   "p": 0.991
+  },
+  {
+   "mot": "Montréal.",
+   "debut": 123.14,
+   "fin": 123.56,
+   "p": 0.978
+  },
+  {
+   "mot": "Examen",
+   "debut": 124.5,
+   "fin": 124.86,
+   "p": 0.728
+  },
+  {
+   "mot": "médical,",
+   "debut": 124.86,
+   "fin": 125.42,
+   "p": 0.995
+  },
+  {
+   "mot": "soutien,",
+   "debut": 125.98,
+   "fin": 126.6,
+   "p": 0.808
+  },
+  {
+   "mot": "aide",
+   "debut": 127.42,
+   "fin": 127.58,
+   "p": 0.963
+  },
+  {
+   "mot": "juridique.",
+   "debut": 127.58,
+   "fin": 128.3,
+   "p": 0.997
+  },
+  {
+   "mot": "Si",
+   "debut": 129.32,
+   "fin": 129.7,
+   "p": 0.966
+  },
+  {
+   "mot": "elle",
+   "debut": 129.7,
+   "fin": 129.8,
+   "p": 0.982
+  },
+  {
+   "mot": "le",
+   "debut": 129.8,
+   "fin": 129.96,
+   "p": 0.995
+  },
+  {
+   "mot": "décide,",
+   "debut": 129.96,
+   "fin": 130.48,
+   "p": 0.997
+  },
+  {
+   "mot": "son",
+   "debut": 131.16,
+   "fin": 131.28,
+   "p": 0.994
+  },
+  {
+   "mot": "dossier",
+   "debut": 131.28,
+   "fin": 131.68,
+   "p": 0.999
+  },
+  {
+   "mot": "est",
+   "debut": 131.68,
+   "fin": 131.86,
+   "p": 0.997
+  },
+  {
+   "mot": "prêt",
+   "debut": 131.86,
+   "fin": 132.08,
+   "p": 0.995
+  },
+  {
+   "mot": "pour",
+   "debut": 132.08,
+   "fin": 132.34,
+   "p": 0.993
+  },
+  {
+   "mot": "un",
+   "debut": 132.34,
+   "fin": 132.48,
+   "p": 0.999
+  },
+  {
+   "mot": "service",
+   "debut": 132.48,
+   "fin": 132.78,
+   "p": 0.995
+  },
+  {
+   "mot": "juridique.",
+   "debut": 132.78,
+   "fin": 133.56,
+   "p": 0.998
+  },
+  {
+   "mot": "Rien",
+   "debut": 134.58,
+   "fin": 134.96,
+   "p": 0.99
+  },
+  {
+   "mot": "ne",
+   "debut": 134.96,
+   "fin": 135.1,
+   "p": 0.999
+  },
+  {
+   "mot": "part",
+   "debut": 135.1,
+   "fin": 135.36,
+   "p": 0.946
+  },
+  {
+   "mot": "sans",
+   "debut": 135.36,
+   "fin": 135.64,
+   "p": 0.99
+  },
+  {
+   "mot": "son",
+   "debut": 135.64,
+   "fin": 135.82,
+   "p": 0.997
+  },
+  {
+   "mot": "accord",
+   "debut": 135.82,
+   "fin": 136.22,
+   "p": 0.995
+  },
+  {
+   "mot": "et",
+   "debut": 136.22,
+   "fin": 137.14,
+   "p": 0.729
+  },
+  {
+   "mot": "elle",
+   "debut": 137.14,
+   "fin": 137.28,
+   "p": 0.992
+  },
+  {
+   "mot": "choisit",
+   "debut": 137.28,
+   "fin": 137.74,
+   "p": 0.96
+  },
+  {
+   "mot": "quand",
+   "debut": 137.74,
+   "fin": 138.02,
+   "p": 0.972
+  },
+  {
+   "mot": "être",
+   "debut": 138.02,
+   "fin": 138.3,
+   "p": 0.992
+  },
+  {
+   "mot": "rappelée.",
+   "debut": 138.3,
+   "fin": 138.84,
+   "p": 0.761
+  },
+  {
+   "mot": "Pour",
+   "debut": 139.78,
+   "fin": 140.14,
+   "p": 0.609
+  },
+  {
+   "mot": "les",
+   "debut": 140.14,
+   "fin": 140.3,
+   "p": 0.994
+  },
+  {
+   "mot": "soignants,",
+   "debut": 140.3,
+   "fin": 140.78,
+   "p": 0.991
+  },
+  {
+   "mot": "chaque",
+   "debut": 141.34,
+   "fin": 141.7,
+   "p": 0.989
+  },
+  {
+   "mot": "prélèvement",
+   "debut": 141.7,
+   "fin": 142.36,
+   "p": 0.991
+  },
+  {
+   "mot": "est",
+   "debut": 142.36,
+   "fin": 142.64,
+   "p": 0.996
+  },
+  {
+   "mot": "classé",
+   "debut": 142.64,
+   "fin": 143.1,
+   "p": 0.932
+  },
+  {
+   "mot": "selon",
+   "debut": 143.1,
+   "fin": 143.38,
+   "p": 0.98
+  },
+  {
+   "mot": "son",
+   "debut": 143.38,
+   "fin": 143.62,
+   "p": 0.998
+  },
+  {
+   "mot": "délai.",
+   "debut": 143.62,
+   "fin": 144.02,
+   "p": 0.958
+  },
+  {
+   "mot": "Chaque",
+   "debut": 144.72,
+   "fin": 145.42,
+   "p": 0.964
+  },
+  {
+   "mot": "note",
+   "debut": 145.42,
+   "fin": 145.78,
+   "p": 0.99
+  },
+  {
+   "mot": "est",
+   "debut": 145.78,
+   "fin": 146.16,
+   "p": 0.998
+  },
+  {
+   "mot": "au",
+   "debut": 146.16,
+   "fin": 146.32,
+   "p": 0.53
+  },
+  {
+   "mot": "rodaté.",
+   "debut": 146.32,
+   "fin": 146.86,
+   "p": 0.658
+  },
+  {
+   "mot": "Rien",
+   "debut": 147.68,
+   "fin": 147.96,
+   "p": 0.938
+  },
+  {
+   "mot": "ne",
+   "debut": 147.96,
+   "fin": 148.12,
+   "p": 0.998
+  },
+  {
+   "mot": "se",
+   "debut": 148.12,
+   "fin": 148.34,
+   "p": 0.995
+  },
+  {
+   "mot": "perd,",
+   "debut": 148.34,
+   "fin": 148.56,
+   "p": 0.978
+  },
+  {
+   "mot": "la",
+   "debut": 149.14,
+   "fin": 149.36,
+   "p": 0.993
+  },
+  {
+   "mot": "première",
+   "debut": 149.36,
+   "fin": 149.68,
+   "p": 0.939
+  },
+  {
+   "mot": "nuit.",
+   "debut": 149.68,
+   "fin": 149.98,
+   "p": 0.995
+  },
+  {
+   "mot": "L",
+   "debut": 151.18,
+   "fin": 151.34,
+   "p": 0.99
+  },
+  {
+   "mot": "'application",
+   "debut": 151.34,
+   "fin": 151.82,
+   "p": 0.998
+  },
+  {
+   "mot": "est",
+   "debut": 151.82,
+   "fin": 152.02,
+   "p": 0.998
+  },
+  {
+   "mot": "gratuite,",
+   "debut": 152.02,
+   "fin": 152.48,
+   "p": 0.994
+  },
+  {
+   "mot": "elle",
+   "debut": 153.3,
+   "fin": 153.48,
+   "p": 0.989
+  },
+  {
+   "mot": "fonctionne",
+   "debut": 153.48,
+   "fin": 153.8,
+   "p": 0.994
+  },
+  {
+   "mot": "même",
+   "debut": 153.8,
+   "fin": 154.18,
+   "p": 0.997
+  },
+  {
+   "mot": "hors",
+   "debut": 154.18,
+   "fin": 154.5,
+   "p": 0.987
+  },
+  {
+   "mot": "ligne.",
+   "debut": 154.5,
+   "fin": 154.82,
+   "p": 0.765
+  },
+  {
+   "mot": "Boussole",
+   "debut": 155.88,
+   "fin": 156.6,
+   "p": 0.687
+  },
+  {
+   "mot": "ne",
+   "debut": 156.6,
+   "fin": 156.8,
+   "p": 0.998
+  },
+  {
+   "mot": "remplace",
+   "debut": 156.8,
+   "fin": 157.1,
+   "p": 0.942
+  },
+  {
+   "mot": "personne,",
+   "debut": 157.1,
+   "fin": 157.7,
+   "p": 0.999
+  },
+  {
+   "mot": "elle",
+   "debut": 158.62,
+   "fin": 158.88,
+   "p": 0.991
+  },
+  {
+   "mot": "relie",
+   "debut": 158.88,
+   "fin": 159.24,
+   "p": 0.378
+  },
+  {
+   "mot": "ce",
+   "debut": 159.24,
+   "fin": 159.48,
+   "p": 0.991
+  },
+  {
+   "mot": "qui",
+   "debut": 159.48,
+   "fin": 159.64,
+   "p": 0.995
+  },
+  {
+   "mot": "existe",
+   "debut": 159.64,
+   "fin": 160.02,
+   "p": 0.997
+  },
+  {
+   "mot": "déjà.",
+   "debut": 160.02,
+   "fin": 160.46,
+   "p": 0.997
+  },
+  {
+   "mot": "Nous",
+   "debut": 161.62,
+   "fin": 161.92,
+   "p": 0.988
+  },
+  {
+   "mot": "la",
+   "debut": 161.92,
+   "fin": 162.08,
+   "p": 0.999
+  },
+  {
+   "mot": "soumettons",
+   "debut": 162.08,
+   "fin": 162.64,
+   "p": 0.987
+  },
+  {
+   "mot": "aux",
+   "debut": 162.64,
+   "fin": 162.86,
+   "p": 0.969
+  },
+  {
+   "mot": "organismes",
+   "debut": 162.86,
+   "fin": 163.5,
+   "p": 0.995
+  },
+  {
+   "mot": "du",
+   "debut": 163.5,
+   "fin": 163.66,
+   "p": 0.995
+  },
+  {
+   "mot": "terrain.",
+   "debut": 163.66,
+   "fin": 163.96,
+   "p": 0.993
+  },
+  {
+   "mot": "Le",
+   "debut": 163.96,
+   "fin": 165.0,
+   "p": 0.198
+  },
+  {
+   "mot": "CVASM,",
+   "debut": 165.0,
+   "fin": 165.98,
+   "p": 0.935
+  },
+  {
+   "mot": "les",
+   "debut": 166.42,
+   "fin": 166.68,
+   "p": 0.968
+  },
+  {
+   "mot": "calac,",
+   "debut": 166.68,
+   "fin": 167.16,
+   "p": 0.401
+  },
+  {
+   "mot": "rebâtir,",
+   "debut": 167.68,
+   "fin": 168.36,
+   "p": 0.822
+  },
+  {
+   "mot": "les",
+   "debut": 169.22,
+   "fin": 169.3,
+   "p": 0.984
+  },
+  {
+   "mot": "cavac,",
+   "debut": 169.3,
+   "fin": 169.74,
+   "p": 0.501
+  },
+  {
+   "mot": "la",
+   "debut": 170.54,
+   "fin": 170.66,
+   "p": 0.981
+  },
+  {
+   "mot": "chair",
+   "debut": 170.66,
+   "fin": 170.92,
+   "p": 0.798
+  },
+  {
+   "mot": "de",
+   "debut": 170.92,
+   "fin": 171.1,
+   "p": 0.994
+  },
+  {
+   "mot": "Lucame.",
+   "debut": 171.1,
+   "fin": 171.6,
+   "p": 0.567
+  },
+  {
+   "mot": "Elle",
+   "debut": 172.46,
+   "fin": 173.02,
+   "p": 0.945
+  },
+  {
+   "mot": "s",
+   "debut": 173.02,
+   "fin": 173.24,
+   "p": 0.999
+  },
+  {
+   "mot": "'appuie",
+   "debut": 173.24,
+   "fin": 173.48,
+   "p": 0.994
+  },
+  {
+   "mot": "sur",
+   "debut": 173.48,
+   "fin": 173.64,
+   "p": 0.998
+  },
+  {
+   "mot": "la",
+   "debut": 173.64,
+   "fin": 173.78,
+   "p": 0.996
+  },
+  {
+   "mot": "recherche.",
+   "debut": 173.78,
+   "fin": 174.24,
+   "p": 0.997
+  },
+  {
+   "mot": "Pour",
+   "debut": 175.14,
+   "fin": 175.42,
+   "p": 0.994
+  },
+  {
+   "mot": "beaucoup",
+   "debut": 175.42,
+   "fin": 175.76,
+   "p": 1.0
+  },
+  {
+   "mot": "de",
+   "debut": 175.76,
+   "fin": 175.92,
+   "p": 0.998
+  },
+  {
+   "mot": "victimes,",
+   "debut": 175.92,
+   "fin": 176.52,
+   "p": 0.991
+  },
+  {
+   "mot": "chercher",
+   "debut": 177.2,
+   "fin": 177.36,
+   "p": 0.978
+  },
+  {
+   "mot": "de",
+   "debut": 177.36,
+   "fin": 177.7,
+   "p": 0.996
+  },
+  {
+   "mot": "l",
+   "debut": 177.7,
+   "fin": 177.82,
+   "p": 0.984
+  },
+  {
+   "mot": "'aide",
+   "debut": 177.82,
+   "fin": 177.98,
+   "p": 0.988
+  },
+  {
+   "mot": "devient",
+   "debut": 177.98,
+   "fin": 178.52,
+   "p": 0.947
+  },
+  {
+   "mot": "une",
+   "debut": 178.52,
+   "fin": 178.78,
+   "p": 0.994
+  },
+  {
+   "mot": "seconde",
+   "debut": 178.78,
+   "fin": 179.22,
+   "p": 0.993
+  },
+  {
+   "mot": "blessure.",
+   "debut": 179.22,
+   "fin": 179.86,
+   "p": 0.997
+  },
+  {
+   "mot": "Pour",
+   "debut": 180.62,
+   "fin": 181.18,
+   "p": 0.994
+  },
+  {
+   "mot": "être",
+   "debut": 181.18,
+   "fin": 181.34,
+   "p": 0.997
+  },
+  {
+   "mot": "trouvée",
+   "debut": 181.34,
+   "fin": 181.9,
+   "p": 0.756
+  },
+  {
+   "mot": "avant",
+   "debut": 181.9,
+   "fin": 182.26,
+   "p": 0.995
+  },
+  {
+   "mot": "d",
+   "debut": 182.26,
+   "fin": 182.42,
+   "p": 0.998
+  },
+  {
+   "mot": "'en",
+   "debut": 182.42,
+   "fin": 182.46,
+   "p": 0.999
+  },
+  {
+   "mot": "avoir",
+   "debut": 182.46,
+   "fin": 182.68,
+   "p": 0.999
+  },
+  {
+   "mot": "besoin.",
+   "debut": 182.68,
+   "fin": 183.12,
+   "p": 1.0
+  },
+  {
+   "mot": "Des",
+   "debut": 184.22,
+   "fin": 184.36,
+   "p": 0.961
+  },
+  {
+   "mot": "affiches",
+   "debut": 184.36,
+   "fin": 184.88,
+   "p": 0.997
+  },
+  {
+   "mot": "sur",
+   "debut": 184.88,
+   "fin": 185.1,
+   "p": 0.998
+  },
+  {
+   "mot": "les",
+   "debut": 185.1,
+   "fin": 185.24,
+   "p": 0.993
+  },
+  {
+   "mot": "campus,",
+   "debut": 185.24,
+   "fin": 185.54,
+   "p": 0.643
+  },
+  {
+   "mot": "des",
+   "debut": 186.58,
+   "fin": 186.72,
+   "p": 0.984
+  },
+  {
+   "mot": "cartes",
+   "debut": 186.72,
+   "fin": 187.1,
+   "p": 0.998
+  },
+  {
+   "mot": "en",
+   "debut": 187.1,
+   "fin": 187.22,
+   "p": 0.999
+  },
+  {
+   "mot": "pharmacie,",
+   "debut": 187.22,
+   "fin": 187.78,
+   "p": 0.963
+  },
+  {
+   "mot": "des",
+   "debut": 188.58,
+   "fin": 188.7,
+   "p": 0.997
+  },
+  {
+   "mot": "sous",
+   "debut": 188.7,
+   "fin": 188.96,
+   "p": 0.808
+  },
+  {
+   "mot": "-vers",
+   "debut": 188.96,
+   "fin": 189.2,
+   "p": 0.499
+  },
+  {
+   "mot": "dans",
+   "debut": 189.2,
+   "fin": 189.44,
+   "p": 0.985
+  },
+  {
+   "mot": "les",
+   "debut": 189.44,
+   "fin": 189.56,
+   "p": 0.996
+  },
+  {
+   "mot": "bars.",
+   "debut": 189.56,
+   "fin": 189.82,
+   "p": 0.826
+  },
+  {
+   "mot": "La",
+   "debut": 190.66,
+   "fin": 191.3,
+   "p": 0.179
+  },
+  {
+   "mot": "victime",
+   "debut": 191.3,
+   "fin": 191.72,
+   "p": 0.939
+  },
+  {
+   "mot": "ne",
+   "debut": 191.72,
+   "fin": 191.9,
+   "p": 0.993
+  },
+  {
+   "mot": "paie",
+   "debut": 191.9,
+   "fin": 192.04,
+   "p": 0.913
+  },
+  {
+   "mot": "jamais.",
+   "debut": 192.04,
+   "fin": 192.34,
+   "p": 0.999
+  },
+  {
+   "mot": "Ce",
+   "debut": 193.22,
+   "fin": 193.42,
+   "p": 0.982
+  },
+  {
+   "mot": "sont",
+   "debut": 193.42,
+   "fin": 193.6,
+   "p": 0.999
+  },
+  {
+   "mot": "les",
+   "debut": 193.6,
+   "fin": 193.72,
+   "p": 0.993
+  },
+  {
+   "mot": "institutions",
+   "debut": 193.72,
+   "fin": 194.26,
+   "p": 0.996
+  },
+  {
+   "mot": "qui",
+   "debut": 194.26,
+   "fin": 194.58,
+   "p": 0.997
+  },
+  {
+   "mot": "paient.",
+   "debut": 194.58,
+   "fin": 194.9,
+   "p": 0.996
+  },
+  {
+   "mot": "La",
+   "debut": 195.68,
+   "fin": 195.78,
+   "p": 0.905
+  },
+  {
+   "mot": "santé,",
+   "debut": 195.78,
+   "fin": 196.16,
+   "p": 0.969
+  },
+  {
+   "mot": "les",
+   "debut": 196.98,
+   "fin": 197.08,
+   "p": 0.995
+  },
+  {
+   "mot": "cégeps",
+   "debut": 197.08,
+   "fin": 197.62,
+   "p": 0.544
+  },
+  {
+   "mot": "et",
+   "debut": 197.62,
+   "fin": 197.9,
+   "p": 0.965
+  },
+  {
+   "mot": "les",
+   "debut": 197.9,
+   "fin": 198.04,
+   "p": 0.998
+  },
+  {
+   "mot": "universités,",
+   "debut": 198.04,
+   "fin": 198.82,
+   "p": 0.994
+  },
+  {
+   "mot": "les",
+   "debut": 199.52,
+   "fin": 199.62,
+   "p": 0.987
+  },
+  {
+   "mot": "services",
+   "debut": 199.62,
+   "fin": 199.94,
+   "p": 0.996
+  },
+  {
+   "mot": "juridiques.",
+   "debut": 199.94,
+   "fin": 200.84,
+   "p": 0.997
+  },
+  {
+   "mot": "Un",
+   "debut": 202.0,
+   "fin": 202.16,
+   "p": 0.979
+  },
+  {
+   "mot": "pilote",
+   "debut": 202.16,
+   "fin": 202.52,
+   "p": 0.993
+  },
+  {
+   "mot": "de",
+   "debut": 202.52,
+   "fin": 202.7,
+   "p": 0.998
+  },
+  {
+   "mot": "6",
+   "debut": 202.7,
+   "fin": 202.98,
+   "p": 0.474
+  },
+  {
+   "mot": "centres",
+   "debut": 202.98,
+   "fin": 203.42,
+   "p": 0.921
+  },
+  {
+   "mot": "coûte",
+   "debut": 203.42,
+   "fin": 203.96,
+   "p": 0.975
+  },
+  {
+   "mot": "111",
+   "debut": 203.96,
+   "fin": 204.6,
+   "p": 0.965
+  },
+  {
+   "mot": "000",
+   "debut": 204.6,
+   "fin": 204.9,
+   "p": 0.96
+  },
+  {
+   "mot": "dollars",
+   "debut": 204.9,
+   "fin": 205.22,
+   "p": 0.533
+  },
+  {
+   "mot": "sous",
+   "debut": 205.22,
+   "fin": 206.2,
+   "p": 0.805
+  },
+  {
+   "mot": "le",
+   "debut": 206.2,
+   "fin": 206.34,
+   "p": 0.994
+  },
+  {
+   "mot": "seuil",
+   "debut": 206.34,
+   "fin": 206.66,
+   "p": 0.988
+  },
+  {
+   "mot": "des",
+   "debut": 206.66,
+   "fin": 206.78,
+   "p": 0.995
+  },
+  {
+   "mot": "appels",
+   "debut": 206.78,
+   "fin": 207.1,
+   "p": 0.983
+  },
+  {
+   "mot": "d",
+   "debut": 207.1,
+   "fin": 207.26,
+   "p": 0.991
+  },
+  {
+   "mot": "'offre.",
+   "debut": 207.26,
+   "fin": 207.62,
+   "p": 0.875
+  },
+  {
+   "mot": "Rentable",
+   "debut": 208.52,
+   "fin": 209.16,
+   "p": 0.818
+  },
+  {
+   "mot": "en",
+   "debut": 209.16,
+   "fin": 209.5,
+   "p": 0.981
+  },
+  {
+   "mot": "2029.",
+   "debut": 209.5,
+   "fin": 209.82,
+   "p": 0.952
+  },
+  {
+   "mot": "Puis",
+   "debut": 211.58,
+   "fin": 211.78,
+   "p": 0.982
+  },
+  {
+   "mot": "tout",
+   "debut": 211.78,
+   "fin": 212.0,
+   "p": 0.862
+  },
+  {
+   "mot": "le",
+   "debut": 212.0,
+   "fin": 212.14,
+   "p": 0.98
+  },
+  {
+   "mot": "Québec,",
+   "debut": 212.14,
+   "fin": 212.44,
+   "p": 0.99
+  },
+  {
+   "mot": "l",
+   "debut": 213.14,
+   "fin": 213.24,
+   "p": 0.993
+  },
+  {
+   "mot": "'Ontario",
+   "debut": 213.24,
+   "fin": 213.58,
+   "p": 0.998
+  },
+  {
+   "mot": "et",
+   "debut": 213.58,
+   "fin": 214.36,
+   "p": 0.806
+  },
+  {
+   "mot": "le",
+   "debut": 214.36,
+   "fin": 214.5,
+   "p": 0.996
+  },
+  {
+   "mot": "Canada.",
+   "debut": 214.5,
+   "fin": 214.78,
+   "p": 0.978
+  },
+  {
+   "mot": "Boussole",
+   "debut": 216.04,
+   "fin": 216.72,
+   "p": 0.575
+  },
+  {
+   "mot": "est",
+   "debut": 216.72,
+   "fin": 216.88,
+   "p": 0.977
+  },
+  {
+   "mot": "portée",
+   "debut": 216.88,
+   "fin": 217.24,
+   "p": 0.817
+  },
+  {
+   "mot": "par",
+   "debut": 217.24,
+   "fin": 217.44,
+   "p": 0.999
+  },
+  {
+   "mot": "Samuel",
+   "debut": 217.44,
+   "fin": 217.86,
+   "p": 0.971
+  },
+  {
+   "mot": "Alimi,",
+   "debut": 217.86,
+   "fin": 218.44,
+   "p": 0.642
+  },
+  {
+   "mot": "étudiant",
+   "debut": 219.22,
+   "fin": 219.64,
+   "p": 0.964
+  },
+  {
+   "mot": "à",
+   "debut": 219.64,
+   "fin": 219.78,
+   "p": 0.978
+  },
+  {
+   "mot": "Polytechnique",
+   "debut": 219.78,
+   "fin": 220.44,
+   "p": 0.942
+  },
+  {
+   "mot": "Montréal.",
+   "debut": 220.44,
+   "fin": 220.88,
+   "p": 0.935
+  },
+  {
+   "mot": "Nous",
+   "debut": 222.1,
+   "fin": 222.5,
+   "p": 0.812
+  },
+  {
+   "mot": "cherchons",
+   "debut": 222.5,
+   "fin": 222.94,
+   "p": 0.993
+  },
+  {
+   "mot": "un",
+   "debut": 222.94,
+   "fin": 223.08,
+   "p": 0.982
+  },
+  {
+   "mot": "établissement",
+   "debut": 223.08,
+   "fin": 223.64,
+   "p": 0.998
+  },
+  {
+   "mot": "pilote,",
+   "debut": 223.64,
+   "fin": 224.3,
+   "p": 0.969
+  },
+  {
+   "mot": "un",
+   "debut": 224.86,
+   "fin": 224.98,
+   "p": 0.992
+  },
+  {
+   "mot": "partenaire",
+   "debut": 224.98,
+   "fin": 225.48,
+   "p": 0.993
+  },
+  {
+   "mot": "de",
+   "debut": 225.48,
+   "fin": 225.6,
+   "p": 0.999
+  },
+  {
+   "mot": "recherche",
+   "debut": 225.6,
+   "fin": 226.02,
+   "p": 0.979
+  },
+  {
+   "mot": "et",
+   "debut": 226.02,
+   "fin": 226.86,
+   "p": 0.771
+  },
+  {
+   "mot": "250",
+   "debut": 226.86,
+   "fin": 227.26,
+   "p": 0.956
+  },
+  {
+   "mot": "000",
+   "debut": 227.26,
+   "fin": 227.92,
+   "p": 0.873
+  },
+  {
+   "mot": "dollars.",
+   "debut": 227.92,
+   "fin": 228.2,
+   "p": 0.535
+  },
+  {
+   "mot": "On",
+   "debut": 229.32,
+   "fin": 229.78,
+   "p": 0.985
+  },
+  {
+   "mot": "ne",
+   "debut": 229.78,
+   "fin": 229.94,
+   "p": 0.999
+  },
+  {
+   "mot": "remplace",
+   "debut": 229.94,
+   "fin": 230.22,
+   "p": 0.977
+  },
+  {
+   "mot": "pas",
+   "debut": 230.22,
+   "fin": 230.52,
+   "p": 0.999
+  },
+  {
+   "mot": "l",
+   "debut": 230.52,
+   "fin": 230.64,
+   "p": 0.981
+  },
+  {
+   "mot": "'humain",
+   "debut": 230.64,
+   "fin": 230.92,
+   "p": 0.994
+  },
+  {
+   "mot": "auprès",
+   "debut": 230.92,
+   "fin": 231.24,
+   "p": 0.996
+  },
+  {
+   "mot": "de",
+   "debut": 231.24,
+   "fin": 231.38,
+   "p": 0.999
+  },
+  {
+   "mot": "la",
+   "debut": 231.38,
+   "fin": 231.52,
+   "p": 0.999
+  },
+  {
+   "mot": "victime.",
+   "debut": 231.52,
+   "fin": 232.04,
+   "p": 0.995
+  },
+  {
+   "mot": "On",
+   "debut": 233.02,
+   "fin": 233.28,
+   "p": 0.991
+  },
+  {
+   "mot": "lui",
+   "debut": 233.28,
+   "fin": 233.42,
+   "p": 1.0
+  },
+  {
+   "mot": "rend",
+   "debut": 233.42,
+   "fin": 233.68,
+   "p": 0.997
+  },
+  {
+   "mot": "le",
+   "debut": 233.68,
+   "fin": 233.86,
+   "p": 0.994
+  },
+  {
+   "mot": "temps",
+   "debut": 233.86,
+   "fin": 234.08,
+   "p": 0.998
+  },
+  {
+   "mot": "de",
+   "debut": 234.08,
+   "fin": 234.24,
+   "p": 0.998
+  },
+  {
+   "mot": "l",
+   "debut": 234.24,
+   "fin": 234.38,
+   "p": 0.98
+  },
+  {
+   "mot": "'être.",
+   "debut": 234.38,
+   "fin": 234.68,
+   "p": 0.998
+  },
+  {
+   "mot": "Boussole,",
+   "debut": 235.96,
+   "fin": 236.64,
+   "p": 0.978
+  },
+  {
+   "mot": "pour",
+   "debut": 237.3,
+   "fin": 237.64,
+   "p": 0.979
+  },
+  {
+   "mot": "qu",
+   "debut": 237.64,
+   "fin": 237.84,
+   "p": 0.998
+  },
+  {
+   "mot": "'aucune",
+   "debut": 237.84,
+   "fin": 238.18,
+   "p": 0.995
+  },
+  {
+   "mot": "victime",
+   "debut": 238.18,
+   "fin": 238.68,
+   "p": 0.998
+  },
+  {
+   "mot": "ne",
+   "debut": 238.68,
+   "fin": 238.86,
+   "p": 0.989
+  },
+  {
+   "mot": "cherche",
+   "debut": 238.86,
+   "fin": 239.1,
+   "p": 0.992
+  },
+  {
+   "mot": "seul",
+   "debut": 239.1,
+   "fin": 239.58,
+   "p": 0.507
+  },
+  {
+   "mot": "quoi",
+   "debut": 239.58,
+   "fin": 239.82,
+   "p": 0.977
+  },
+  {
+   "mot": "faire.",
+   "debut": 239.82,
+   "fin": 240.18,
+   "p": 0.997
+  }
+ ]
+}

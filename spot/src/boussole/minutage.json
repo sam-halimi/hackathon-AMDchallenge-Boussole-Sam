@@ -1,0 +1,298 @@
+{
+ "fps": 60,
+ "pre_roll": 1.0,
+ "voix": "prise1.mp3",
+ "duree_voix": 240.51,
+ "debut_carton": 244.18,
+ "duree_totale": 246.68,
+ "images": 14801,
+ "phrases": [
+  {
+   "texte": "Octobre deux mille vingt-quatre, université Cornell.",
+   "debut": 1.0,
+   "fin": 4.72
+  },
+  {
+   "texte": "Une étudiante dit avoir été droguée, puis violée, par des membres d'une fraternité.",
+   "debut": 6.31,
+   "fin": 12.5
+  },
+  {
+   "texte": "Selon son avocat, deux jours plus tard, au centre de santé du campus, personne ne lui propose de trousse médicolégale.",
+   "debut": 13.743,
+   "fin": 22.4
+  },
+  {
+   "texte": "Quand elle la demande enfin, trois semaines ont passé. L'ADN a disparu.",
+   "debut": 23.684,
+   "fin": 28.78
+  },
+  {
+   "texte": "Deux étudiants sont exclus. Pour d'autres, la sanction se limite à des travaux de réflexion.",
+   "debut": 29.966,
+   "fin": 36.06
+  },
+  {
+   "texte": "Deux ans plus tard, aucune accusation.",
+   "debut": 37.375,
+   "fin": 39.84
+  },
+  {
+   "texte": "Ce n'est pas qu'aux États-Unis.",
+   "debut": 41.122,
+   "fin": 42.4
+  },
+  {
+   "texte": "Au Canada, six pour cent seulement des agressions sexuelles sont signalées à la police.",
+   "debut": 43.683,
+   "fin": 49.38
+  },
+  {
+   "texte": "Et sur mille affaires signalées, cinquante-deux finissent par une peine de prison.",
+   "debut": 50.687,
+   "fin": 55.24
+  },
+  {
+   "texte": "La preuve a une date limite : douze heures pour certaines drogues, soixante-douze heures pour l'ADN.",
+   "debut": 56.632,
+   "fin": 62.1
+  },
+  {
+   "texte": "Un mois après, trois victimes sur quatre vivent un stress post-traumatique.",
+   "debut": 63.905,
+   "fin": 68.94
+  },
+  {
+   "texte": "Et personne ne leur dit quoi faire, ni dans quel ordre.",
+   "debut": 70.096,
+   "fin": 73.68
+  },
+  {
+   "texte": "Par où commencer ?",
+   "debut": 74.853,
+   "fin": 75.6
+  },
+  {
+   "texte": "Et si quelqu'un la guidait… pas à pas ?",
+   "debut": 76.751,
+   "fin": 79.16
+  },
+  {
+   "texte": "Voici Boussole : l'application qui guide les victimes de violences sexuelles.",
+   "debut": 80.423,
+   "fin": 84.96
+  },
+  {
+   "texte": "Dès le premier écran, l'aide est là : la ligne d'écoute, et le neuf-un-un.",
+   "debut": 87.552,
+   "fin": 93.36
+  },
+  {
+   "texte": "Pas besoin de créer un compte pour appeler.",
+   "debut": 94.368,
+   "fin": 96.28
+  },
+  {
+   "texte": "Un bouton « Quitter » ferme tout, en un geste, vers une simple page météo.",
+   "debut": 97.357,
+   "fin": 103.16
+  },
+  {
+   "texte": "Ensuite, les étapes. Une à la fois, avec leurs délais, et leurs sources.",
+   "debut": 104.455,
+   "fin": 110.26
+  },
+  {
+   "texte": "Son récit, elle l'écrit une seule fois. Il reste chiffré, sur son téléphone.",
+   "debut": 111.424,
+   "fin": 117.24
+  },
+  {
+   "texte": "« Je ne sais pas » est toujours une réponse.",
+   "debut": 118.815,
+   "fin": 120.84
+  },
+  {
+   "texte": "La carte montre où aller à Montréal : examen médical, soutien, aide juridique.",
+   "debut": 122.5,
+   "fin": 129.3
+  },
+  {
+   "texte": "Si elle le décide, son dossier est prêt pour un service juridique.",
+   "debut": 130.477,
+   "fin": 134.56
+  },
+  {
+   "texte": "Rien ne part sans son accord, et elle choisit quand être rappelée.",
+   "debut": 135.674,
+   "fin": 139.84
+  },
+  {
+   "texte": "Pour les soignants, chaque prélèvement est classé selon son délai.",
+   "debut": 141.038,
+   "fin": 145.02
+  },
+  {
+   "texte": "Chaque note est horodatée. Rien ne se perd, la première nuit.",
+   "debut": 146.083,
+   "fin": 150.98
+  },
+  {
+   "texte": "L'application est gratuite. Elle fonctionne même hors ligne.",
+   "debut": 152.82,
+   "fin": 155.82
+  },
+  {
+   "texte": "Boussole ne remplace personne. Elle relie ce qui existe déjà.",
+   "debut": 157.186,
+   "fin": 161.46
+  },
+  {
+   "texte": "Nous la soumettons aux organismes du terrain : le CVASM, les Calacs, Rebâtir, les Cavac, la Chaire de l'Uqam.",
+   "debut": 162.831,
+   "fin": 172.1
+  },
+  {
+   "texte": "Elle s'appuie sur la recherche : pour beaucoup de victimes, chercher de l'aide devient une seconde blessure.",
+   "debut": 173.902,
+   "fin": 180.86
+  },
+  {
+   "texte": "Pour être trouvée avant d'en avoir besoin : des affiches sur les campus, des cartes en pharmacie, des sous-verres dans les bars.",
+   "debut": 182.042,
+   "fin": 190.82
+  },
+  {
+   "texte": "La victime ne paie jamais. Ce sont les institutions qui paient : la santé, les cégeps et les universités, les services juridiques.",
+   "debut": 192.206,
+   "fin": 201.84
+  },
+  {
+   "texte": "Un pilote de six centres coûte cent onze mille dollars, sous le seuil des appels d'offres.",
+   "debut": 203.042,
+   "fin": 208.1
+  },
+  {
+   "texte": "Rentable en deux mille vingt-neuf. Puis tout le Québec, l'Ontario, et le Canada.",
+   "debut": 209.556,
+   "fin": 215.78
+  },
+  {
+   "texte": "Boussole est portée par Samuel Halimi, étudiant à Polytechnique Montréal.",
+   "debut": 217.317,
+   "fin": 221.88
+  },
+  {
+   "texte": "Nous cherchons un établissement pilote, un partenaire de recherche, et deux cent cinquante mille dollars.",
+   "debut": 223.388,
+   "fin": 229.2
+  },
+  {
+   "texte": "On ne remplace pas l'humain auprès de la victime. On lui rend le temps de l'être.",
+   "debut": 230.677,
+   "fin": 235.24
+  },
+  {
+   "texte": "Boussole. Pour qu'aucune victime ne cherche seule quoi faire.",
+   "debut": 237.015,
+   "fin": 241.18
+  }
+ ],
+ "cles": {
+  "cornell": 4.34,
+  "droguee": 7.98,
+  "violee": 9.44,
+  "fraternite": 11.74,
+  "avocat": 14.24,
+  "deux_jours": 15.38,
+  "campus": 17.94,
+  "trousse": 21.18,
+  "trois_semaines": 25.72,
+  "adn": 27.72,
+  "exclus": 30.88,
+  "reflexion": 35.42,
+  "aucune": 38.8,
+  "etats_unis": 41.82,
+  "six": 44.96,
+  "police": 49.04,
+  "mille": 51.0,
+  "cinquante_deux": 52.94,
+  "prison": 54.94,
+  "date_limite": 57.52,
+  "douze": 58.76,
+  "soixante_douze": 60.96,
+  "trois_quatre": 65.36,
+  "stress": 67.38,
+  "personne": 70.2,
+  "ordre": 73.18,
+  "commencer": 75.12,
+  "guidait": 77.58,
+  "pas_a_pas": 78.6,
+  "boussole": 80.94,
+  "guide": 83.92,
+  "premier_ecran": 88.06,
+  "ecoute": 91.04,
+  "neuf_un_un": 92.3,
+  "compte": 95.4,
+  "quitter": 97.92,
+  "geste": 100.58,
+  "meteo": 102.66,
+  "etapes": 105.48,
+  "une_a_la_fois": 107.42,
+  "delais": 108.62,
+  "sources": 109.74,
+  "recit": 111.64,
+  "une_seule": 113.48,
+  "chiffre": 115.5,
+  "jsp": 119.08,
+  "carte": 122.6,
+  "examen": 125.5,
+  "soutien": 126.98,
+  "juridique": 128.58,
+  "dossier": 132.28,
+  "service_juridique": 133.78,
+  "accord": 136.82,
+  "rappelee": 139.3,
+  "soignants": 141.3,
+  "prelevement": 142.7,
+  "delai": 144.62,
+  "note": 146.42,
+  "horodatee": 147.32,
+  "premiere_nuit": 150.68,
+  "gratuite": 153.02,
+  "hors_ligne": 155.5,
+  "remplace": 157.8,
+  "relie": 159.88,
+  "cvasm": 166.0,
+  "calacs": 167.68,
+  "rebatir": 168.68,
+  "cavac": 170.3,
+  "uqam": 171.66,
+  "recherche": 174.78,
+  "blessure": 180.22,
+  "affiches": 185.36,
+  "cartes": 187.72,
+  "sous_verres": 189.7,
+  "jamais": 193.04,
+  "institutions": 194.72,
+  "sante": 196.78,
+  "cegeps": 198.08,
+  "juridiques": 200.94,
+  "pilote": 203.16,
+  "cent_onze": 204.96,
+  "seuil": 207.34,
+  "rentable": 209.556,
+  "quebec": 213.14,
+  "ontario": 214.24,
+  "canada": 215.5,
+  "samuel": 218.44,
+  "polytechnique": 220.78,
+  "etablissement": 224.08,
+  "partenaire": 225.98,
+  "deux_cent_cinquante": 227.86,
+  "humain": 231.64,
+  "temps": 234.86,
+  "boussole_fin": 237.015,
+  "aucune_victime": 238.84
+ }
+}
