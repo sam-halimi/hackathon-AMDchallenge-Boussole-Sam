@@ -1,0 +1,21 @@
+{
+  "v": 4,
+  "createdOnFiles": { "v": 1, "at": "2026-10-16T20:30:00Z" },
+  "lists": "css",
+  "title": "Boussole · Pitch (English)",
+  "order": ["cover", "cornell", "cornell-faits", "ici-aussi", "plan", "fuites-temps", "fuites-systeme", "maintenant", "solution", "parcours-1", "parcours-2", "securite", "soignant", "juridique", "demo-qr", "organismes-1", "organismes-2", "validation", "etude-dworkin", "etude-campbell", "etude-jmir", "com-strategie", "com-supports", "com-calendrier", "gains-victime", "gains-soignants", "preuves-temps", "preuves-qualite", "gains-justice", "preuves-ivac", "gains-etat", "modele", "prix-valeur", "prix", "marche", "couts", "projections", "chiffres", "feuille-de-route", "equipe", "demande"],
+  "sections": {
+    "hook": { "description": "The hook: the Cornell case, then the Canadian numbers.", "start": "cover" },
+    "problem": { "description": "I. The problem: where, when and why a survivor’s case falls apart.", "start": "fuites-temps" },
+    "app": { "description": "II. The app: what Boussole does, screen by screen.", "start": "solution" },
+    "partners": { "description": "III. The organizations reviewing Boussole and the research behind it.", "start": "organismes-1" },
+    "outreach": { "description": "IV. Outreach: channels, materials and the 2027 calendar.", "start": "com-strategie" },
+    "savings": { "description": "V. What it saves: time and money for survivors, clinicians, the justice system and the State.", "start": "gains-victime" },
+    "business": { "description": "VI. Business model: a price set as a share of savings, market, lean costs and projections.", "start": "modele" },
+    "close": { "description": "The team and our ask.", "start": "equipe" }
+  },
+  "faces": {
+    "nunito": { "family": "Nunito", "href": "https://fonts.googleapis.com/css2?family=Nunito:wght@400..900&display=swap" }
+  },
+  "designSystems": []
+}
