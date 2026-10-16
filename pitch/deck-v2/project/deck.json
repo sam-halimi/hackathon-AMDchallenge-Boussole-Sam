@@ -31,12 +31,17 @@
     "com-strategie",
     "com-supports",
     "com-calendrier",
+    "gains-victime",
+    "gains-soignants",
+    "gains-justice",
+    "gains-etat",
     "modele",
-    "marche",
+    "prix-valeur",
     "prix",
+    "marche",
+    "couts",
     "projections",
     "chiffres",
-    "couts",
     "feuille-de-route",
     "equipe",
     "demande"
@@ -62,8 +67,12 @@
       "description": "IV. Faire connaître : canaux, supports et calendrier 2027.",
       "start": "com-strategie"
     },
+    "gains": {
+      "description": "V. Ce que ça fait gagner : temps et argent pour les victimes, les soignants, la justice et l’État.",
+      "start": "gains-victime"
+    },
     "affaires": {
-      "description": "V. Le modèle d’affaires : qui paie, combien, projections et feuille de route.",
+      "description": "VI. Le modèle d’affaires : prix au pourcentage des économies, marché, coûts légers et projections.",
       "start": "modele"
     },
     "fin": {
