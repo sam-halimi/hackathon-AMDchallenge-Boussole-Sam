@@ -1,17 +1,80 @@
 {
   "v": 4,
-  "createdOnFiles": { "v": 1, "at": "2026-10-15T04:20:00Z" },
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-10-15T04:20:00Z"
+  },
   "lists": "css",
   "title": "Boussole · Pitch",
-  "order": ["cover", "cornell", "cornell-faits", "ici-aussi", "fuites", "maintenant", "solution", "parcours-1", "parcours-2", "securite", "soignant", "juridique", "preuves-produit", "preuves-terrain", "etudes", "modele", "marche", "prix", "projections", "couts", "feuille-de-route", "equipe", "demande"],
+  "order": [
+    "cover",
+    "cornell",
+    "cornell-faits",
+    "ici-aussi",
+    "plan",
+    "fuites-temps",
+    "fuites-systeme",
+    "maintenant",
+    "solution",
+    "parcours-1",
+    "parcours-2",
+    "securite",
+    "soignant",
+    "juridique",
+    "demo-qr",
+    "organismes-1",
+    "organismes-2",
+    "validation",
+    "etude-dworkin",
+    "etude-campbell",
+    "etude-jmir",
+    "com-strategie",
+    "com-supports",
+    "com-calendrier",
+    "modele",
+    "marche",
+    "prix",
+    "projections",
+    "couts",
+    "feuille-de-route",
+    "equipe",
+    "demande"
+  ],
   "sections": {
-    "probleme": { "description": "Le problème : une affaire qui montre comment la prise en charge échoue encore, et les chiffres qui disent que ce n’est pas un cas isolé.", "start": "cover" },
-    "fonctionnalites": { "description": "Ce que fait Boussole : l’espace gratuit de la personne, l’outil des soignants, le volet juridique.", "start": "solution" },
-    "preuves": { "description": "Les preuves : ce qui est construit et mesuré, la validation par le terrain, les études.", "start": "preuves-produit" },
-    "affaires": { "description": "Le modèle d’affaires : qui paie, combien, les projections et ce que nous demandons.", "start": "modele" }
+    "accroche": {
+      "description": "L’accroche : l’affaire de Cornell, puis les chiffres canadiens.",
+      "start": "cover"
+    },
+    "probleme": {
+      "description": "I. Le problème : où, quand et pourquoi le dossier d’une victime se perd.",
+      "start": "fuites-temps"
+    },
+    "application": {
+      "description": "II. L’application : ce que fait Boussole, écran par écran.",
+      "start": "solution"
+    },
+    "organismes": {
+      "description": "III. Les organismes sollicités et les études sur lesquelles Boussole s’appuie.",
+      "start": "organismes-1"
+    },
+    "communication": {
+      "description": "IV. Faire connaître : canaux, supports et calendrier 2027.",
+      "start": "com-strategie"
+    },
+    "affaires": {
+      "description": "V. Le modèle d’affaires : qui paie, combien, projections et feuille de route.",
+      "start": "modele"
+    },
+    "fin": {
+      "description": "L’équipe et ce que nous demandons.",
+      "start": "equipe"
+    }
   },
   "faces": {
-    "nunito": { "family": "Nunito", "href": "https://fonts.googleapis.com/css2?family=Nunito:wght@400..900&display=swap" }
+    "nunito": {
+      "family": "Nunito",
+      "href": "https://fonts.googleapis.com/css2?family=Nunito:wght@400..900&display=swap"
+    }
   },
   "designSystems": []
 }
