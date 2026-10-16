@@ -21,7 +21,8 @@
 > La fiche du projet est jointe ; la démo (données fictives) est ici : https://boussole-ux-v2.vercel.app
 >
 > Merci pour votre temps,
-> [Prénom Nom]
+> Samuel Halimi
+> Étudiant, Polytechnique Montréal
 > boussole.app@gmail.com
 
 ## 2. CALACS ou regroupement des CALACS (ton et approche)
@@ -43,7 +44,8 @@
 > Fiche jointe ; démo (données fictives) : https://boussole-ux-v2.vercel.app
 >
 > Merci,
-> [Prénom Nom]
+> Samuel Halimi
+> Étudiant, Polytechnique Montréal
 > boussole.app@gmail.com
 
 ## 3. Rebâtir, Juripop, Info Justice (droits)
@@ -63,7 +65,8 @@
 > Une heure de relecture vous conviendrait-elle ? Fiche jointe ; démo : https://boussole-ux-v2.vercel.app
 >
 > Merci,
-> [Prénom Nom]
+> Samuel Halimi
+> Étudiant, Polytechnique Montréal
 > boussole.app@gmail.com
 
 ## Relance (une seule, après une semaine)
