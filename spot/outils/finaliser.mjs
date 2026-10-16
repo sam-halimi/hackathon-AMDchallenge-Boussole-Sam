@@ -23,11 +23,11 @@ for (const f of formats) {
   const dest = path.join(OUT, f.final);
   // Image copiée telle quelle (H.264), son AAC 320 kb/s, lecture rapide sur le web (faststart).
   ff(['-i', src, '-i', path.join(AUDIO, 'mix_master.wav'), '-map', '0:v:0', '-map', '1:a:0', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '320k', '-ar', '48000', '-shortest', '-movflags', '+faststart', dest]);
-  // Planche contact : 24 images régulières, horodatées.
+  // Planche contact : 24 images régulières (le ffmpeg statique du VPS n'a pas drawtext : pas d'horodatage incrusté).
   const duree = parseFloat(sonde(dest).format.duration);
   const pas = duree / 24;
   const largeurVignette = f.id === '16x9' ? 480 : 270;
-  ff(['-i', dest, '-vf', `fps=1/${pas.toFixed(4)},scale=${largeurVignette}:-1,drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf:text='%{pts\\:hms}':x=8:y=8:fontsize=${f.id === '16x9' ? 18 : 14}:fontcolor=white:box=1:boxcolor=black@0.55:boxborderw=4,tile=${f.id === '16x9' ? '6x4' : '8x3'}:padding=8:margin=8:color=white`, '-frames:v', '1', path.join(OUT, `planche_contact_${f.id}.jpg`)]);
+  ff(['-i', dest, '-vf', `fps=1/${pas.toFixed(4)},scale=${largeurVignette}:-1,tile=${f.id === '16x9' ? '6x4' : '8x3'}:padding=8:margin=8:color=white`, '-frames:v', '1', path.join(OUT, `planche_contact_${f.id}.jpg`)]);
   const s = sonde(dest);
   const v = s.streams.find((x) => x.codec_name === 'h264');
   const a = s.streams.find((x) => x.codec_name === 'aac');
