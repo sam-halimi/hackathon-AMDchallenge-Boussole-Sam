@@ -15,7 +15,7 @@ Objectif : que les personnes qui accueillent les victimes à Montréal relisent 
 |---|---|---|
 | 1 | ~~Créer l'adresse dédiée du projet~~ : fait, boussole.app@gmail.com, publiée sur le site | `app/src/lib/site.ts` |
 | 1 | Relire la fiche de présentation et l'ajuster à ta voix | [FICHE.md](FICHE.md) |
-| 2 | Envoyer les trois premiers courriels : centre désigné, CALACS, Rebâtir | [COURRIELS.md](COURRIELS.md) |
+| 2 | Envoyer les six brouillons préparés le 16 octobre 2026 dans la boîte boussole.app@gmail.com (CVASM, Chaire VSSMES, RQCALACS, Trêve pour Elles, Rebâtir, réseau des CAVAC), avec la fiche PDF jointe | [COURRIELS.md](COURRIELS.md) |
 | 2 | Appeler le CVASM en heures de bureau pour demander à qui écrire (ligne administrative, pas la ligne d'aide) | |
 | 7 | Relancer une fois, poliment, ceux qui n'ont pas répondu | [COURRIELS.md](COURRIELS.md) |
 | 10 à 20 | Rencontres d'une heure, en visio ; on partage l'écran et on parcourt l'app ensemble | [GRILLE-VALIDATION.md](GRILLE-VALIDATION.md) |
@@ -61,3 +61,16 @@ Pourquoi Boussole a sa place : voir [ETUDES.md](ETUDES.md).
 - Le comité aviseur : [COMITE.md](COMITE.md).
 - La revue trimestrielle des ressources : [REVUE-RESSOURCES.md](REVUE-RESSOURCES.md).
 - L'élargissement au Québec puis au Canada : [EXPANSION.md](EXPANSION.md).
+
+## Adresses vérifiées le 16 octobre 2026
+
+Relevées sur les pages officielles « Nous joindre » de chaque organisme.
+
+| Organisme | Adresse | Remarque |
+|---|---|---|
+| CVASM | info@cvasm.ca | cvasm.org/contact |
+| Chaire VSSMES, UQAM | chaire.vssmes@uqam.ca | chairevssmes.uqam.ca |
+| RQCALACS | info@rqcalacs.qc.ca | rqcalacs.qc.ca/nous-joindre |
+| Trêve pour Elles (CALACS, Montréal) | info@trevepourelles.org | trevepourelles.org |
+| Rebâtir | projet@rebatir.ca | adresse indiquée « par courriel » sur rebatir.ca |
+| CAVAC de Montréal | info@reseaucavac.ca, en demandant de transmettre | le CAVAC de Montréal ne publie qu'un téléphone (514 277-9860) |
