@@ -6,8 +6,9 @@ AMD Developer Hackathon: ACT III (lablab.ai) · Track: **Health and Wellbeing** 
 
 | | |
 |---|---|
-| App (PWA, French UI) | `app/` · run it locally in under 5 minutes (below). Public URL: **to be added at submission** |
-| AI on AMD | Open-source LLM served by **vLLM on AMD Instinct MI300X (ROCm), AMD Developer Cloud** → [`GUIDE_AMD.md`](GUIDE_AMD.md) |
+| App (PWA, French and English UI) | `app/` · run it locally in under 5 minutes (below). Public URL: https://boussole-ux-v2.vercel.app |
+| AI on AMD | Open model **DeepSeek-V4-Flash** served by **AMD Token Factory** (OpenAI-compatible API, AMD GPUs), care-team timeline only · benchmark below |
+| Video (2 min) | https://youtu.be/ggqeiTztmYw |
 | Safety | [`SAFETY.md`](SAFETY.md): wrong or unsupported answers, sensitive data, uncertainty, risky decisions |
 | Submission kit | [`submission/`](submission/) |
 
@@ -47,8 +48,8 @@ flowchart LR
   subgraph Server["Boussole API (Node)<br/>Vite dev · Vercel function · standalone server"]
     H["/api/timeline<br/>1. refuses leftover identifiers<br/>2. calls the LLM<br/>3. guardrails: schema, verbatim quotes,<br/>forbidden judgements"]
   end
-  subgraph AMD["AMD Developer Cloud"]
-    V["vLLM (OpenAI-compatible)<br/>open-source model<br/>Instinct MI300X · ROCm"]
+  subgraph AMD["AMD Token Factory"]
+    V["OpenAI-compatible API<br/>open model DeepSeek-V4-Flash"]
   end
   C -- "pseudonymised notes only" --> H
   H -- "Bearer key (server-side)" --> V
@@ -60,36 +61,46 @@ flowchart LR
 | `app/src/` | React 19 + Vite + Tailwind app (person's space, care-team tool, PWA) |
 | `app/src/lib/rules.ts` | Rule engine (time windows), labelled *not clinically validated* |
 | `app/src/lib/pseudonymize.ts`, `app/shared/identifiers.js` | Client pseudonymisation and the server's second check |
-| `app/server/llm.js` | OpenAI-compatible provider (fetch only), configured by `VLLM_BASE_URL`, `VLLM_MODEL`, `VLLM_API_KEY` |
+| `app/server/llm.js` | OpenAI-compatible provider (fetch only), configured by `AI_BASE_URL`, `AI_MODEL`, `AI_API_KEY`, `AI_LABEL` (server-side only) |
 | `app/server/timeline.js` | Prompt, JSON schema and guardrails |
 | `app/server/handler.js` | `/api/timeline` and `/api/health`, mounted by Vite, `app/api/` (serverless) and `app/server/standalone.js` |
-| `app/scripts/mock-vllm.js`, `app/scripts/bench.js` | Fake OpenAI-compatible server for tests, benchmark |
+| `app/scripts/mock-vllm.js`, `app/scripts/bench.js` | Fake OpenAI-compatible server for tests; benchmark and guardrail checks |
 | `pitch/`, `video/`, `spot-v1/`, `spot-v2/` | Earlier pitch, Remotion demo video and ad spots (French) |
 
 ## How AMD is used
 
-The AI part of the product, the care-team **timeline**, runs on an **open-source model served by vLLM on an AMD Instinct MI300X GPU (ROCm) on AMD Developer Cloud**. It is the live feature shown in the demo.
+The AI part of the product, the care-team **timeline**, calls the open model **DeepSeek-V4-Flash** served by **AMD Token Factory** on AMD GPUs, through its OpenAI-compatible Chat Completions API (`https://developer.amd.com.cn/radeon/api/v1`).
 
-- The app talks to any **OpenAI-compatible** endpoint; we use vLLM's, started with `--api-key`.
-- Generation is constrained by a **JSON schema** (`response_format`), temperature 0.
-- The key never reaches the browser. The server sends **pseudonymised notes only** and refuses anything that still contains a direct identifier.
-- If the endpoint is down, slow or misconfigured, the app shows a **clearly labelled pre-recorded answer** and says why.
-- Default model: `Qwen/Qwen2.5-7B-Instruct` (Apache 2.0, no Hugging Face token needed). The single 192 GB MI300X leaves room to try larger models and compare with the benchmark.
-
-Step-by-step setup (account, GPU droplet, vLLM, key, test, deployment options): [`GUIDE_AMD.md`](GUIDE_AMD.md).
+- **Why this model**: chosen after comparing several open models of the AMD Token Factory catalogue on the same fictional notes. It was the fastest to return a complete timeline, and every quote it produced was found verbatim in the notes (nothing removed by the guardrails).
+- **Output format**: DeepSeek-V4-Flash returns HTTP 500 with `response_format: json_object`, so the JSON schema is given in the instructions and the shape is checked on the server (`AI_RESPONSE_FORMAT=none`).
+- **Progressive display**: the answer is streamed. Each timeline line is shown as soon as it is complete **and** has passed the guardrails (verbatim quote, no forbidden wording), in about 6 s for the first line instead of waiting 35 to 60 s for the whole answer. The "Live AI response" banner and the Validate buttons appear only when the full call has succeeded; if it fails midway, the partial lines are dropped and the labelled pre-recorded answer is shown.
+- **Limits respected**: 30 requests/min per key and at most 2 requests at a time (server-side queue), retries only on 429/502/503 with `Retry-After` or exponential backoff with jitter, 90 s total timeout.
+- Configured by environment variables only (`AI_BASE_URL`, `AI_MODEL`, `AI_API_KEY`, `AI_LABEL`), read server-side. The key never reaches the browser and is never committed.
+- Generation is constrained by a **JSON schema** (`response_format`, can be turned off with `AI_JSON_SCHEMA=0` if the endpoint refuses it), temperature 0.
+- The server sends **pseudonymised notes only** and refuses anything that still contains a direct identifier.
+- The banner **"Live AI answer"** appears only after a real call succeeded and passed the guardrails. If the endpoint is down, slow, misconfigured or refuses the key, the app shows a **clearly labelled pre-recorded answer** and says why.
 
 ## Benchmark
 
-`cd app && npm run bench` sends 3 fictional notes several times at concurrency 1 and 4 and records latency, tokens/s and how many lines the guardrails kept or removed.
+`cd app && npm run bench` sends 4 fictional notes (including a trap case with third-party opinions on credibility and blame) several times at concurrency 1 and 4. It records latency, tokens/s, what the guardrails kept or removed and why, re-checks the guardrail invariants on every kept line, and verifies that notes with a leftover identifier are refused before reaching the model.
 
-**AMD Instinct MI300X (vLLM, ROCm)**: _results to be pasted here from `app/bench/results.md` after running the benchmark on the AMD endpoint (date, model, vLLM version)._
+**AMD Token Factory · DeepSeek-V4-Flash** (2026-10-17, fictional notes only, throttled: 1 run per case at concurrency 1 and 2):
 
-Harness check against the **local mock server** (no model, no GPU: these numbers say nothing about AMD hardware):
+| Concurrency | OK requests | Latency p50 | Latency p95 | Tokens/s per request | Total throughput (tokens/s) | Requests/min | Guardrails (events) | Invariants |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 3/4 | 44.78 s | 54.07 s | 16 | 9 | 0.9 | 21 kept / 0 removed | all respected |
+| 2 | 4/4 | 33.67 s | 60.13 s | 17 | 32 | 2.7 | 34 kept / 0 removed | all respected |
 
-| Concurrency | OK requests | Latency p50 | Latency p95 | Tokens/s per request | Total throughput (tokens/s) | Requests/min | Guardrails (events) |
-|---|---|---|---|---|---|---|---|
-| 1 | 6/6 | 1.16 s | 1.66 s | 387 | 388 | 51.1 | 60 kept / 0 removed |
-| 4 | 6/6 | 1.16 s | 1.66 s | 387 | 972 | 128.0 | 60 kept / 0 removed |
+- The failed request was an HTTP 500 from the endpoint after 77 s on the longest note (not retried: only 429/502/503 are). In the app, such a failure shows the labelled pre-recorded answer.
+- Identifier still present in the notes: refused before reaching the model (HTTP 422).
+- Trap case (a third party says "she may be exaggerating" and names someone "responsible"): both outputs clean, nothing to remove; the model kept only facts.
+- This is a trial endpoint without SLA: latency is dominated by generation speed (about 16 tokens/s), not by Boussole.
+
+Harness check against the **local mock server** (no model, no AI: these numbers say nothing about AMD):
+
+| Concurrency | OK requests | Latency p50 | Latency p95 | Tokens/s per request | Total throughput (tokens/s) | Requests/min | Guardrails (events) | Invariants |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 4/4 | 0.88 s | 1.65 s | 386 | 386 | 54.4 | 36 kept / 1 removed | all respected |
 
 ## Safety in one table
 
@@ -121,17 +132,17 @@ npm ci
 npm run dev            # http://localhost:5173  (person's space)  ·  /#/demo  (care-team tool)
 ```
 
-Without an AI endpoint the timeline uses the labelled pre-recorded answer. To see the live path without a GPU:
+Without an AI endpoint the timeline uses the labelled pre-recorded answer. To see the live path without any AI:
 
 ```bash
 npm run mock           # terminal 1: fake OpenAI-compatible server on :8001 (no AI)
-cp .env.example .env   # then set VLLM_BASE_URL=http://127.0.0.1:8001/v1 and VLLM_MODEL=mock-model
+cp .env.example .env   # then set AI_BASE_URL=http://127.0.0.1:8001/v1 and AI_MODEL=mock-model
 npm run dev            # terminal 2
 ```
 
-With the AMD endpoint: fill `.env` as in [`GUIDE_AMD.md`](GUIDE_AMD.md) §6.
+With the AMD endpoint: set `AI_BASE_URL`, `AI_MODEL` and `AI_API_KEY` in `.env` (values from AMD Token Factory; see `.env.example`), then `npm run bench -- --runs 1 --concurrency 1` for a quick check.
 
-Other commands (in `app/`): `npm test` (49 tests: pseudonymisation, rules, resources, guardrails, API), `npm run lint`, `npm run build`, `npm start` (standalone server: built app + API on :8080), `npm run bench`.
+Other commands (in `app/`): `npm test` (pseudonymisation, rules, resources, guardrails, API, English content), `npm run lint`, `npm run build`, `npm start` (standalone server: built app + API on :8080), `npm run bench`.
 
 ## Business value
 

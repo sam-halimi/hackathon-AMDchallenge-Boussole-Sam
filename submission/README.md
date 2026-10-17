@@ -5,7 +5,7 @@
 | [`TEXTS.md`](TEXTS.md) | titre, résumé court, description longue, tags, track, texte « après le hackathon » (anglais, prêts à coller) |
 | [`check.mjs`](check.mjs) | vérifie les longueurs : `node submission/check.mjs` |
 | [`COVER.md`](COVER.md), `cover.html`, `cover.png` | couverture 16:9 et son texte |
-| [`SLIDES.md`](SLIDES.md) | trame des 10 slides |
+| [`SLIDES.md`](SLIDES.md) | liste des 43 diapos du deck anglais |
 | [`VIDEO.md`](VIDEO.md) | consignes d'export (≤ 5 min, < 300 Mo) et trame de la démo |
 
 ## Checklist de soumission
@@ -14,20 +14,20 @@ Légende : ✅ prêt · 🟡 prêt mais à compléter · ❌ à faire (par toi).
 
 | Élément demandé | État | Ce qui manque |
 |---|---|---|
-| Titre (≤ 50 car.) | ✅ | 42 caractères |
-| Résumé court (≤ 255 car.) | ✅ | 231 caractères |
-| Description longue (≥ 100 mots) | ✅ | 249 mots |
-| Tags techno | 🟡 | Ajuster `Qwen2.5` si tu sers un autre modèle |
+| Titre (≤ 50 car.) | ✅ | 48 caractères |
+| Résumé court (≤ 255 car.) | ✅ | 241 caractères |
+| Description longue (≥ 100 mots) | ✅ | 309 mots |
+| Tags techno | ✅ | `TEXTS.md` (AMD Token Factory, DeepSeek-V4-Flash…) |
 | Track | ✅ | Health and Wellbeing |
 | Texte « évolution après le hackathon » | ✅ | — |
-| **Partie réelle sur AMD** | ❌ | Créer le compte AMD Developer Cloud, le droplet MI300X et l'endpoint vLLM (`GUIDE_AMD.md`), remplir `app/.env`, vérifier le bandeau « Réponse IA en direct · AMD… » |
-| Benchmark sur AMD dans le README | ❌ | `cd app && npm run bench`, coller `app/bench/results.md` dans la section Benchmark du `README.md` (remplacer la ligne « results to be pasted here ») |
-| Prototype fonctionnel | 🟡 | Code prêt, testé (build, lint, tests) ; il manque l'endpoint AMD en direct |
-| URL de l'appli | ❌ | Déployer quand tu le décides (`GUIDE_AMD.md` §8 : droplet AMD ou Vercel + AMD), en HTTPS pour l'installation PWA ; mettre l'URL dans le `README.md` (« Public URL: to be added ») |
+| **Partie réelle sur AMD** | ✅ | AMD Token Factory · DeepSeek-V4-Flash, appel serveur, testé en local et en ligne (bandeau « Live AI response » vérifié) |
+| Benchmark sur AMD dans le README | ✅ | Section Benchmark du `README.md` (2026-10-17, notes fictives) |
+| Prototype fonctionnel | ✅ | Tests, build, IA en direct |
+| URL de l'appli | ✅ | https://boussole-ux-v2.vercel.app (variables AI_* posées sur Vercel) |
 | Cover image 16:9 | ✅ | `cover.png` ; à régénérer si le modèle ou le GPU change |
-| Vidéo de démo | ❌ | Enregistrer selon `VIDEO.md` ; ne pas réutiliser les anciennes voix off qui citent Claude |
-| Slides | 🟡 | Trame prête (`SLIDES.md`) ; deck à monter, diapo 8 à remplir avec le benchmark AMD |
-| Repo GitHub public | ❌ | Passer `sam-halimi/hackathon-AMDchallenge-Samsam` en public (après avoir relu qu'aucun `.env` n'est versionné : `git ls-files | grep -i env` doit ne montrer que `app/.env.example`) |
+| Vidéo de démo | ✅ | https://youtu.be/ggqeiTztmYw (à coller dans le formulaire lablab) |
+| Slides | 🟡 | Deck anglais de 43 diapos (`SLIDES.md`) : export PDF par Samuel |
+| Repo GitHub public | ❌ | À passer en public par Samuel après le commit de ces changements (audit des secrets propre) |
 | Dépôts liés mentionnés | ✅ | `README.md`, section « Repositories and links » |
 | Équipe | ❌ | Noms et rôles des membres sur lablab (non renseignés ici) |
 
@@ -35,5 +35,5 @@ Légende : ✅ prêt · 🟡 prêt mais à compléter · ❌ à faire (par toi).
 
 - Données fictives uniquement, dans la vidéo comme dans les captures.
 - Ne pas présenter les délais médicaux comme validés, ni les ressources « À confirmer » comme sûres.
-- Masquer l'IP du droplet et la clé vLLM dans toute capture.
-- Détruire le droplet après le jugement (facturation).
+- Ne jamais montrer la clé AMD (AI_API_KEY) dans une capture.
+- Clé AMD Token Factory : la révoquer ou la renouveler après le jugement.

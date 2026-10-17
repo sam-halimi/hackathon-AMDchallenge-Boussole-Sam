@@ -94,8 +94,8 @@ export function Confidentialite() {
           <li>{t('Le site est hébergé par Vercel, qui voit votre adresse IP et la page demandée. En production : hébergement au Canada.', 'The site is hosted by Vercel, which sees your IP address and the page requested. In production: hosting in Canada.')}</li>
           <li>{t('« Itinéraire Google Maps » et « Quitter » ouvrent des pages de Google, seulement si vous touchez ces boutons.', '“Directions (Google Maps)” and “Exit” open Google pages, only if you tap those buttons.')}</li>
           <li>{fr
-            ? 'L’envoi du dossier à Rebâtir est simulé : rien ne part. Dans l’outil soignant, les notes sont pseudonymisées avant tout traitement par l’IA ; dans cette démonstration en ligne, aucune IA n’est branchée.'
-            : 'Sending the file to Rebâtir is simulated: nothing is sent. In the care-team tool, notes are pseudonymized before any AI processing; in this online demo, no AI is connected.'}</li>
+            ? 'L’envoi du dossier à Rebâtir est simulé : rien ne part. Outil soignant (démonstration, données fictives) : les notes sont pseudonymisées dans le navigateur, puis seul ce texte pseudonymisé est envoyé à un modèle ouvert (DeepSeek-V4-Flash) servi par AMD Token Factory sur GPU AMD. AMD conserve les requêtes et les réponses environ 2 jours. N’y saisissez jamais de données réelles. Votre espace personnel n’utilise aucune IA et votre récit ne quitte jamais votre appareil.'
+            : 'Sending the file to Rebâtir is simulated: nothing is sent. Care-team tool (demo, fictional data): notes are pseudonymized in the browser, then only that pseudonymized text is sent to an open model (DeepSeek-V4-Flash) served by AMD Token Factory on AMD GPUs. AMD keeps requests and responses for about 2 days. Never enter real data there. Your personal space uses no AI and your story never leaves your device.'}</li>
         </ul>
       </Bloc>
       <Bloc title={t('Combien de temps', 'How long')}>

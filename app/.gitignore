@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Lien local vers le projet Vercel (identifiants de projet, pas de secret)
+.vercel

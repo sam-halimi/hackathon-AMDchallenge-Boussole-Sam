@@ -3,7 +3,7 @@
 // aux numéros, adresses, délais ni sources. Traduction à faire relire par une personne bilingue.
 import { CARE_STEPS, type CareStep } from './careSteps'
 import type { Resource } from './resources'
-import { RULES_WARNING } from './rules'
+import { RULES_VERSION, RULES_WARNING, type ChecklistItem } from './rules'
 import type { Lang } from './i18n'
 
 // Réponses enregistrées dans la fiche (en français) → libellé affiché en anglais.
@@ -23,8 +23,25 @@ export const RULE_LABEL_EN: Record<string, string> = {
   'tox-sang': 'Toxicology, blood sample', 'tox-urine': 'Toxicology, urine sample', 'ppe-vih': 'Post-exposure prophylaxis assessment (HIV)',
   cutane: 'Skin swabs (kit)', trousse: 'Complete forensic kit', contraception: 'Emergency contraception', photos: 'Photos of injuries', itss: 'STBBI testing and follow-up',
 }
+export const RULES_VERSION_EN = 'prototype rules v0.2 (not clinically validated)'
+export const RULE_WHY_EN: Record<string, string> = {
+  'tox-sang': 'Most substances are no longer detectable in blood after ~24 h.',
+  'tox-urine': 'Urine can extend detection up to ~120 h.',
+  'ppe-vih': 'Start as early as possible, no later than ~72 h.',
+  cutane: 'Short window, especially after a shower.',
+  trousse: 'In Québec: events dating back 5 days or less (under review).',
+  contraception: 'Effectiveness decreases over time, up to ~120 h depending on the method.',
+  photos: 'As soon as possible, with specific consent.',
+  itss: 'According to protocol, with a follow-up appointment.',
+}
 export const rulesWarning = (lang: Lang) => (lang === 'en' ? RULES_WARNING_EN : RULES_WARNING)
+export const rulesVersion = (lang: Lang) => (lang === 'en' ? RULES_VERSION_EN : RULES_VERSION)
 export const ruleLabel = (lang: Lang, id: string, fr: string) => (lang === 'en' ? RULE_LABEL_EN[id] ?? fr : fr)
+export const ruleWhy = (lang: Lang, id: string, fr: string) => (lang === 'en' ? RULE_WHY_EN[id] ?? fr : fr)
+// Élément de checklist avec libellé et explication dans la langue de l'interface (délais inchangés).
+export const localizeRule = (lang: Lang, c: ChecklistItem): ChecklistItem =>
+  lang === 'en' ? { ...c, label: ruleLabel(lang, c.id, c.label), why: ruleWhy(lang, c.id, c.why) } : c
+
 
 type StepText = Pick<CareStep, 'title' | 'text' | 'timing' | 'tips'> & { actionLabel?: string }
 export const CARE_STEPS_EN: StepText[] = [

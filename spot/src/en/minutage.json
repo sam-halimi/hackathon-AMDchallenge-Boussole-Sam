@@ -1,0 +1,203 @@
+{
+ "fps": 60,
+ "pre_roll": 1.0,
+ "voix": "prise2.wav",
+ "duree_voix": 121.087,
+ "debut_carton": 124.367,
+ "duree_totale": 126.867,
+ "images": 7612,
+ "phrases": [
+  {
+   "texte": "October 2024. Cornell University.",
+   "debut": 1.08,
+   "fin": 4.04
+  },
+  {
+   "texte": "A student says she was drugged and raped by members of a fraternity.",
+   "debut": 4.56,
+   "fin": 7.96
+  },
+  {
+   "texte": "According to her lawyer, no one offered her a forensic kit. When she asked, three weeks later, the DNA was gone.",
+   "debut": 8.64,
+   "fin": 15.32
+  },
+  {
+   "texte": "For some of the students, the sanction was a reflection essay. Two years on, no charges.",
+   "debut": 15.88,
+   "fin": 21.16
+  },
+  {
+   "texte": "This isn't just an American story.",
+   "debut": 21.84,
+   "fin": 23.56
+  },
+  {
+   "texte": "In Canada, only six percent of sexual assaults are reported to police.",
+   "debut": 24.04,
+   "fin": 28.44
+  },
+  {
+   "texte": "The evidence has an expiry date: twelve hours for some drugs, seventy-two for DNA.",
+   "debut": 28.547,
+   "fin": 33.88
+  },
+  {
+   "texte": "A month later, three in four survivors have post-traumatic stress.",
+   "debut": 33.96,
+   "fin": 37.88
+  },
+  {
+   "texte": "And no one tells them what to do, or in what order.",
+   "debut": 38.04,
+   "fin": 41.24
+  },
+  {
+   "texte": "What if someone guided them, step by step?",
+   "debut": 41.32,
+   "fin": 43.56
+  },
+  {
+   "texte": "Meet Boussole: the app that guides survivors of sexual violence.",
+   "debut": 44.12,
+   "fin": 48.12
+  },
+  {
+   "texte": "Help comes first: a support line and nine-one-one, no account needed.",
+   "debut": 48.2,
+   "fin": 52.68
+  },
+  {
+   "texte": "One tap on Exit, and it's gone. Just a weather page.",
+   "debut": 52.76,
+   "fin": 55.88
+  },
+  {
+   "texte": "Then the steps, one at a time, each with its deadline and its source.",
+   "debut": 55.96,
+   "fin": 60.04
+  },
+  {
+   "texte": "Their story, written once, and encrypted on their phone.",
+   "debut": 60.12,
+   "fin": 63.24
+  },
+  {
+   "texte": "Where to go in Montreal, and a file ready for a lawyer, only if they choose.",
+   "debut": 63.347,
+   "fin": 67.72
+  },
+  {
+   "texte": "For nurses, every sample is sorted by deadline. Nothing gets lost on the first night.",
+   "debut": 67.827,
+   "fin": 72.68
+  },
+  {
+   "texte": "Nurses spend over a third of their practice time on documentation. Electronic records cut that by nearly a quarter.",
+   "debut": 72.76,
+   "fin": 79.4
+  },
+  {
+   "texte": "We're submitting Boussole to the people on the ground: survivor centres, legal clinics, and researchers.",
+   "debut": 79.48,
+   "fin": 84.92
+  },
+  {
+   "texte": "Survivors never pay. Institutions do, about eighty dollars per survivor, roughly fifteen percent of what it saves.",
+   "debut": 85.0,
+   "fin": 92.12
+  },
+  {
+   "texte": "In our base case, it's profitable from year one. Boussole already works in French and English. We start small, in Montreal, and we do it right. Then all of Canada, and then the world, to reach every survivor who needs it.",
+   "debut": 92.45,
+   "fin": 106.473
+  },
+  {
+   "texte": "Boussole is built by Samuel Halimi, a student at Polytechnique Montreal, and an entrepreneur, founder of Catalyst.",
+   "debut": 107.022,
+   "fin": 113.513
+  },
+  {
+   "texte": "We're looking for a pilot hospital, a research partner, and our first hundred thousand dollars.",
+   "debut": 113.82,
+   "fin": 118.567
+  },
+  {
+   "texte": "Boussole. So no survivor has to figure it out alone.",
+   "debut": 118.707,
+   "fin": 121.767
+  }
+ ],
+ "cles": {
+  "cornell": 3.0,
+  "drugged": 5.68,
+  "raped": 6.4,
+  "fraternity": 7.4,
+  "lawyer": 9.16,
+  "kit": 11.4,
+  "weeks": 13.24,
+  "dna": 14.32,
+  "essay": 18.44,
+  "charges": 20.68,
+  "american": 22.68,
+  "six": 25.28,
+  "police": 27.64,
+  "expiry": 29.52,
+  "twelve": 30.52,
+  "seventytwo": 32.2,
+  "three": 34.92,
+  "stress": 37.16,
+  "order": 40.44,
+  "guided": 42.12,
+  "step": 42.84,
+  "boussole": 44.36,
+  "guides": 45.92,
+  "support": 49.76,
+  "nine": 50.6,
+  "account": 51.64,
+  "exit": 53.56,
+  "gone": 54.12,
+  "weather": 55.0,
+  "steps": 56.28,
+  "deadline": 58.68,
+  "source": 59.32,
+  "story": 60.36,
+  "once": 61.44,
+  "encrypted": 61.8,
+  "montreal": 63.8,
+  "lawyer2": 65.64,
+  "choose": 67.32,
+  "nurses": 67.92,
+  "sorted": 69.48,
+  "night": 72.36,
+  "third": 73.88,
+  "paperwork": 75.24,
+  "quarter": 79.133,
+  "ground": 81.32,
+  "centres": 82.52,
+  "clinics": 83.32,
+  "researchers": 84.08,
+  "never": 85.72,
+  "institutions": 86.68,
+  "eighty": 88.2,
+  "fifteen": 90.2,
+  "profitable": 93.833,
+  "french": 97.113,
+  "english": 97.753,
+  "small": 99.233,
+  "montreal3": 99.753,
+  "right": 101.273,
+  "canada": 102.793,
+  "world": 103.993,
+  "reach": 104.873,
+  "samuel": 108.073,
+  "polytechnique": 109.953,
+  "entrepreneur": 111.513,
+  "catalyst": 112.953,
+  "pilot": 114.487,
+  "research": 115.727,
+  "hundred": 117.127,
+  "boussole_end": 118.707,
+  "alone": 121.567
+ }
+}

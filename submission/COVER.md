@@ -6,8 +6,8 @@ Fichier prêt : `cover.png` (1920×1080, 145 Ko), rendu depuis `cover.html` (cou
 
 - **Marque** : Boussole
 - **Titre** : Step by step, after sexual assault.
-- **Sous-titre** : Where to go, telling your story once, a file only if you decide. Care-team notes structured by an open-source LLM, validated line by line.
-- **Pastilles** : vLLM on AMD Instinct MI300X · ROCm — Installable PWA — Health & Wellbeing
+- **Sous-titre** : Where to go, telling your story once, a file only if you decide. Care-team notes structured by an open model, validated line by line.
+- **Pastilles** : AMD Token Factory · DeepSeek-V4-Flash — Installable PWA — Health & Wellbeing
 - **Signature** : The AI guides, the human decides.
 - **Mention** : Montréal · fictional data
 

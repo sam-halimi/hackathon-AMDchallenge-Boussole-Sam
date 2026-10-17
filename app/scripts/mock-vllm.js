@@ -57,6 +57,19 @@ export function startMock(opts = {}) {
     const content = mode === 'garbage' ? 'Voici la chronologie : {events: [' : JSON.stringify(fakeTimeline(user, mode))
     const completion = Math.ceil(content.length / 4)
     const prompt = Math.ceil(JSON.stringify(body.messages).length / 4)
+    if (body.stream) {
+      // Streaming SSE, comme l'endpoint réel : la sortie arrive par petits morceaux.
+      res.statusCode = 200
+      res.setHeader('Content-Type', 'text/event-stream')
+      const pas = 40
+      for (let i = 0; i < content.length; i += pas) {
+        res.write(`data: ${JSON.stringify({ model: body.model ?? 'mock-model', choices: [{ index: 0, delta: { content: content.slice(i, i + pas) } }] })}\n\n`)
+        await new Promise((r) => setTimeout(r, (pas / 4 / tps) * 1000))
+      }
+      res.write(`data: ${JSON.stringify({ model: body.model ?? 'mock-model', choices: [{ index: 0, delta: {}, finish_reason: 'stop' }], usage: { prompt_tokens: prompt, completion_tokens: completion, total_tokens: prompt + completion } })}\n\n`)
+      res.end('data: [DONE]\n\n')
+      return
+    }
     await new Promise((r) => setTimeout(r, 30 + (completion / tps) * 1000))
     json(200, {
       id: 'mock', object: 'chat.completion', model: body.model ?? 'mock-model',

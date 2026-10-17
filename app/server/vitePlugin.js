@@ -3,7 +3,7 @@
 import { nodeHealth, nodeTimeline } from './handler.js'
 
 /**
- * @param {Record<string, string | undefined>} env variables VLLM_* (chargées depuis .env par vite.config.ts)
+ * @param {Record<string, string | undefined>} env variables AI_* ou VLLM_* (chargées depuis .env par vite.config.ts)
  * @returns {import('vite').Plugin}
  */
 export function timelineApi(env) {

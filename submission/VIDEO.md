@@ -1,5 +1,8 @@
 # Vidéo de démo : consignes d'export et trame
 
+> **Superseded.** The submitted video is the English motion-design spot (YouTube). This file describes an earlier recording plan.
+
+
 ## Contraintes lablab
 
 - **Durée ≤ 5 min** (viser 2 min 30 à 3 min 30).

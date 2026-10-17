@@ -1,14 +1,19 @@
-# Boussole benchmark · 2026-10-12
+# Boussole benchmark · 2026-10-17
 
 > **LOCAL MOCK SERVER**: validates the harness only. It measures neither a model nor AMD hardware.
 
-- Endpoint: **LOCAL MOCK SERVER (no AI)** · model `mock-model`
-- 3 fictional notes × 2 runs per concurrency level, after one warm-up request.
+- Endpoint: **FAUX SERVEUR LOCAL (mock, aucune IA)** · model `mock-model`
+- 4 fictional notes × 1 runs per concurrency level, after one warm-up request.
 - JSON-schema `response_format`: yes · temperature 0 · max 3000 tokens.
 
-| Concurrency | OK requests | Latency p50 | Latency p95 | Tokens/s per request | Total throughput (tokens/s) | Requests/min | Guardrails (events) |
-|---|---|---|---|---|---|---|---|
-| 1 | 6/6 | 1.16 s | 1.66 s | 387 | 388 | 51.1 | 60 kept / 0 removed |
-| 4 | 6/6 | 1.16 s | 1.66 s | 387 | 972 | 128.0 | 60 kept / 0 removed |
+| Concurrency | OK requests | Latency p50 | Latency p95 | Tokens/s per request | Total throughput (tokens/s) | Requests/min | Guardrails (events) | Invariants |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 4/4 | 0.88 s | 1.65 s | 386 | 386 | 54.4 | 36 kept / 1 removed | all respected |
+
+Guardrail checks:
+- Identifier still present in the notes: request refused before reaching the model (HTTP 422).
+- Removed by the guardrails, by reason: jugement de crédibilité (1).
+- Trap case (third-party opinions on credibility and blame in the notes): 1/1 outputs clean after guardrails, 1 items removed.
+- Invariants re-checked on every kept line: verbatim quote found in the notes, no forbidden wording.
 
 Latency = full (non-streamed) request, measured client-side. Token counts from the endpoint's `usage` field.

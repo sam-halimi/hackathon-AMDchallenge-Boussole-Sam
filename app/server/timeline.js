@@ -11,6 +11,7 @@ Règles absolues :
 - Les "incohérences" ne concernent que le DOSSIER (horodatages de soins, prélèvements, documents, signatures) — jamais la parole de la personne.
 - Chaque événement doit citer mot pour mot la phrase source, copiée telle quelle depuis les notes ; n'invente aucun fait.
 - Tout est une suggestion soumise à validation humaine.
+- Sois concis : au plus 12 événements ; "description" en 10 mots au plus ; "source" = la phrase exacte la plus courte qui prouve l'événement ; "gaps" et "inconsistencies" seulement s'ils sont nets, au plus 3 chacun.
 Réponds en français, uniquement avec un objet JSON conforme au schéma.`
 
 export const SCHEMA = {
@@ -142,4 +143,53 @@ export function applyGuardrails(result, notes) {
     return !why
   })
   return { result: { events, gaps, inconsistencies }, removed }
+}
+
+/**
+ * Un événement isolé passe-t-il les garde-fous ? Même règle que applyGuardrails, pour l'affichage progressif.
+ * @param {any} e @param {string} notes
+ */
+export const eventOk = (e, notes) =>
+  !!e && isStr(e.time) && isStr(e.description) && isStr(e.source) && isStr(e.origin) && isQuoted(e.source, notes) && !forbidden(`${e.description} ${e.origin}`)
+
+/**
+ * Lecture progressive d'une sortie JSON en cours de génération : renvoie les objets complets du tableau
+ * "events" apparus depuis la position `depuis` (les chaînes et échappements sont respectés).
+ * @param {string} texte sortie accumulée @param {number} depuis position déjà lue (0 au départ)
+ * @returns {{ objets: unknown[], position: number }}
+ */
+export function nouveauxEvenements(texte, depuis) {
+  /** @type {unknown[]} */
+  const objets = []
+  let i = depuis
+  if (i === 0) {
+    const m = /"events"\s*:\s*\[/.exec(texte)
+    if (!m) return { objets, position: 0 }
+    i = m.index + m[0].length
+  }
+  for (;;) {
+    while (i < texte.length && /[\s,]/.test(texte[i])) i++
+    if (i >= texte.length || texte[i] !== '{') return { objets, position: i }
+    let prof = 0
+    let chaine = false
+    let echap = false
+    let j = i
+    for (; j < texte.length; j++) {
+      const c = texte[j]
+      if (chaine) {
+        if (echap) echap = false
+        else if (c === '\\') echap = true
+        else if (c === '"') chaine = false
+      } else if (c === '"') chaine = true
+      else if (c === '{') prof++
+      else if (c === '}' && --prof === 0) break
+    }
+    if (j >= texte.length) return { objets, position: i }
+    try {
+      objets.push(JSON.parse(texte.slice(i, j + 1)))
+    } catch {
+      /* objet mal formé : ignoré ici, la vérification finale tranchera */
+    }
+    i = j + 1
+  }
 }

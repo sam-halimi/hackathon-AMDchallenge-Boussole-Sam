@@ -6,7 +6,7 @@ Boussole supports people after a sexual assault in Montréal, and the care teams
 
 ## 1. What the AI does, and what it never does
 
-The only AI feature is in the **care-team tool** (`#/demo`, step 4): it turns free-text clinical notes into a **factual timeline** with a verbatim quote for every line. It runs on an open-source model served by vLLM on AMD Developer Cloud (see `GUIDE_AMD.md`).
+The only AI feature is in the **care-team tool** (`#/demo`, step 4): it turns free-text clinical notes into a **factual timeline** with a verbatim quote for every line. It calls the open model **DeepSeek-V4-Flash** served by **AMD Token Factory** on AMD GPUs, through an OpenAI-compatible API. Only pseudonymised text is sent. AMD keeps prompts and outputs for about 2 days (trial terms), so the demo uses **fictional data only**, and the app says so next to the button that sends the notes and in the privacy policy.
 
 | The AI does | The AI never does (enforced, not just requested) |
 |---|---|
@@ -36,7 +36,7 @@ Tests: `app/server/timeline.test.js`, `app/server/handler.test.js` (including a 
 |---|---|
 | Identifiers reaching the model | Pseudonymisation **in the browser** before sending: known identity (name, first/last name, address) plus generic patterns (phone, email, date of birth, Québec health-card number, postal code, street address). The care team can see "what the AI sees" with masked tokens highlighted. |
 | Pseudonymisation misses something | **Second check on the server** (`shared/identifiers.js`): if an identifier is still present, the request is **refused (HTTP 422)**, nothing is sent to the model, and the identifier is not echoed back. |
-| API key exposure | The vLLM key stays server-side (`VLLM_API_KEY`); the browser only calls `/api/timeline`. vLLM is started with `--api-key`. `.env` is git-ignored; only `.env.example` is committed. |
+| API key exposure | The endpoint key stays server-side (`AI_API_KEY`, set in `app/.env` locally or in the hosting project's environment variables); the browser only calls `/api/timeline`. The key is never logged, never returned by `/api/health`, never committed: `.env` is git-ignored and only `.env.example` (no values) is in the repository. |
 | Logs | The server logs status code and latency only, never the notes. |
 | Caching | The service worker never caches `/api/` or third-party requests (map tiles). |
 | The person's own story | Stored **only on the device**, encrypted with AES-256-GCM (key derived from the password with PBKDF2, 310,000 iterations). No account server. "Erase everything" deletes it immediately. |
@@ -48,7 +48,7 @@ Tests: `app/server/timeline.test.js`, `app/server/handler.test.js` (including a 
 
 Uncertainty is shown, never hidden:
 
-- **Live vs. pre-recorded AI.** A banner states either *"Live AI answer · AMD Developer Cloud · model · latency"* or *"PRE-RECORDED AI answer (reason)"*. If the endpoint is unreachable, misconfigured, too slow, refuses the key or returns malformed output, the app falls back to a pre-recorded answer for the fictional case and **says why**. The fallback itself passes the same guardrails (`timelineFixture.test.ts`).
+- **Live vs. pre-recorded AI.** A banner states either *"Live AI answer · <provider label> · model · latency"* (only after a real call succeeded and passed the guardrails). While the answer streams in, only lines that already passed the guardrails are shown, without banner or Validate buttons; if the call then fails, they are discarded and the labelled pre-recorded answer replaces them or *"PRE-RECORDED AI answer (reason)"*. If the endpoint is unreachable, misconfigured, too slow, refuses the key or returns malformed output, the app falls back to a pre-recorded answer for the fictional case and **says why**. The fallback itself passes the same guardrails (`timelineFixture.test.ts`).
 - **"Don't know" is a real answer.** In the care-team intake, "Ne sait pas" is a third state (it was previously merged into "yes"). The rule engine includes the related step **out of caution** and marks it *"To confirm: included out of caution"*. The person's form has the same "Je ne sais pas" option.
 - **Rules not clinically validated.** The rule engine is labelled `règles-prototype v0.2 (non validées cliniquement)` on the care-team banner, the checklist, the summary, the JSON export and the person's views ("time windows are indicative").
 - **Sources that disagree.** The forensic kit window is shown as "5 to 7 days depending on sources" (MSSS 2010 guide vs. 2026 Montréal sources), never as a single certain number.
@@ -87,7 +87,7 @@ From `app/src/lib/research-resources.md` (checked 2026-10-04). **No phone number
 - The forbidden-content list is a French keyword list: it can over-remove (safe) or miss a paraphrase (the human review is the backstop).
 - The open-source model has not been evaluated on real clinical notes. The benchmark measures speed, not clinical quality.
 - Rule time windows are prototype values pending clinical validation against the MSSS protocol.
-- Between a serverless host and the GPU droplet, traffic is plain HTTP unless a TLS proxy is added (see `GUIDE_AMD.md` §8). Acceptable for fictional data only.
+- Traffic between the Boussole server and the AI endpoint uses HTTPS (`https://developer.amd.com.cn/radeon/api/v1`). It is a trial endpoint without SLA whose terms forbid sensitive personal or health data: acceptable for this fictional demo only. Production would need a contractual, Canadian-hosted endpoint (Law 25).
 - No accessibility audit yet, no co-design with survivors or care teams yet.
 
 ## 8. Before any real-world use

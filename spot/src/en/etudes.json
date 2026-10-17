@@ -1,0 +1,106 @@
+{
+ "dworkin": {
+  "url": "https://pubmed.ncbi.nlm.nih.gov/?term=10.1177/15248380211032213",
+  "titre": "PTSD in the Year Following Sexual Assault: A Meta-Analysis of Prospective Studies",
+  "phrase": "74.58% (95% confidence interval [CI]: [67.21, 81.29]) and 41.49% (95% CI: [32.36, 50.92]) of individuals met diagnostic criteria for PTSD at the first and 12th month following sexual assault, respectively",
+  "taille": {
+   "w": 1536,
+   "h": 1576
+  },
+  "lignes": [
+   {
+    "x": 1072,
+    "y": 1078,
+    "w": 356,
+    "h": 34
+   },
+   {
+    "x": 48,
+    "y": 1126,
+    "w": 1428,
+    "h": 34
+   },
+   {
+    "x": 48,
+    "y": 1174,
+    "w": 1042,
+    "h": 34
+   }
+  ]
+ },
+ "hendrich": {
+  "url": "https://pubmed.ncbi.nlm.nih.gov/?term=10.7812/tpp/08-021",
+  "titre": "A 36-hospital time and motion study: how do medical-surgical nurses spend their time?",
+  "phrase": "documentation (35.3%; 147.5 minutes)",
+  "taille": {
+   "w": 1536,
+   "h": 1666
+  },
+  "lignes": [
+   {
+    "x": 1257,
+    "y": 1168,
+    "w": 210,
+    "h": 34
+   },
+   {
+    "x": 48,
+    "y": 1216,
+    "w": 331,
+    "h": 34
+   }
+  ]
+ },
+ "poissant": {
+  "url": "https://pubmed.ncbi.nlm.nih.gov/?term=10.1197/jamia.m1700",
+  "titre": "The impact of electronic health records on time efficiency of physicians and nurses: a systematic review",
+  "phrase": "The use of bedside terminals and central station desktops saved nurses, respectively, 24.5% and 23.5% of their overall time spent documenting during a shift",
+  "taille": {
+   "w": 1536,
+   "h": 1529
+  },
+  "lignes": [
+   {
+    "x": 848,
+    "y": 911,
+    "w": 578,
+    "h": 34
+   },
+   {
+    "x": 48,
+    "y": 959,
+    "w": 1252,
+    "h": 34
+   },
+   {
+    "x": 48,
+    "y": 1007,
+    "w": 375,
+    "h": 34
+   }
+  ]
+ },
+ "campbell": {
+  "url": "https://pubmed.ncbi.nlm.nih.gov/?term=10.1037/0003-066X.63.8.702",
+  "titre": "The psychological impact of rape victims",
+  "phrase": "for many victims, postassault help seeking becomes a \"second rape,\" a secondary victimization to the initial trauma",
+  "taille": {
+   "w": 1536,
+   "h": 1047
+  },
+  "lignes": [
+   {
+    "x": 317,
+    "y": 621,
+    "w": 1165,
+    "h": 34
+   },
+   {
+    "x": 48,
+    "y": 669,
+    "w": 454,
+    "h": 34
+   }
+  ]
+ }
+}

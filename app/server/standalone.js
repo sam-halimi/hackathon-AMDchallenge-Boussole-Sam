@@ -3,12 +3,13 @@
 // Peut tourner sur le droplet AMD Developer Cloud, à côté de vLLM, ou sur n'importe quel hôte Node.
 //   npm run build && npm start          (lit .env s'il existe)
 // Variables : PORT (défaut 8080), HOST (défaut 127.0.0.1), ALLOWED_ORIGINS (CORS, liste séparée par des virgules),
-// RATE_LIMIT_PER_MIN (défaut 20 requêtes IA par minute et par adresse), plus les VLLM_* (voir llm.js).
+// RATE_LIMIT_PER_MIN (défaut 20 requêtes IA par minute et par adresse), plus les AI_* (voir llm.js).
 import { createServer } from 'node:http'
 import { readFile, stat } from 'node:fs/promises'
 import { extname, join, normalize, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { nodeHealth, nodeTimeline } from './handler.js'
+import { configFromEnv } from './llm.js'
 
 const DIST = resolve(fileURLToPath(new URL('../dist', import.meta.url)))
 const PORT = Number(process.env.PORT ?? 8080)
@@ -101,6 +102,7 @@ const server = createServer((req, res) => {
 })
 
 server.listen(PORT, HOST, () => {
-  const ai = process.env.VLLM_BASE_URL ? `IA : ${process.env.VLLM_MODEL} (${process.env.VLLM_LABEL || 'vLLM'})` : 'IA non configurée : réponse pré-enregistrée'
+  const cfgIa = configFromEnv(process.env)
+  const ai = cfgIa ? `IA : ${cfgIa.model} (${cfgIa.label})${cfgIa.apiKey ? '' : ', sans clé'}` : 'IA non configurée : réponse pré-enregistrée étiquetée'
   console.log(`Boussole sur http://${HOST}:${PORT} · ${ai}`)
 })

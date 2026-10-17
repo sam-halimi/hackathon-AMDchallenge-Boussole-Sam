@@ -3,7 +3,10 @@ import { CARE_STEPS } from './careSteps'
 import { BESOINS, SYMPTOMES, TRI, VETEMENTS } from './fiche'
 import { RESOURCES } from './resources'
 import { RULES } from './rules'
-import { careStep, OPTION_EN, resource, RESOURCES_EN, RULE_LABEL_EN } from './en'
+import { careStep, OPTION_EN, resource, RESOURCES_EN, RULE_LABEL_EN, RULE_WHY_EN } from './en'
+import { FALLBACK_REASONS } from './aiApi'
+import { FALLBACK_REASONS_EN, TIMELINE_FIXTURE_EN } from './enDemo'
+import { TIMELINE_FIXTURE } from './timelineFixture'
 
 const digits = (s?: string) => (s ?? '').replace(/\D/g, '')
 
@@ -32,5 +35,14 @@ describe('version anglaise', () => {
   it('a un libellé anglais pour chaque réponse et chaque règle', () => {
     for (const o of [...SYMPTOMES, ...BESOINS, ...VETEMENTS, ...TRI.map(([, l]) => l)]) expect(OPTION_EN[o], o).toBeTruthy()
     for (const r of RULES) expect(RULE_LABEL_EN[r.id], r.id).toBeTruthy()
+    for (const r of RULES) expect(RULE_WHY_EN[r.id], r.id).toBeTruthy()
+  })
+
+  it('outil soignant : réponse pré-enregistrée de même forme, citations françaises intactes', () => {
+    const fr = TIMELINE_FIXTURE, en = TIMELINE_FIXTURE_EN
+    expect(en.events.map((e) => e.source)).toEqual(fr.events.map((e) => e.source))
+    expect(en.gaps.length).toBe(fr.gaps.length)
+    expect(en.inconsistencies.map((c) => c.sources)).toEqual(fr.inconsistencies.map((c) => c.sources))
+    expect(Object.keys(FALLBACK_REASONS_EN).sort()).toEqual(Object.keys(FALLBACK_REASONS).sort())
   })
 })

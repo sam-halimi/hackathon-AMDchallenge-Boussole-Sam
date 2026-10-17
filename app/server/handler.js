@@ -4,7 +4,7 @@
 // la clé de l'endpoint reste ici, côté serveur.
 import { findIdentifiers } from '../shared/identifiers.js'
 import { chatJson, configFromEnv, LlmError, ping } from './llm.js'
-import { applyGuardrails, hasShape, SCHEMA, SYSTEM } from './timeline.js'
+import { applyGuardrails, eventOk, hasShape, nouveauxEvenements, SCHEMA, SYSTEM } from './timeline.js'
 
 export const MAX_NOTES_CHARS = 12_000
 
@@ -15,9 +15,11 @@ export const MAX_NOTES_CHARS = 12_000
 /**
  * @param {unknown} payload corps JSON déjà lu
  * @param {Record<string, string | undefined>} env
+ * @param {(e: unknown | null) => void} [onEvent] affichage progressif : chaque événement qui passe déjà
+ *   les garde-fous, dès qu'il est complet ; `null` = oublier ce qui a été envoyé (nouvelle tentative)
  * @returns {Promise<ApiResponse>}
  */
-export async function handleTimeline(payload, env) {
+export async function handleTimeline(payload, env, onEvent) {
   const notes = /** @type {any} */ (payload)?.notes
   if (typeof notes !== 'string' || !notes.trim()) return { status: 400, body: { live: false, error: 'bad-request' } }
   if (notes.length > MAX_NOTES_CHARS) return { status: 413, body: { live: false, error: 'too-long' } }
@@ -32,10 +34,21 @@ export async function handleTimeline(payload, env) {
 
   const user = `Notes (pseudonymisées) :\n\n${notes}`
   let lastError = 'error'
-  // Une seule nouvelle tentative, seulement si la sortie est mal formée.
+  const debut = Date.now()
+  // Une seule nouvelle tentative, seulement si la sortie est mal formée et s'il reste assez de temps.
   for (let attempt = 0; attempt < 2; attempt++) {
+    if (attempt > 0 && Date.now() - debut > cfg.timeoutMs / 3) break
+    if (attempt > 0) onEvent?.(null)
+    let lu = 0
+    const onDelta = onEvent
+      ? (/** @type {string} */ texte) => {
+          const { objets, position } = nouveauxEvenements(texte, lu)
+          lu = position
+          for (const e of objets) if (eventOk(e, notes)) onEvent(e)
+        }
+      : undefined
     try {
-      const r = await chatJson(cfg, { system: SYSTEM, user, schema: SCHEMA, schemaName: 'chronologie', maxTokens: 3000 })
+      const r = await chatJson(cfg, { system: SYSTEM, user, schema: SCHEMA, schemaName: 'chronologie', maxTokens: 2500, onDelta })
       if (!hasShape(r.json)) {
         lastError = 'bad-shape'
         continue
@@ -43,7 +56,7 @@ export async function handleTimeline(payload, env) {
       const { result, removed } = applyGuardrails(r.json, notes)
       return {
         status: 200,
-        body: { live: true, provider: 'vllm', label: cfg.label, model: r.model, latencyMs: r.latencyMs, usage: r.usage, result, removed },
+        body: { live: true, provider: 'openai-compatible', label: cfg.label, model: r.model, latencyMs: r.latencyMs, usage: r.usage, result, removed },
       }
     } catch (e) {
       lastError = e instanceof LlmError ? e.code : 'error'
@@ -99,7 +112,25 @@ export async function nodeTimeline(req, res, env) {
       return send({ status: 400, body: { live: false, error: 'bad-request' } })
     }
   }
-  send(await handleTimeline(payload, env))
+  // Affichage progressif (NDJSON) seulement si le client le demande ; sinon, réponse JSON unique.
+  if (!/application\/x-ndjson/.test(String(req.headers?.accept ?? ''))) return send(await handleTimeline(payload, env))
+  let ouvert = false
+  /** @param {Record<string, unknown>} ligne */
+  const ecrire = (ligne) => {
+    if (!ouvert) {
+      ouvert = true
+      res.statusCode = 200
+      res.setHeader('Content-Type', 'application/x-ndjson; charset=utf-8')
+      res.setHeader('Cache-Control', 'no-store')
+      res.setHeader('X-Accel-Buffering', 'no')
+    }
+    res.write(`${JSON.stringify(ligne)}\n`)
+  }
+  const r = await handleTimeline(payload, env, (e) => ecrire(e === null ? { type: 'reset' } : { type: 'event', event: e }))
+  // Erreur avant tout envoi (requête invalide, identifiant, IA non configurée…) : réponse JSON ordinaire.
+  if (!ouvert) return send(r)
+  ecrire({ type: 'final', status: r.status, ...r.body })
+  res.end()
 }
 
 /**

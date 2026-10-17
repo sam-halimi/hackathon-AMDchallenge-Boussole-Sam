@@ -1,5 +1,8 @@
 # Guide : servir l'IA de Boussole sur AMD Developer Cloud
 
+> **Not used in the submitted version.** This was a plan B (self-hosted vLLM on AMD Developer Cloud). The submitted app calls the open model DeepSeek-V4-Flash on **AMD Token Factory**: see `README.md`, "How AMD is used". Model names below are examples for that plan B only.
+
+
 But : faire tourner la **chronologie assistée par IA** de l'outil soignant (`#/demo`, étape 4) sur un modèle open source servi par **vLLM sur GPU AMD Instinct (ROCm)**, puis le montrer au jury.
 
 Temps estimé : 30 à 45 minutes. Tout ce qui suit est à faire **par toi** : je n'ai ni compte ni accès à AMD Developer Cloud.
