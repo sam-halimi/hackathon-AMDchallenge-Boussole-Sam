@@ -1,0 +1,28 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face { font-family: "Nunito"; src: url("../app/node_modules/@fontsource-variable/nunito/files/nunito-latin-wght-normal.woff2") format("woff2"); font-weight: 200 1000; }
+* { margin: 0; box-sizing: border-box; }
+body { width: 1920px; height: 1080px; overflow: hidden; font-family: "Nunito", sans-serif; background: #2D2440; color: #FFF9F3; position: relative; }
+.halo { position: absolute; right: -260px; top: -220px; width: 1100px; height: 1100px; border-radius: 50%; background: radial-gradient(circle, rgba(106,76,224,.55) 0%, rgba(106,76,224,0) 65%); }
+.ring { position: absolute; right: 110px; top: 210px; width: 660px; height: 660px; border-radius: 50%; border: 5px solid rgba(255,249,243,.16); }
+.ring2 { position: absolute; right: 230px; top: 330px; width: 420px; height: 420px; border-radius: 50%; border: 3px solid rgba(255,249,243,.10); }
+.needle { position: absolute; right: 380px; top: 340px; width: 120px; height: 400px; }
+.wrap { position: absolute; left: 140px; top: 190px; width: 1200px; }
+.kicker { font-size: 30px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: #FF8A65; }
+h1 { white-space: nowrap; font-size: 150px; font-weight: 900; letter-spacing: -0.035em; line-height: .95; margin-top: 26px; }
+h1 span { color: #B7A6FF; }
+.who { font-size: 46px; font-weight: 700; margin-top: 46px; color: #FFF9F3; }
+.role { font-size: 34px; font-weight: 600; margin-top: 12px; color: #D9D2E9; line-height: 1.35; }
+.chips { position: absolute; left: 140px; bottom: 120px; display: flex; gap: 16px; }
+.chip { font-size: 28px; font-weight: 800; padding: 14px 26px; border-radius: 999px; background: rgba(255,249,243,.10); color: #FFF9F3; border: 2px solid rgba(255,249,243,.18); }
+.chip.hot { background: #FF8A65; color: #2D2440; border-color: #FF8A65; }
+</style></head><body>
+<div class="halo"></div><div class="ring"></div><div class="ring2"></div>
+<svg class="needle" viewBox="0 0 120 400"><polygon points="60,0 110,200 10,200" fill="#FF8A65"/><polygon points="10,200 110,200 60,400" fill="#FFF9F3"/></svg>
+<div class="wrap">
+  <div class="kicker">Team</div>
+  <h1>Boussole<span>-Sam</span></h1>
+  <div class="who">Samuel Halimi · Montréal</div>
+  <div class="role">Student at Polytechnique Montréal, founder of Catalyst.<br>Solo build: product, code, AI on AMD, video.</div>
+</div>
+<div class="chips"><span class="chip hot">Health &amp; Wellbeing</span><span class="chip">AMD Developer Hackathon: ACT III</span></div>
+</body></html>
