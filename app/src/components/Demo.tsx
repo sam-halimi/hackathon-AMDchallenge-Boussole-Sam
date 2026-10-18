@@ -13,6 +13,7 @@ import { useLang, type Lang } from '../lib/i18n'
 import { localizeRule, rulesVersion, rulesWarning } from '../lib/en'
 import { fallbackReason, identifierLabel, removedReason, timelineFixture } from '../lib/enDemo'
 import { Wordmark } from './Logo'
+import { LangSwitch } from './ui'
 
 const STEPS = [
   { label: 'Consentement', en: 'Consent', icon: ShieldCheck },
@@ -197,6 +198,7 @@ export default function Demo() {
               <Link2 size={13} strokeWidth={1.75} />
               {log.length} · {integrity.ok ? t('intègre', 'intact') : t(`altéré #${integrity.brokenAt}`, `altered #${integrity.brokenAt}`)}
             </span>
+            <LangSwitch full />
           </div>
         </div>
         <nav aria-label={t('Étapes', 'Steps')} className="mx-auto flex max-w-6xl border-t border-rule md:grid md:grid-cols-5">

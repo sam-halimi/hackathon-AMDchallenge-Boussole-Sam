@@ -6,6 +6,14 @@ export type Lang = 'fr' | 'en'
 const KEY = 'boussole.langue'
 
 function initialLang(): Lang {
+  // Lien qui impose une langue : ?lang=en ou #/demo?lang=en (et elle est retenue pour la suite).
+  try {
+    const m = /[?&]lang=(fr|en)\b/.exec(`${location.search}${location.hash}`)
+    if (m) {
+      try { localStorage.setItem(KEY, m[1]) } catch { /* stockage indisponible */ }
+      return m[1] as Lang
+    }
+  } catch { /* hors navigateur */ }
   try {
     const saved = localStorage.getItem(KEY)
     if (saved === 'fr' || saved === 'en') return saved
