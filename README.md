@@ -126,8 +126,8 @@ Full details: [`SAFETY.md`](SAFETY.md).
 Requirements: Node.js 22.9 or newer.
 
 ```bash
-git clone https://github.com/sam-halimi/hackathon-AMDchallenge-Samsam.git
-cd hackathon-AMDchallenge-Samsam/app
+git clone https://github.com/sam-halimi/hackathon-AMDchallenge-Boussole-Sam.git
+cd hackathon-AMDchallenge-Boussole-Sam/app
 npm ci
 npm run dev            # http://localhost:5173  (person's space)  ·  /#/demo  (care-team tool)
 ```
@@ -153,7 +153,7 @@ Other commands (in `app/`): `npm test` (pseudonymisation, rules, resources, guar
 
 ## Repositories and links
 
-- This repository: [sam-halimi/hackathon-AMDchallenge-Samsam](https://github.com/sam-halimi/hackathon-AMDchallenge-Samsam) (everything needed to run and judge the project).
+- This repository: [sam-halimi/hackathon-AMDchallenge-Boussole-Sam](https://github.com/sam-halimi/hackathon-AMDchallenge-Boussole-Sam) (everything needed to run and judge the project).
 - Origin of the code: [sam-halimi/hackathon-codeML-SAA](https://github.com/sam-halimi/hackathon-codeML-SAA/tree/boussole/boussole), branch `boussole`, folder `boussole/` (earlier version built for another challenge; it also holds the heavy media excluded here, see [`ASSETS.md`](ASSETS.md)).
 - Earlier static beta, without live AI: https://boussole-beta.vercel.app
 - Research behind every resource and time window: [`app/src/lib/research-resources.md`](app/src/lib/research-resources.md) (French, with URLs).
